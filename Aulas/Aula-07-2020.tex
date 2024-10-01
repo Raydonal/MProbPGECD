@@ -1,0 +1,1876 @@
+%\def\R{$\textsf{R}$}
+%\def\S{$\textsf{S}$}
+
+%\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\sfa}{a}
+\newcommand{\worst}{\mbox{\em worst}}
+\newcommand{\best}{\mbox{\em best}}
+\newcommand{\regret}{\mbox{\em regret}}
+\newcommand{\opt}{\mbox{\em opt}}
+\newcommand{\join}{\bowtie}
+\newcommand{\lE}{\underline{E}}
+\newcommand{\uE}{\overline{E}}
+\newcommand{\heads}{{\it heads}}
+\newcommand{\tails}{{\it tails}}
+
+\newcommand{\A}{{\cal A}}
+\newcommand{\B}{{\cal B}}
+\newcommand{\C}{{\cal C}}
+\newcommand{\D}{{\cal D}}
+\newcommand{\E}{{\cal E}}
+\newcommand{\F}{{\cal F}}
+\newcommand{\G}{{\cal G}}
+%\newcommand{\H}{{\cal H}}
+\newcommand{\I}{{\cal I}}
+\newcommand{\J}{{\cal J}}
+\newcommand{\K}{{\cal K}}
+%\newcommand{\L}{{\cal L}}
+\newcommand{\M}{{\cal M}}
+\newcommand{\N}{{\cal N}}
+%\newcommand{\O}{{\cal O}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Hcal}{{\cal H}}
+\renewcommand{\P}{{\cal P}}
+\newcommand{\Q}{{\cal Q}}
+\newcommand{\R}{{\cal R}}
+%\newcommand{\S}{{\cal S}}
+\newcommand{\T}{{\cal T}}
+\newcommand{\U}{{\cal U}}
+\newcommand{\V}{{\cal V}}
+\newcommand{\W}{{\cal W}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\Y}{{\cal Y}}
+\newcommand{\Z}{{\cal Z}}
+
+
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\dfn}{\begin{definition}}
+\newcommand{\edfn}{\end{definition}}
+\newcommand{\thm}{\begin{theorem}}
+\newcommand{\ethm}{\end{theorem}}
+\newcommand{\xam}{\begin{example}}
+\newcommand{\exam}{\end{example}}
+\newcommand{\inter}{\cap}
+\newcommand{\union}{\cup}
+
+
+
+
+\documentclass[t, 8pt, seriff]{beamer}
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb,latexsym}
+\usepackage{graphics}
+%\usepackage{graphicx}
+
+\usepackage{multimedia}
+% \usepackage{movie15}
+\usepackage{media9}
+
+\usetheme{default}
+%\usetheme{Singapore}
+%\usetheme{PaloAlto} 
+\usetheme{Boadilla}
+% other themes: AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, boxes, CambridgeUS, Copenhagen, Darmstadt, default, Dresden, Frankfurt, Goettingen,
+% Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Maloe, Marburg, Montpellier, PaloAlto, Pittsburg, Rochester, Singapore, Szeged, boxes, default
+
+\useoutertheme{infolines}
+%\usefonttheme{serif}
+% you can also specify font themes: default, professionalfonts, serif, structurebold, structureitalicserif, structuresmallcapsserif
+
+%\definecolor{vermelho}{RGB}{100,30,40}
+%\definecolor{vermelholys}{RGB}{132,158,139}
+%\definecolor{vermelholyslys}{RGB}{173,190,177}
+%\definecolor{vermelholyslyslys}{RGB}{214,223,216}
+
+
+%\usecolortheme[named=vermelho]{structure}
+
+
+
+
+ 
+
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+%\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage{ragged2e}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb} 
+\usepackage{multirow}
+%\usetheme{CambridgeUS} 
+%\setbeamercolor{normal text}{bg=white}
+\usepackage {graphicx,color}
+
+\usepackage{wrapfig} % inserir a figura ao lado do texto
+\usepackage[dvips]{epsfig} % inserir figuras de extensao post script (ps)
+\usepackage{textcomp}
+% \usepackage{undertilde} % colocar o til abaixo do x
+\usepackage{multicol} % cor na linha
+\usepackage{tabularx}
+\usepackage{rotating} %rotacionar figuras e tabelas
+
+
+\usepackage{ragged2e}
+%\justifying
+
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+\newtheorem{lema}{Lema}
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{corol}{Corolário}
+\newtheorem{prop}{Proposição}
+
+
+\newtheoremstyle{Exercício}{}{}{\rm}{}{\bf $\bigstar$ }{:}{ }{} %% \scshape para mudar
+\theoremstyle{Exercício}
+\newtheorem{exer}{Exercício}
+
+\theoremstyle{plain}
+\newtheoremstyle{Exemplo}{}{}{\rm}{}{\bf $\rhd$ }{:}{ }{} %% \scshape para mudar
+%o tamanho a maiusculo
+\theoremstyle{Exemplo}
+\newtheorem{exem}{Exemplo}
+
+% 
+% \theoremstyle{plain}
+% \newtheoremstyle{Nota}{}{}{\rm}{}{\bf\scshape}{:}{ }{}
+% \theoremstyle{Nota}
+ \newtheorem{nota}{Nota}
+
+
+
+
+
+
+%\setlength{\rightskip}{0pt}
+%\setlength{\leftskip}{0pt}
+%\setlength{\spaceskip}{0pt}
+%\setlength{\xspaceskip}{0pt}
+
+
+
+\newcommand{\fullpage}[1]{
+\begin{frame}
+ #1
+\end{frame}
+}
+
+
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+
+
+\setbeamertemplate{theorems}[numbered]
+
+
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\graphicspath{{./graphics/}} 			% path das figuras (recomendável)
+
+\newcommand{\cor}[1]{ \{{#1}\}}
+
+%
+%\title[Probabilidade]{  Probabilidade (PGE950) }
+%\author[ Raydonal Ospina  \& Leandro  Rêgo
+%%\textcopyright 
+%\ ]{
+%%Probabilidade\\ 
+%% Sessão 1 \\
+%${}$ \\
+%Raydonal Ospina  \& Leandro  Rêgo }
+%
+%\date[PGE950 2018-I]{{\tiny PGE950 2018-I}}
+%
+%\institute[UFPE]{Departamento de Estatística\\
+%Universidade Federal de Pernambuco\\
+%Recife/PE}
+%
+%
+
+\title[Probabilidade]{  Probabilidade (PGE950) \\ Aula 07 - 08 }
+\author[ Raydonal Ospina  \& Leandro  Rêgo
+%\textcopyright 
+\ ]{
+	%Probabilidade\\ 
+	% Sessão 1 \\
+	${}$ \\
+	Raydonal Ospina  \& Leandro  Rêgo }
+
+\date[PGE950 2018-I]{{\tiny PGE950 2020-II}}
+
+\institute[UFPE]{Departamento de Estatística\\
+	Universidade Federal de Pernambuco\\
+	Recife/PE}
+
+\usecolortheme[rgb={0,0.3,0.5}]{structure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% \SweaveOpts{concordance=TRUE}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Esperança}
+\begin{frame}
+\frametitle{Esperança}
+	\begin{block}{Interpretação}
+	\begin{enumerate}
+		\item Parâmetro $\mu$ de uma medida de probabilidade, função de distribuição, ou função probabilidade de massa, também conhecido como média.
+		\item Um operador linear em um conjunto de variáveis aleatórias que
+		retorna um valor típico da variável aleatória interpretado como uma
+		medida de localização da variável aleatória.
+		\item média do resultado de repetidos experimentos independentes no longo prazo.
+		\item preço justo de um jogo com pagamentos descritos por $X$.
+	\end{enumerate}
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{Esperança - Caso Discreto}
+Considere que um dado é lançado 1000 vezes. Uma maneira de
+calcular este resultado médio seria somar todos os resultados e
+dividir por 1000. Uma maneira alternativa seria calcular a fração
+$p(k)$ de todos os lançamentos que tiveram resultado igual a $k$ e
+calcular o resultado médio através da soma ponderada:
+$$1p(1)+2p(2)+3p(3)+4p(4)+5p(5)+6p(6).$$
+Quando o número de lançamentos se torna grande as frações de
+ocorrência dos resultados tendem a probabilidade de cada resultado.
+\end{block}
+
+\begin{defi}
+	Se $X$ é uma variável aleatória discreta assumindo valores
+	$\{x_1,x_2,x_3,\ldots\}$ com probabilidade $\{p_1,p_2,p_3,\ldots\}$,
+	respectivamente, então sua esperança é dada pela fórmula
+	$$EX=\sum_{i:x_i<0}x_ip_i+\sum_{i:x_i\geq 0}x_ip_i,$$
+	desde que pelo menos um dos somatórios seja finito. Em caso os dois
+	somatórios não sejam finitos, a esperança não existe.
+\end{defi}
+\end{frame}
+
+\begin{frame}
+\frametitle{Exemplos}
+\begin{exem}[Aleatória]
+Se $X\in\{1,2,\ldots,n\}$ for uma variável aleatória
+com distribuição de probabilidade aleatória com parâmetro $n$, temos
+que sua esperança é dada por:
+\begin{eqnarray}
+& & EX=\sum_{k=1}^{n}kp(k)=\sum_{k}^n k{\frac{1}{n}} \nonumber \\
+& & =\frac{1}{n}\sum_{k}^n k=\frac{1}{n}\frac{n(n+1)}{2}=\frac{n+1}{2}.\nonumber
+\end{eqnarray}
+Onde utilizamos a fórmula da soma dos primeiros $n$ termos de uma
+progressão aritmética.
+\end{exem}
+
+\begin{exem}{Bernoulli}
+
+Se $X\in\{0,1\}$ for uma variável aleatória
+com distribuição de probabilidade Bernoulli com parâmetro $p$, temos
+que sua esperança é dada por:
+$$EX=0(1-p)+1(p)=p.$$
+
+\end{exem}
+\end{frame}
+
+\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+\begin{exem}[Binomial]
+%
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Binomial com parâmetros $n$ e $p$,
+temos que sua esperança é dada por:
+\begin{eqnarray}
+& & EX=\sum_{k=0}^{n}
+k\binom{n}{k}p^k(1-p)^{n-k}= 
+ \sum_{k=1}^{n}k\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}
+\nonumber\\
+& &
+\sum_{k=1}^{n}n\frac{(n-1)!}{(k-1)!(n-k)!}p^k(1-p)^{n-k} =np\sum_{k=1}^{n}\binom{n-1}{k-1}p^{k-1}(1-p)^{n-k}=np.
+\nonumber
+\end{eqnarray}
+Onde utilizamos o Teorema Binomial na última igualdade.
+\end{exem}
+%\end{frame}
+%%
+%%\begin{frame}
+%%\frametitle{\textbf{Exemplos}}
+%%\baselineskip=13pt
+\begin{exem}[Geométrica]
+%
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Geométrica com parâmetro $\beta$,
+temos que sua esperança é dada por:
+\begin{eqnarray}
+& &
+EX=\sum_{k=0}^{\infty}k(1-\beta)\beta^{k}=\sum_{k=1}^{\infty}k(1-\beta)\beta^{k}
+=\sum_{k=1}^{\infty}\sum_{j=1}^{k}(1-\beta)\beta^{k}
+=(1-\beta)\sum_{j=1}^{\infty}\sum_{k=j}^{\infty}\beta^{k}\nonumber \\
+& & =\sum_{j=1}^{\infty}\beta^j=\frac{\beta}{1-\beta}
+\nonumber
+\end{eqnarray}
+Onde utilizamos a fórmula da soma infinita de uma progressão
+geométrica com razão $\beta$.
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+\begin{exem}[Binomial Negativa]
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Binomial Negativa com parâmetros
+$r$ e $p$, temos que sua esperança é dada por:
+\begin{eqnarray}
+& &
+EX=\sum_{k=r-1}^{\infty}k\binom{k}{r-1}p^{r}(1-p)^{k-r+1}
+\nonumber \\
+& & =\Big(\sum_{k=r-1}^{\infty}(k+1)\binom{k}{r-1}p^{r}(1-p)^{k-r+1}\Big)-1
+\nonumber\\
+& &
+=\Big(\sum_{k=r-1}^{\infty}\frac{(k+1)k!}{(r-1)!(k-r+1)!}p^r(1-p)^{k-r+1}\Big)-1\nonumber
+\\
+& &
+=\frac{r}{p}\Big(\sum_{k=r-1}^{\infty}\frac{(k+1)!}{r!(k+1-r)!}p^{r+1}(1-p)^{k+1-r}\Big)-1\nonumber
+\end{eqnarray}
+
+Substituindo $j=k+1$ e $s=r+1$ no somatório, temos
+\begin{eqnarray}
+& & EX=
+\frac{r}{p}\Big(\sum_{j=s-1}^{\infty}\frac{(j)!}{(s-1)!(j-s+1)!}p^{s}(1-p)^{j-s+1}\Big)-1\nonumber=\frac{r}{p}-1\nonumber
+\end{eqnarray}
+Onde utilizamos o fato que o somatório é igual soma da função
+probabilidade de massa de uma variável aleatória Binomial Negativa
+para todos os valores que tem probabilidade positiva, e portanto, é
+igual a 1.
+
+
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+\begin{exem}[Poisson]
+%
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Poisson com parâmetros $\lambda$,
+temos que sua esperança é dada por:
+$$EX=\sum_{k=0}^{\infty}k\frac{e^{-\lambda}\lambda^k}{k!}=\sum_{k=1}^{\infty}k\frac{e^{-\lambda}\lambda^k}{k!}=\lambda\sum_{k=1}^{\infty}\frac{e^{-\lambda}\lambda^{k-1}}{(k-1)!}=\lambda.$$
+
+\end{exem}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+\begin{exem}[Zeta]
+%
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Zeta com parâmetro $\alpha>2$,
+temos que sua esperança é dada por:
+$$EX=\sum_{k=1}^{\infty}k\frac{k^{-\alpha}}{\zeta(\alpha)}=\frac{1}{\zeta(\alpha)}\sum_{k=1}^{\infty}k^{-(\alpha-1)}=\frac{\zeta(\alpha-1)}{\zeta(\alpha)},$$
+onde $\zeta(\alpha)=\sum_{k=1}^{\infty}k^{-\alpha}$.
+
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+\begin{exem}[Hipergeométrica]
+	%
+Se $X$ for uma variável aleatória
+com distribuição de probabilidade Hipergeométrica com parâmetro
+$N,D,n$, temos que sua esperança é dada por:
+
+\begin{eqnarray}
+& &
+EX=\sum_{k=0}^{n}k\frac{\binom{D}{k}\binom{N-D}{n-k}}{\binom{N}{n}}=\sum_{k=1}^{n}\frac{D!(N-D)!(N-n)!n!}{k!(D-k)!(n-k)!(N-D-n+k)!N!}\nonumber\\
+& & =
+\frac{nD}{N}\sum_{k=1}^{n}\frac{(D-1)!(N-D)!(N-n)!(n-1)!}{(k-1)!(D-k)!(n-k)!(N-D-n+k)!(N-1)!}\nonumber \\ & & =\frac{nD}{N}\sum_{k=1}^{n}\frac{\binom{D-1}{k-1}\binom{N-D}{n-k}}{\binom{N-1}{n-1}}\nonumber
+\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplos}}
+%\baselineskip=13pt
+%\begin{exem}{Hipergeométrica}
+%
+%
+Substituindo no somatório $D^*=D-1,k^*=k-1,n^*=n-1$ e $N^*=N-1$,
+temos
+$$EX=\frac{nD}{N}\sum_{k^*=0}^{n^*}\frac{\binom{D^*}{k^*}\binom{N^*-D^*}{n^*-k^*}}{\binom{N^*}{n^*}}=\frac{nD}{N}.$$
+Onde utilizamos o fato que o somatório é igual soma da função
+probabilidade de massa de uma variável aleatória Hipergeométrica
+para todos os valores que tem probabilidade positiva, e portanto, é
+igual a 1.
+%
+%
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\begin{block}{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}
+%
+%
+\begin{itemize}
+\item Antes de introduzirmos a definição geral da Esperança de uma variável aleatória qualquer, vamos estudar um pouco sobre as integrais de Riemann-Stieltjes e de Lebesgue-Stieltjes. \\ 
+
+%Antes de darmos as definições das integrais de Riemman-Stieltjes e Lebesgue-Stieltjes, 
+\item Vamos relembrar a definição da integral de Riemann. Uma partição $P$ do intervalo $[a,b]$ é uma sequência de pontos $\{x_1,\ldots,x_n\}$ tal que $a=x_1<x_2<\cdots<x_{n}=b$; a norma da partição $P$ é definida como sendo $\max_{1\leq i\leq n-1}(x_{i+1}-x_i)$. \\ 
+
+\item Suponha que $\varphi$ seja uma função real qualquer definida no intervalo $[a,b]$. Diz-se que esta função é Riemann integrável se as somas de Riemann
+$$\sum_{i=1}^{n-1}\varphi(y_i)(x_{i+1}-x_i),$$
+onde $y_i\in[x_i,x_{i+1}]$, convergem quando a norma de $P$ tende a zero e este limite é independente da escolha dos $y_i$'s e da partição $P$. Se esta integral existe denota-se o limite por $\int_{a}^{b}\varphi(x) dx$.
+
+\item A integral de Riemann-Stieltjes é uma generalização de integral de Riemann.
+\end{itemize}
+
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\vspace{-0.3cm}
+\begin{block}{Integral de Riemman-Stieltjes}
+Se $\varphi$ é uma função contínua definida no intervalo $[a,b]$ e $F$ é uma função de distribuição, define-se a integral de Riemann-Stieltjes de $\varphi$ em $[a,b]$, em relação a $F$, como o limite de somas de Riemann da forma
+$$\sum_{i=1}^{n-1}\varphi(y_i)[F(x_{i+1})-F(x_i)],$$
+em que $a=x_1<x_2<\cdots<x_{n}=b$, $y_i$ é um ponto arbitrário de $[x_i,x_{i+1}]$, e toma-se o limite quando a norma de partição $P$ tende a zero. Tal limite existe e é finito sob as condições descritas, e é representado por
+$$\int_{a}^{b}\varphi(x)dF(x).$$
+A função $\varphi$ é chamada de integrando e $F$ de integrador. O limite acima existe mesmo que $F$ não seja uma função de distribuição basta que ela seja de variação limitada.
+\end{block}
+\vspace{-0.2cm}
+{\small
+\begin{defi}[Variação Total]
+Define-se variação total de uma função $f$ em $[a,b]$ pelo funcional:
+$$V(f,[a,b])=\sup \Big\{\sum_{i=1}^n|f(x_{i+1})-f(x_i)|\Big\},$$
+em 	que o supremo é tomado sobre todas as possíveis partições do intervalo fechado $[a,b]$. Uma função é de variação limitada se $V(f,[a,b])<\infty$.
+\end{defi}
+}
+
+\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%\end{block}
+%\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\begin{block}{}
+	\begin{itemize}
+%
+\item A integral de Rieman-Stieltjes sobre a reta é uma integral imprópria definida da mesma maneira que a integral imprópria de Riemann:
+$$\int_{-\infty}^{\infty}\varphi(x)dF(x)=\lim_{a\rightarrow-\infty,b\rightarrow\infty}\int_{a}^{b}\varphi(x)dF(x),$$
+se o limite existe.
+
+\item Pode-se estender esta definição para outras funções $\varphi$ além das contínuas. 
+
+\item Para uma função qualquer $\varphi$, define-se $\int_{a}^{b}\varphi(x)dF(x)$ como sendo o limite das somas de Riemann descritas acima quando a norma da partição tende a zero, se este limite existe e é independente das escolhas dos $y_i$'s e da partição $P$. 
+
+\item O problema é que mesmo para funções bem simples este limite pode não existir como mostra o próximo exemplo:
+\end{itemize}
+\end{block}
+\begin{exem}
+	%
+	%%\begin{example}
+	Seja $F_0(x)=1$ se $x\geq 0$, e $F_0(x)=0$, caso contrário. Consideremos a integral de Riemann-Stieltjes de $F_0$ em $[-1,1]$ em relação a $F_0$. Note que se zero não é um dos pontos da partição, de modo que $x_i<0<x_{i+1}$ para algum $i$, com $F_0(x_{i+1})-F_0(x_i)=1$, então o valor da soma de Riemann pode ser igual a 1 ou 0 dependendo de $y_i$ ser maior que 0, ou não.
+	%%\end{example}
+	%
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\begin{block}{}
+\begin{itemize}
+\item Uma integral mais robusta que não sofre desta deficiência é a integral de Lebesgue-Stieltjes. 
+
+\item A idéia da integral de Lebesgue-Stieltjes é particionar a imagem da função $\varphi$ ao invés de particionar o seu domínio. 
+
+\item Diz-se que uma partição $P'$ é um refinamento de $P$ se $P\subseteq P'$, ou seja, quando os intervalos da partição $P$ são particionados na partição $P'$. 
+
+\item Suponha que $\varphi$ seja {\bf não negativa e mensurável em relação a $\sigma$-álgebra de Borel}. Seja $\lambda$  uma medida nos reais, ou seja, uma função cujo domínio é a $\sigma$-álgebra de Borel que tem como imagem do conjunto vazio o zero, é não-negativa e é $\sigma$-aditiva. 
+
+\item Dada uma sequência $\{P_1,P_2,\ldots\}$ de partições de $[0,\infty)$ onde $P_n=\{y_1,y_2,\ldots,y_n\}$, $y_n\rightarrow\infty$, $P_{i+i}$ é um refinamento de $P_i$, e a norma de $P_n$ tende a zero quando $n\rightarrow\infty$, define-se a soma de Lebesgue em relação a partição $P_n$ como sendo,
+$$\sum_{i=1}^{n-1}y_i\lambda(\{x:y_i\leq \varphi(x)<y_{i+1}\})+y_n\lambda(\{x:\varphi(x)\geq y_n\}).$$
+
+\item A integral de Lebesgue-Stieltjes de $\varphi$ em relação a $\lambda$ é definida como sendo igual ao limite das somas de Lebesgue,
+quando $n\rightarrow\infty$. Dadas as condições acima este limite sempre existe (pode ser $+\infty$) e é denotado por $\int \varphi d\lambda$.
+%
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\vspace{1cm}
+\begin{block}{}
+\begin{itemize}
+\item Para uma função mensurável $\varphi$ qualquer, podemos escrever $\varphi=\varphi^+-\varphi^-$, onde $\varphi^+=\max(\varphi,0)$, a parte positiva de $\varphi$, e $\varphi^-=-\min(\varphi,0)$, o módulo da parte negativa de $\varphi$, são funções não-negativas e portanto possuem integral de Lebesgue-Stieltjes. 
+
+\item Se $\varphi^+$ ou $\varphi^-$ possui integral de Lebesgue-Stieltjes finita em relação a $\mu$, define-se a integral de Lebesgue-Stieltjes de $\varphi$ em relação a $\lambda$ como sendo
+$$\int\varphi d\lambda=\int\varphi^+d\lambda-\int\varphi^-d\lambda.$$
+
+\item Se $\lambda$ for uma medida de probabilidade em $(\IR,\B)$ e $F$ for a distribuição de probabilidade acumulada associada a variável aleatória $X(\omega)=\omega$, então escreve-se $$\int \varphi(x) dF(x)$$ (ou simplesmente, $\int \varphi dF$) para denotar $\int \varphi d\lambda$.
+%
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{As integrais de Riemman-Stieltjes e de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+\vspace{1cm}
+\begin{block}{}
+\begin{itemize}%
+%
+\item Em geral, usa-se a notação $\int \varphi(x) dF(x)$ não somente para funções de distribuição, mas para qualquer função $F$ que pode ser escrita como a diferença de duas funções monótonas não-decrescentes, limitadas e contínuas à direita. 
+
+\item Se $G$ for uma função monótona não-decrescente, limitada e contínua à direita, então dado um intervalo qualquer $I=[x_1,x_2]$, defina $\nu(I)=G(x_2)-G(x_1)$, então usa-se a notação $\int \varphi(x) dG(x)$ para denotar a integral $\int \varphi(x) d\nu$, onde $\nu$ é a única medida que satisfaz $\nu(I)=G(x_2)-G(x_1)$ para todo intervalo $I$. 
+
+\item Desta forma, se $F=G_1-G_2$, onde $G_1$ e $G_2$ são funções monótonas não-decrescentes, limitadas e contínuas à direita, então $\int \varphi(x) dF(x)$ é utilizado para denotar $$\int \varphi(x) dG_1(x)-\int \varphi(x) dG_2(x)$$.
+
+\item Dada um intervalo qualquer $[a,b]$, define-se a integral de Lebesgue-Stieltjes de $\varphi$ em relação a $\lambda$ no intervalo $[a,b]$ como sendo $\int \varphi I_{[a,b]}d\lambda$ e denota-se por $\int_{a}^{b}\varphi d\lambda$.
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}{Propriedades da Integral de Lebesgue-Stieltjes}
+%\baselineskip=13pt
+\vspace{-0.2cm}
+%\begin{block}{Propriedades da Integral de Lebesgue-Stieltjes}
+	\begin{enumerate}
+\item[P1.] Quando o integrando é contínuo, a integral de Lebesgue-Stieltjes torna-se uma integral de Riemman-Stieltjes.
+
+\item[P2.] $\int_{a}^{b} dF=F(b)-F(a)$. Análoga ao teorema fundamental do cálculo: $\int_{a}^{b}\varphi'(x)dx=\varphi(b)-\varphi(a)$, onde $\varphi(x)$ é a derivada de $\varphi$.
+
+\item[P3.] Linearidade no integrando e no integrador. Se $\varphi(x)=\alpha f(x)+\beta g(x)$, temos
+$$\int \varphi dF=\alpha\int fdF+\beta\int gdF,$$
+e para $H(x)=\alpha F(x)+\beta G(x)$, temos
+$$\int \varphi dH=\alpha\int \varphi dF+\beta\int \varphi dG.$$
+
+\item[P4.] Aditividade. Se $-\infty\leq a<b<c\leq\infty$, então
+$$\int_{a}^{c} \varphi dF=\int_{a}^{b} \varphi dF+\int_{b}^{c} \varphi dF.$$
+
+\item[P5.] Se $F$ for a função de distribuição de uma variável aleatória discreta, ou seja, se
+$$F(x)=\sum_{i=1}^{\infty}p_iU(x-x_i),$$
+onde $P(X=x_i)=p_i$ e $\sum_{i=1}^{\infty}p_i=1$, então
+$$\int \varphi dF=\sum_{i=1}^{\infty}p_i\varphi(x_i).$$
+%
+\end{enumerate}
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Integral de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+\begin{enumerate}
+
+
+\item[P6.] Se $F$ for a função de distribuição de uma variável aleatória contínua, tendo densidade $f$, temos $\frac{dF(x)}{dx}=f(x)$ em quase toda parte, e consequentemente,
+$$\int \varphi(x) dF(x)=\int \varphi(x)f(x)dx.$$
+
+\item[P7.] No caso de uma distribuição geral $F$, vimos que $F$ pode ser decomposta em suas partes discreta, contínua e singular da seguinte forma $F=F_d+F_{ac}+F_s$, então por linearidade do integrador:
+\begin{eqnarray}
+& & \int \varphi(x) dF(x)=\int \varphi(x) dF_d(x)
+\nonumber \\
+& & +\int \varphi(x) dF_{ac}(x)+\int \varphi(x) dF_s(x).\nonumber
+\end{eqnarray}
+
+Se a parte singular for nula, $F_s(x)=0, \forall x$, então:
+$$\int \varphi(x) dF(x)=\sum_i \varphi(x_i) p_i+\int \varphi(x)f(x)dx,$$
+onde $p_i$ é o salto de $F$ em $x_i$ e $f$ é a derivada de $F$.
+
+\end{enumerate}
+%
+%\end{block}
+\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Propriedades da Integral de Lebesgue-Stieltjes}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%\begin{enumerate}
+%
+%
+
+%\end{enumerate}
+%
+%\end{block}
+%\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf}}
+%\baselineskip=13pt
+\begin{block}{Esperança - Caso Geral}
+%
+\begin{itemize}
+\item Agora motivar a definição da Esperança no caso geral. 
+\item Consideremos uma sequência $\{P_1,P_2,\ldots\}$ de partições de $[0,\infty)$ onde $P_n=\{y_1,y_2,\ldots,y_n\}$, $y_n\rightarrow\infty$,  $P_{i+i}$ é um refinamento de $P_i$, e a norma de $P_n$ tende a zero quando $n\rightarrow\infty$.
+
+\item Dada uma variável aleatória não-negativa qualquer $X$ e uma partição $P_n$ desta sequência, definamos uma outra variável aleatória $Y$ discreta que aproxima $X$ assumindo o valor $y_{i}$ quando $y_{i}\leq X<y_{i+1}$ e $Y=y_n$ se $X\geq y_n$, ou seja, $Y=\sum_{i=1}^{n-1}y_{i} I_{[y_{i}\leq X<y_{i+1}]}+y_nI_{[X\geq y_n]}$. 
+
+\item Como $Y$ é discreta temos que sua esperança é dada por
+\begin{eqnarray}
+& & EY=\sum_{i=1}^{n} y_{i}P(Y=y_{i}) \nonumber\\
+& & =\sum_{i=1}^{n-1} y_{i}P(y_{i}\leq X<y_{i+1})+y_nP(X\geq y_n).\nonumber
+\end{eqnarray}
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Esperança - Caso Geral}}
+%\baselineskip=13pt
+\begin{block}{}
+\begin{itemize}
+\item Note que esta esperança é uma soma de Lebesgue em relação a partição $P_n$ com integrando X e função integradora dada pela medida de probabilidade $P$. 
+
+\item Note que a medida que pegamos partições mais refinadas na sequência, $Y$ se torna cada vez uma melhor aproximação para $X$. 
+
+\item Uma vez que os valores de $X$ e $Y$ ficam cada vez mais próximos  é intuitivo requerer que nossa definição de esperança (média) $EX$ seja igual ao limite de $EY$ quando $n\rightarrow\infty$, ou seja
+\begin{eqnarray}
+& & EX=\lim_{n\rightarrow \infty}\sum_{i=1}^{n} y_{i}P(Y=y_{i}) \nonumber\\
+& & =\lim_{n\rightarrow \infty} \sum_{i=1}^{n-1} y_{i}P(y_{i}\leq X<y_{i+1})+y_nP(X\geq y_n)
+\nonumber\\
+& & =\int XdP.\nonumber
+\end{eqnarray}
+\end{itemize}
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Esperança - Caso Geral}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+Logo, $EX$ é definida como sendo a integral de Lebesgue-Stieltjes de $X$ em relação a medida de probabilidade $P$, ou similarmente, $EX=\int XdF$, onde $F$ é a função de distribuição acumulada de $X$. No caso geral, temos a seguinte definição
+\begin{defi}
+Se $X$ é uma variável aleatória com função de distribuição $F$, então sua esperança é dada pela fórmula
+$$EX=\int XdF=\int_{-\infty}^0 X dF + \int_0^{\infty}XdF,$$
+desde que pelo menos uma das integrais seja finita. Em caso as duas
+integrais não sejam finitas, a esperança não existe. Caso $EX$ seja finita, diz-se que $X$ é integrável.
+\end{defi}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Esperança - Caso Geral}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+Pela Propriedade P7 da integral de Lebesgue-Stieltjes, temos que se $F=F_d+F_{ac}+F_s$, então
+$$EX=\int XdF=\sum_ix_ip_i + \int xf(x)dx + \int xdF_s(x),$$
+onde $p_i$ é o salto de $F$ em $x_i$ e $f$ é a derivada de $F$. Como a parte singular costuma ser nula, na prática a esperança reduz-se a uma série e/ou uma integral imprópria, usualmente de Riemann se $f$ for integrável no sentido de Riemann.
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+\begin{exem}[Variável Mista]
+%
+%
+%%\begin{example}
+Considere uma variável aleatória $Y$ com função de distribuição $F$, tal que
+$$F(x)=
+\left\{
+\begin{array}{ll}
+0 & \mbox{, se $x<0$} \\
+x & \mbox{, se $0\leq x<1/2$} \\
+1 & \mbox{, se $x\geq 1/2$.}
+\end{array}
+\right.$$
+%
+%\end{exem}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{Variável Mista}
+%
+%
+Decompondo em parte discreta e contínua tem-se
+$$F_d(x)=
+\left\{
+\begin{array}{ll}
+0 & \mbox{, se $x<1/2$} \\
+1/2 & \mbox{, se $x\geq 1/2$,}
+\end{array}
+\right.$$
+e
+$$F_{ac}(x)=
+\left\{
+\begin{array}{ll}
+0 & \mbox{, se $x<0$} \\
+x & \mbox{, se $0\leq x<1/2$} \\
+1/2 & \mbox{, se $x\geq 1/2$.}
+\end{array}
+\right.$$
+Portanto,
+$$EY=\frac{1}{2}P(Y=\frac{1}{2})+\int_{0}^{1/2}ydy=\frac{1}{4}+\frac{1}{8}=\frac{3}{8}.$$
+\end{exem}
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+\begin{exem}[Uniforme]
+%
+Se $X\sim U(a,b)$, então $X$ possui densidade igual a $f(x)=\frac{1}{b-a}$ se $x\in(a,b)$, e $f(x)=0$, caso contrário. Logo, temos
+que sua esperança é dada por:
+$$EX=\int_{a}^{b}\frac{x}{b-a}dx=\frac{a+b}{2}.$$
+%
+\end{exem}
+%
+\begin{exem}[Exponencial]
+%
+Se $X\sim Exp(\lambda)$, então $X$ possui densidade igual a $f_X(x)=\lambda e^{-\lambda x}U(x)$. Logo, temos
+que sua esperança é dada por:
+\begin{eqnarray}
+& & EX=\int_{0}^{\infty}x\lambda e^{-\lambda x}dx=-xe^{-\lambda x}|_{0}^{\infty}+\int_{0}^{\infty}e^{-\lambda x}dx \nonumber \\
+& &  =\frac{-e^{-\lambda x}}{\lambda}|_{0}^{\infty}=\frac{1}{\lambda}.\nonumber
+\end{eqnarray}
+
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+\begin{exem}[Normal]
+%
+Se $X\sim {\cal N}(\mu,\sigma)$, então $X$ possui densidade igual a $f_X(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}}$. Logo, temos
+que sua esperança é dada por:
+$$EX=\int_{-\infty}^{\infty}x\frac{1}{\sigma\sqrt{2\pi}}e^{\frac{-(x-\mu)^2}{2\sigma^2}}dx.$$
+Fazendo a mudança de variável $y=\frac{x-\mu}{\sigma}$, temos
+
+\begin{eqnarray}
+\hspace{-0.7cm} & & EX=\int_{-\infty}^{\infty}\frac{\sigma y +\mu}{\sqrt{2\pi}}e^{\frac{-y^2}{2}}dy
+\nonumber  =\int_{-\infty}^{\infty}\frac{\sigma y }{\sqrt{2\pi}}e^{\frac{-y^2}{2}}dy+\int_{-\infty}^{\infty}\frac{\mu}{\sqrt{2\pi}}e^{\frac{-y^2}{2}}dy=0+\mu=\mu.\nonumber
+\end{eqnarray}
+%
+\end{exem}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+\begin{exem}[Cauchy]
+%
+Se $X\sim Cauchy(a)$, então $X$ possui densidade igual a $f_X(x)=\frac{1}{\pi}\cdot\frac{a}{a^2+x^2}$. Neste caso $X$ não é integrável, ou seja $EX$ não está definida, pois:
+$$\int_{-\infty}^{0}\frac{x}{\pi}\cdot\frac{a}{a^2+x^2}dx=\frac{a}{2\pi}\log(a^2+x^2)|_{-\infty}^{0}=-\infty, \mbox{ e}$$
+$$\int_{0}^{\infty}\frac{x}{\pi}\cdot\frac{a}{a^2+x^2}dx=\frac{a}{2\pi}\log(a^2+x^2)|_{0}^{\infty}=\infty.$$
+
+\end{exem}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{}}
+%\baselineskip=13pt
+\begin{block}{Interpretação Geométrica da Esperança}
+%
+%
+Por definição, $EX=\int xdF(x)$, ou seja, $EX$ é a integral da diferencial $xdF$. Mas $xdF$ é uma diferencial de área. \begin{itemize}
+\item Para $x>0$, $xdF$ é uma diferencial da área da região compreendida entre as curvas $x=0$, $y=1$, e $y=F(x)$ no plano Euclideano, cuja área total é dada por $\int_{0}^{\infty}(1-F(x))dx$.
+\item Para $x<0$, $-xdF$ é uma diferencial da área da região compreendida entre as curvas $x=0$, $y=0$, e $y=F(x)$ no plano Euclideano, cuja área total é dada por $\int_{-\infty}^{0}F(x)dx$.
+\item Logo, $EX=\int_{0}^{\infty}(1-F(x))dx-\int_{-\infty}^{0}F(x)dx$.
+\end{itemize}
+%
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Interpretação Geométrica da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+Formalmente, podemos provar isso da seguinte maneira. A prova será dividida em duas etapas:
+\begin{enumerate}
+\item[(a)] $\int_{0}^{\infty}xdF(x)=\int_{0}^{\infty}(1-F(x))dx$ e
+\item[(b)] $\int_{-\infty}^{0}xdF(x)=-\int_{-\infty}^{0}F(x)dx$.
+\end{enumerate}
+Comecemos provando (b). Utilizando integração por partes, temos que $\forall a<0$,
+$$ \int_{a}^{0}xdF(x)=-aF(a)-\int_{a}^{0}F(x)dx  =\int_{a}^{0}[F(a)-F(x)]dx.
+$$
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Interpretação Geométrica da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+Como $F(a)\geq 0$ e $a<0$, temos
+$$\int_{a}^{0}xdF(x)\geq -\int_{a}^{0}F(x)dx.$$
+Como a desigualdade é válida para todo $a<0$, temos que tomando o limite quando $a\rightarrow -\infty$
+$$\int_{-\infty}^{0}xdF(x)\geq -\int_{-\infty}^{0}F(x)dx.$$
+Por outro lado, seja $\lambda<0$. Se $a<\lambda$, então
+\begin{eqnarray}
+& & \int_{a}^{0}[F(a)-F(x)]dx\leq \int_{\lambda}^{0}[F(a)-F(x)]dx\nonumber \\
+& & =F(a)(-\lambda)-\int_{\lambda}^{0}F(x)dx. \nonumber
+\end{eqnarray}
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Interpretação Geométrica da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+Portanto, tomando o limite quando $a\rightarrow -\infty$, temos que
+$$\int_{-\infty}^{0}xdF(x)\leq -\int_{\lambda}^{0}F(x)dx.$$
+Como isto é válido para todo $\lambda<0$, tomando o limite quando $\lambda\rightarrow -\infty$, temos
+$$\int_{-\infty}^{0}xdF(x)\leq -\int_{-\infty}^{0}F(x)dx,$$
+como queríamos demonstrar.
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Interpretação Geométrica da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+Para parte (a), utilizando integração por partes, temos que $\forall b>0$,
+$$\int_{0}^{b}xdF(x)=bF(b)-\int_{0}^{b}F(x)dx=\int_{0}^{b}[F(b)-F(x)]dx.$$
+Como $F(b)\leq 1$ e $1-F(x)\geq 0$, temos
+$$\int_{0}^{b}xdF(x)=\int_{0}^{b}[F(b)-F(x)]dx\leq \int_{0}^{\infty}[1-F(x)]dx.$$
+Como a desigualdade é válida para todo $b>0$, temos que tomando o limite quando $b\rightarrow\infty$
+$$\int_{0}^{\infty}xdF(x)\leq\int_{0}^{\infty}[1-F(x)]dx.$$
+
+%\end{block}
+\end{frame}
+
+\begin{frame}
+%\frametitle{\textbf{Interpretação Geométrica da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+Por outro lado, seja $\lambda>0$. Se $b>\lambda$, então
+\begin{eqnarray}
+& & \int_{0}^{b}[F(b)-F(x)]dx\geq \int_{0}^{\lambda}[F(b)-F(x)]dx\nonumber \\
+& &  =\int_{0}^{\lambda}[F(b)-1]dx+\int_{0}^{\lambda}[1-F(x)]dx \nonumber \\ & & =\lambda[F(b)-1]+\int_{0}^{\lambda}[1-F(x)]dx, \nonumber
+\end{eqnarray}
+e portanto, tomando o limite quando $b\rightarrow\infty$, temos que
+$$\int_{0}^{\infty}xdF(x)\geq\int_{0}^{\lambda}[1-F(x)]dx.$$
+Como isto é válido para todo $\lambda>0$, tomando o limite quando $\lambda\rightarrow\infty$, temos
+$$\int_{0}^{\infty}xdF(x)\geq\int_{0}^{\infty}[1-F(x)]dx,$$
+como queríamos demonstrar.
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+\frametitle{Esperança de Funções de Variáveis Aleatórias}
+%\baselineskip=13pt
+\begin{block}{Caso Discreto}
+%
+Como vimos anteriormente, se $X$ for uma variável aleatória discreta
+e se $Y=H(X)$, então $Y$ também será uma variável aleatória
+discreta. Consequentemente, pode-se calcular $EY$. Existem duas
+maneiras de calcular $EY$ que são equivalentes.
+\end{block}
+\begin{defi}
+Seja $X$ uma variável aleatória discreta e seja $Y=H(X)$. Se $Y$
+assumir os seguintes valores $y_1,y_2,\ldots$  e se
+$p(y_i)=P(Y=y_i)$, definimos: $$EY=\sum_{i=1}^{\infty}y_ip(y_i).$$
+\end{defi}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{Caso Discreto}
+%
+%
+Conforme vimos anteriormente podemos determinar as
+probabilidades $p(y_i)$ dado que sabemos a distribuição de $X$. No
+entanto, podemos encontrar $EY$ sem preliminarmente encontrarmos a
+distribuição de probabilidade de $Y$, partindo-se apenas do
+conhecimento da distribuição de probabilidade de $X$, conforme
+mostra o seguinte teorema.
+%
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{Caso Discreto}
+%
+%
+\begin{teo}[Caso Discreto] \label{thm:mom_func} Seja $X$ uma variável aleatória discreta assumindo os valores $x_1,x_2,\ldots$ e
+seja $Y=H(X)$. Se $p(x_i)=P(X=x_i)$, temos $$EY=E(H(X))=\sum_{i=1}^{\infty}H(x_i)p(x_i).$$ \end{teo}
+%\end{block}
+%
+%
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{Prova do Teorema}
+%
+\begin{proof} 
+Vamos re-ordenar o somatório $\sum_{i=1}^{\infty}H(x_i)p(x_i)$,
+agrupando os termos onde $x_i$ tem a mesma imagem de acordo com a
+função $H$, ou seja, sejam $x_{i1},x_{i2},\ldots$, todos os valores
+$x_i$ tal que $H(x_{ij})=y_i$ para $j\geq 1$, onde $y_1,y_2,\ldots$
+são os possíveis valores de $Y$. Desse modo podemos reescrever
+\begin{eqnarray}
+& & \sum_{i=1}^{\infty}H(x_i)p(x_i)=\sum_{i=1}^{\infty}\sum_{j=1}^{\infty}H(x_{ij})p(x_{ij})
+\nonumber\\
+& & =\sum_{i=1}^{\infty}y_i\sum_{j=1}^{\infty}p(x_{ij})=\sum_{i=1}^{\infty}y_ip(y_i)=EY.\nonumber
+\end{eqnarray}
+\end{proof}
+%
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{exem}
+Suponha que $X$ é uma variável aleatória Poisson com parâmetro
+$\lambda$. Seja $Y=X^2$, vamos calcular $EY$. Utilizando o
+Teorema~\ref{thm:mom_func}, temos
+
+\begin{eqnarray}
+& &
+EY=\sum_{k=0}^{\infty}k^2e^{-\lambda}\frac{\lambda^k}{k!}\nonumber\\
+& & =\sum_{k=1}^{\infty}k^2e^{-\lambda}\frac{\lambda^k}{k!}=\sum_{k=1}^{\infty}k(k-1)e^{-\lambda}\frac{\lambda^k}{k!}+\sum_{k=1}^{\infty}ke^{-\lambda}\frac{\lambda^k}{k!}
+\nonumber \\
+&
+&=\lambda^2\sum_{k=2}^{\infty}e^{-\lambda}\frac{\lambda^{k-2}}{(k-2)!}+\lambda=\lambda^2+\lambda.\nonumber
+\end{eqnarray}
+\end{exem}
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+\begin{block}{Caso Discreto Vetorial}
+%
+%
+Também podemos estender este resultado para o caso de uma função
+real de um vetor aleatório. Neste caso, se $Y=H(\vec{X})$, temos que
+$EY=\sum_i H(\vec{x_i})p_{\vec{X}}(\vec{x_i})$, onde os $\vec{x_i}$ são os
+valores assumidos pelo vetor aleatório $\vec{X}$.
+
+\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+\begin{block}{Caso Geral}
+%
+No caso de uma variável aleatória qualquer $X$ também podemos calcular a esperança de uma função $Y=\varphi(X)$ de forma similar.
+\end{block}
+\begin{teo}
+Seja $X$ uma variável aleatória qualquer, $Y=\varphi(X)$ uma outra variável aleatória, então
+$$EY=\int ydF_Y(y)=\int \varphi(x)dF_X(x),$$
+desde que estas integrais existam.
+\end{teo}
+
+\begin{proof}
+A prova no caso geral envolve Teoria da Medida e será omitida.
+\end{proof}
+
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Esperança de Funções de Variáveis Aleatórias}}
+%\baselineskip=13pt
+\begin{block}{Caso Vetorial}
+%
+Uma fórmula análoga também é válida quando consideramos funções de vetores aleatórios.
+\end{block}
+
+\begin{teo}Seja $\vec{X}$ um vetor aleatório e $Y=\varphi(\vec{X})$ uma variável aleatória. Então,
+$$EY=\int ydF_Y(y)=\int \varphi dF_{\vec{X}}.$$
+\end{teo}
+%
+%
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{}}
+%\baselineskip=13pt
+\begin{block}{Propriedades da Esperança}
+%
+As seguintes propriedades são aplicações imediatas da definição de
+esperança:
+\begin{itemize}
+\item[1.] $P(X=c)=1\Rightarrow EX=c$.
+\item[2.] $P(X\geq 0)=1\Rightarrow EX\geq 0$.
+\item[3.] $E(aX)=aEX$, onde $a \in \mathbb{R}$ (segue da esperança de uma função
+de v. a.)
+\end{itemize}
+%
+%\end{block}
+%\end{frame}
+%%
+%%\begin{frame}
+%%\frametitle{\textbf{Propriedades da Esperança}}
+%%\baselineskip=13pt
+%%\begin{block}{}
+%%
+%%\begin{itemize}
+
+
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Esperança}}
+%\baselineskip=13pt
+\begin{itemize}
+\item[4.] $E(X+Y)=EX+EY$.
+No caso discreto, note que
+$$ E(X+Y)=\sum_i\sum_j(x_i+y_j)p(x_i,y_j) =\sum_i
+x_i\sum_jp(x_i,y_j)+\sum_i\sum_jy_jp(x_i,y_j)$$ $$=\sum_i x_ip(x_i)+\sum_j y_j\sum_ip(x_i,y_j)=EX+\sum_j
+y_jp(y_j)=EX+EY.
+$$
+
+
+\end{itemize}
+No caso geral, temos que
+$$E(X+Y)=E(\varphi(X,Y))=\int\int(x+y)dF_{X,Y}(x,y),$$
+e pela linearidade da integral obtemos
+\begin{eqnarray}
+& & E(X+Y)=\int\int xdF_{X,Y}(x,y)+\int\int ydF_{X,Y}(x,y)=EX+EY.\nonumber
+\end{eqnarray}
+%
+%
+\begin{corol}
+$E(\sum_i^n a_iX_i)=\sum_i^n a_iEX_i.$
+\end{corol}
+%
+\begin{proof}
+Aplicação das duas propriedades anteriores e indução matemática.
+\end{proof}
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{itemize}
+\item[5.] $P(X\geq Y)=1\Rightarrow EX\geq EY$.
+Propriedade 5 segue da propriedades 2 e do corolário anterior, pois
+$$P(X\geq Y)=P(X-Y\geq 0),$$
+o que, pela propriedade 2, implica que $E(X-Y)\geq 0$. Pelo corolário, temos que $E(X-Y)=EX-EY$, ou seja podemos concluir
+que $EX-EY\geq 0$.
+%
+\item[6.] Se $\{X_1,\ldots,X_n\}$ são variáveis aleatórias mutuamente
+independentes, então $$E(\prod_{i=1}^{n}X_i)=\prod_{i=1}^{n}EX_i.$$
+Provaremos esta propriedade nos casos discreto e contínuo. No caso discreto, note que
+\begin{eqnarray}
+& & E(\prod_{i=1}^{n}X_i)=\sum_{i_1}\cdots\sum_{i_n}x_{i_1}\cdots
+x_{i_n}p(x_{i_1},\ldots,x_{i_n}) \nonumber \\
+& & =\sum_{i_1}\cdots\sum_{i_n}x_{i_1}\cdots
+x_{i_n}\prod_{j=1}^{n}p(x_{i_j})\nonumber\\
+& & =\sum_{i_1}x_{i_1}p(X_{i_1})\cdots\sum_{i_n}
+x_{i_n}p(x_{i_n})=\prod_{i=1}^n EX_i. \nonumber
+\end{eqnarray}
+
+\end{itemize}
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+No caso contínuo, temos que $f_{\vec{X}}(\vec{x})=\prod_{i=1}^{n}f_{X_i}(x_i)$, logo
+\begin{eqnarray}
+& & E(\prod_{i=1}^{n}X_i)=\int\cdots\int x_1\cdots x_n f_{\vec{X}}(\vec{x})dx_1\cdots dx_n \nonumber \\
+& &=\int\cdots\int \prod_{i=1}^{n}x_if_{X_i}(x_i)dx_1\cdots dx_n \nonumber \\
+& & =\prod_{i=1}^{n}\int x_if_{X_i}(x_i)dx_i=\prod_{i=1}^n EX_i. \nonumber
+\end{eqnarray}
+
+De maneira análoga, pode-se provar a seguinte generalização deste resultado:
+se $\{X_1,\ldots,X_n\}$ são variáveis aleatórias mutuamente
+independentes, então $$E(\prod_{i=1}^{n}G(X_i))=\prod_{i=1}^{n}EG(X_i)$$.
+
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+\begin{itemize}
+%
+%
+\item[7.] Se $Y$ for uma variável aleatória que assume
+valores inteiros não-negativos, temos que
+$$EY=\sum_{k=1}^{\infty}kP(Y=k)=\sum_{k=1}^{\infty}\sum_{j=1}^{k}P(Y=k),$$
+trocando a ordem dos somatórios:
+\begin{equation}
+EY=\sum_{j=1}^{\infty}\sum_{k=j}^{\infty}P(Y=k)=\sum_{j=1}^{\infty}P(Y\geq
+j).\nonumber\end{equation}
+%
+%\end{description}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Propriedades da Esperança}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%\begin{itemize}
+%
+%
+\item[8.] (Desigualdade de Jensen) Seja $\varphi$ uma função mensurável e convexa definida na reta. Se $X$ é integrável, então $E\varphi(X)\geq \varphi(EX)$.
+
+\begin{proof}
+Pela convexidade de $\varphi$, dado algum ponto $(x_0,\varphi(x_0)$ do gráfico de $\varphi$, existe uma reta que passa por esse ponto e fica sempre abaixo do gráfico de $\varphi$, ou seja, existe algum $\lambda$ tal que
+$$\varphi(x)\geq \varphi(x_0)+\lambda(x-x_0),\forall x.$$
+Logo, pela monotonicidade e linearidade da esperança, temos
+$$E\varphi(X)\geq \varphi(x_0)+\lambda(EX-x_0).$$
+Em particular, para $x_0=EX$, temos $E\varphi(X)\geq \varphi(EX)$.
+\end{proof}
+
+\end{itemize}
+
+\end{frame}
+%
+\begin{frame}{Integrabilidade}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+O próximo Lema estabelece um critério para integrabilidade de variáveis aleatórias.
+\begin{lema} \label{lem:integ} Seja $X$ uma variável aleatória qualquer.
+Então,
+$\sum_{n=1}^{\infty}P(|X|\geq n)\leq E|X|\leq 1+\sum_{n=1}^{\infty}P(|X|\geq n),$
+e, portanto, $X$ é integrável se, e somente se,
+$$\sum_{n=1}^{\infty}P(|X|\geq n)<\infty.$$ 
+\end{lema}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{proof} Se $x\geq 0$, seja $\lfloor x\rfloor$ a parte inteira de $x$. Então,
+a variável aleatória $\lfloor |X|\rfloor$ assume o valor $k$ quando
+$k\leq |X|<k+1$ e $0\leq \lfloor |X|\rfloor\leq |X|\leq \lfloor
+|X|\rfloor +1$, então pela monotonicidade e linearidade da esperança
+temos:
+$0\leq E\lfloor |X|\rfloor\leq E|X|\leq 1+E\lfloor
+|X|\rfloor.$
+
+Como $\lfloor |X|\rfloor$ é uma variável aleatória que só assume
+valores inteiros não-negativos, temos
+$$E\lfloor |X|\rfloor=\sum_{n=1}^{\infty}P(\lfloor |X|\rfloor\geq n)=\sum_{n=1}^{\infty}P(|X|\geq n),$$
+logo
+$$\sum_{n=1}^{\infty}P(|X|\geq n)\leq E|X|\leq 1+\sum_{n=1}^{\infty}P(|X|\geq n).$$
+\end{proof}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Integrabilidade}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+Se $X^+=\max(X,0)$ e $X^-=-\min(X,0)$, temos que $X=X^+-X^-$ e $|X|=X^++X^-$. Por definição, temos que $EX<\infty$ se, e somente  se, $EX^+<\infty$ e $EX^-<\infty$. Portanto, vemos que $EX<\infty$ se, e somente se, $E|X|<\infty$. De forma análoga, pode-se concluir que $E\varphi(X)<\infty$ se, e somente se, $E|\varphi(X)|<\infty$ para qualquer função mensurável $\varphi$. O próximo teorema nos dá um outro critério para integrabilidade de uma variável aleatória.
+%
+\begin{teo}
+Sejam $X$ e $Y$ variáveis aleatórias tais que $Y\geq 0$, $Y$ é integrável, e $|X|<Y$. Então, $X$ é integrável.
+\end{teo}
+%
+\begin{proof}
+Note que $0\leq |X|\leq Y$ implica que $0\leq E|X|\leq EY$. Portanto, se $EY<\infty$, temos que $E|X|<\infty$, o que por sua vez implica que $EX<\infty$.
+\end{proof}
+%
+%\end{block}
+\end{frame}
+%
+\section{Momentos}
+\begin{frame}
+\frametitle{Momentos}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+Momentos dão informações parciais sobre a medida de probabilidade
+$P$, a função de distribuição acumulada, ou a função probabilidade
+de massa de uma variável aleatória $X$. Momentos de $X$ são
+esperanças de potências de $X$.
+%
+\begin{defi}
+Para qualquer inteiro não-negativo $n$, o $n$-ésimo momento da
+variável aleatória $X$ é $EX^n$, se esta esperança existe.
+\end{defi}
+%
+Vimos anteriormente que o segundo momento de uma variávelaleatória Poisson com parâmetro $\lambda$ é dado por: $\lambda^2+\lambda$. Vamos agora calcular o segundo momento de uma variável aleatória $X$ Binomial com parâmetros $n$ e $p$:
+
+\begin{eqnarray}
+& &
+EX^2=\sum_{k=0}^{n}k^2\binom{n}{k}p^k(1-p)^{n-k}=\sum_{k=1}^{n}k^2\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\nonumber\\
+& & =\sum_{k=1}^{n}k(k-1)\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}+\sum_{k=1}^{n}k\frac{n!}{k!(n-k)!}p^k(1-p)^{n-k}\nonumber\\
+& & =n(n-1)p^2\sum_{k=2}^{n}\frac{(n-2)!}{(k-2)!(n-k)!}p^{k-2}(1-p)^{n-k}+np\nonumber\\
+& & =n(n-1)p^2\sum_{j=0}^{m}\frac{(m)!}{(j)!(m-j)!}p^{j}(1-p)^{m-j}+np=n(n-1)p^2+np.\nonumber
+\end{eqnarray}
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}{Existência de momentos}
+%\frametitle{\textbf{Momentos}}
+%\baselineskip=13pt
+%\begin{block}{Existência}
+%
+%
+\begin{teo}
+Se o $k$-ésimo momento de uma variável aleatória for finito, então todos os momentos de ordem menores do que $k$ também são finitos.
+\end{teo}
+%
+\begin{proof}
+Por hipótese, temos que $E|X^k|<\infty$, logo $E(1+|X^{k}|)<\infty$. Como para qualquer $j$ tal que $0<j<k$, $|X^{j}|\leq 1+|X^{k}|$, e $1+|X^{k}|$ é integrável, temos que $|X^{j}|$ também é integrável.
+\end{proof}
+%
+%\commentout{
+%\thm 
+\begin{teo}Se $j<k$, então $$|EX^k|<\infty\Rightarrow |EX^j|<\infty$$
+\end{teo}
+
+\begin{block}{Demonstração}Vamos provar apenas para o caso em que $X$ é uma variável
+aleatória discreta. Por hipótese, temos que existem constantes
+finitas $c_1$ e $c_2$ tais que:
+$$c_1>\sum_{i:x_i\geq 0}x_i^kp(x_i)\mbox{, e }c_2>|\sum_{i:x_i<0}x_i^kp(x_i)|.$$
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+	Então, para $j<k$
+\begin{eqnarray}
+& & c_1>\sum_{i:x_i\geq 0}x_i^kp(x_i)\geq \sum_{i:x_i\geq
+1}x_i^kp(x_i)\geq \sum_{i:x_i\geq 1}x_i^jp(x_i)\nonumber\\
+& & \geq \sum_{i:x_i\geq 0}x_i^jp(x_i)-\sum_{i:0\leq x_i\leq
+1}x_i^jp(x_i)\geq \sum_{i:x_i\geq 0}x_i^jp(x_i)-\sum_{i:0\leq
+x_i\leq 1}p(x_i)=\sum_{i:x_i\geq 0}x_i^jp(x_i)-1\nonumber
+\end{eqnarray}
+Portanto,
+$$0\leq \sum_{i:x_i\geq 0}x_i^jp(x_i)<c_1+1<\infty.$$
+Um cálculo similar prova que $\sum_{i:x_i< 0}x_i^jp(x_i)$ é finito.
+\end{block}
+%
+Portanto, temos que {\em momentos de ordem superiores finitos
+implicam momentos de ordem inferiores finitos.}
+%}
+%
+%\end{block}
+
+Vamos agora enunciar dois teoremas importantes que tratam
+da convergência de esperanças de variáveis aleatórias. Neste caso, estaremos tratando de convergência pontual de variáveis aleatórias, ou seja, $X_n\rightarrow X$ se, e somente se, $X_n(\omega)\rightarrow X(\omega)$ para todo $\omega\in \Omega$. Mais adiante, veremos outras noções de convergência de variáveis aleatórias.
+\end{frame}
+%
+\begin{frame}{Convergência Monótona e Convergência Dominada}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Vamos agora enunciar dois teoremas importantes que tratam
+%da convergência de esperanças de variáveis aleatórias. Neste caso, estaremos tratando de convergência pontual de variáveis aleatórias, ou seja, $X_n\rightarrow X$ se, e somente se, $X_n(w)\rightarrow X(w)$ para todo $w\in \Omega$. Mais adiante, veremos outras noções de convergência de variáveis aleatórias.
+%
+\begin{teo}{Teorema da Convergência Monótona.} Sejam
+$X,X_1,X_2,\ldots$ variáveis aleatórias. Se $0\leq X_n\uparrow X$,
+então, $EX_n\uparrow EX$. \end{teo}
+
+\begin{teo}{Teorema da Convergência Dominada.} Sejam
+$Y,X,X_1,X_2,\ldots$ variáveis aleatórias. Considere que $Y$ seja
+integrável, $|X_n|\leq Y$ e $X_n\rightarrow X$. Assim $X$ e $X_n$
+são integráveis e $EX_n\rightarrow EX$. \end{teo}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%O próximo exemplo mostra que 
+\begin{nota} Nem sempre $X_n\rightarrow X\Rightarrow
+EX_n\rightarrow EX$.
+\end{nota}
+%\begin{exem}
+%
+%
+%\begin{example}
+%Seja $Y\thicksim U(0,1)$. Considere a seguinte sequência
+%$\{X_1,X_2,\ldots\}$ de variáveis aleatórias: $X_n(\omega)=n$ se
+%$Y(\omega)\in (0,1/n)$ e $X_n(\omega)=0$ em caso contrário. Então,
+%temos que $X_n(\omega)\rightarrow 0,\forall\omega$. Mas, $EX_n=1\ne
+%0=E0$, ou seja, $EX_n\nrightarrow 0$.
+%\end{exem}
+%
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+\begin{defi}[Momentos Centrais]
+Se $X$ é uma variável aleatória seu $n$-ésimo momento central é:
+$E(X-EX)^n$, se esta esperança existir.
+\end{defi}
+\end{frame}
+%
+\begin{frame}
+Note que o primeiro momento central é zero, pois
+$E(X-EX)=EX-EEX=EX-EX=0$. O segundo momento central é conhecido como
+{\em variância} e denota-se por $Var X$. A variância pode ser também
+calculada por:
+\begin{eqnarray}
+& & Var X=E(X-EX)^2=E(X^2-2XEX+(EX)^2)\nonumber\\
+& & =EX^2-2E(XEX)+E((EX)^2)
+\nonumber\\
+& & =EX^2-2(EX)^2+(EX)^2=EX^2-(EX)^2.\nonumber
+\end{eqnarray}
+
+\begin{block}{Existência}
+Do Teorema
+Binomial e da linearidade da esperança, temos
+$$E(X-EX)^n=\sum_{k=0}^{n}\binom{n}{k}(-EX)^{n-k}EX^k$$
+e
+\begin{eqnarray}
+& & EX^n=E(X-EX+EX)^n \nonumber\\
+& & =\sum_{k=0}^{n}\binom{n}{k}(EX)^{n-k}E(X-EX)^k.\nonumber
+\end{eqnarray}
+
+Como um corolário, temos que o $n$-ésimo momento central é finito se,
+e somente se, o $n$-ésimo momento é finito.
+
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{exem}
+Considere uma variável aleatória $X$ tal que
+\begin{eqnarray}
+& & P(X=m-a)=P(X=m+a)=\frac{1}{2}
+\nonumber\\
+& & \Rightarrow EX^k=\frac{1}{2}[(m-a)^k+(m+a)^k].\nonumber
+\end{eqnarray}
+$$EX=m,EX^2=\frac{1}{2}[2m^2+2a^2]=m^2+a^2,Var X=a^2.$$
+Este exemplo, mostra que podemos encontrar uma variável aleatória
+bem simples possuindo qualquer esperança e variância
+predeterminadas.
+\end{exem}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{}}
+%\baselineskip=13pt
+\begin{block}{Desvio-Padrão}
+%
+%
+O {\em desvio-padrão} $\sigma$ de uma variável aleatória $X$ é
+definido como a raiz quadrada da variância, $\sigma(X)=\sqrt{Var
+X}$.
+
+
+\end{block}
+\end{frame}
+%
+\begin{frame}{Propriedades da Variância e de outros Momentos}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+As seguintes propriedades da variância são consequências imediatas
+de sua definição.
+%
+\begin{itemize}
+\item[1.] $Var X\geq 0$.
+
+\item[2.] Se $X=c$, $Var(X)=0$. \begin{proof} Temos que $EX=c$, logo $Var(X)=E(X-c)^2=E(0)=0$. \end{proof}
+
+\item[3.] $Var(X+a)=Var X$, onde $a$ é uma constante real.
+
+\begin{proof}
+\begin{eqnarray}
+& & Var(X+a)=E(X+a)^2-(E(X+a))^2\nonumber\\
+& &=EX^2+2aEX+a^2-(EX)^2-2aEX-a^2
+\nonumber\\
+& &  =EX^2-(EX)^2=Var X.\nonumber
+\end{eqnarray}
+\end{proof}
+\end{itemize}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Variância e de outros Momentos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{itemize}
+\item[4.] $Var(aX)=a^2Var X$
+\begin{proof}
+\begin{eqnarray}
+& & Var(aX)=E(aX)^2-(E(aX))^2\nonumber\\
+& & =a^2EX^2-a^2(EX)^2=a^2Var X. \nonumber
+\end{eqnarray}
+\end{proof}
+%
+\item[5.] Se $X$ e $Y$ forem variáveis aleatórias mutuamente independentes, então $Vax(X+Y)=Var X+Var Y$.
+\begin{proof}\begin{eqnarray}
+& & Var(X+Y)=E(X+Y)^2-[E(X+Y)]^2 \nonumber\\
+& & =E(X^2+2XY+Y^2)-(EX)^2-2EXEY-(EY)^2\nonumber\\
+& & =EX^2+EY^2-(EX)^2-(EY)^2+2E(XY)-2EXEY\nonumber\\
+& & =Var X+VarY\nonumber
+\end{eqnarray}
+%%}
+\end{proof}
+%
+\end{itemize}
+%
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Variância e de outros Momentos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{itemize}
+%
+%
+\item[6.] Se $X_1,\ldots,X_n$ são variáveis aleatórias independentes,
+então $Var(X_1+\cdots X_n)=Var X_1+\cdots +Var X_n$. Esta
+propriedade segue da propriedade anterior e de uma aplicação de
+indução matemática.
+
+\item[7.] {\bf Desigualdade de Chebyshev Generalizada.} Dado um conjunto
+$A$ e uma função $g(x)$ tal que $\forall x$ $g(x)\geq I_A(x)$, tem-se
+que $P(X\in A)\leq \min(1,Eg(X))$.
+
+\begin{proof} Pela monotonicidade da Esperança, temos que $Eg(X)\geq
+EI_A(X)=P(X\in A)$. Mas, como a cota superior pode exceder 1, temos
+que $$\min(1,Eg(X))\geq P(X\in A).$$ \end{proof}
+
+\end{itemize}
+
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Propriedades da Variância e de outros Momentos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+\begin{corol} Seja $X$ uma
+variável aleatória, então para todo $\epsilon>0$, $P(|X|\geq \epsilon)\leq \frac{E|X|
+}{\epsilon}$. \end{corol}
+
+\begin{proof}
+Escolha $A=\{x:|x|\geq \epsilon\}$ e $g(x)=\frac{|x|}{\epsilon}$. Note que $g(x)\geq I_A(x)$, então $P(|X|\geq \epsilon)\leq \frac{E|X|}{\epsilon}$.
+\end{proof}
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Propriedades da Variância e de outros Momentos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+\begin{corol}
+Se $Z\geq 0$ e $EZ=0$, então $P(Z=0)=1$.
+\end{corol}
+%
+\begin{proof}
+$P(Z\geq \frac{1}{n})\leq nEZ=0$. Como $[Z>0]=\union_n[Z\geq \frac{1}{n}]$, temos que
+$$P(Z>0)=P(\union_n[Z\geq \frac{1}{n}])\leq \sum_n P(Z\geq \frac{1}{n})=0.$$
+Portanto, $P(Z=0)=1-P(Z>0)=1$.
+\end{proof}
+%
+Note que este último corolário implica que, quando $Var(X)=0$, ou seja $E(X-EX)^2=0$, temos que $P(X=EX)=1$, i.e., $X$ é constante com probabilidade 1.
+%
+%
+\begin{corol}[Desigualdade (Original) de Chebyshev.] Seja $X$ uma
+variável aleatória, então $P(|X-EX|\geq \epsilon)\leq {Var
+X}/{\epsilon^2}$. \end{corol}
+
+\begin{proof} Escolha $A=\{x:|x|\geq \epsilon\}$ e
+$g(x)=\frac{x^2}{\epsilon^2}$. Note que $g(x)\geq I_A(x)$, então
+pelo teorema anterior, $P(X\in A)=P(|X|\geq \epsilon)\leq
+{EX^2}/{\epsilon^2}$. Substituindo $X$ por $X-EX$, temos
+$P(|X-EX|\geq \epsilon)\leq {Var X}/{\epsilon^2}$. \end{proof}
+
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+Note que a desigualdade de Chebyshev converte conhecimento sobre um
+momento de segunda ordem ou uma variância numa cota superior para a
+probabilidade da cauda de uma variável aleatória.
+
+%\frametitle{\textbf{Propriedades da Variância e de outros Momentos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{itemize}
+%
+%
+%
+\item[8.] Se $X$ e $Y$ são variáveis aleatórias em $(\Omega,\A,P)$ tais que $E|X^t|<\infty$ e $E|Y^{t}|<\infty$, então $E|X+Y|^t<\infty$.
+\begin{proof}
+$|X+Y|\leq |X|+|Y|\leq 2\max(|X|,|Y|)$. Portanto, $|X+Y|^t\leq 2^t\max(|X|^t,|Y|^t)\leq 2^t(|X|^t+|Y|^t)$. Logo, $E|X+Y|^t\leq 2^t(E|X|^t+E|Y|^t)<\infty$.
+\end{proof}
+
+Como $E|X|^t<\infty$ obviamente implica $E|aX|^t<\infty$, $\forall a\in \IR$, esta propriedade diz que a classe de variáveis aleatórias em $(\Omega,\A,P)$ possuidoras do $t$-ésimo momento finito é um espaço vetorial ou espaço linear.
+
+\item[9.] $Var X=E(X-\mu)^2=\min_{c\in\IR}E(X-c)^2$.
+
+\begin{proof}
+\begin{eqnarray}
+& & (X-c)^2=(X-\mu+\mu-c)^2=(X-\mu)^2+2(\mu-c)(X-\mu)+(\mu-c)^2,
+\nonumber
+\end{eqnarray}
+logo
+\begin{eqnarray}
+& & E(X-c)^2=E(X-\mu)^2+2(\mu-c)(EX-\mu)+(\mu-c)^2 =Var X +(\mu-c)^2.\nonumber
+\end{eqnarray}
+Portanto, $E(X-c)^2\geq E(X-\mu)^2, \forall c\in \IR$.
+\end{proof}
+
+\end{itemize}
+
+
+\end{frame}
+%
+\begin{frame}{Momentos Conjuntos}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+Podemos definir a noção de momento quando lidamos com vetores aleatórios.
+
+\begin{defi}
+Seja $\vec{X}=(X_1,X_2,\ldots,X_k)$ um vetor aleatório $k$-dimensional. Então, os {\em momentos conjuntos} de $\vec{X}$ são da forma $E(\prod_{i=1}^{k}X_i^{j_i})$, onde $j_i$'s são inteiros positivos, se esta esperança existir. De forma análoga ao caso unidimensional pode-se definir também {\em momentos conjuntos centrais}.
+\end{defi}
+%
+No caso bidimensional, temos que a correlação e a covariância são momentos conjuntos que
+são medidas do grau de dependência linear entre duas variáveis.
+%
+\begin{defi}
+A correlação entre duas variáveis aleatórias $X$ e $Y$ é dada por
+$EXY$ se esta esperança existe. A covariância entre elas é dada por
+$Cov(X,Y)=E[(X-EX)(Y-EY)]=EXY-(EX)(EY)$.
+\end{defi}
+%
+%\end{block}
+%\end{frame}
+%%
+%%\begin{frame}
+%%\frametitle{\textbf{Momentos Conjuntos}}
+%%\baselineskip=13pt
+%%\begin{block}{}
+%%
+%%
+Note que $Cov(X,X)=Var X$. Pela prova da propriedade 5 de variância,
+vemos que a relação
+$Var(X+Y)=Var X+Var Y+2Cov(X,Y)$ é válida.
+
+Duas varáveis são {\em não-correlacionadas} se
+$Cov(X,Y)=0$. Como já provamos que se $X$ e $Y$ são independentes, então
+$EXY=EXEY$. Temos que se $X$ e $Y$ são independentes, elas
+necessariamente são não-correlacionadas. O contrário nem sempre é
+verdadeiro como o próximo exemplo ilustra.
+
+%\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{exem}
+Se $X$ é uma variável aleatória tal que $P(X=-a)=P(X=a)=1/2$ e
+$Y=X^2$, temos que $EXY=-a^3(1/2)+a^3(1/2)=0$ e
+$EX=-a(1/2)+a(1/2)=0$. Logo, $EXY=EXEY=0$, ou seja, $Cov(X,Y)=0$.
+Porém, $X$ e $Y$ não são independentes, pois $Y$ é uma função de
+$X$.
+\end{exem}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Momentos Conjuntos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+Vejamos agora uma expressão para a variância da soma de $n$ variáveis aleatórias.
+
+\begin{teo}
+Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias tais que $Var(X_i)<\infty$, então
+$$Var(X_1+\cdots+X_n)=\sum_{i=1}^{n}Var X_i +2\sum_{i<j}Cov(X_i,X_j).$$
+\end{teo}
+
+\begin{proof}\vspace{-0.3cm}
+\begin{eqnarray}
+& & Var(X_1+\cdots+X_n)=E(X_1+\cdots+X_n-E(X_1+\cdots+X_n))^2 \nonumber\\
+& & =E(\sum_{i=1}^{n}(X_i-EX_i))^2=E[\sum_{i=1}^{n}(X_i-EX_i)^2+2\sum_{i<j}(X_i-EX_i)(X_j-EX_j)] \nonumber\\
+& & =\sum_{i=1}^{n}Var(X_i)+2\sum_{i<j}Cov(X_i,X_j). \nonumber
+\end{eqnarray}
+\end{proof}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Momentos Conjuntos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+\begin{corol}
+Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias tais que $Var(X_i)<\infty$ e $Cov(X_i,X_j)=0$ para $i\ne j$, então
+$$Var(X_1+\cdots+X_n)=\sum_{i=1}^{n}Var X_i.$$
+\end{corol}
+%
+O próximo teorema trata de uma importante desigualdade em teoria da
+probabilidade:
+
+\begin{teo} $$(E(XY))^2\leq EX^2EY^2\mbox{ e }(Cov(X,Y))^2\leq Var XVar Y.$$
+\end{teo}
+%
+%%\end{block}
+%\end{frame}
+%%
+%%\begin{frame}
+%%\frametitle{\textbf{Prova do Teorema}}
+%%\baselineskip=13pt
+%%\begin{block}{}
+%%
+%%
+%%\prv 
+\begin{proof}
+$(aX+Y)^2\geq 0\Rightarrow E(aX+Y)^2\geq 0\Rightarrow
+a^2EX^2+2aEXY+EY^2\geq 0$. Observe que esta equação do segundo grau
+em $a$ não pode ter duas raízes reais diferentes, pois caso
+contrário essa expressão seria negativa para os valores entre as
+raízes. Então, utilizando a regra do discriminante, temos que
+$$4(EXY)^2-4EX^2EY^2\leq 0,$$
+e temos a primeira desigualdade. A segunda desigualdade segue da
+primeira trocando $X$ por $X-EX$ e $Y$ por $Y-EY$ na expressão da
+primeira desigualdade. 
+\end{proof}
+\end{frame}
+%
+\begin{frame}{Coeficiente de Correlação}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+O {\em coeficiente de correlação} entre duas variáveis aleatórias $X$ e $Y$ é dado por
+$$\rho(X,Y)={Cov(X,Y)}/{\sqrt{Var(X)Var(Y)}}.$$
+O teorema anterior provou que $|\rho(X,Y)|\leq 1$. O próximo teorema mostra que o módulo do coefieciente de correlação entre duas variáveis é igual a 1 se, e somente se, as variáveis são linearmente dependentes.
+%
+\begin{teo}
+Sejam $X$ e $Y$ variáveis aleatórias com variâncias finitas e positivas. Então,
+\begin{enumerate}
+\item[(a)] $\rho(X,Y)=1$ se, e somente se, $P(Y=aX+b)=1$ para algum $a>0$ e $b\in \IR$.
+\item[(b)] $\rho(X,Y)=-1$ se, e somente se, $P(Y=aX+b)=1$ para algum $a<0$ e $b\in \IR$.
+\end{enumerate}
+\end{teo}
+%
+%%\end{block}
+%\end{frame}
+%%
+%%\begin{frame}
+%%\frametitle{\textbf{Prova do Teorema}}
+%%\baselineskip=13pt
+%%\begin{block}{}
+%%
+%%
+%%\prv
+\begin{block}{Demonstração}
+Parte (a). Como $(({(X-EX)}/{\sqrt{Var(X)}})-({(Y-EY)}/{\sqrt{Var(Y)}}))^2\geq 0$, temos que
+\begin{eqnarray}
+& & 0\leq E(\frac{X-EX}{\sqrt{Var(X)}}-\frac{Y-EY}{\sqrt{Var(Y)}})^2  = E(\frac{X-EX}{\sqrt{Var(X)}})^2+E(\frac{Y-EY}{\sqrt{Var(Y)}})^2\nonumber\\
+& & -\frac{2}{\sqrt{Var(X)Var(Y)}}E((X-EX)(Y-EY)) \nonumber \\
+& & =\frac{Var X}{Var X}+\frac{Var Y}{Var Y}-\frac{2Cov(X,Y)}{\sqrt{Var(X)var(Y)}}=2-2\rho(X,Y). \nonumber
+\end{eqnarray}
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+\begin{block}{}
+%
+Se $\rho(X,Y)=1$, então
+$$E(\frac{X-EX}{\sqrt{Var(X)}}-\frac{Y-EY}{\sqrt{Var(Y)}})^2=0,$$
+o que por sua vez implica que
+$$P(\frac{X-EX}{\sqrt{Var(X)}}=\frac{Y-EY}{\sqrt{Var(Y)}})=1,$$
+em outras palavras,
+$$P(Y=EY+\frac{\sqrt{Var Y}}{\sqrt{Var X}}(X-EX))=1.$$
+
+A prova da parte (b) é análoga, substituindo o sinal ``+'' por ``-'' na expressão acima. Verifique os detalhes!
+\end{block}
+\end{frame}
+%
+\begin{frame}{Desigualdade de Hölder}
+%\frametitle{\textbf}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+O próximo teorema apresenta uma nova relação entre momentos conjuntos de variáveis aleatórias. Ele é conhecido como {\em Desigualdade de Hölder}.
+%
+\begin{teo}
+Suponha que $p$ e $q$ satisfazem: $p>1$, $q>1$, e $\frac{1}{p}+\frac{1}{q}=1$. Então, se $E(|X|^p)<\infty$ e $E(|Y|^q)<\infty$, temos que
+$$E(|XY|)\leq (E|X|^p)^{1/p}(E|Y|^q)^{1/q}.$$
+\end{teo}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%\prv
+\begin{block}{Demonstração}
+A prova da desigualdade de Hölder utiliza um argumento de convexidade. Como $|X|^p\geq 0$ (resp., $|Y|^q\geq 0$), já vimos que se $E|X|^p=0$, então $P(X=0)=1$. Portanto, em ambos os casos $E(|XY|)=0$ e a desigualdade de Hölder é válida. Considere então o caso em que o lado direito da desigualdade de Hölder é estritamente positivo.
+
+Note que para $a>0$ e $b>0$, existe $s,t\in\IR$ tal que
+$$a=\exp(\frac{s}{p})\mbox{ e }b=\exp(\frac{t}{q}).$$
+Como a função exponencial é convexa e $p^{-1}+q^{-1}=1$, temos por convexidade que
+$$\exp(\frac{s}{p}+\frac{t}{q})\leq p^{-1}\exp(s)+q^{-1}\exp(t),$$
+
+\end{block}
+\end{frame}
+%
+\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+\begin{block}{}
+	ou pela definição de $s,t$
+	$$ab\leq p^{-1}a^p+q^{-1}b^q.$$
+
+
+Agora substituindo $a$ por $\frac{|X|}{(E(|X|^p))^{1/p}}$ e $b$ por $\frac{|Y|}{(E(|Y|^q))^{1/q}}$, temos
+\begin{eqnarray}
+& & \frac{|XY|}{(E(|X|^p))^{1/p}(E(|Y|^q))^{1/q}}\nonumber\\
+& & \leq p^{-1}(\frac{|X|}{(E(|X|^p))^{1/p}})^p+q^{-1}(\frac{|Y|}{(E(|Y|^q))^{1/q}})^q.\nonumber
+\end{eqnarray}
+Finalmente, tomando o valor esperado, temos
+\begin{eqnarray}
+& & \frac{E|XY|}{(E(|X|^p))^{1/p}(E(|Y|^q))^{1/q}} \nonumber\\
+& & \leq p^{-1}(\frac{E|X|^p}{(E(|X|^p))})+q^{-1}(\frac{E|Y|^q}{(E(|Y|^q))})\nonumber\\
+& &  \leq p^{-1}+q^{-1}=1.\nonumber
+\end{eqnarray}
+%\eprv
+\end{block}
+\end{frame}
+%
+\end{document}
+

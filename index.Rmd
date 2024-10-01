@@ -1,0 +1,522 @@
+---
+title: "Probabilidade (PPGECD000000001)"
+author:  "Programa de Pós-Graduação em Estatística e Ciência de Dados (PGECD)"
+date: "Universidade Federal da Bahia (UFBA)"
+output:
+  prettydoc::html_pretty:
+    theme: cayman
+    highlight: github
+header-includes:    
+    geometry: margin = 1.0in
+---
+    
+
+
+```{r, echo = FALSE, warning = FALSE}
+# Packages
+suppressPackageStartupMessages(library(tidyverse)) # Data wrangling
+suppressPackageStartupMessages(library(scales)) # Data wrangling
+suppressPackageStartupMessages(library(dplyr)) # Data wrangling
+suppressPackageStartupMessages(library(gridExtra)) # arrange plots of ggplot 
+suppressPackageStartupMessages(library(ggpubr)) # arrange plots of ggplot 
+suppressPackageStartupMessages(library(MASS)) # for shapiro test
+suppressPackageStartupMessages(library(car)) # for ncvTest    
+suppressPackageStartupMessages(library(lmtest)) #  Generic tools for inference in parametric models, Breusch-Pagan Test included
+suppressPackageStartupMessages(library(kableExtra)) # tables
+suppressPackageStartupMessages(library(ggmosaic)) # tables
+suppressPackageStartupMessages(library(knitr))
+suppressPackageStartupMessages(library(GGally)) # gamlss distributions
+suppressPackageStartupMessages(library(gamlss)) # gamlss fits
+suppressPackageStartupMessages(library(gamlss.dist)) # gamlss distributions
+suppressPackageStartupMessages(library(gamlss.add)) # gamlss - Extra Additive Terms - Decision tree
+# suppressPackageStartupMessages(library(gamlss.util)) # gamlss fits
+suppressPackageStartupMessages(library(broom)) # Convert Statistical Objects into Tidy Tibbles
+suppressPackageStartupMessages(library(ggthemes)) # ggplot themes
+suppressPackageStartupMessages(library(cowplot)) # ggplot arrange
+suppressPackageStartupMessages(library(gtable)) # ggplot table
+suppressPackageStartupMessages(library(RColorBrewer)) # cool colors
+suppressPackageStartupMessages(library(colorspace)) # cool colors
+suppressPackageStartupMessages(library(gvlma)) # Top-level function for Global Validation of Linear Models Assumptions.
+suppressPackageStartupMessages(library(sandwich)) # Robust Covariance Matrix Estimators
+# suppressPackageStartupMessages(library(skedastic)) # Heteroskedasticity Diagnostics for Linear Regression Models
+suppressPackageStartupMessages(library(moments)) # Moments
+suppressPackageStartupMessages(library(latex2exp)) # latex Simbols
+suppressPackageStartupMessages(library(gcookbook)) # Moments
+suppressPackageStartupMessages(library(viridis)) # latex Simbols
+suppressPackageStartupMessages(library(gcookbook)) # Moments
+suppressPackageStartupMessages(library(viridisLite)) # latex Simbols
+# Auxiliar - name of response in linear regression model
+responseName <- function (model, ...) deparse(attr(terms(model), "variables")[[2]])
+```
+
+```{r,  echo = FALSE, fig.width = 8, fig.height=5, fig.align="center", message=FALSE,warning=FALSE}
+#From The R Graphics Cookbook
+# Definir a semente para reproduzibilidade
+
+library(ggplot2)
+library(mvtnorm)
+library(ggExtra)
+
+
+# Médias
+mu <- c(0, 0)
+
+# Matriz de covariância com correlação positiva (0.7)
+sigma <- matrix(c(1, 0.7, 0.7, 1), nrow=2)
+
+
+set.seed(123)  # Para reprodutibilidade
+samples <- rmvnorm(5000, mean=mu, sigma=sigma)
+df_samples <- data.frame(x = samples[,1], y = samples[,2])
+
+
+
+# Criar o gráfico base com geom_point
+library(viridis)
+
+# Criar o gráfico base com geom_point
+p <- ggplot(df_samples, aes(x = x, y = y)) +
+  geom_point(alpha = 0.2, color = "darkgreen") +  # Alterar a cor dos pontos para verde escuro
+  stat_density2d(aes(fill = ..level..), geom = "polygon", color = "black", alpha = 0.4) +
+  scale_fill_viridis(option = "E") +  # Aplicar uma paleta de cores verde
+  labs(title = "",
+       x = "X",
+       y = "Y") +
+  theme_minimal()
+
+# Adicionar as distribuições marginais com cor verde
+p_marginal <- ggMarginal(p, type = "densigram", fill = "transparent", color = "darkgreen")
+
+
+# Mostrar o gráfico
+print(p_marginal)
+
+```
+<h4>
+# PLANO DE ENSINO 
+
+#### Semestre 2024.2
+</h4>
+
+<!-- * **Carga horaria:** 60 horas/Aula. -->
+* **Professor:** Raydonal Ospina Martínez
+* **Homepage do Curso:** [https://castlab.org/courses/matd44/](https://castlab.org/courses/matd44/)
+* **Contato:** raydonalmartinez@ufba.br
+* **Ementa do curso:**  Experimento aleatório, espaço amostral, eventos e coleção de eventos, probabilidade, probabilidade condicional e independência, variável aleatória, funções de probabilidade, densidade e distribuição, vetores aleatórios, esperança, variância, momentos. Esperança de funções de vetores aleatório e propriedades. Distribuições condicionais e propriedades. Distribuições de funções aleatórias e de vetores aleatórios, modos de convergência e suas relações, função característica, leis dos grandes números, teorema central do limite. Experimentos aleatórios, espaço amostral, eventos. Geração de eventos a partir de operações elementares da teoria dos conjuntos. Limites superior e inferior. Axiomas de Kolmogorov. Propriedades das medidas de probabilidade. Probabilidade condicional. Independência. Lemas de Borel-Cantelli. Variáveis aleatórias contínuas e discretas. Função distribuição acumulada e suas propriedades Integral de Riemman Stieltjes. Esperança e variância de variáveis aleatórias e propriedades. Principais distribuições discretas e contínuas. Vetores aleatórios, função distribuição conjunta e função densidade conjunta de um vetor aleatório. Distribuições marginais. Distribuições mistas. Esperança de vetores aleatórios. Desigualdade de Cauchy-Schwarz. Matriz de covariância. Coeficiente de correlação e propriedades. Função característica e função geradora de momentos conjunta, cálculo de momentos conjuntos (momentos mistos). Exemplos de distribuições multivariadas. Distribuições multinomial e Normal multivariada. Propriedades da Normal multivariada. Distribuições condicionais e esperança condicional: Definições, existência, propriedades. Variância condicional. Função de Regressão. Fórmulas da variância total e da covariância total.
+
+* **Local e horário da disciplina:** As aulas serão ministradas às terças e quintas feiras
+das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 12 do IME (Instituto de Matemática e Estatística  -  Av. Milton Santos, s/n° Ondina, CEP: 40170-110).
+* **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento. O local de atendimento presencial será em alguma sala disponível no Departamento de Estatística da UFBA.
+
+* *<font color="red">Nota:</font> O atendimento será realizado somente com agendamento prévio. Prezado(a) aluno(a), valorizo muito o meu tempo, assim como o seu. Para utilizarmos nosso tempo de forma eficiente, peço que envie suas dúvidas antecipadamente para que eu possa me preparar adequadamente. Por favor, traga também anotações e procedimentos já elaborados. A pontualidade é essencial e será muito apreciada.*
+    
+* **Inicio do curso:** 01/10/2024.
+
+* **Fim do período letivo:** 14/02/2025 (Mudanças desta data obedeceram os direcionamentos da adiministração central da UFBA no [calendário acadêmico da UFBA](https://supac.ufba.br/sites/supac.ufba.br/files/calendario_academico_24.2_v._19_07_0.pdf))
+
+* **Período semestre:** 30/09/2024 a 14/02/2025 (Recesso: 23/12/2024 a 05/01/2025)
+
+* **Feriados/Congresso UFBA:** 12/10/2024 (Nossa Sra. Aparecida); 28/10/2024 (Servidor Público); 02/11/2024 (Finados); 15/11/2024 (Proclamação da República); 20/11/2024 (Consciência Negra); 25 a 28/11/2024 (Congresso UFBA);08/12/2024 (Nossa Sra. Conceição); 16/01/2025 (Bonfim); 01 e 02/02/2025 (Iemanjá)
+
+
+
+
+<!-- * **Pré-requisitos:** MATD42 - Inferência A. A disciplina também requer conhecimentos sólidos de algebra -->
+
+* **Metodologia:** Considerando o caráter teórico da disciplina, a metodologia de ensino e aprendizagem utilizará quadro e/ou slides para a apresentação do conteúdo em sala de aula. Será empregada uma plataforma virtual para disponibilizar materiais didáticos, incluindo artigos científicos. Além disso, serão implementadas aulas invertidas, com o envio de videoaulas relacionadas a temas especializados e específicos do assunto em estudo, bem como listas de exercícios.
+
+* **Objetivos da disciplina:** Esta disciplina téorica e obrigatória tem como objetivo proporcionar uma base matemática e Estyatística aos alunos de diferentes áreas do conhecimento que estejam interessados em probabilidade, visando à compreensão e aplicação de seus principais conceitos e métodos. Para esse fim, o curso é dividido em várias unidades nas quais são introduzidos resultados e teoremas centrais da probabilidade, bem como exemplos que motivam o estudo. Ferramentas computacionais (software) poderão apoiar o desenvolvimento de alguns temas do curso. O objetivo central da disciplina é estudar modelos de probabilidade de forma que permitam ao estudante formular, analisar e aplicar modelos probabilísticos. Além disso, busca-se proporcionar ao estudante a infraestrutura necessária para consolidar sua capacidade de pensar conceitualmente.
+
+***
+<h4>
+## Critério de aprovação
+</h4>
+
+A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizagens e serve também para estabelecer os resultado dos conhecimentos e das competências adquiridas nos diferentes momentos do período acadêmico. A avaliação também contribui para a qualidade do sistema de ensino (REGPG Cap. VI, Art. 106 – UFBA, 2014). A avaliação consistirá de duas provas (com conteúdo cumulativo) ao longo do curso. O grau atribuído ao aluno no final do curso será o da sua média global ponderada entre as notas das provas
+
+<center>
+<h3>
+    M = (0,55 * Prova 1)+(0,45 * Prova 2).
+</h3>
+</center>
+
+
+| Avaliação | Porcentagem  |	Data da Prova (Tentativa) |
+|:-----------:|:-------------:|:-----------------:|
+| Prova 1 |    55% 	    |     02/05/2024  |
+| Prova 2 |    45% 	    |     20/08/2024  |
+
+
+
+A avaliação poderá ser revisitada em função do desempenho, assistência  e participação na disciplina. 
+
+
+<!-- 1. O aluno que tiver média global M >= 7.5 recebe conceito A. -->
+<!-- 2. O aluno que tiver média global 6.5 = < M < 7.5  recebe conceito B. -->
+<!-- 3. O aluno que tiver média global 5.0 = < M < 6.5  recebe conceito C. -->
+<!-- 4. O aluno que tiver média global M < 5.0  será automaticamente reprovado. -->
+    
+* **Nota:** Não haverá escalonamento de notas. 
+    
+
+
+***
+
+# Programa da disciplina (Tentativo)
+<center>
+
+|**Aula**|**Data ou período de realização**|**Unidade Temática ou Conteúdo**|**Atividade/recurso**|
+| :-: | :-: | :-: | :-: |
+|1|01/10/2024|Revisão|  [[slides 1]](Aulas/Aula-01.pdf)    |
+|2|03/10/2024|Experimentos aleatórios, espaço amostral, eventos. Coleção de eventos, funções indicadoras.|Quadro e/ou slides|
+|3|08/10/2024|Fundamentos e probabilidade, frequência relativa  | [[slides 2]](Aulas/Aula-02.pdf)|
+|4|10/10/2024|Axiomas de Kolmogorov|Quadro e/ou slides|
+|5|15/10/2024|Propriedades de uma medida de probabilidade|Quadro e/ou slides|
+|6|17/10/2024|Probabilidade condicional, independência.|Quadro e/ou slides|
+|7|22/10/2024|Variáveis aleatórias, função de distribuição acumulada e tipos de variáveis aleatórias|Quadro e/ou slides|
+|8|24/10/2024|Decomposição de variáveis aleatórias|Quadro e/ou slides|
+|9|29/10/2024|Principais distribuições discretas (caso univariado).|Quadro e/ou slides|
+|10|31/10/2024|Principais distribuições continuas (caso univariado).|Quadro e/ou slides|
+|11|05/11/2024|Vetores aleatórios, função de distribuição conjunta de um vetor aleatório, função de densidade conjunta de um vetor aleatório|Quadro e/ou slides|
+|12|07/11/2024|<p>função de densidade marginal. vetores aleatórios uniformemente</p><p>distribuídos, distribuição multinomial.</p>|Quadro e/ou slides|
+|13|12/11/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes|Quadro e/ou slides|
+|14|14/11/2024|<p>Esperança de variáveis</p><p>aleatórias, caso geral e propriedades</p>|Quadro e/ou slides|
+|15|19/11/2024|<p>Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de corre-</p><p>lação, propriedades, desigualdade de Cauchy-Schwarz</p>|Quadro e/ou slides|
+|16|21/11/2024|<p>Função geradora de momentos conjunta, cálculo de momentos</p><p>conjuntos (momentos mistos), informação mútua.</p>|Quadro e/ou slides|
+|17|26/11/2024|Congresso UFBA|Sem atividade|
+|18|28/11/2024|Congresso UFBA|Sem atividade|
+|19|03/12/2024|Prova I|Prova escrita|
+|20|05/12/2024|Distribuições condicionais e esperança condicional: Definições, existência, propriedades.|Quadro e/ou slides|
+|21|10/12/2024|Variância condicional. Função de Regressão. Distribuição Normal  Multivariada|Quadro e/ou slides|
+|22|12/12/2024|<p>Distribuições de funções aleatória e de vetores aleatórios: Funções escalares aleatórias, distribuição do produto</p><p>e do quociente de variáveis aleatórias, funções vetoriais e o método do Jacobiano (caso bijetivo).</p>|Quadro e/ou slides|
+|23|17/12/2024|Funções vetoriais e o método do Jacobiano (caso bijetivo).|Quadro e/ou slides|
+|24|19/12/2024|Repartição de domínios (caso não bijetivo). Linearização. Variáveis independentes normais.|Quadro e/ou slides|
+|25|<p>24/12/2024 a</p><p>05/01/2025</p>|Recesso final de ano|Sem atividade|
+|26|07/01/2025|Linearização. Variáveis independentes normais. Distribuições amostrais: distribuição *χ2*-quadrado, distribuição *t* de Student e distribuição *F*. |Quadro e/ou slides|
+|27|09/01/2025|Estatísticas de Ordem.|Quadro e/ou slides|
+|28|14/01/2025|Função característica.|Quadro e/ou slides|
+|29|16/01/2025|Tipos de convergências. |Quadro e/ou slides|
+|30|21/01/2025|Teoremas de Slutsky e método Delta.|Quadro e/ou slides|
+|31|23/01/2025|Lei fraca e lei forte dos números|Quadro e/ou slides|
+|32|28/01/2025|Teorema Central do Limite ( clássico)|Quadro e/ou slides|
+|33|30/01/2025|Teorema Central do Limite   (Liapunov)|Quadro e/ou slides|
+|34|04/02/2025|Teorema Central do Limite   (Lindeberg - Feller)|Quadro e/ou slides|
+|35|06/02/2025|Prova II|Prova escrita|
+
+
+</center>
+***
+
+#### Referências bibliográficas (Principal)
+
+
+* James, B. (1981) Probabilidade: Um Curso em Nível Intermediário, IMPA. (Livro texto tentativo).
+* Magalhães, M. N. (2004). Probabilidade e Variáveis Aleatórias. Ed. Universidade de São Paulo.
+* Campos, M. A., Rêgo, L. C., & de Mendonça, A. F. (2017). Métodos probabilísticos e estatísticos com aplicações em engenharias e ciências exatas. Grupo Gen-LTC.
+* Feller, W. (1968) An introduction to probability theory and its applications, vol. I, 3a edição. Wiley.
+* DasGupta, A. (2011). Probability for statistics and machine learning: fundamentals and advanced topics (p. 566). New York: Springer.
+* Aggarwal, C. C. (2024). Probability and Statistics for Machine Learning: A Textbook. Springer Nature.
+* Murphy, K. P. (2023). Probabilistic machine learning: Advanced topics. MIT press.
+* Fine, T. L. (2006). Probability and probalistic reasoning for electrical engineering. Pearson Prentice Hall .
+
+#### Referências bibliográficas (Complementar)
+* Dantas, C. A. B. (1997) Probabilidade: Um Curso Introdutório. Ed. USP, São Paulo. 
+* Davenport Jr., W. (1970) Probability and Random Processes. McGraw-Hill.
+* Mood, A. Graybill, F. e Boes D. (1985). Introduction to the Theory of Statistics . McGraw-Hill. 
+* Papoulis, A. (1991) Probability, Random Variables, and Stochastic Processes. McGraw-Hill.
+* Pitman, J. (1993) Probability. Springer. [Biblioteca CCEN, (519.2 P685p)]. 
+* Ross, S. M. (2001) A First Course in Probability. 3a edição, McMillan Publishing. 
+* Ross, S. M. (1997) Introduction to Probability Models. McGraw-Hill.
+* Trivedi, K. (2002) Probability and statistics with reliability, queuing and computer science applications, 2a edição. John Wiley \& Sons.
+
+
+
+***
+
+#### Software (Interessados em implementar seus conhecimentos)
+
+1.  [An Introduction to R](http://cran.r-project.org)
+2.  [SAS - Acadêmico](https://www.sas.com/pt_br/learn/academic-programs/software.html)
+3.  [Rstudio](www.rstudio.com)
+4.  [TeXnicCenter](www.texniccenter.org)
+5.  [Python](http://www.python.org/)
+6.  [Julia](https://julialang.org/)
+7.  [ChatGPT e outros](https://chatgpt.com/g/g-cHGvFfMYD-probability-prover)
+
+***
+
+## Para refletir
+
+##### Sobrea as aulas
+
+*São reuniões cientificas e profissionais onde são discutidos temas de relevância para a formação pessoal, social e profissional. Portanto é esperado que o aluno chegue sem atraso, não entre na sala abruptamente, não sai da sala durante a discussão, respeite as intervenções do professor e/ou colega(s), não fume (Lei Federal), não use o celular e não promova a destruição de bens públicos, entre outros.*
+
+##### Sobre honestidade acadêmica
+
+*Honestidade e confiança são importantes para todos nós como indivíduos. Neste sentido, os membros da comunidade acadêmica tanto como professores e alunos têm a responsabilidade de manter e promover os princípios da verdade e honestidade acadêmica. Assim, a honestidade acadêmica pressupõe que todos os trabalhos, provas e testes sejam frutos do trabalho individual do aluno salvo os casos onde o professor tenha dado permissão expressa e instruções para a realização de atividades em grupo.*
+
+##### Sobre o plágio
+
+*Constitui desonestidade acadêmica e constitui uma grave falta acadêmica, pois destrói o princípio fundamental de confiança que deve existir no processo de transmissão de conhecimento em atividades de pesquisa e ensino. Não constitui defesa no caso de detecção de plágio que o ato tenha sido feito por negligência ou sem a intenção do aluno. A ausência de intenção pode diminuir a pena imposta, mas não serve como desculpa para o ato. Alunos devem, portanto, ter muito cuidado para evitar o plágio. Se tiver alguma dúvida sobre plágio, citação de passagens de texto, uso de ideias de terceiros ou colaborações com colegas em suas atividades acadêmicas, recomendo que  o aluno procure orientação de um professor ou coordenador acadêmico. (Fonte: Tomado de http://www.ibmecsp.edu.br/biblioteca).*
+
+##### Sobre desonestidade acadêmica
+
+*Desonestidade acadêmica inclui colar em provas e testes, plágio e/ou qualquer adulteração no desenvolvimento de um trabalho ou pesquisa acadêmica. O plágio ocorre quando o aluno e/ou professor apresenta o trabalho de outra pessoa como se fosse seu sem citar a fonte de maneira apropriada. A única exceção à regra de citar adequadamente as fontes ocorre quando informações ou ideias são do senso comum. O plágio inclui, mas não se limita a, apresentar um trabalho obtido de um serviço profissional de redação (inclusive da Internet); citar diretamente ou parafrasear uma passagem de texto sem citar a fonte; e utilizar figuras, gráficos e tabelas sem identificar as fontes. Solicitações inapropriadas não serão admissíveis nesse curso, portanto evite-se constrangimentos. O aluno que agir de modo contrário à ética e honestidade acadêmica receberá forte penalização e será reportado oficialmente à coordenação do curso.*
+
+##### Sobre profissionalismo
+
+*Aluno, você já não é mais criança ou adolescente, mas adulto. Durante seu tempo na universidade, você formará quem você será pelas próximas décadas. O mercado de trabalho quer apenas os melhores e os mais profissionais. Haja desde já como o profissional que você deseja ser. (Fonte: Política do Curso e Etiqueta em Sala de Aula, Professor Dr. Renato J. Cintra).*
+
+##### Sobre tratamento pessoal
+
+*Lembrem que nós somos respeitados e tratados da mesma forma em que tratamos as demais pessoas. Ao se dirigir a professores e/ou colegas, faça-o respeitosamente.*
+
+
+##### Sobre o aluno
+
+*Finalmente quero lembrá-lo que você constrói seu conhecimento e desenvolve sua capacidade de aprender e criar. Seu instrutor está aqui para orientá-lo. Trabalhe, pesquise, seja crítico construtivo, crie, se dedique, se esforce e não desista, se pensar em desistir se esforce mais. Não se preocupe e melhor se ocupe. Você está aqui porque tem condições de vencer.*
+
+***
+
+### Material de apoio 
+
+<!-- * <font color="purple">  Hansen, M. H., & Hurwitz, W. N. (1943).</font> On the theory of sampling from finite populations. The Annals of Mathematical Statistics, 14(4), 333-362.  [[Artigo]](Papers/Hansen-TheorySamplingFinite-1943.pdf) -->
+
+<!-- * <font color="purple"> Hansen, M. H., & Hurwitz, W. N. (1949).</font> On the determination of optimum probabilities in sampling. The Annals of Mathematical Statistics, 426-432. [[Artigo]](Papers/Hansen-DeterminationOptimumProbabilities-1949.pdf) -->
+
+<!-- * <font color="purple"> Horvitz, D. G., & Thompson, D. J. (1952). </font> A generalization of sampling without replacement from a finite universe. Journal of the American statistical Association, 47(260), 663-685. [[Artigo]](Papers/Horvitz-Thompson-1952-jasa.pdf) -->
+
+
+
+
+<!-- Material elaborado pelos professores: Cristiano Ferraz e Raydonal Ospina -->
+<!-- * <font color="purple">[M1]</font> [ME414-UNICAMP](https://github.com/ME414-UNICAMP/ME414-UNICAMP.github.io/tree/master/aulas). Material da disciplina **Estatística para Experimentalistas** elaborado pelas professores Samara Kiihl, Tatiana Benaglia e Benilton Carvalho da UNICAMP. -->
+<!-- * Notas de aula da disciplina **EST0232 - Fundamentos de Estatística Aplicada** em colaboração com a professora Luz Milena Zea Fernández do DE-UFRN. -->
+<!-- * Notas de aula da disciplina **Cálculo I** [(Cálculo Diferencial e Integral - Notas de Aula)](https://sites.icmc.usp.br/andcarva/sma301/Calculo1c-AM6.pdf). Elaborado pelas professoas Márcia Federson e Gabriela Plana. -->
+<!-- *  [Apostila Unidade - II - ](Material/Apostila-2.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
+<!-- *  [Apostila Unidade - III - ](Material/Apostila-3.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
+
+<!-- *** -->
+O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos de divulgação, entre outros.
+
+<!-- **Slides** -->
+
+<!-- * Unidade I -->
+
+<!-- Em breve -->
+ <!-- | [Parte 0](Material/Parte-0.pdf)  -->
+<!--  | [Parte 1](Material/Parte-1.pdf) | [Parte 2](Material/Parte-2.pdf) | [Parte 3](Material/Parte-3.pdf) | -->
+
+<!-- * Unidade II -->
+
+<!--  | [Parte 4](Material/Parte-4.pdf) | [Parte 5](Material/Parte-5.pdf) |  [Parte 6a ](Material/misclasification-V-ESAMP-2017.pdf) |  [Parte 6b ](Material/Misclassification_and_area_sample.pdf) |  -->
+
+<!--  * Laboratório -->
+
+<!--  | [Prática 01](Scripts/Practical_01.R) | [Prática 02](Scripts/Practical_02.R)| -->
+
+<!--  Dados Censo penitenciário  [[Aqui]](https://proyectos.inei.gob.pe/iinei/srienaho/descarga/SPSS/512-Modulo860.zip). Mais informações ver o site do INEI [Censo Nacional de población Penitenciária](https://proyectos.inei.gob.pe/iinei/srienaho/Consulta_por_Encuesta.asp) -->
+
+
+<!--  |  [Semana 2](Material/semana2.pdf) |  [Semana 3](Material/semana3.pdf)  | [Semana 4](Material/semana4.pdf)   |  [Semana 5](Material/semana5.pdf) | [P-I](Material/PI.pdf) | -->
+
+<!-- *Resultados Prova I* | [Turma-09](Material/T09-Nota-P-I.pdf) | [Turma-10](Material/T10-Nota-P-I.pdf) | -->
+
+<!-- * Unidade II -->
+
+<!--  | [Semana 6](Material/semana6.pdf) | [Semana 7](Material/semana7.pdf) | [Semana 8](Material/semana8.pdf) |  [Semana 9](Material/semana9.pdf) |  [Semana 10](Material/semana10.pdf) | -->
+
+<!-- *Resultados Prova II* | [Turma-09](Material/T09-Nota-P-II.pdf) | [Turma-10](Material/T10-Nota-P-II.pdf) | -->
+
+<!--  * Unidade III -->
+
+<!--  | [Semana 11](Material/semana11.pdf) | [Semana 12](Material/semana12.pdf) | -->
+
+<!-- *Resultados Prova III* | [Turma-09](Material/T09-Nota-P-III.pdf) | [Turma-10](Material/T10-Nota-P-III.pdf) | -->
+
+***
+
+### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> Atividades </u> 
+
+<!-- * <font color="pink">- Aula virtual- </font> Por motivos de segurança a aula do dia 05/09/2023 será realizada de forma virtual. Detalhes da conexão se encontram no e-mail encaminhado. -->
+
+<font color="purple"> - Lista de exercícios - </font> 
+
+
+- Introdução à Probabilidade
+
+  - Exercícios da seção 1.2 do livro do Marcos Magalhães.
+
+  - Exercícios 1,2,3 da seção 1.3 do livro do Marcos Magalhães.
+
+  - Exercícios
+    1,2,4,5,7,8,9,13,14,15,20,21,26,28,33,34,42,44,47,53,56,61,86 da
+    seção 1.4 do livro do Marcos Magalhães.
+
+  - Exercícios 1,2,3,5,6,9,10,11,12,13,14,15 da seção 1.4 do livro do
+    Barry James.
+
+- Probabilidade Condicional e Independência
+
+  - Exercícios 4,5,6,7 da seção 1.3 do livro do Marcos Magalhães.
+
+  - Exercícios
+    23,24,25,27,35,36,37,38,39,40,43,45,46,48,49,50,57,58,59,64,65,71,72,84,85,96,100,101
+    da seção 1.4 do livro do Marcos Magalhães.
+
+  - Exercícios 16,17,18,19,20,21,22 da seção 1.4 do livro do Barry
+    James.
+
+- Variáveis Aleatórias
+
+  - Exercícios 1,2,3,4,5,6(a)(b),7,8,9(a)(b),10 da seção 2.2 do livro do
+    Marcos Magalhães.
+
+  - Exercícios 1,2,3,4,5,6,9,10 da seção 2.3 do livro do Marcos
+    Magalhães.
+
+  - Exercícios 1,2(a)(c),3,4,5,6,7,8,9,10 da seção 2.4 do livro do
+    Marcos Magalhães.
+
+  - Exercícios
+    3,4,5,6,7,8,9,11,12,13,14,15,16,17,18,19,20(d),22(b)(d)(e),24,26,28,33,35(a)(c),36,37,39(b),41,42,43,44
+    da seção 2.5 do livro do Marcos Magalhães.
+
+  - Exercícios4,9,10,13,14,17,18,20,23,25,27,31,32,33,34,35,36,37,41,42,43,44,45,46,47,48,49,50,51,
+    52,53,56,57,60,61 da seção 2.9 do livro do Barry James.
+
+  - Exercícios 1,2,10 da seção 3.2 do livro do Marcos Magalhães.
+
+  - Exercícios 1,2,4,5,6,9,10 da seção 3.3 do livro do Marcos Magalhães.
+
+  - Exercícios 1,4,5,6,7,8,14,15,20,22,24,26,30,34,35 da seção 3.4 do
+    livro do Marcos Magalhães.
+
+- Esperança e Momentos de Variáveis Aleatórias
+
+  - Exercícios 2,3,4,5,8,9,10 da seção 4.2 do livro do Marcos Magalhães.
+
+  - Exercícios 1,6 da seção 4.3 do livro do Marcos Magalhães.
+
+  - Exercícios 1,2,3,4,5,6,7,8,9,10 da seção 4.4 do livro do Marcos
+    Magalhães.
+
+  - Exercícios 1,5,6,7,8,9,10,11,12,13,14,15,16,17,20,24,26,29,34 da
+    seção 4.5 do livro do Marcos Magalhães.
+
+  - Exercícios 1 até 10 da seção 5.2 do livro do Marcos Magalhães.
+
+  - Exercícios 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,25 da seção 5.6 do
+    livro do Marcos Magalhães.
+
+  - Exercícios 1 até 24, 27,28,31,32,33,35,36 da seção 3.8 do livro do
+    Barry James.
+
+- Distribuição e Esperança Condicional
+
+  - Exercícios
+    1,2,4,9,10,14,15,16,17,18,19,21,23,26,27,28,35,36,38,39,41 da seção
+    4.6 do livro do Barry James.
+
+- Convergência Estocástica
+
+  - Exercícios 1, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13 da página 218 do
+    livro do Barry James.
+
+  - Exercícios 1,2,3,4,7,9,10,11,12 da página 322 do livro do Marcos
+    Magalhães.
+
+  - Exercícios 1, 2, 4, 7, 11, 13, 14, 15, 18, 21, 24 da seção 6.5 do
+    livro do Marcos Magalhaes.
+
+- Funções Características
+
+  - Exercícios 1, 2, 4, 5, 6, 7, 8, 9, 13, 14, 17, 18, 19, 20, 21, 22,
+    23, 24, 27 da página 257 do livro do Barry James.
+
+  - Exercícios da seção 5.5 da página 289 do livro do Marcos Magalhães.
+
+  - Exercícios 53, 54, 55, 56, 59, 60, 62, 63 da página 296 do livro do
+    Marcos Magalhães.
+
+  - Exercícios 5, 6, 8 da página 322 do livro do Marcos Magalhães.
+
+  - Exercícios 5,6,19,34,35,41 da seção 6.5 do livro do Marcos
+    Magalhães.
+
+- Lei dos Grandes Números
+
+  - Exercícios 2, 14, 15, 16, 18, 19, 20, 21, 24, 25 da página 218 do
+    livro do Barry James.
+
+  - Exercícios 2,3,4,5,6,7,8,9,10,11,12 da página 336 do livro do Marcos
+    Magalhães.
+
+  - Exercícios 10, 22,30,45,55,57,58,59 da seção 6.5 do livro do Marcos
+    Magalhães.
+
+- Teorema Central do Limite
+
+  - Exercícios 2, 3, 4,5, 7, 8, 9,11 da página 285 do livro do Barry
+    James.
+  - Exercícios 1,2,4,5,6,7,8 da página 349 do livro do Marcos Magalhães.
+  - Exercícios 38,39,52, 57, 58,61 da seção 6.5 do livro do Marcos
+    Magalhães.
+
+
+
+<!--   + Bolfarine & Bussab (2005),  Exercícios: 1.1, 1.3, 1.6, 1.11, 1.13, 2.1, 2.2, 2.6 -->
+<!--   + Tillé (2020). Exercícios: 2.1, 2.2,2.3, 2.4 -->
+<!--   + Särndal (2003). Exercícios: 2.1, 2.2, 2.3, 2.5 -->
+
+<!-- <font color="purple"> - Lista de exercícios II - </font>  -->
+
+<!--   + Tillé (2020). Exercícios: 4.1, 4.2, 4.3, 4.4, 4.5, 4.6, 4.8 -->
+
+<!-- <font color="purple"> - Lista de exercícios III - </font>  -->
+
+<!--   + Tillé (2020). Exercícios: 7.1, 7.2, 7.3 -->
+
+
+<!-- * <font color="pink"> - Lista - Exercicios - </font> [[Aqui]](Material/Lista_1_MATD44_2023_2.pdf) -->
+
+<!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
+
+***
+<!-- ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>  -->
+
+<!-- * <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf) -->
+
+<!-- * <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf) -->
+
+<!-- * <font color="red">- Prova III - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_III.pdf). Dados prova III [[Aqui]](Provas/PPM-29-de-Ago.xlsx) -->
+
+<!-- * Prezado aluno, recomendo <font color="red">fortemente</font> fazer todos os exercícios propostos das Apostilas (Unidade - I, II e III para treinamento e afixar conhecimento). -->
+<!-- * Alunos com dificuldades de cálculo recomendo revisar fortemente notas de Cálculo I e o material audiovisual da USP [e-Aulas] (https://eaulas.usp.br/portal/). Lá encontraram uma série de conteúdos de fácil assimilação com notas explicativas e exercícios resolvidos  (Aproveitem!!!) -->
+
+<!-- * Informamos que foi selecionado o monitor **Luiz Antônio** para a disciplina de MAT236.  O monitor irá auxiliar os alunos de MAT236 a resolver os exercícios das quatros listas de exercícios da apostila 1 desta disciplina. Seguem adiante os horários de atendimento da monitoria durante a semana que iniciará no dia 05/09/2022 até o final do semestre. -->
+
+<!-- <font color="red">Mudança de horário da monitoria de MAT236:</font> Na segunda unidade, houve uma alteração nos horários de atendimento da monitoria devido a baixa procura dos alunos na segunda-feira e quinta-feira e maior frequência de alunos na sexta-feira. Devido à maior procura pela monitoria online, na segunda unidade a monitoria será de forma online. Na quinta-feira, o horário presencial passou a ser online. Os alunos que frequentam a monitoria solicitaram mais horários na sexta-feira. Sendo assim, aumentou o tempo de atendimento na sexta-feira -->
+
+
+<!-- | Dia da semana | Horário        | Atendimento online                      | -->
+<!-- |---------------|----------------|---------------------------------------------| -->
+<!-- | Quinta-feira | 13:00 às 14:50 | Link: https://meet.google.com/utq-ukgc-ktg                       | -->
+<!-- | Sexta-feira  | 18:30 às 20:20 | Link: https://meet.google.com/qjj-vvvq-sav                           | -->
+<!-- | Sexta-feira   | 10:40 às 12:30 | Link: https://meet.google.com/pub-dojh-nei | -->
+<!-- | Sexta-feira   | 10:40 às 12:30 | Link: https://meet.google.com/tcj-gxwy-bem | -->
+
+
+
+<!-- * <font color="purple"> Prezado aluno, a prova I do dia 22/09/2022 será realizada da sala 109 do PAF V no horário habitual da aula. Caso haja alguma mudança deixarei algum recado na porta da sala. </font> -->
+
+***
+<!-- ###### Este documento foi gerado através de um arquivo [R Markdown](http://rmarkdown.rstudio.com/). Markdown é uma linguagem simples de formatação que permite produzir documentos HTML, PDF e MS Word, de forma eficiente.   -->
+###### Content Copyright &copy; 2024 Raydonal Ospina Martínez. All Rights Reserved.
+
+
+<!-- https://cales.arizona.edu/~anling/STAT574/notes.htm -->
+<!-- https://mathspace.co/textbooks/syllabuses/Syllabus-1057/topics/Topic-20689/subtopics/Subtopic-268600/ -->
+<!-- https://byjus.com/maths/sampling-methods/ -->
+<!-- https://mathspace.co/textbooks/syllabuses/Syllabus-1057/topics/Topic-20689/subtopics/Subtopic-268600/ -->
+

@@ -1,0 +1,1471 @@
+%\def\R{$\textsf{R}$}
+%\def\S{$\textsf{S}$}
+
+%\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\sfa}{a}
+\newcommand{\worst}{\mbox{\em worst}}
+\newcommand{\best}{\mbox{\em best}}
+\newcommand{\regret}{\mbox{\em regret}}
+\newcommand{\opt}{\mbox{\em opt}}
+\newcommand{\join}{\bowtie}
+\newcommand{\lE}{\underline{E}}
+\newcommand{\uE}{\overline{E}}
+\newcommand{\heads}{{\it heads}}
+\newcommand{\tails}{{\it tails}}
+
+\newcommand{\A}{{\cal A}}
+\newcommand{\B}{{\cal B}}
+\newcommand{\C}{{\cal C}}
+\newcommand{\D}{{\cal D}}
+\newcommand{\E}{{\cal E}}
+\newcommand{\F}{{\cal F}}
+\newcommand{\G}{{\cal G}}
+%\newcommand{\H}{{\cal H}}
+\newcommand{\I}{{\cal I}}
+\newcommand{\J}{{\cal J}}
+\newcommand{\K}{{\cal K}}
+%\newcommand{\L}{{\cal L}}
+\newcommand{\M}{{\cal M}}
+\newcommand{\N}{{\cal N}}
+%\newcommand{\O}{{\cal O}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Hcal}{{\cal H}}
+\renewcommand{\P}{{\cal P}}
+\newcommand{\Q}{{\cal Q}}
+\newcommand{\R}{{\cal R}}
+%\newcommand{\S}{{\cal S}}
+\newcommand{\T}{{\cal T}}
+\newcommand{\U}{{\cal U}}
+\newcommand{\V}{{\cal V}}
+\newcommand{\W}{{\cal W}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\Y}{{\cal Y}}
+\newcommand{\Z}{{\cal Z}}
+
+
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\dfn}{\begin{definition}}
+\newcommand{\edfn}{\end{definition}}
+\newcommand{\thm}{\begin{theorem}}
+\newcommand{\ethm}{\end{theorem}}
+\newcommand{\xam}{\begin{example}}
+\newcommand{\exam}{\end{example}}
+\newcommand{\inter}{\cap}
+\newcommand{\union}{\cup}
+
+
+
+
+\documentclass[t, 8pt, seriff]{beamer}
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb,latexsym}
+\usepackage{graphics}
+%\usepackage{graphicx}
+
+\usepackage{multimedia}
+% \usepackage{movie15}
+\usepackage{media9}
+
+\usetheme{default}
+%\usetheme{Singapore}
+%\usetheme{PaloAlto} 
+\usetheme{Boadilla}
+% other themes: AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, boxes, CambridgeUS, Copenhagen, Darmstadt, default, Dresden, Frankfurt, Goettingen,
+% Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Maloe, Marburg, Montpellier, PaloAlto, Pittsburg, Rochester, Singapore, Szeged, boxes, default
+
+\useoutertheme{infolines}
+%\usefonttheme{serif}
+% you can also specify font themes: default, professionalfonts, serif, structurebold, structureitalicserif, structuresmallcapsserif
+
+%\definecolor{vermelho}{RGB}{100,30,40}
+%\definecolor{vermelholys}{RGB}{132,158,139}
+%\definecolor{vermelholyslys}{RGB}{173,190,177}
+%\definecolor{vermelholyslyslys}{RGB}{214,223,216}
+
+
+%\usecolortheme[named=vermelho]{structure}
+
+
+
+
+ 
+
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+%\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage{ragged2e}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb} 
+\usepackage{multirow}
+%\usetheme{CambridgeUS} 
+%\setbeamercolor{normal text}{bg=white}
+\usepackage {graphicx,color}
+
+\usepackage{wrapfig} % inserir a figura ao lado do texto
+\usepackage[dvips]{epsfig} % inserir figuras de extensao post script (ps)
+\usepackage{textcomp}
+% \usepackage{undertilde} % colocar o til abaixo do x
+\usepackage{multicol} % cor na linha
+\usepackage{tabularx}
+\usepackage{rotating} %rotacionar figuras e tabelas
+
+
+\usepackage{ragged2e}
+%\justifying
+
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+\newtheorem{lema}{Lema}
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{corol}{Corolário}
+\newtheorem{prop}{Proposição}
+
+
+\newtheoremstyle{Exercício}{}{}{\rm}{}{\bf $\bigstar$ }{:}{ }{} %% \scshape para mudar
+\theoremstyle{Exercício}
+\newtheorem{exer}{Exercício}
+
+\theoremstyle{plain}
+\newtheoremstyle{Exemplo}{}{}{\rm}{}{\bf $\rhd$ }{:}{ }{} %% \scshape para mudar
+%o tamanho a maiusculo
+\theoremstyle{Exemplo}
+\newtheorem{exem}{Exemplo}
+
+% 
+% \theoremstyle{plain}
+% \newtheoremstyle{Nota}{}{}{\rm}{}{\bf\scshape}{:}{ }{}
+% \theoremstyle{Nota}
+ \newtheorem{nota}{Nota}
+
+
+
+
+
+
+%\setlength{\rightskip}{0pt}
+%\setlength{\leftskip}{0pt}
+%\setlength{\spaceskip}{0pt}
+%\setlength{\xspaceskip}{0pt}
+
+
+
+\newcommand{\fullpage}[1]{
+\begin{frame}
+ #1
+\end{frame}
+}
+
+
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+
+
+\setbeamertemplate{theorems}[numbered]
+
+
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\graphicspath{{./graphics/}} 			% path das figuras (recomendável)
+
+\newcommand{\cor}[1]{ \{{#1}\}}
+
+
+\title[Probabilidade]{  Probabilidade (PGE950) }
+\author[ Raydonal Ospina  
+%\textcopyright 
+\ ]{
+	%Probabilidade\\ 
+	% Sessão 1 \\
+	%Probabilidade\\ 
+	Sessão 11 \\
+	${}$ \\
+	Raydonal Ospina  }
+\date[PGE950 - \today ]{{\tiny PGE950 }}
+
+\institute[UFPE]{Departamento de Estatística\\
+	Universidade Federal de Pernambuco\\
+	Recife/PE}
+
+
+\usecolortheme[rgb={0,0.3,0.5}]{structure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% \SweaveOpts{concordance=TRUE}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Motivação}
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+\baselineskip=13pt
+\begin{block}{}
+	
+	
+	Entre outras coisas, a Lei dos grandes Números nos permite
+	formalizar a idéia que à medida que o número de repetições de um
+	experimento cresce, a frequência relativa $f_A$ de algum evento $A$
+	converge (quase certamente) para a probabilidade teórica $P(A)$. É
+	este fato que nos permite estimar o valor da probabilidade de um
+	evento $A$, baseado na frequência relativa de $A$ em um grande
+	número de repetições de um experimento. É também este fato que justifica a intuição que temos que eventos com probabilidade próximas de 1, quase sempre ocorrem; e que eventos com probabilidade próximas de 0 quase sempre não ocorrem.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Por exemplo, se uma nova peça for produzida e não tivermos
+conhecimento anterior sobre quão provável será que a peça seja
+defeituosa, poderemos proceder à inspeção de um grande número dessas
+peças, digamos $N$, contarmos o número de peças defeituosas dentre
+elas, por exemplo $n$, e depois empregarmos $n/N$ com uma
+aproximação da probabilidade de que uma peça seja defeituosa. O
+número $n/N$ é uma variável aleatória, e seu valor depende
+essencialmente de duas coisas. Primeira, o valor de $n/N$ depende da
+probabilidade básica, mas desconhecida, $p$ de que uma peça seja
+defeituosa. Segunda, depende daquelas $N$ peças que tenham sido
+inspecionadas. O que a Lei dos Grandes Números mostra é que se a
+técnica de selecionar as $N$ peças for aleatória, então o quociente
+$n/N$ convergirá quase certamente para $p$. (Evidentemente, a
+seleção das $N$ peças é importante. Se fôssemos escolher somente
+aquelas peças que exibissem algum defeito físico externo, por
+exemplo, poderíamos prejudicar seriamente nossos cálculos.) \\ \bigskip
+
+Mais formalmente, considere um experimento básico, com a variável
+aleatória $X$ representando o valor de um característico numérico do
+resultado (no caso anterior, temos que $X$ seria a função indicadora
+do evento $A$). Pensemos na realização deste experimento $N$ vezes
+($N$ grande), de tal maneira que as realizações sejam independentes.
+Suponhamos que depois de cada realização do experimento registre-se
+o valor do característico numérico do resultado; chamemos este um
+valor observado. A Lei dos Grandes Números afirma que a média
+aritmética dos $N$ valores observados converge, em certo sentido,
+para a média $EX$, quando $N\rightarrow \infty$.
+
+
+\end{block}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Motivação}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Vamos agora construir um modelo para o experimento repetido que
+apresentamos acima. Para experimentos dessa natureza, um resultado
+possível é uma sequência de $N$ resultados possíveis do experimento
+básico. Como estamos interessados em analisar a convergência para
+$N$ grande, se $\Omega_0$ é o espaço amostral do experimento básico,
+o espaço amostral do experimento global consiste nas sequências
+infinitas de elementos de $\Omega_0$, ou seja,
+\begin{eqnarray}
+&  & \Omega=\{(w_1,w_2,\ldots):w_i\in\Omega_0,i=1,2,\ldots\}\nonumber\\
+& & =\Omega_0\times\Omega_0\times\ldots=\Omega^{\infty},
+\nonumber
+\end{eqnarray}
+onde $w_i$ é o resultado do $i$-ésimo ensaio do experimento básico.
+Podemos completar o modelo utilizando a $\sigma$-álgebra produto
+para $\A$ e a probabilidade produto para $P$,
+%\footnote{Formalmente, dados uma sequência de espaços de probabilidade
+%$(\Omega_i,\A_i,P_i)$, a $\sigma$-álgebra produto $\A$ em $\times_i \Omega_i$ é definida como sendo a menor %$\sigma$-álgebra contendo eventos da forma $A_1\times A_2\times \cdots$, onde $A_i\in \A_i$ para todo $i$; e a %probabilidade produto é tal que $P(A_1\times A_2\times \cdots)=\prod_{i=1}^{\infty}P_i(A_i)$; pode-se provar que %existe uma única medida de probabilidade em $\A$ que satisfaz esta condição.}
+pois os ensaios são
+independentes.
+
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Já que vamos registrar um certo característico do $i$-ésimo
+resultado para todo $i$, estaremos registrando os valores de uma
+sequência de variáveis aleatórias. Intuitivamente, $X(w_0)$
+representa o valor do característico numérico do experimento básico
+$(w_0\in\Omega_0)$, então, quando o resultado da sequência de
+realizações for $w=(w_1,w_2,\ldots)$, os valores observados serão
+$X(w_1),X(w_2),\ldots$ É conveniente representar por $X_n$ o
+resultado observado na $n$-ésima realização. Assim, $X_n$ é função
+do resultado $w$ do experimento global, com $X_n(w)=X(w_n)$, e no
+decorrer serão registrados os valores das variáveis aleatórias
+$X_1,X_2,\ldots$ Notemos que $X_n$ tem a mesma distribuição de $X$,
+pois trata-se de uma sequência de repetições do mesmo experimento.
+Como as $X_n$ dependem de realizações independentes, elas são
+independentes, onde $X_1,X_2,\ldots$ são independentes se para todo
+$n\geq 2$, $X_1,\ldots, X_n$ são independentes. \\ \bigskip
+
+Uma versão da Lei dos Grandes Números diz que se $X_1,X_2,\ldots$
+são i.i.d. e integráveis, então
+$$\frac{X_1+\ldots+X_n}{n}\rightarrow EX_1.$$
+Quando o tipo de convergência é convergência em probabilidade,
+chamamos de Lei Fraca dos Grandes Números, e quando temos
+convergência quase certa, chamamos de Lei Forte dos Grandes Números. Como vimos em capítulo anterior, convergência quase-certa implica convergência em probabilidade, portanto se uma sequência de variáveis aleatórias satisfaz a Lei Forte dos Grandes Números, então ela também satisfaz a Lei Fraca.
+
+\end{block}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Motivação}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Uma versão da Lei dos Grandes Números diz que se $X_1,X_2,\ldots$
+%são i.i.d. e integráveis, então
+%$$\frac{X_1+\ldots+X_n}{n}\rightarrow EX_1.$$
+%Quando o tipo de convergência é convergência em probabilidade,
+%chamamos de Lei Fraca dos Grandes Números, e quando temos
+%convergência quase certa, chamamos de Lei Forte dos Grandes Números. Como vimos em capítulo anterior, convergência quase-certa implica convergência em probabilidade, portanto se uma sequência de variáveis aleatórias satisfaz a Lei Forte dos Grandes Números, então ela também satisfaz a Lei Fraca.
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Para esclarecer as diferenças entre as Leis Fraca e Leis Fortes, considere o caso em que $X_i\sim Bernoulli(p)$ é a função indicadora de certo evento $A$ e $n_A$ é o número de vezes que o evento $A$ ocorre em $n$ realizações do experimento. Então, a Lei Fraca afirma que $\frac{n_A}{n}\rightarrow^P p$, o que é equivalente a dizer que para todo $\epsilon>0$ podemos encontrar um $n$ suficientemente grande tal que, a probabilidade de $\frac{n_A}{n}$ estar entre $p-\epsilon$ e $p+\epsilon$, é maior que $1-\delta$ para qualquer $\delta>0$ especificado. Em outras palavras, se realizarmos muitas sequências $Bernoulli(p)$ de tamanho $n$, espera-se que apenas em uma fração delas menor que $\delta$, temos que $\frac{n_A}{n}$ está fora do intervalo $(p-\epsilon,p+\epsilon)$. Note que a Lei Fraca não dá nenhuma informação sobre a existência ou o valor do limite de $\frac{n_A}{n}$. Em contraste, a Lei Forte garante que o conjunto de todas as realizações do experimento, para as quais $\lim_n \frac{n_A}{n}=p$, é um evento com probabilidade 1. Se fixarmos $\epsilon>0$, o conjunto das realizações dos experimentos para os quais $p-\epsilon<\frac{n_A}{n}<p+\epsilon$, para $n$ suficientemente grande é um evento com probabilidade 1. A Lei Forte assegura que dado $\epsilon>0$, com probabilidade 1, os termos da sequência de frequência relativas de uma particular realização do experimento realmente estarão no intervalo $(p-\epsilon,p+\epsilon)$.
+
+\end{block}
+\end{frame}
+
+
+\section{Leis Fraca}
+\begin{frame}
+\frametitle{\textbf{Lei Fraca dos Grandes Números}}
+\baselineskip=13pt
+\begin{block}{}
+
+Nos slides anteriores, motivamos o resultado da Leis dos Grandes Números
+para variáveis aleatórias independentes e identicamente
+distribuídas. Nesta seção, analisaremos duas versões da Lei Fraca
+dos Grandes Números, na primeira delas não é necessário assumir que
+as variáveis aleatórias são identicamente distribuídas.  Vamos usar a
+desigualdade de Chebyshev para provar a Lei Fraca dos Grandes Números de
+Chebyshev.
+
+\end{block}
+\begin{teo}
+	{\bf Lei Fraca de Chebyshev} Sejam \\$X_1,X_2,\ldots$ variáveis
+	aleatórias independentes 2 a 2 com variâncias finitas e
+	uniformemente limitadas (ou seja, existe $c$ finito tal que para
+	todo $n$, $Var X_n\leq c$). Então, $X_1,X_2,\ldots$ satisfazem a Lei
+	Fraca dos Grandes Números:
+	$$\frac{S_n-ES_n}{n}\rightarrow^P 0.$$
+\end{teo}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Lei Fraca dos Grandes Números}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\begin{proof}Precisamos provar que para todo $\epsilon>0$,
+$$P(\frac{|S_n-ES_n|}{n}\geq \epsilon)\rightarrow 0\mbox{ quando }n\rightarrow\infty.$$
+
+Como as variáveis aleatórias são independentes 2 a 2, temos que
+$$Var(S_n)=\sum_{i=1}^{n}Var(X_i)\leq n c.$$ Pela desigualdade de
+Chebyshev, temos que
+\begin{equation} \label{eq:frac_grand} P(|S_n-ES_n|\geq n\epsilon)\leq
+\frac{Var(S_n)}{\epsilon^2 n^2}\leq \frac{c}{\epsilon^2
+n}\rightarrow 0. \nonumber\end{equation}
+%\eprv
+
+\end{proof}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Lei Fraca de Bernoulli}}
+\baselineskip=13pt
+%\begin{block}{}
+
+
+\begin{corol}[Lei Fraca dos Grandes Números de Bernoulli.] Consideremos uma
+sequência de ensaios binomiais independentes, tendo a mesma
+probabilidade $p$ de ``sucesso'' em cada ensaio. Se $S_n$ é o número
+de sucessos nos primeiros $n$ ensaios, então
+$$\frac{S_n}{n}\rightarrow^P p$$
+\end{corol}
+
+\begin{proof} Seja $X_n=1$ se o $n$-ésimo ensaio é sucesso, $X_n=0$ caso
+contrário. Então, $X_1,X_2,\ldots$ são i.i.d. e integráveis com
+média $\mu=p$. Como $Var X_n=p(1-p)$, a Lei Fraca de Chebyshev
+implica que $\frac{S_n-np}{n}\rightarrow^P 0$, ou, equivalentemente,
+$\frac{S_n}{n}\rightarrow^P p$. \end{proof}
+
+%\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Aplicação da Lei Fraca}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Podemos utilizar a Lei Fraca dos Grandes Números para responder a
+seguinte questão: quantas repetições de um experimento devemos
+realizar a fim de termos uma probabilidade ao menos $0,95$ para que
+a frequência relativa difira de $p=P(A)$ por menos do que, digamos,
+0,01? Utilizando a equação (\ref{eq:frac_grand}), onde $S_n$ é o
+número de ocorrências do evento $A$ em $n$ realizações do
+experimento temos que $S_n/n=f_A$, $ES_n=np$, $Var S_n=np(1-p)$, e:
+$$P(|f_A-p|\geq 0,01)\leq \frac{p(1-p)}{n(0,01)^2},$$
+ou seja, queremos que $\frac{p(1-p)}{n(0,01)^2}\leq 0,05$, o que é
+equivalente a $n\geq \frac{p(1-p)}{0,05(0,01)^2}$. Substituindo os
+valores específicos de $0,05$ e $0,01$ por $\delta$ e $\epsilon$,
+respectivamente, teremos
+$$P(|f_A-p|< \epsilon)\geq 1-\delta \mbox{ sempre que } n\geq \frac{p(1-p)}{\delta(\epsilon)^2}.$$
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Aplicação da Lei Fraca}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Em muitos problemas, não conhecemos o valor de $p=P(A)$ e, por isso,
+não poderemos empregar o limite acima. Nesse caso, poderemos
+empregar o fato de que $p(1-p)$ toma seu valor máximo quando
+$p=1/2$, e esse valor máximo é igual a 1/4. Consequentemente,
+estamos certamente seguros se afirmamos que para $n\geq
+\frac{1}{4\epsilon^2\delta}$ teremos
+$$P(|f_A-p|<\epsilon)\geq 1-\delta.$$
+
+\end{block}
+\begin{exem}
+	Peças são produzidas de tal maneira que a probabilidade de uma peça
+	ser defeituosa é $p$ (admitida desconhecida). Um grande número de
+	peças, digamos $n$, são classificadas como defeituosas ou perfeitas.
+	Que valor deverá ter $n$ de maneira que possamos estar $99\%$ certos
+	de que a frequência relativa de defeituosas difere de $p$ por menos
+	de $0,05$?
+	
+	{\bf Solução:} Porque não conhecemos o valor de $p$, deveremos
+	aplicar a última fórmula com $\epsilon=0,05$, $\delta=0,01$. Deste
+	modo encontraremos que se $n\geq \frac{1}{4(0,05)^20,01}=10.000$, a
+	condição exigida será satisfeita.
+\end{exem}
+
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Aplicação da Lei Fraca}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Lei Fraca de Khintchin}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+A hipótese de variâncias finitas pode ser eliminada e o próximo
+teorema prova uma versão da Lei Fraca dos Grandes Números para
+variáveis aleatórias i.i.d. e integráveis.
+
+\begin{teo} {\bf Lei Fraca de Khintchin.}
+Se $X_1,X_2,\ldots$ são i.i.d. e integráveis com média comum $\mu$,
+então
+$$\frac{S_n}{n}\rightarrow^P \mu.$$
+\end{teo}
+
+\begin{proof} É consequência da Lei Forte de Kolmogorov e do fato que
+convergência quase certa implica convergência em probabilidade.
+\end{proof}
+
+%\end{block}
+\end{frame}
+
+
+\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{exem}{}
+
+
+\begin{exem}
+Sejam $\{X_n:n\geq 1\}$ variáveis i.i.d. com média $\mu$ e variância $\sigma^2$, ambas finitas. Prove que
+$\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2\rightarrow^P \sigma^2$. \bigskip
+
+{\bf Solução:}
+$\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2
+%=\frac{1}{n}\sum_{i=1}^{n}(X_i^2-2X_i\overline{X}+\overline{X}^2)=\frac{1}{n}\sum_{i=1}^{n}X_i^2-2\overline{X}\frac{1}{n}\sum_{i=1}^{n}X_i+\frac{1}{n}\sum_{i=1}^{n}\overline{X}^2\nonumber\\
+%& &
+=\frac{1}{n}\sum_{i=1}^{n}X_i^2-\overline{X}^2
+%\nonumber
+%\end{eqnarray}
+%\bigskip
+$
+Pela Lei Fraca de Kintchin, temos que
+\begin{eqnarray}
+\frac{1}{n}\sum_{i=1}^{n}X_i^2\rightarrow^P E(X_i^2)=\sigma^2+\mu^2, \qquad, 
+\overline{X}\rightarrow^P E(X_i)=\mu.\nonumber
+\end{eqnarray}
+
+Como funções contínuas preservam convergência, temos que
+\begin{eqnarray}
+\overline{X}^2\rightarrow^P \mu^2.\nonumber
+\end{eqnarray}
+Logo, temos que
+\begin{eqnarray}
+(\frac{1}{n}\sum_{i=1}^{n}X_i^2,\overline{X}^2)\rightarrow^P (\sigma^2+\mu^2,\mu^2).\nonumber
+\end{eqnarray}
+
+Finalmente, como funções contínuas preservam convergência
+\begin{eqnarray}
+\frac{1}{n}\sum_{i=1}^{n}X_i^2-\overline{X}^2\rightarrow^P \sigma^2.\nonumber
+\end{eqnarray}
+
+%Pela Desigualdade Triangular, temos:
+%\begin{eqnarray}
+%& & |\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|\nonumber\\
+%& & \leq |\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2|\nonumber\\
+%& & +|\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2-\sigma^2|. \nonumber
+%\end{eqnarray}
+
+\end{exem}
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%Pela Lei Fraca de Kintchin, temos que
+%\begin{eqnarray}
+%\frac{1}{n}\sum_{i=1}^{n}X_i^2\rightarrow^P E(X_i^2)=\sigma^2+\mu^2, \qquad, 
+%\overline{X}\rightarrow^P E(X_i)=\mu.\nonumber
+%\end{eqnarray}
+%
+%Como funções contínuas preservam convergência, temos que
+%\begin{eqnarray}
+%\overline{X}^2\rightarrow^P \mu^2.\nonumber
+%\end{eqnarray}
+%Logo, temos que
+%\begin{eqnarray}
+%(\frac{1}{n}\sum_{i=1}^{n}X_i^2,\overline{X}^2)\rightarrow^P (\sigma^2+\mu^2,\mu^2).\nonumber
+%\end{eqnarray}
+%
+%Finalmente, como funções contínuas preservam convergência
+%\begin{eqnarray}
+%\frac{1}{n}\sum_{i=1}^{n}X_i^2-\overline{X}^2\rightarrow^P \sigma^2.\nonumber
+%\end{eqnarray}
+%%%Logo,
+%%\begin{eqnarray}
+%%& & \{|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon\}\nonumber \\
+%%& & \subseteq \{|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2|>\frac{\epsilon}{2}\}\nonumber\\
+%%&  &\cup\{|\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2-\sigma^2|>\frac{\epsilon}{2}\}. \nonumber
+%%\end{eqnarray}
+%%
+%%Portanto,
+%%\begin{eqnarray}
+%%& & P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon) \nonumber \\
+%%& & \leq P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2|>\frac{\epsilon}{2})\nonumber\\
+%%& & +P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2-\sigma^2|>\frac{\epsilon}{2}). \nonumber
+%%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%Logo, temos que
+%\begin{eqnarray}
+%(\frac{1}{n}\sum_{i=1}^{n}X_i^2,\overline{X}^2)\rightarrow^P (\sigma^2+\mu^2,\mu^2).\nonumber
+%\end{eqnarray}
+%
+%Finalmente, como funções contínuas preservam convergência
+%\begin{eqnarray}
+%\frac{1}{n}\sum_{i=1}^{n}X_i^2-\overline{X}^2\rightarrow^P \sigma^2.\nonumber
+%\end{eqnarray}
+%
+%%Note que
+%%\begin{eqnarray}
+%%& & \frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2 \nonumber\\
+%%& & =\frac{1}{n}\sum_{i=1}^{n}(X_i^2-2X_i\overline{X}+\overline{X}^2-X_i^2+2X_i\mu-\mu^2)\nonumber\\
+%%& & =(\overline{X}^2-\mu^2)+2(\mu-\overline{X})\overline{X}
+%%\nonumber
+%%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Pela Lei Fraca dos Grandes Números, $\overline{X}\rightarrow^P \mu$. Portanto, $(\overline{X}^2-\mu^2)+2(\mu-\overline{X})\overline{X}\rightarrow^P 0$, ou seja, $$\lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2|>\frac{\epsilon}{2})=0.$$
+%
+%Como $(X_i-\mu)^2$ são variáveis aleatórias independentes e identicamente distribuídas, com média $\sigma^2$, temos que pela Lei Fraca dos Grandes Números, $\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2\rightarrow^P \sigma^2$. Portanto, temos que
+%$$\lim_nP(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\mu)^2-\sigma^2|>\frac{\epsilon}{2})=0.$$
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Exemplo}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Então,
+%$$\lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon)=0,$$
+%ou seja, $\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2\rightarrow^P \sigma^2$.
+%
+%
+%\commentout{
+%Vamos tentar utilizar a Lei Fraca dos Grandes Números. Para isto, precisamos calcular $E(X_i-\overline{X})^2$.
+%\begin{eqnarray}
+%& & E(X_i-\overline{X})^2=EX_i^2-2E(X_i\overline{X})+E\overline{X}^2 \nonumber \\
+%& & =Var X_i +(EX_i)^2 -\frac{2}{n}[(n-1)E(X_iX_j)+EX_i^2] +Var (\overline{X}) + (E\overline{X})^2 \nonumber \\
+%& & =\sigma^2 +\mu^2 -\frac{2}{n}[(n-1)\mu^2+\sigma^2+\mu^2]+\frac{\sigma^2}{n}+\mu^2 = \frac{n-1}{n}\sigma^2. \nonumber
+%\end{eqnarray}
+%
+%Pela Desigualdade Triangular, temos:
+%$$|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|\leq |\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{n-1}{n}\sigma^2|+|\frac{n-1}{n}\sigma^2-\sigma^2|.$$
+%Logo,
+%$$\{|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon\}\subseteq \{|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{n-1}{n}\sigma^2|>\frac{\epsilon}{2}\}\cup\{|\frac{n-1}{n}\sigma^2-\sigma^2|>\frac{\epsilon}{2}\}.$$
+%Portanto,
+%$$P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon)\leq P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{n-1}{n}\sigma^2|>\frac{\epsilon}{2})+P(|\frac{n-1}{n}\sigma^2-\sigma^2|>\frac{\epsilon}{2}).$$
+%
+%Tomando o limite quando $n\rightarrow\infty$, temos
+%\begin{eqnarray}
+%& & \lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon)\leq \lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{n-1}{n}\sigma^2|>\frac{\epsilon}{2}) \nonumber \\
+%& & +\lim_n P(|\frac{n-1}{n}\sigma^2-\sigma^2|>\frac{\epsilon}{2}). \nonumber
+%\end{eqnarray}
+%
+%Mas pela Lei Fraca dos Grandes Números, temos que
+%$$\lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\frac{n-1}{n}\sigma^2|>\frac{\epsilon}{2})=0.$$
+%Então,
+%$$\lim_n P(|\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2-\sigma^2|>\epsilon)=0,$$
+%ou seja, $\frac{1}{n}\sum_{i=1}^{n}(X_i-\overline{X})^2\rightarrow^P \sigma^2$.
+%}
+%%\end{example}
+%
+%
+%\end{block}
+%\end{frame}
+
+\section{Leis Forte}
+\begin{frame}
+\frametitle{\textbf{Lei Forte dos Grandes Números}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+Antes de discutir sobre  a Lei Forte dos Grandes Números, vamos
+apresentar uma extensão da desigualdade de
+Chebyshev.
+
+\begin{lema}
+Sejam $X_1,\ldots,X_n$ variáveis aleatórias independentes tais que
+$EX_k=0$ e $Var X_k<\infty,k=1,\ldots,n$. Então, para todo
+$\lambda>0$,
+$$P(\max_{1\leq k\leq n}|S_k|\geq \lambda)\leq \frac{1}{\lambda^2}Var S_n=\frac{1}{\lambda^2}\sum_{k=1}^{n}Var X_k,$$
+onde $S_k=X_1+\ldots+X_k$.
+\end{lema}
+
+%\end{block}
+
+\begin{teo}[Primeira Lei Forte de
+		Kolmogorov]
+	Sejam $X_1,X_2,\ldots$ variáveis aleatórias independentes e
+	integráveis, e suponha que
+	$$\sum_{n=1}^{\infty}\frac{Var X_n}{n^2}<\infty.$$
+	Então, as $X_n$ satisfazem a Lei Forte dos Grandes Números, ou seja,
+	$$\frac{X_1+\ldots+X_n}{n}-\frac{(EX_1+\ldots+EX_n)}{n}\rightarrow 0\mbox{ cp1.}$$
+\end{teo}
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lemma}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Queremos uma cota superior para $$P(\max_{1\leq k\leq
+%n}S_k^2\geq \lambda^2).$$ Para tanto, seja $A=[\max_{1\leq k\leq
+%n}S_k^2\geq \lambda^2]$. Vamos decompor $A$ conforme a primeira vez
+%que $S_k^2\geq \lambda^2$, definamos:
+%\begin{eqnarray}
+%& & A_1=[S_1^2\geq \lambda^2],\nonumber \\
+%& & A_2=[S_1^2<\lambda^2,S_2^2\geq \lambda^2], \nonumber \\
+%& & A_k=[S_1^2<\lambda^2,\ldots,S_{k-1}^2<\lambda^2,S_k^2\geq
+%\lambda^2], \nonumber
+%\end{eqnarray}
+%para $2\leq k\leq n$.
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lemma}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Então os $A_k$ são disjuntos e $A=\cup_{k=1}^{n}A_k$. Logo,
+%$I_A=\sum_{k=1}^{n}I_{A_k}$ e
+%\begin{eqnarray}
+%& & S_n^2\geq S_n^2I_A=\sum_{k=1}^{n}S_n^2I_{A_k}\Rightarrow
+%ES_n^2\geq \sum_{k=1}^{n}ES_n^2I_{A_k}. \nonumber
+%\end{eqnarray}
+%
+%Queremos substituir $S_n^2$ por $S_k^2$ no somatório (pois
+%$S_k^2\geq \lambda^2$ em $A_k$, e não vale necessariamente
+%$S_n^2\geq \lambda^2$); o truque é escrever
+%$$S_n^2=(S_n-S_k)^2+S_k^2+2(S_n-S_k)S_k\geq S_k^2+2(S_n-S_k)S_k.$$
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lemma}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Portanto,
+%$$ES_n^2I_{A_k}\geq ES_k^2I_{A_k}+2E((S_n-S_k)S_kI_{A_k}).$$
+%Como $S_n-S_k=X_{k+1}+\ldots+X_n$ e $S_kI_{A_k}$ depende só de
+%$X_1,\ldots,X_k$, as duas são funções de famílias disjuntas de
+%variáveis independentes, logo são independentes e a esperança
+%fatora:
+%$$E((S_n-S_k)S_kI_{A_k})=E(S_n-S_k)E(S_kI_{A_k}).$$
+%Como $E(S_n-S_k)=0$, temos
+%\begin{eqnarray}
+%& & ES_n^2I_{A_k}\geq ES_k^2I_{A_k}\geq
+%E\lambda^2I_{A_k}=\lambda^2P(A_k).\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lemma}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Portanto,
+%$$ES_n^2\geq \sum_{k=1}^{n}\lambda^2P(A_k)=\lambda^2P(A),$$
+%logo
+%$$P(A)\leq \frac{1}{\lambda^2}ES_n^2=\frac{1}{\lambda^2}Var S_n.$$
+%%\eprv
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Primeira Lei Forte de
+%Kolmogorov}}
+%%\baselineskip=13pt
+%%\begin{block}{}
+%
+%
+%%O próximo teorema é conhecido como {\bf Primeira Lei Forte de
+%%Kolmogorov}.
+%
+%\begin{teo}
+%Sejam $X_1,X_2,\ldots$ variáveis aleatórias independentes e
+%integráveis, e suponha que
+%$$\sum_{n=1}^{\infty}\frac{Var X_n}{n^2}<\infty.$$
+%Então, as $X_n$ satisfazem a Lei Forte dos Grandes Números, ou seja,
+%$$\frac{X_1+\ldots+X_n}{n}-\frac{(EX_1+\ldots+EX_n)}{n}\rightarrow 0\mbox{ cp1.}$$
+%\end{teo}
+%
+%%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Primeira Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Suponhamos sem perda de generalidade que\\ $EX_n=0, \forall n$.
+%Queremos mostrar que $\frac{S_n}{n}\rightarrow 0$ cp1, onde
+%$S_n=X_1+\ldots+X_n$. Para tanto, basta mostrar que
+%$$M_n=\max_{2^n<k\leq 2^{n+1}}\frac{|S_k|}{k}\rightarrow 0 \mbox{ cp1 quando }n\rightarrow\infty.$$
+%
+%Provaremos isto em duas etapas:
+%\begin{itemize}
+%\item[(i)] $\sum_{n=1}^{\infty}P(M_n\geq \frac{1}{m})<\infty,\forall
+%m=1,2,\ldots$; e
+%\item[(ii)] $M_n\rightarrow 0$ cp1.
+%\end{itemize}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Primeira Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para (i), considere $m$ fixo. Então, para todo $n$,
+%\begin{eqnarray}
+%& & P(M_n\geq \frac{1}{m})\leq P(\max_{2^n<k\leq 2^{n+1}}|S_k|\geq
+%\frac{2^n}{m})\leq \nonumber \\
+%& & \leq P(\max_{1<k\leq 2^{n+1}}|S_k|\geq \frac{2^n}{m})\leq
+%\frac{m^2}{4^n}\sum_{k=1}^{2^{n+1}}Var(X_k), \nonumber
+%\end{eqnarray}
+%onde vale a última passagem pelo lema anterior.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Primeira Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Seja $A_n=[M_n\geq
+%\frac{1}{m}]$, então
+%\begin{eqnarray}
+%& & \sum_{n=1}^{\infty}P(A_n)\leq
+%m^2\sum_{n=1}^{\infty}(\frac{1}{4^n}\sum_{k=1}^{2^{n+1}}Var(X_k))\nonumber\\
+%& & =m^2\sum_{k=1}^{\infty}\sum_{n:2^{n+1}\geq
+%k}(\frac{1}{4^n}Var(X_k))= \nonumber \\
+%& & =m^2\sum_{k=1}^{\infty}Var(X_k)\sum_{n:2^{n+1}\geq
+%k}(\frac{1}{4^n}). \nonumber
+%\end{eqnarray}
+%
+%Como  $\sum_{n:2^{n+1}\geq k}(\frac{1}{4^n})\leq \frac{16}{3k^2}$,
+%temos
+%$$\sum_{n=1}^{\infty}P(A_n)\leq \frac{16 m^2}{3}\sum_{k=1}^{\infty}\frac{Var(X_k)}{k^2}<\infty.$$
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Primeira Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para (ii), note que por Borel-Cantelli, tem-se\\ $P(A_n\mbox{ infintas
+%vezes})=0$. Logo, para todo $m$, a probabilidade é 1 de que $M_n$
+%assuma um valor $\geq \frac{1}{m}$ para somente um número finito de
+%$n$'s. Seja $B_m$ o evento ``$M_n$ assuma um valor $\geq
+%\frac{1}{m}$ para somente um número finito de $n$'s'', então
+%$P(B_m)=1,\forall m$, o que implica que
+%$P(\cap_{m=1}^{\infty}B_m)=1$, e (ii) resulta da equivalência entre
+%os eventos $\cap_{m=1}^{\infty}B_m$ e $[M_n\rightarrow 0]$.
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Aplicação da Primeira Lei Forte de
+Kolmogorov}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+%O próximo exemplo ilustra uma aplicação da Primeira Lei Forte de Kolmogorov.
+
+%\begin{example}
+Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes com $X_n\thicksim Poisson(\sqrt{n})$, para cada $n\geq 1$. Calcule o limite quase-certo de $\overline{X}$.
+
+{\bf Solução:} Como $Var X_n=\sqrt{n}$, temos que
+$$\sum_{n=1}^{\infty}\frac{Var X_n}{n^2}=\sum_{n=1}^{\infty}\frac{\sqrt{n}}{n^2}<\infty.$$
+Logo, a primeira Lei Forte de Kolmogorov implica que
+$$\overline{X}-\frac{EX_1+\cdots+EX_n}{n}\rightarrow 0 \mbox{ cp1, ou seja}$$
+$$\overline{X}-\frac{\sqrt{1}+\sqrt{2}+\cdots+\sqrt{n}}{n}\rightarrow 0 \mbox{ cp1.}$$
+Pelo teste da integral, pode-se verificar que
+$$\sqrt{1}+\sqrt{2}+\cdots+\sqrt{n}\geq \frac{2n^{3/2}}{3}.$$
+Portanto,
+$$\frac{\sqrt{1}+\sqrt{2}+\cdots+\sqrt{n}}{n}\geq \frac{2n^{1/2}}{3}\rightarrow\infty.$$
+
+Logo, $\overline{X}\rightarrow\infty$ cp1.
+\end{block}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Aplicação da Primeira Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Pelo teste da integral, pode-se verificar que
+%$$\sqrt{1}+\sqrt{2}+\cdots+\sqrt{n}\geq \frac{2n^{3/2}}{3}.$$
+%Portanto,
+%$$\frac{\sqrt{1}+\sqrt{2}+\cdots+\sqrt{n}}{n}\geq \frac{2n^{1/2}}{3}\rightarrow\infty.$$
+%
+%Logo, $\overline{X}\rightarrow\infty$ cp1.
+%%\end{example}
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Segunda Lei Forte de
+Kolmogorov}}
+Antes de enunciarmos a Segunda Lei Forte de Kolmogorov,
+considere o seguinte lema:
+
+\begin{lema}
+	\label{lem:lem_segulei} Seja $X$ uma variável aleatória integrável
+	com função de distribuição $F$. Então,
+	$$\sum_{n=1}^{\infty}(\frac{1}{n^2}\int_{-n}^{n}x^2dF(x))<\infty.$$
+\end{lema}
+
+
+\begin{teo}[Segunda Lei Forte de
+		Kolmogorov]
+	Sejam $X_1,X_2,\ldots$ variáveis aleatórias independentes,
+	identicamente distribuídas e integráveis, com $EX_n=\mu$. Então,
+	$$\frac{X_1+\ldots+X_n}{n}\rightarrow \mu\mbox{ quase certamente.}$$
+\end{teo}
+
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Vamos utilizar o seguinte fato:
+%$\sum_{n=j}^{\infty}\frac{1}{n^2}\leq\frac{2}{j}$ para
+%$j=1,2,\ldots$. Como
+%$$\int_{-n}^{n}x^2dF(x)=\sum_{j=-n+1}^{n}\int_{j-1}^{j}x^2dF(x),$$
+%temos
+%\begin{eqnarray}
+%& &
+%\sum_{n=1}^{\infty}(\frac{1}{n^2}\int_{-n}^{n}x^2dF(x))=\sum_{n=1}^{\infty}\sum_{j=-n+1}^{n}(\frac{1}{n^2}\int_{j-1}^{j}x^2dF(x))\nonumber
+%\\
+%& & =\sum_{n=1}^{\infty}\sum_{j=1}^{n}(\frac{1}{n^2}\int_{j-1}^{j}x^2dF(x))\nonumber\\
+%& & +\sum_{n=1}^{\infty}\sum_{j=-n+1}^{0}(\frac{1}{n^2}\int_{j-1}^{j}x^2dF(x))\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%\begin{eqnarray}
+%& &
+%=\sum_{j=1}^{\infty}\sum_{n=j}^{\infty}(\frac{1}{n^2}\int_{j-1}^{j}x^2dF(x))\nonumber\\
+%& & +\sum_{j=-\infty}^{0}\sum_{n=|j|+1}^{\infty}(\frac{1}{n^2}\int_{j-1}^{j}x^2dF(x))\leq
+%\nonumber \\
+%& & \leq 2\sum_{j=1}^{\infty}\int_{j-1}^{j}\frac{x^2}{j}dF(x)+
+%2\sum_{j=-\infty}^{0}\int_{j-1}^{j}\frac{x^2}{|j|+1}dF(x). \nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Lema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como $\frac{x^2}{j}\leq x$ em $(j-1,j]$, para $j\geq 1$, e
+%$\frac{x^2}{|j|+1}\leq |x|$ em $(j-1,j]$, para $j\leq 0$, temos
+%\begin{eqnarray}
+%& & \sum_{n=1}^{\infty}(\frac{1}{n^2}\int_{-n}^{n}x^2dF(x))\nonumber\\
+%&  & \leq
+%2\sum_{j=1}^{\infty}\int_{j-1}^{j}x dF(x)+
+%2\sum_{j=-\infty}^{0}\int_{j-1}^{j}|x|dF(x) \nonumber \\
+%& &
+%=2\sum_{j=-\infty}^{\infty}\int_{j-1}^{j}|x|dF(x)\nonumber\\
+%& & =2\int_{-\infty}^{\infty}|x|dF(x)=2E|X|<\infty.\nonumber
+%\end{eqnarray}
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%A seguir enunciamos e provamos a {\bf Segunda Lei Forte de
+%%Kolmogorov}.
+%
+%\begin{theorem}f{Segunda Lei Forte de
+%		Kolmogorov}
+%Sejam $X_1,X_2,\ldots$ variáveis aleatórias independentes,
+%identicamente distribuídas e integráveis, com $EX_n=\mu$. Então,
+%$$\frac{X_1+\ldots+X_n}{n}\rightarrow \mu\mbox{ quase certamente.}$$
+%\end{theorem}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Suponhamos sem perda de generalidade que $\mu=0$. Vamos truncar
+%as variáveis $X_n$, definamos\\ $Y_n=X_nI_{[-n<X_n\leq n]}$. Seja
+%$Z_n=X_n-Y_n$, de modo que
+%$$\frac{X_1+\ldots+X_n}{n}=\frac{Y_1+\ldots+Y_n}{n}+\frac{Z_1+\ldots+Z_n}{n}.$$
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%A prova terá três partes:
+%\begin{itemize}
+%\item[(a)] $\frac{Z_1+\ldots+Z_n}{n}\rightarrow 0$ quase certamente (usaremos Borel-Cantelli);
+%
+%\item[(b)] $\frac{Y_1+\ldots +Y_n}{n}-\frac{EY_1+\ldots +EY_n}{n}\rightarrow
+%0$ quase certamente (usaremos a Primeira Lei Forte e o
+%Lema~\ref{lem:lem_segulei}); e
+%
+%\item[(c)] $\frac{EY_1+\ldots +EY_n}{n}\rightarrow
+%0$ (usaremos o Teorema da Convergência Dominada).
+%\end{itemize}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%É fácil ver que (a), (b), e (c) implicam o teorema. Para provar (a),
+%note que $Z_n\ne 0\Leftrightarrow Y_n\ne X_n\Leftrightarrow
+%X_n\notin (-n,n]$. Logo,
+%$$P(Z_n\ne 0)=P(X_n\notin (-n,n])\leq P(|X_n|\geq n).$$
+%Mas os eventos $A_n=[Z_n\ne 0]$ satisfazem
+%\begin{eqnarray}
+%& & \sum_{n=1}^{\infty}P(A_n)\leq \sum_{n=1}^{\infty}P(|X_n|\geq n)\nonumber\\
+%& & =\sum_{n=1}^{\infty}P(|X_1|\geq n)\leq E|X_1| <\infty.\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Portanto, Borel-Cantelli implica que\\ $P(A_n\mbox{ infinitas
+%vezes})=0$, ou seja
+%$$P(Z_n\ne 0\mbox{ infinitas vezes})=0.$$
+%Isso significa que
+%$$P(Z_n=0\mbox{ para todo $n$ suficientemente grande})=1.$$
+%
+%Mas se $Z_n=0$ para $n$ suficientemente grande, então
+%$Z_n\rightarrow 0$ e
+%$$\frac{Z_1+\ldots+Z_n}{n}\rightarrow 0,\mbox{ logo }P(\frac{Z_1+\ldots+Z_n}{n}\rightarrow 0)=1.$$
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para provar (b), seja $F$ a função de distribuição comum,
+%$F=F_{X_n}$. Verifiquemos a condição da primeira Lei Forte de
+%Kolmogorov para as variáveis aleatórias $Y_n$. Como
+%$Y_n=X_nI_{[-n<X_n\leq n]}$, temos
+%$$Var(Y_n)\leq E(Y_n^2)=E(X_n^2I_{[-n<X_n\leq n]})=\int_{-n}^{n}x^2dF(x).$$
+%Portanto,
+%$$\sum_{n=1}^{\infty}\frac{Var(Y_n)}{n^2}\leq \sum_{n=1}^{\infty}\frac{1}{n^2}\int_{-n}^{n}x^2dF(x)<\infty,$$
+%onde a última desigualdade decorre do Lema~\ref{lem:lem_segulei}.
+%Portanto, (b) decorre da primeira Lei Forte de Kolmogorov.
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para provar (c), é suficiente mostrar que $EY_n\rightarrow 0$. Mas,
+%\begin{eqnarray}
+%& & EY_n=E(X_nI_{[-n<X_n\leq n]})\nonumber\\
+%& & =E(X_1I_{[-n<X_1\leq n]})\rightarrow EX_1=0,\nonumber
+%\end{eqnarray}
+%pelo teorema da convergência dominada que se aplica pois $|X_1|$
+%domina $X_1I_{[-n\leq X_1\leq n]}$'s e é integrável.
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Aplicação da Segunda Lei Forte de
+Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+
+\begin{exem}
+As variáveis $X_n$, $n\geq 1$, são independentes e todas têm distribuição Exponencial de parâmetro $\lambda$. Mostre que a sequência $\{X_n^2:n\geq 1\}$ satisfaz a Lei Forte dos Grandes Números.
+
+{\bf Solução:} De acordo com a Segunda Lei Forte de Kolmogorov, precisamos mostrar que $EX_n^2$ é finita para todo $n$. Como $EX_n^2=Var X_n +(EX_n)^2=\frac{2}{\lambda^2}<\infty$, temos que a sequência $\{X_n^2:n\geq 1\}$ satisfaz a Lei Forte dos Grandes Números.
+\end{exem}
+
+\begin{exem}
+	Seja $\{X_n:n\geq 1\}$ uma sequência de variáveis aleatórias i.i.d., seguindo o modelo Uniforme contínuo em $(0,1)$. Calcule o limite, quase certo, para $\frac{1}{n}\sum_{k=1}^{n}(-\log(X_k))$ quando $n\rightarrow\infty$.
+	
+	{\bf Solução:} Vamos tentar usar a Lei Forte dos Grandes Números. Para isso, precisamos calcular $E(-\log X_k)$.
+	$$E(-\log X_k)=\int_{0}^{1}-\log xdx=-x\log x|_{0}^{1}+\int_{0}^{1}dx=1.$$
+	Portanto, temos que $\frac{1}{n}\sum_{k=1}^{n}(-\log(X_k))\rightarrow 1$ cp1.
+\end{exem}
+
+
+%\end{block}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{\textbf{Aplicação da Segunda Lei Forte de
+%Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Convergência da Função de Distribuição Empírica}}
+A seguir veremos uma importante consequência da Lei Forte dos Grandes Números para a área de Estatística Aplicada. Sejam $X_1,X_2,,\ldots,X_n$ variáveis aleatórias em $(\Omega,\A,P)$ independentes e identicamente distribuídas com função de distribuição $F$. Essas variáveis podem representar a amostra observada de uma certa quantidade de interesse. A {\em função de distribuição empírica} ou {\em amostral}, denotada por $F_n^e$, é definida para todo $x\in \IR$ e $w\in\Omega$ por:
+\begin{eqnarray}
+&  & F_n^e(x,w)\nonumber\\
+& & =\frac{1}{n}[\mbox{no. de $i$'s tais que $X_i(w)\leq x,i=1,2,\ldots,n$}].\nonumber
+\end{eqnarray}
+Para uma particular trajetória $w_0\in\Omega$, obtemos o conjunto de valores fixados $X_1(w_0)=x_1,\ldots,X_n(w_0)=x_n.$ Se os $x_i$'s são todos diferentes, então $F_n^e(x,w_0)$ é uma função de distribuição com saltos $1/n$ em cada um desses valores.
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Convergência da Função de Distribuição Empírica}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+Considere um $x_0\in\IR$ fixo. Então $F_n^e(x_0,w)$ é uma variável aleatória, pois é uma função das variáveis aleatórias $X_1,X_2,\ldots,X_n$. Se $Y_i=I_{X_i\leq x_0},i=1,2,\ldots,n$, então $F_n^e(x_0,w)=\frac{1}{n}\sum_{i=1}^{n}Y_i(w)$. Como as variáveis aleatórias $Y_i$ são funções de famílias disjuntas de variáveis aleatórias independentes, elas também são independentes. Além disso, temos que $Y_i\sim Bernoulli(p)$ com
+$$p=P(Y_i=1)=P(X_i\leq x_0)=F(x_0).$$
+Portanto, concluímos que pela Lei Forte de Kolmogorov, para cada valor $x_0\in\IR$ fixo, temos $F_n^e(x_0,w)\rightarrow F(x_0)$ cp1. O {\em Teorema de Glivenko-Cantelli} também conhecido como {\em Teorema Fundamental da Estatística} afirma que a função de distribuição empírica converge para a função de distribuição populacional, quase certamente em $\Omega$ e uniformemente em $\IR$.
+
+\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Convergência da Função de Distribuição Empírica}}
+%\baselineskip=13pt
+%\begin{block}{
+
+
+\begin{teo}
+Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias em $(\Omega,\A,P)$, independentes e identicamente distribuídas com função de distribuição $F$. Seja $F_n^e$ a correspondente função de distribuição empírica, então:
+$$P(\lim_n\sup_{x\in\IR}|F_n^e(x,w)-F(x)|=0)=1.$$
+\end{teo}
+
+\begin{proof}
+Para cada $x$ fixo, os argumentos anteriores garantem convergência quase certa. A prova de que este resultado pode ser estendido, usa técnicas de Análise Matemática e será omitida.
+\end{proof}
+
+
+%\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Recíproca da Lei Forte
+de Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+%Por fim nós enunciaremos e provaremos a {\bf }.
+A Lei Forte afirma que se as variáveis aleatórias
+$X_n$ são integráveis, então $\frac{S_n}{n}$ converge para um limite
+finito $(=EX_1)$ com probabilidade 1. A recíproca diz que se as
+$X_n$ não forem integráveis, então com probabilidade 1,
+$\frac{S_n}{n}$ não convergirá para um limite finito.
+
+\begin{teo} Sejam $X_1,X_2,\ldots$ variáveis aleatórias independentes e
+identicamente distribuídas. Se $E|X_1|=\infty$, então, com
+probabilidade 1, a sequência $\frac{|S_n|}{n}$ não é limitada. \end{teo}
+
+%\end{block}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{\textbf{Prova da Recíproca da Lei Forte
+%de Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Se $E|X_1|=\infty$, então $E(\frac{|X_1|}{k})=\infty$, para
+%$k=1,2,\ldots$. Logo, temos que
+%$$\sum_{n=1}^{\infty}P(\frac{|X_1|}{k}\geq n)=\infty, \forall k.$$
+%Como as variáveis $X_n$ são identicamente distribuídas, temos
+%$$\sum_{n=1}^{\infty}P(\frac{|X_1|}{k}\geq n)=\sum_{n=1}^{\infty}P(\frac{|X_n|}{k}\geq n)=\sum_{n=1}^{\infty}P(\frac{|X_n|}{n}\geq k).$$
+%Por independência dos $X_n$, os eventos $A_n=[\frac{|X_n|}{n}\geq
+%k]$ são independentes, e Borel-Cantelli implica
+%$$P(\frac{|X_n|}{n}\geq k\mbox{ infinitas vezes})=1, \forall k.$$
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Recíproca da Lei Forte
+%de Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Fazendo $B_k=[\frac{|X_n|}{n}\geq k\mbox{ infinitas vezes}]$, temos\\
+%$P(\cap_{k=1}^{\infty}B_k)=1$, pois a intersecção de um número
+%enumerável de eventos de probabilidade 1 também tem probabilidade 1.
+%Mas o evento $\cap_{k=1}^{\infty}B_k$ é o evento
+%``$\frac{|X_n|}{n}>k$ para um número infinito de $n$, para todo
+%$k$'', ou seja, é o evento ``a sequência $\frac{|X_n|}{n}$ é
+%ilimitada.'' Para terminar a prova, basta mostrar que se
+%$\frac{|X_n|}{n}$ é ilimitada, então $\frac{|S_n|}{n}$ também é
+%ilimitada.
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova da Recíproca da Lei Forte
+%de Kolmogorov}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Agora, com $S_0=0$, temos
+%%
+%$$\frac{|X_n|}{n}=\frac{|S_n-S_{n-1}|}{n}\leq \frac{|S_n|}{n}+\frac{|S_{n-1}|}{n},$$
+%para $n=1,2,\ldots$. Portanto, se $\frac{|X_n|}{n}$ é ilimitada,
+%então $\frac{|S_n|}{n}$ é ilimitada ou $\frac{|S_{n-1}|}{n}$ é
+%ilimitada. Mas,
+%$$\frac{|S_{n-1}|}{n}=\frac{|S_{n-1}|}{(n-1)}\cdot\frac{(n-1)}{n},$$
+%então $\frac{|S_{n-1}|}{n}$ é ilimitada se, e somente se,
+%$\frac{|S_{n}|}{n}$ também for.
+%
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Um Exemplo de Divergência das Médias}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+Uma variável aleatória tem distribuição de Cauchy de parâmetro $a$
+se, para $a>0$
+$$f_X(x)=\frac{1}{\pi}\cdot\frac{a}{a^2+x^2}.$$
+%
+Assuma que $X_n$ são i.i.d. segundo uma distribuição de Cauchy de
+parâmetro $a$. Seja $S_n=\frac{1}{n}\sum_{i=1}^{n}X_n$. Utilizando a
+definição e as propriedades da função característica pode-se provar que
+$$\phi_{X_n}(u)=e^{-a|u|}\mbox{, e }\phi_{S_n}(u)=e^{-a|u|}.$$
+Então, as médias $S_n$ são distribuídas exatamente como uma das
+parcelas da soma.
+
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Um Exemplo de Divergência das Médias}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+Para $n\geq m$, após alguma manipulação algébrica,
+temos que
+$$S_n-S_m=(1-\frac{m}{n})([Z_{n,m}]-[Y_{n,m}]),$$
+onde $Z_{n,m}=\frac{1}{n-m}\sum_{i=m+1}^{n}X_i$ e
+$Y_{n,m}=\frac{1}{m}\sum_{i=1}^{m}X_i$. Observe que como $Z_{n,m}$ e
+$Y_{n,m}$ são médias de conjuntos disjuntos de variáveis aleatórias
+independentes, elas são independentes uma da outra. Ainda mais, pelo
+resultado para $\phi_{S_n}$, é o caso que elas são identicamente
+distribuídas com função característica igual a $e^{-a|u|}$. Seja
+$W_{n,m}=Z_{n,m}-Y_{n,m}$, nós vemos que
+$S_{n}-S_m=(1-\frac{m}{n})W_{n,m}$.
+
+
+%\end{block}
+\end{frame}
+
+\begin{frame}
+%\frametitle{\textbf{Um Exemplo de Divergência das Médias}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+Contudo,
+$$\phi_{W_{n,m}}(u)=\phi_{Z_{n,m}}(u)\phi_{Y_{n,m}}(-u)=e^{-2a|u|}.$$
+Então, $W_{n,m}$ tem uma distribuição fixa, não degenerada que é
+independente de $n$ e $m$. Fixando, $n=2m$, temos que
+$$\phi_{S_{2m}-S_m}(u)=e^{-a|u|}.$$
+Portanto, quando $m\rightarrow\infty$, $S_{2m}-S_m$ não converge
+para zero, mas para todo $m$, tem uma distribuição Cauchy de
+parâmetro $a$. Portanto, $S_n$ não satisfaz o critério de
+convergência de Cauchy e não é convergente.
+
+%\end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{\textbf{Observação}}
+\baselineskip=13pt
+\begin{block}{}
+
+
+
+Observe que isto não é um contra-exemplo a Lei Forte de Kolmogorov,
+tendo em vista que uma variável aleatória que tem distribuição de
+acordo com uma Cauchy não tem valor esperado definido, ou seja
+$$EX=-\int_{-\infty}^{0}\frac{1}{\pi}\frac{a|x|}{a^2+x^2}dx+\int_{0}^{\infty}\frac{1}{\pi}\frac{ax}{a^2+x^2}dx,$$
+é indefinido, visto que ambas as integrais são infinitas. Este
+exemplo serve para ilustrar que a suposição da existência de $EX$ é
+necessária para a Lei Forte dos Grandes Números.
+
+\end{block}
+\end{frame}
+
+\end{document}
+

@@ -1,0 +1,1841 @@
+%\def\R{$\textsf{R}$}
+%\def\S{$\textsf{S}$}
+
+%\renewcommand{\labelitemii}{$\circ$}
+\newcommand{\sfa}{a}
+\newcommand{\worst}{\mbox{\em worst}}
+\newcommand{\best}{\mbox{\em best}}
+\newcommand{\regret}{\mbox{\em regret}}
+\newcommand{\opt}{\mbox{\em opt}}
+\newcommand{\join}{\bowtie}
+\newcommand{\lE}{\underline{E}}
+\newcommand{\uE}{\overline{E}}
+\newcommand{\heads}{{\it heads}}
+\newcommand{\tails}{{\it tails}}
+
+\newcommand{\A}{{\cal A}}
+\newcommand{\B}{{\cal B}}
+\newcommand{\C}{{\cal C}}
+\newcommand{\D}{{\cal D}}
+\newcommand{\E}{{\cal E}}
+\newcommand{\F}{{\cal F}}
+\newcommand{\G}{{\cal G}}
+%\newcommand{\H}{{\cal H}}
+\newcommand{\I}{{\cal I}}
+\newcommand{\J}{{\cal J}}
+\newcommand{\K}{{\cal K}}
+%\newcommand{\L}{{\cal L}}
+\newcommand{\M}{{\cal M}}
+\newcommand{\N}{{\cal N}}
+%\newcommand{\O}{{\cal O}}
+\newcommand{\Ocal}{{\cal O}}
+\newcommand{\Hcal}{{\cal H}}
+\renewcommand{\P}{{\cal P}}
+\newcommand{\Q}{{\cal Q}}
+\newcommand{\R}{{\cal R}}
+%\newcommand{\S}{{\cal S}}
+\newcommand{\T}{{\cal T}}
+\newcommand{\U}{{\cal U}}
+\newcommand{\V}{{\cal V}}
+\newcommand{\W}{{\cal W}}
+\newcommand{\X}{{\cal X}}
+\newcommand{\Y}{{\cal Y}}
+\newcommand{\Z}{{\cal Z}}
+
+
+\newcommand{\IR}{\mathbb{R}}
+\newcommand{\dfn}{\begin{definition}}
+\newcommand{\edfn}{\end{definition}}
+\newcommand{\thm}{\begin{theorem}}
+\newcommand{\ethm}{\end{theorem}}
+\newcommand{\xam}{\begin{example}}
+\newcommand{\exam}{\end{example}}
+\newcommand{\inter}{\cap}
+\newcommand{\union}{\cup}
+
+
+
+
+\documentclass[t, 8pt, seriff]{beamer}
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+\usepackage[portuguese]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{times}
+\usepackage{amsmath,amsthm}
+\usepackage{amssymb,latexsym}
+\usepackage{graphics}
+%\usepackage{graphicx}
+
+\usepackage{multimedia}
+% \usepackage{movie15}
+\usepackage{media9}
+
+\usetheme{default}
+%\usetheme{Singapore}
+%\usetheme{PaloAlto} 
+\usetheme{Boadilla}
+% other themes: AnnArbor, Antibes, Bergen, Berkeley, Berlin, Boadilla, boxes, CambridgeUS, Copenhagen, Darmstadt, default, Dresden, Frankfurt, Goettingen,
+% Hannover, Ilmenau, JuanLesPins, Luebeck, Madrid, Maloe, Marburg, Montpellier, PaloAlto, Pittsburg, Rochester, Singapore, Szeged, boxes, default
+
+\useoutertheme{infolines}
+%\usefonttheme{serif}
+% you can also specify font themes: default, professionalfonts, serif, structurebold, structureitalicserif, structuresmallcapsserif
+
+%\definecolor{vermelho}{RGB}{100,30,40}
+%\definecolor{vermelholys}{RGB}{132,158,139}
+%\definecolor{vermelholyslys}{RGB}{173,190,177}
+%\definecolor{vermelholyslyslys}{RGB}{214,223,216}
+
+
+%\usecolortheme[named=vermelho]{structure}
+
+
+
+
+ 
+
+
+
+%\documentclass[a4paper,xcolor=svgnames]{beamer} 
+%\usepackage[brazil]{babel}
+%\usepackage[latin1]{inputenc}
+\usepackage{ragged2e}
+\usepackage{bm}
+\usepackage[T1]{fontenc}
+%\usepackage{amsmath,amsthm,amsfonts,amssymb} 
+\usepackage{multirow}
+%\usetheme{CambridgeUS} 
+%\setbeamercolor{normal text}{bg=white}
+\usepackage {graphicx,color}
+
+\usepackage{wrapfig} % inserir a figura ao lado do texto
+\usepackage[dvips]{epsfig} % inserir figuras de extensao post script (ps)
+\usepackage{textcomp}
+% \usepackage{undertilde} % colocar o til abaixo do x
+\usepackage{multicol} % cor na linha
+\usepackage{tabularx}
+\usepackage{rotating} %rotacionar figuras e tabelas
+
+
+\usepackage{ragged2e}
+%\justifying
+
+
+\usepackage{tikz}
+\usetikzlibrary{trees}
+
+
+\newtheorem{lema}{Lema}
+\newtheorem{defi}{Definição}
+\newtheorem{teo}{Teorema}
+\newtheorem{corol}{Corolário}
+\newtheorem{prop}{Proposição}
+
+
+\newtheoremstyle{Exercício}{}{}{\rm}{}{\bf $\bigstar$ }{:}{ }{} %% \scshape para mudar
+\theoremstyle{Exercício}
+\newtheorem{exer}{Exercício}
+
+\theoremstyle{plain}
+\newtheoremstyle{Exemplo}{}{}{\rm}{}{\bf $\rhd$ }{:}{ }{} %% \scshape para mudar
+%o tamanho a maiusculo
+\theoremstyle{Exemplo}
+\newtheorem{exem}{Exemplo}
+
+% 
+% \theoremstyle{plain}
+% \newtheoremstyle{Nota}{}{}{\rm}{}{\bf\scshape}{:}{ }{}
+% \theoremstyle{Nota}
+ \newtheorem{nota}{Nota}
+
+
+
+
+
+
+%\setlength{\rightskip}{0pt}
+%\setlength{\leftskip}{0pt}
+%\setlength{\spaceskip}{0pt}
+%\setlength{\xspaceskip}{0pt}
+
+
+
+\newcommand{\fullpage}[1]{
+\begin{frame}
+ #1
+\end{frame}
+}
+
+
+\setbeamersize{text margin left=3em, text margin right=3em}
+
+
+
+\setbeamertemplate{theorems}[numbered]
+
+
+
+\definecolor{links}{HTML}{2A1B81}
+\hypersetup{colorlinks,linkcolor=,urlcolor=links}
+
+
+\graphicspath{{./graphics/}} 			% path das figuras (recomendável)
+
+\newcommand{\cor}[1]{ \{{#1}\}}
+
+
+\title[Probabilidade]{  Probabilidade (PGE950) }
+\author[ Raydonal Ospina 
+%\textcopyright 
+\ ]{
+	%Probabilidade\\ 
+	% Sessão 1 \\
+	%Probabilidade\\ 
+	Sessão 10 \\
+	${}$ \\
+	Raydonal Ospina  }
+\date[PGE950 - \today ]{{\tiny PGE950 }}
+
+\institute[UFPE]{Departamento de Estatística\\
+	Universidade Federal de Pernambuco\\
+	Recife/PE}
+
+\usecolortheme[rgb={0,0.3,0.5}]{structure}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+% \SweaveOpts{concordance=TRUE}
+\begin{frame}
+  \titlepage
+\end{frame}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{frame}
+\frametitle{\textbf{Motivação}}
+
+	
+	\begin{itemize}
+		\item Por que estudar funções características?
+		
+		\begin{itemize}
+			\item Útil ter mais de uma maneira de representar um objeto matemático.
+			
+			\item Vantagens: cálculo de momentos, cálculo da distribuição de uma soma de variáveis aleatórias independentes, útil na prova do Teorema Central do Limite.
+		\end{itemize}
+	\end{itemize}
+	
+	Uma função geratriz de momento é uma outra representação alternativa
+	da distribuição de uma variável aleatória. As vantagens desta
+	representação são as mesmas da função característica, mas como a
+	função característica é mais robusta (no sentido que ela sempre
+	existe), nós focaremos no uso da mesma.
+	
+	\begin{nota}
+		Até aqui, só tratamos com variáveis reais, mas o caso complexo é similar. Uma variável aleatória $X$ é {\em complexa}, se pode ser escrita como $X=X_1+iX_2$, onde $i=\sqrt{-1}$, e $X_1$ e $X_2$ são variáveis aleatórias reais. Logo, para verificar que uma função complexa é variável aleatória, precisamos verificar propriedades da imagem inversa nas suas duas partes. Para o valor esperado de $X$, exige-se que as duas partes sejam finitas. Assim, temos: $EX=EX_1+iEX_2$, onde $EX_1$ e $EX_2$ são ambas finitas. Para efeitos práticos, quando realizando integração de funções complexas, podemos operar como se estivéssemos com funções reais (trata-se $i$ como se fosse uma constante real).
+		
+		\end{nota}
+	
+\end{frame}
+
+
+
+
+
+\begin{frame}
+
+\begin{defi}[Função Característica]
+A {\em função característica} $\phi_X$ de uma variável aleatória $X$
+é dada por:
+\begin{eqnarray}
+& & \phi_X(t)=Ee^{itX}\nonumber\\
+& & =E\cos(tX)+iE\mbox{\,sen}(tX),\mbox{ onde }i\doteq\sqrt{-1}.\nonumber
+\end{eqnarray}
+\end{defi}
+
+Note que como $\cos(tX)$ e $\mbox{\,sen}(tX)$ são variáveis
+aleatórias limitadas, a esperança na definição acima é finita e,
+consequentemente, a função característica de qualquer variável
+aleatória é bem definida. Note também que de acordo com esta
+definição, a função de distribuição acumulada determina a função
+característica de uma variável aleatória.
+
+
+
+No caso particular de uma variável aleatória discreta, temos:
+$$\phi_X(t)=\sum_{k}e^{itx_k}p(x_k),$$
+onde $p(x_k)$ é a função probabilidade de $X$.
+
+Analogamente, se $X$ for uma variável aleatória contínua, temos:
+$$\phi_X(t)=\int_{-\infty}^{\infty} e^{itx}f_X(x)dx,$$
+onde $f_X(x)$ é a função densidade de probabilidade de $X$.
+
+\textcolor{blue}{A função característica de uma variável aleatória contínua é a
+transformada de Fourier da densidade de probabilidade de $X$. }
+
+\end{frame}
+
+\section{Propriedades}
+\begin{frame}
+\frametitle{\textbf{Propriedades}}
+
+\begin{enumerate}
+\item[P1.] A função característica é limitada por 1: $|\phi_X(t)|\leq 1, \forall t\in R$.
+
+\begin{proof} Como pela desigualdade de Jensen, $$E^2\cos(tx)\leq E\cos^2(tx)\mbox{
+e }E^2\mbox{\,sen}(tx)\leq E\mbox{\,sen}^2(tx),$$ temos
+\begin{eqnarray}
+& & |\phi_X(t)|=\sqrt{E^2\cos(tX)+E^2\mbox{\,sen}(tX)} \nonumber\\
+& & \leq
+\sqrt{E(\cos^2(tX)+\mbox{\,sen}^2(tX))}=E1=1.\nonumber
+\end{eqnarray} \end{proof}
+\item[P2.] A função característica assume o valor 1 no ponto 0:
+$\phi_X(0)=1$.
+
+\begin{proof} $\phi_X(0)=Ee^{i0X}=E1=1.$ \end{proof}
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{enumerate}
+
+\item[P3.] $\overline{\phi_X(t)}=\phi_X(-t)$, onde $\overline{c}$
+é o complexo conjugado de $c$. (Se $c=x+iy$, o seu complexo
+conjugado é $\overline{c}=x-iy$.)
+
+\begin{proof}
+%\begin{eqnarray} & &
+$\phi_X(-t)=E\cos(-tX)+iE\mbox{\,sen}(-tX)=
+%\nonumber \\
+%& &
+E\cos(tX)-iE\mbox{\,sen}(tX)=\overline{\phi_X(t)}.$
+%\nonumber
+%\end{eqnarray}
+\end{proof}
+
+\item[P4.] $\phi_X$ é uniformemente contínua na reta.
+
+\begin{proof} Uma função $\phi$ é uniformemente contínua, se para todo
+$\epsilon>0$ existe $\delta>0$ tal que para todo $t,s\in R$
+$|\phi(t)-\phi(s)|<\epsilon$ quando $|t-s|<\delta$. Logo,
+\begin{eqnarray}
+& & |\phi(t)-\phi(s)|=|E(e^{itx}-e^{isx})|\nonumber\\
+& & \leq E|e^{isx}(e^{i(t-s)x}-1)|=E|e^{i(t-s)x}-1|.\nonumber
+\end{eqnarray}
+
+Seja $h(u)=|e^{iux}-1|$. Como $0\leq |e^{iux}-1|\leq 2$, 2 é
+integrável, e $\lim_{u\rightarrow 0}h(u)=0$, pelo teorema da
+convergência dominada, temos que $\lim_{u\rightarrow 0}Eh(u)=0$.
+Então, para todo $\epsilon>0$ existe $\delta>0$ tal que $|u|<\delta$
+implica que $Eh(u)<\epsilon$, ou seja, para todo $\epsilon>0$ existe
+$\delta>0$ tal que $|t-s|<\delta$ implica que $|\phi(t)-\phi(s)|\leq
+E|e^{i(t-s)x}-1|<\epsilon$. \end{proof}
+
+\end{enumerate}
+\end{frame}
+
+
+\begin{frame}
+
+
+\begin{enumerate}
+
+\item[P5.] Se $X$ e $Y$ são independentes, então $$\phi_{X+Y}(t)=\phi_X(t)\cdot\phi_Y(t),\forall t\in
+R.$$
+
+\begin{proof}
+\begin{eqnarray}
+& & \phi_{X+Y}(t)=Ee^{it(X+Y)}=E(e^{itX}e^{itY})\nonumber\\
+& & =E(e^{itX})E(e^{itY})=\phi_X(t)\cdot\phi_Y(t).
+\nonumber
+\end{eqnarray}
+\end{proof}
+
+É fácil provar por indução que se $X_1,\ldots, X_n$ são variáveis
+aleatórias independentes, então
+$\phi_{X_1+\ldots+X_n}(t)=\prod_{k=1}^{n}\phi_{X_k}(t), \forall t\in
+R$.
+
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{enumerate}
+
+\item[P6.] A variável aleatória $X$ tem distribuição simétrica em
+torno de 0 se, e somente se, $\phi_X(t)$ é real para todo $t\in R$.
+
+\begin{proof} $X$ é simétrica em torno de 0 se e somente se $P(X\leq
+x)=P(X\geq -x)$, $\forall x\in R$. Como $X\geq -x \Leftrightarrow
+-X\leq x$, nós temos que $F_X=F_{-X}$, ou seja, $\phi_X=\phi_{-X}$.
+Como
+%
+$$\phi_{-X}(t)=Ee^{it(-X)}=Ee^{i(-t)X}=\phi_X(-t)=\overline{\phi_X(t)}.$$
+Então, $X$ é simétrica em torno de 0 se e somente se
+$\phi_X(t)=\overline{\phi_X(t)}$, ou seja, se $\phi_X(t)$ é real
+para todo $t\in R$. \end{proof}
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{enumerate}
+
+
+\item[P7.] Se $E|X|^n<\infty$, então $\phi_X^{(k)}(0)=i^kEX^k$ para $k\in\{1,\ldots,n\}$, de
+modo que a função característica é uma espécie de função geradora de
+momentos.
+
+\begin{proof} Suponhamos que $X$ seja integrável; queremos provar que
+$\phi'_X(t)=E(iXe^{itX})$.
+
+Note que para $h\ne 0$, temos
+\begin{eqnarray}
+& & \frac{\phi_X(t+h)-\phi_X(t)}{h}=E(e^{itX}\frac{(e^{ihX}-1)}{h}).\nonumber
+\end{eqnarray}
+%
+Como $\frac{(e^{ihx}-1)}{h}\rightarrow ix$ quando $h\rightarrow 0$
+(regra de L'Hopital), $\forall x\in R$, temos que o resultado
+decorre se pudermos trocar a ordem do limite e da esperança. Mas
+como para todo $x$,
+$$|\frac{e^{ihx}-1}{h}|=|\frac{\int_0^h ixe^{isx}ds}{h}|=|x|\cdot|\frac{\int_0^h e^{isx}ds}{h}|\leq |x|.$$
+Portanto, como $|e^{itX}|=1$, temos
+$|e^{itX}\frac{(e^{ihX}-1)}{h}|\leq |X|.$
+
+Como $X$ é integrável, o Teorema da Convergência Dominada implica
+que
+\begin{eqnarray}
+& & \phi'_X(t)=\lim_{h\rightarrow 0}\frac{\phi_X(t+h)-\phi_X(t)}{h}=\lim_{h\rightarrow
+0}E(e^{itX}\frac{(e^{ihX}-1)}{h})=E(\lim_{h\rightarrow
+0}e^{itX}\frac{(e^{ihX}-1)}{h}) =E(iXe^{itX}). \nonumber
+\end{eqnarray}
+
+Logo, $\phi'_X(0)=iEX$. O restante da prova segue por indução em
+$n$. \end{proof}
+\end{enumerate}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{enumerate}
+
+
+\item[P8.] Se $Y=aX+b$, onde $a$ e $b$ são números reais constantes,
+$\phi_Y(t)=e^{itb}\phi_X(at)$.
+
+\begin{proof} $
+\phi_Y(t)=Ee^{itY}=Ee^{it(aX+b)}=Ee^{itb}e^{itaX}=e^{itb}Ee^{i(at)X}=e^{itb}\phi_X(at).$
+\end{proof}
+
+\item[P9.] $\phi_X(t)$ é positiva definida. Isto é, para todo $n=1,2,\ldots$, tem-se
+$$\sum_{j=1}^{n}\sum_{k=1}^{n}\phi_X(t_j-t_k)z_j\overline{z_k}\geq 0,$$
+para quaisquer números reais $t_1,t_2,\ldots,t_n$ e complexos $z_1,z_2,\ldots,z_n$.
+\begin{proof}
+
+{\small \begin{eqnarray}
+& & \sum_{j=1}^{n}\sum_{k=1}^{n}\phi_X(t_j-t_k)z_j\overline{z_k} = \sum_{j=1}^{n}\sum_{k=1}^{n}E(e^{iX(t_j-t_k)})z_j\overline{z_k} \nonumber \\
+& & = \sum_{j=1}^{n}\sum_{k=1}^{n}E(z_je^{iX(t_j)}\overline{z_k}e^{-iXt_k}) = E (\sum_{j=1}^{n}\sum_{k=1}^{n}z_je^{iX(t_j)}\overline{z_k e^{iXt_k}}) \nonumber \\
+& & = E [(\sum_{j=1}^{n}z_je^{iX(t_j)})(\sum_{k=1}^{n}\overline{z_ke^{iXt_k}})] = E [(\sum_{j=1}^{n}z_je^{iX(t_j)})(\overline{\sum_{k=1}^{n}z_ke^{iXt_k}})]= E (|\sum_{j=1}^{n}z_je^{iX(t_j)}|^2)\geq 0 \nonumber
+\end{eqnarray}}
+Portanto, $\phi_X$ é positiva definida.
+\end{proof}
+\end{enumerate}
+
+\end{frame}
+
+\begin{frame}
+
+Os resultados a seguir conhecidos como {\em Fórmula de Inversão} e {\em Teorema da Unicidade} garantem que a função característica determina a função de distribuição de uma variável aleatória.
+
+\begin{teo} Seja $X$ uma variável aleatória qualquer, então sua função característica $\varphi_X(t)$ determina a função de distribuição de $X$, através da seguinte {\em Fórmula de Inversão}:
+$$\tilde{F}(b)-\tilde{F}(a)=\lim_{c\rightarrow\infty}\frac{1}{2\pi}\int_{-c}^{c}\frac{e^{-iat}-e^{-ibt}}{it}\varphi_X(t)dt;$$
+onde $\tilde{F}(w)=\frac{1}{2}(F(w^+)+F(w^-)),\forall w\in\IR$ e $a,b,c$ são números reais tais que $c>0$ e $a<b$.
+\end{teo}
+
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{Demostração}
+Note que se $F$ for contínua em $w$, então $\tilde{F}(w)=F(w)$. A função $\frac{e^{-iat}-e^{-ibt}}{it}$ é definida para ser igual a $b-a$, quando $t=0$, coincidindo com seu limite quando $t\rightarrow 0$. Logo, ela será contínua para todo $t$ real e limitada, pois:
+\begin{eqnarray}
+& & |\frac{e^{-iat}-e^{-ibt}}{it}|=|e^{\frac{i(a+b)t}{2}}|\times |\frac{e^{-iat}-e^{-ibt}}{it}| \nonumber \\
+& & =|\frac{e^{\frac{1}{2}i(b-a)t}-e^{\frac{1}{2}i(a-b)t}}{it}|=|\frac{2\mbox{\,sen}[\frac{(b-a)t}{2}]}{t}|\leq b-a, \nonumber
+\end{eqnarray}
+onde a última desigualdade decorre do fato que $|\mbox{\,sen}w|\leq w,\forall w\in\IR$.
+
+Denotando por $Int(c)$ a integral da fórmula da inversão, temos
+\begin{eqnarray}
+& & Int(c)=\frac{1}{2\pi}\int_{-c}^{c}\frac{e^{-iat}-e^{-ibt}}{it}\varphi_X(t)dt= \frac{1}{2\pi}\int_{-c}^{c}\frac{e^{-iat}-e^{-ibt}}{it}E(e^{iXt})dt \nonumber \\
+& & =\frac{1}{2\pi}\int_{-c}^{c}E(\frac{e^{-i(a-X)t}-e^{-i(b-X)t}}{it})dt=E[\frac{1}{2\pi}\int_{-c}^{c}\frac{e^{-i(a-X)t}-e^{-i(b-X)t}}{it}dt],\nonumber
+\end{eqnarray}
+onde a última igualdade decorre da troca da ordem de integração que é justificada tendo em vista que o integrando é limitado conforme provamos acima. Portanto, trabalhando o termo entre colchetes, temos
+\end{block}
+\end{frame}
+
+\begin{frame}
+\begin{block}{}
+\begin{eqnarray}
+& & \frac{1}{2\pi}\int_{-c}^{c}\frac{e^{-i(a-X)t}-e^{-i(b-X)t}}{it}dt\nonumber\\
+& & =\frac{1}{2\pi}\int_{-c}^{c}\frac{1}{it}[\cos((X-a)t)+i\mbox{\,sen}((X-a)t)\nonumber\\
+& & -\cos((X-b)t)-i\mbox{\,sen}((X-b)t)]dt \nonumber\\
+& & =\frac{1}{\pi}\int_{0}^{c}(\frac{\mbox{\,sen}((X-a)t)-\mbox{\,sen}((X-b)t)}{t})dt \nonumber \\
+& & =\frac{1}{\pi}\int_{0}^{c}\frac{\mbox{\,sen}((X-a)t)}{t}dt -\frac{1}{\pi}\int_{0}^{c} \frac{\mbox{\,sen}((X-b)t)}{t}dt \nonumber \\
+& & =\frac{1}{\pi}\int_{0}^{c(X-a)}\frac{\mbox{\,sen}(u)}{u}du -\frac{1}{\pi}\int_{0}^{c(X-b)} \frac{\mbox{\,sen}(u)}{u}du \nonumber \\
+& & =g(c(X-a))-g(c(X-b)), \nonumber
+\end{eqnarray}
+onde $g$ é a função dada por $g(w)=\frac{1}{\pi}\int_{0}^{w}\frac{\mbox{\,sen}(u)}{u}du, w\in\IR$. Logo, temos
+$$Int(c)=E[g(c(X-a))-g(c(X-b))].$$
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\begin{block}{}
+
+Como vamos passar ao limite para $c\rightarrow\infty$, precisamos verificar se será possível trocar a ordem entre limite e esperança. Como $g$ é contínua e $\lim_{w\rightarrow\pm\infty}g(w)=\pm\frac{1}{2}$, temos que $g$ é limitada. Então a troca de ordem do limite e da esperança é justificada pelo Teorema da Convergência Dominada. Seja $Y=\frac{1}{2}I_{a\leq X<b}+\frac{1}{2}I_{a< X\leq b}$. Temos que
+$$\lim_{c\rightarrow\infty}g(c(X-a))-g(c(X-b))=Y.$$
+Então,
+$$\lim_{c\rightarrow\infty}Int(c)=E[\lim_{c\rightarrow\infty}g(c(X-a))-g(c(X-b))]=EY.$$
+
+Mas o valor esperado de $Y$ é dado por:
+\begin{eqnarray}
+& & EY=\frac{1}{2}P(X=a)+\frac{1}{2}P(X=b)+P(a<X<b) \nonumber \\
+& & =\frac{1}{2}(F(a)-F(a^-))+\frac{1}{2}(F(b)-F(b^-))\nonumber\\
+& & +(F(b^-)-F(a)) \nonumber \\
+& & =\frac{1}{2}(F(b)+F(b^-))-\frac{1}{2}(F(a)+F(a^-))\nonumber\\
+& &=\tilde{F}(b)-\tilde{F}(a). \nonumber
+\end{eqnarray}
+Portanto, $\lim_{c\rightarrow\infty}Int(c) =\tilde{F}(b)-\tilde{F}(a)$, como queríamos demonstrar.
+%\eprv
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+Agora podemos utilizar a fórmula da inversão para provar o Teorema da Unicidade.
+
+\begin{teo} {\bf Teorema da Unicidade.} Se as variáveis aleatórias $X$ e $Y$ têm a mesma função característica, então elas têm a mesma distribuição.
+\end{teo}
+
+\begin{block}{Demonstração}
+
+
+%\prv
+Por hipótese, $X$ e $Y$ têm a mesma função característica e, como consequência da Fórmula da Inversão, temos que para quaisquer $a,b$ reais e $a<b$,
+$$\tilde{F}_X(b)-\tilde{F}_X(a)=\tilde{F}_Y(b)-\tilde{F}_Y(a).$$
+Tomando o limite quando $a\rightarrow-\infty$, temos que $\tilde{F}_X(a)\rightarrow 0$ e $\tilde{F}_Y(a)\rightarrow 0$. Portanto, $\tilde{F}_X(b)=\tilde{F}_Y(b),\forall b\in \IR$. Seja $c<b$, pela monotonicidade de $F_X$ e $F_Y$ e pela definição de $\tilde{F}$, temos
+$$F_X(c)\leq \tilde{F}_X(b)\leq F_X(b)\mbox{ e }F_Y(c)\leq \tilde{F}_Y(b)\leq F_Y(b).$$
+Então pela continuidade à direita da função de distribuição, temos que
+$$\lim_{b\downarrow c}\tilde{F}_X(b)=F_X(c)\mbox{ e }\lim_{b\downarrow c}\tilde{F}_Y(b)=F_Y(c).$$
+Logo, $F_X(c)=F_Y(c),\forall c\in \IR$ como queríamos demonstrar.
+%\eprv
+
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+Note que o Teorema da Unicidade junto com a definição de função característica implicam que existe uma correspondência 1-1 entre funções características e funções de distribuições.
+
+\begin{exem}
+Se $\phi_X(t)=\frac{1}{1+t^2}$, calcule $Var X$.
+
+{\bf Solução:} Diferenciando $\phi_X$, temos
+$\phi_X'(t)=\frac{-2t}{(1+t^2)^2}$. Diferenciando mais uma vez,
+$\phi_X''(t)=\frac{-2(1+t^2)^2+2t(2(1+t^2)2t)}{(1+t^2)^4}$.
+Portanto, $EX=\frac{\phi_X'(0)}{i}=0$ e
+$EX^2=\frac{\phi_X''(0)}{i^2}=-(-2)=2$. Logo, $Var X=EX^2-(EX)^2=2$.
+\end{exem}
+
+
+\begin{exem}
+Seja $\phi(t)=\cos(at)$, onde $a>0$. Mostraremos que $\phi$ é função
+característica, achando a distribuição correspondente. Já que assume
+valores reais, se $\phi$ fosse função característica de alguma
+variável aleatória $X$, então por P6, $X$ possuiria distribuição
+simétrica em torno de zero. Com efeito teríamos
+$\cos(at)=\phi(t)=E\cos(tX)$, pois a parte imaginária seria nula.
+Como $\cos(at)=\cos(-at)$, é evidente que uma distribuição simétrica
+concentrada nos dois pontos $a$ e $-a$ corresponderia a função
+característica $\phi$. Portanto, $\phi$ é função característica de
+$X$, se, e somente se, $P(X=a)=1/2=P(X=-a)$.
+\end{exem}
+
+\end{frame}
+
+
+\begin{frame}
+
+
+\begin{exem}
+Sejam $X_1$ e $X_2$ duas variáveis aleatórias i.i.d. e seja
+$Y=X_1-X_2$. Qual a função característica de $Y$?
+
+{\bf Solução:} Seja $\phi$ a função característica de $X_1$ e $X_2$.
+Por P8 e P3, temos que $\phi_{-X_2}(t)=\phi(-t)=\overline{\phi(t)}$.
+Então, como $X_1$ e $X_2$ são independentes, por P5, temos que
+$$\phi_Y(t)=\phi(t)\phi_{-X_2}(t)=|\phi(t)|^2.$$
+\end{exem}
+
+\end{frame}
+
+
+\begin{frame}{Caracterização}
+
+\begin{teo}
+Uma função contínua $\psi: \mathrm{R}\rightarrow \mathrm{C}$ com $\psi(0)=1$ é função característica de alguma variável aleatória
+se, e somente se, ela for positiva definida.
+\end{teo}
+
+\begin{proof}
+Conforme propriedades já demonstradas, se for função característica, é contínua, positiva definida e aplicada em 0, resulta o valor 1. A prova da recíproca será omitida.
+\end{proof}
+
+\begin{exem}
+{\bf Bernoulli.} Suponhamos que $X\thicksim Bernoulli(p)$, onde $P(X=1)=p=1-P(X=0)$.
+Então,
+$$\phi_X(t)=Ee^{itX}=pe^{it}+(1-p).$$
+
+{\bf Poisson.} Suponhamos que $X\thicksim Poisson(\lambda)$.
+Então,
+\begin{eqnarray}
+& & \phi_X(t)=Ee^{itX}=\sum_{n=0}^{\infty}e^{itn}e^{-\lambda}\frac{\lambda^n}{n!}\nonumber \\
+& & =e^{-\lambda}\sum_{n=0}^{\infty}\frac{(\lambda e^{it})^n}{n!}=e^{\lambda(e^{it}-1)}.\nonumber
+\end{eqnarray}
+
+\end{exem}
+\end{frame}
+
+
+\begin{frame}
+
+\begin{exem}
+
+{\bf Uniforme.} Suponhamos que $X\thicksim Uniforme(-a,a)$.
+Então, $f_X(x)=\frac{1}{2a}$ para $-a<x<a$, e $f_X(x)=0$ caso
+contrário. Logo, se $t=0$, então $\phi_X(0)=1$, e para $t\ne 0$,
+\begin{eqnarray}
+& & \phi_X(t)=Ee^{itX}=\int_{-a}^{a}\frac{e^{itx}}{2a}dx\nonumber \\ & & =\frac{1}{2a}(\frac{e^{ita}-e^{-ita}}{it})=\frac{\mbox{\,sen}(ta)}{ta}.\nonumber
+\end{eqnarray}
+
+{\bf Normal.} Suponhamos que $X\thicksim N(0,1)$.
+Então,
+\begin{eqnarray}
+& & \phi_X(t)=\frac{1}{\sqrt{2\pi}}\int e^{itx}e^{\frac{-x^2}{2}}dx=e^{\frac{-t^2}{2}}\frac{1}{\sqrt{2\pi}}\int e^{-\frac{(x-it)^2}{2}}dx=e^{\frac{-t^2}{2}}.\nonumber
+\end{eqnarray}
+{\bf Exponencial.} Suponhamos que $X\thicksim Exp(\alpha)$.
+Então,
+\begin{eqnarray}
+& & \phi_X(t)=\int_{0}^{\infty} e^{itx}\alpha e^{-\alpha x}dx=\alpha \int_{0}^{\infty} e^{x(-\alpha +it)}dx \nonumber\\
+& & =[\frac{\alpha}{-\alpha+it}e^{x(-\alpha +it)}]_{0}^{\infty}=\frac{\alpha}{\alpha-it}.
+\nonumber
+\end{eqnarray}
+\end{exem}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Exemplos de Funções Características}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}
+%\frametitle{\textbf{Exercício}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+\begin{exem}
+Sejam $X_1,X_2,\ldots,X_n$ variáveis aleatórias independentes e identicamente distribuídas, seguindo o modelo de Poisson com parâmetro $\lambda$. Queremos obter a distribuição de $X_1+X_2+\ldots+X_n$.
+
+{\bf Solução:} Temos
+\begin{eqnarray}
+& & \varphi_{X_1+\ldots+X_n}(t)=E(e^{it(X_1+\ldots+X_n)})\nonumber\\
+& & =\prod_{j=1}^{n}E(e^{itX_j})=e^{n\lambda(e^{it}-1)}.\nonumber
+\end{eqnarray}
+Portanto, $X_1+X_2+\ldots+X_n$ tem uma distribuição Poisson com parâmetro $n\lambda$.
+\end{exem}
+%
+%\end{block}
+\end{frame}
+
+%\section{Teorema da Continuidade}
+\begin{frame}{Teorema da Continuidade de Levy}
+
+
+Queremos provar que $X_n\rightarrow^D X$ se, e
+somente se,\\ $\phi_{X_n}(t)\rightarrow\phi_X(t),\forall t\in R$.
+Antes de provarmos a necessidade desta afirmação, considere a seguinte definição de convergência de funções de distribuição.
+
+\begin{defi}
+Seja $X,X_1,X_2,\ldots$ uma sequência de variáveis aleatórias com funções de distribuição acumuladas dadas respectivamente por $F,F_1,F_2,\ldots$. Diz-se que $F_n$ {\em converge fracamente} para $F$, se $X_n\rightarrow^D X$.
+\end{defi}
+
+
+
+\begin{teo}[Teorema de Helly-Bray.] Sejam $F,F_1,F_2,\ldots$ funções de
+distribuição. Se $F_n$ converge fracamente para $F$, então
+$$\int g(x)dF_n(x)\rightarrow \int g(x)dF(x)$$
+para toda função $g:R\rightarrow R$ contínua e limitada.
+\end{teo}
+\begin{proof}
+	Omitiremos a prova por ser muito extensa. Ler livro texto.
+	\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{nota}[lembrete] A integral $\int g(x)dF(x)$ é a esperança de $g(X)$, onde $X$ é
+uma variável aleatória com função de distribuição $F$, ela é
+calculada utilizando a integral de Lebesgue-Stieltjes. No caso de
+$F$ ser discreta, essa integral é equivalente a:
+$$\sum_ig(x_i)p(x_i),$$
+e quando $F$ for absolutamente contínua com função densidade de
+probabilidade $f$, essa integral é equivalente a:
+$$\int_{-\infty}^{\infty}g(x)f(x)dx,$$
+onde esta última integral é a integral de Riemann.
+\end{nota}
+
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%
+%Para $-\infty<a<b<\infty$, onde $a$ e $b$ são pontos de
+%continuidade de $F$,
+%\begin{eqnarray}
+%& & |\int gdF_n -\int gdF|\nonumber\\
+%& & \leq |\int gdF_n-\int_{a}^{b} gdF_n|+|\int_{a}^{b} gdF_n-\int_{a}^{b} gdF|\nonumber\\
+%& & +|\int_{a}^{b} gdF-\int gdF|=I+II+III.\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%Seja $c=\sup_{x\in R}|g(x)|<\infty$ e seja $\epsilon>0$. Então,
+%\begin{eqnarray}
+%& & III=|\int_{a}^{b} gdF-\int gdF|\nonumber\\
+%& & =|\int_{-\infty}^{a}
+%gdF+\int_{b}^{\infty} gdF|\nonumber\\
+%& & \leq
+%|\int_{-\infty}^{a} gdF|+|\int_{b}^{\infty} gdF| \nonumber \\
+%& & \leq \int_{-\infty}^{a} |g|dF+\int_{b}^{\infty}
+%|g|dF \nonumber\\
+%& & \leq\int_{-\infty}^{a} cdF+\int_{b}^{\infty} cdF=c(F(a)+1-F(b))
+%\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Logo, para qualquer $\epsilon>0$, podemos escolher $a$
+%suficientemente pequeno e $b$ suficientemente grande tal que
+%$III<\epsilon$, pois $\lim_{x\rightarrow-\infty}F(x)=0$ e
+%$\lim_{x\rightarrow\infty}F(x)=1$. Para esses valores de $a$ e $b$,
+%e para $n$ suficientemente grande, como $a$ e $b$ são pontos de
+%continuidade de $F$, e como $F_n$ converge fracamente para $F$,
+%temos que $I\leq c(F_n(a)+1-F_n(b))<2\epsilon$.
+%
+%Consideremos agora $II$. Sejam $a$ e $b$ os pontos já escolhidos. Já
+%que $g$ é uniformemente contínua em $[a,b]$,
+%%\footnote{Uma função $g$ é uniformemente contínua em $[a,b]$ se para todo $\epsilon>0$, existe $\delta>0$ tal que para %todo $x,y\in [a,b]$ se $|x-y|<\delta$, então $|g(x)-g(y)|<\epsilon$. É fácil provar que toda função contínua em um %intervalo fechado é uniformemente contínua neste intervalo.}
+%podemos escolher
+%$x_0,x_1,\ldots,x_N$ tais que $a=x_0<x_1<\ldots<x_N=b$, onde $x_i$
+%são pontos de continuidade de $F$ e $|g(x)-g(x_i)|<\epsilon$ para
+%todo $x\in[x_i,x_{i+1}]$, $i\in\{0,\ldots,N-1\}$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Então,
+%%
+%\begin{eqnarray}
+%& & m_{ni}=(g(x_i)-\epsilon)(F_n(x_{i+1})-F_n(x_i))\nonumber\\
+%& & \leq \int_{x_i}^{x_{i+1}}g(x)dF_n(x)\nonumber\\
+%& & \leq (g(x_i)+\epsilon)(F_n(x_{i+1})-F_n(x_i))=M_{ni}\nonumber
+%\end{eqnarray}
+%e
+%\begin{eqnarray}
+%& & m_{i}=(g(x_i)-\epsilon)(F(x_{i+1})-F(x_i))\nonumber\\
+%& & \leq \int_{x_i}^{x_{i+1}}g(x)dF(x)\nonumber\\
+%& & \leq (g(x_i)+\epsilon)(F(x_{i+1})-F(x_i))=M_{i}.\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%Portanto,
+%\begin{eqnarray}
+%& & m_{ni}-M_i\leq \int_{x_i}^{x_{i+1}}g(x)dF_n(x)\nonumber\\
+%& & -\int_{x_i}^{x_{i+1}}g(x)dF(x)\leq M_{ni}-m_i,\nonumber
+%\end{eqnarray}
+%para $i\in\{0,\ldots,N-1\}$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Somando, temos
+%\begin{eqnarray}
+%& & \sum_{i=0}^{N-1}(m_{ni}-M_i)\leq \int_{a}^{b}g(x)dF_n(x)-\int_{a}^{b}g(x)dF(x)
+%\nonumber\\
+%& & \leq \sum_{i=0}^{N-1}(M_{ni}-m_i).\nonumber
+%\end{eqnarray}
+%
+%Quando $n\rightarrow\infty$, temos que $m_{ni}\rightarrow m_i$ e
+%$M_{ni}\rightarrow M_i$, logo,
+%\begin{eqnarray}
+%& & \sum_{i=0}^{N-1}(m_{ni}-M_i)\rightarrow \sum_{i=0}^{N-1}(m_{i}-M_i)\nonumber\\
+%& &=-2\epsilon(F(b)-F(a))\geq -2\epsilon\nonumber
+%\end{eqnarray}
+%e
+%\begin{eqnarray}
+%& & \sum_{i=0}^{N-1}(M_{ni}-m_i)\rightarrow \sum_{i=0}^{N-1}(M_{i}-m_i)\nonumber\\
+%& &=2\epsilon(F(b)-F(a))\leq 2\epsilon\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Helly-Bray}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como para $n$ suficientemente grande temos que
+%\begin{eqnarray}
+%& & |\sum_{i=0}^{N-1}(m_{ni}-M_i)- \sum_{i=0}^{N-1}(m_{i}-M_i)|<\epsilon\nonumber
+%\end{eqnarray} e
+%\begin{eqnarray}
+%& & |\sum_{i=0}^{N-1}(M_{ni}-m_i)- \sum_{i=0}^{N-1}(M_{i}-m_i)|<\epsilon,\nonumber
+%\end{eqnarray} segue que
+%$$\sum_{i=0}^{N-1}(m_{ni}-M_i)\geq -3\epsilon\mbox{ e }\sum_{i=0}^{N-1}(M_{ni}-m_i)\leq 3\epsilon.$$ Então, para $n$ suficientemente grande, temos que $II\leq
+%3\epsilon$. Portanto, $|\int gdF_n-\int gdF|\leq 6\epsilon$ para $n$
+%grande o suficiente.
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+%
+%
+\begin{frame}
+\frametitle{\textbf{Consequência do Teorema de Helly-Bray}}
+\baselineskip=13pt
+\begin{block}{}
+
+Como $\cos(tx)$ e $\mbox{sen}(tx)$ são funções contínuas e
+limitadas, tem-se que para $t$ fixo
+$$E(\cos(tX_n))\rightarrow E(\cos(tX))$$
+e
+$$E(\mbox{sen}(tX_n))\rightarrow E(\mbox{sen}(tX))$$
+Logo, $\phi_{X_n}(t)\rightarrow \phi_X(t)$.
+
+
+\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{A Recíproca}}
+%\baselineskip=13pt
+%\begin{exem}{}
+%
+
+É fácil definir a função característica $\phi$ dada uma função de
+distribuição $F$: $\phi(t)=\int e^{itx}dF(x),\forall t\in R$. O
+próximo teorema implica a suficiência do nosso objetivo nesta seção,
+ou seja, se $\phi_{X_n}\rightarrow\phi_X$, então $X_n\rightarrow^D
+X$.
+
+\begin{teo}
+Sejam $F_1,F_2,\ldots$ funções de distribuições e
+$\phi_1,\phi_2,\ldots$ suas funções características. Se $\phi_n$
+converge pontualmente para um limite $\phi$ e se $\phi$ é contínua
+no ponto zero, então
+\begin{enumerate}
+\item[(a)] existe uma função de distribuição $F$ tal que $F_n\rightarrow
+F$ fracamente; e
+
+\item[(b)] $\phi$ é a função característica de $F$.
+\end{enumerate}
+\end{teo}
+
+\begin{proof}
+	Omitiremos a prova por ser muito extensa. Ler livro texto.
+\end{proof}
+
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Note que o teorema anterior implica que, sob as hipóteses, (a)
+%implica (b). Para provar que $F_n$ converge fracamente para alguma
+%função de distribuição, vamos primeiro provar que para toda
+%sequência de funções de distribuição satisfazendo as condições do
+%teorema, existem uma subsequência $F_{n_1},F_{n_2},\ldots$ e uma
+%função de distribuição $F$ tais que $F_{n_j}\rightarrow F$
+%fracamente, quando $j\rightarrow\infty$. Provaremos isso em duas
+%etapas:
+%
+%\begin{enumerate}
+%\item[(i)] existem uma subsequência $F_{n_1},F_{n_2},\ldots$ e uma
+%função $F:R\rightarrow[0,1]$ tais que $F$ é não-decrescente e
+%contínua à direita e $F_{n_j}(x)\rightarrow F(x)$, quando
+%$j\rightarrow\infty$, para todo $x$ ponto de continuidade de $F$; e
+%
+%\item[(ii)] $F(\infty)=1$  e $F(-\infty)=0$.
+%\end{enumerate}
+%
+%\end{block}
+%\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para provar (i), usaremos o método da diagonalização. Sejam $r_1,r_2,\ldots$, uma enumeração dos racionais da reta.
+%Considere a seguinte matriz:
+%
+%\[
+%\begin{array}{ccccc}
+%F_1 & F_2 & F_3 & F_4 & \cdots \\
+%F_1^1 & F_2^1 & F_3^1 & F_4^1 & \cdots \\
+%F_1^2 & F_2^2 & F_3^2 & F_4^2 & \cdots \\
+%F_1^3 & F_2^3 & F_3^3 & F_4^3 & \cdots \\
+%\vdots & \vdots & \vdots & \vdots & \ddots
+%\end{array}
+%\]
+%
+%Nesta matriz temos que a sequência $(F_1^j,F_2^j,F_3^j,\ldots)$ contida na $(j+1)$-ésima linha da matriz é uma subsequência da sequência contida na $j$-ésima linha que converge no racional $r_j$, para $j\geq 1$. Note que como a sequência $(F_1^{j-1}(r_j),F_2^{j-1}(r_j),F_3^{j-1}(r_j),\ldots)$ é uma sequência limitada de números reais, ela possui uma subsequência convergente; logo pode-se escolher a sequência $(F_1^j,F_2^j,F_3^j,\ldots)$ indutivamente conforme descrito acima. Seja $F_{n_j}=F_j^j$, para $j\geq 1$, então temos que a subsequência $(F_{n_j})_j$ converge em todos os racionais da reta. Chamemos
+%o limite de $F(r_k)$, de modo que $F_{n_j}(r_k)\rightarrow F(r_k),
+%\forall k$.
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%É óbvio que $0\leq F(r_k)\leq 1$ e que $F$ é não
+%decrescente nos racionais. Definamos $F$ em $x$ irracional por
+%$F(x)=\lim_{r\downarrow x,r\mbox{ rational}}F(r)$. $F$ assim
+%definida é não-decrescente, mas não é necessariamente contínua à
+%direita. Vamos provar que $F_{n_j}(x)\rightarrow F(x)$ para todo
+%ponto $x$ de continuidade de $F$. Suponha que $x$ é um ponto de
+%continuidade de $F$ e sejam $r'$ e $r''$ racionais tais que
+%$r'<x<r''$ e $F(r'')-\epsilon<F(x)<F(r')+\epsilon$. Então,
+%\begin{eqnarray}
+%& & F(x)-\epsilon<F(r')=\lim_{j\rightarrow\infty}F_{n_j}(r')\leq
+%\liminf_{j\rightarrow\infty}F_{n_j}(x)\leq \nonumber \\
+%& & \limsup_{j\rightarrow\infty}F_{n_j}(x)\leq
+%\lim_{j\rightarrow\infty}F_{n_j}(r'')=F(r'')<F(x)+\epsilon \nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como $\epsilon$ é arbitrário, temos $F_{n_j}(x)\rightarrow F(x)$
+%quando $j\rightarrow\infty$. Finalmente, podemos redefinir $F$ nos
+%seus pontos de descontinuidade de modo que $F$ seja contínua à
+%direita.
+%
+%
+%\commentout{
+%sejam $r_1,r_2,\ldots$, os racionais da reta.
+%Considere $r_1$ fixo, $F_n(r_1)$ é uma sequência limitada de números reais, portanto possui uma subsequência convergente; seja $F_n^1(r_1)$ esta subsequência convergente. Utilizando o mesmo argumento pode-se agora definir $F_n^j$ recursivamente como sendo a subsequência de $F_n^{j-1}$ tal que para $r_j$ fixo $F_n^j(r_j)$ seja uma sequência convergente; note que por definição $F_n^j(r_k)$ converge para todo $k\leq j$. Deste modo, podemos definir a subsequência $F_{n_j}=F_n^j$ tal que $F_{n_j}(r_k)$
+%converge, quando $j\rightarrow \infty$, para cada $k$ fixo. Chamemos
+%o limite de $F(r_k)$, de modo que $F_{n_j}(r_k)\rightarrow F(r_k),
+%\forall k$. É óbvio que $0\leq F(r_k)\leq 1$ e que $F$ é não
+%decrescente nos racionais. Definamos $F$ em $x$ irracional por
+%$F(x)=\lim_{r\downarrow x,r\mbox{ rational}}F(r)$. $F$ assim
+%definida é não-decrescente, mas não é necessariamente contínua à
+%direita. Vamos provar que $F_{n_j}(x)\rightarrow F(x)$ para todo
+%ponto $x$ de continuidade de $F$. Suponha que $x$ é um ponto de
+%continuidade de $F$ e sejam $r'$ e $r''$ racionais tais que
+%$r'<x<r''$ e $F(r'')-\epsilon<F(x)<F(r')+\epsilon$. Então,
+%\begin{eqnarray}
+%& & F(x)-\epsilon<F(r')=\lim_{j\rightarrow\infty}F_{n_j}(r')\leq
+%\liminf_{j\rightarrow\infty}F_{n_j}(x)\leq \nonumber \\
+%& & \limsup_{j\rightarrow\infty}F_{n_j}(x)\leq
+%\lim_{j\rightarrow\infty}F_{n_j}(r'')=F(r'')<F(x)+\epsilon \nonumber
+%\end{eqnarray}
+%
+%Como $\epsilon$ é arbitrário, temos $F_{n_j}(x)\rightarrow F(x)$
+%quando $j\rightarrow\infty$. Finalmente, podemos redefinir $F$ nos
+%seus pontos de descontinuidade de modo que $F$ seja contínua à
+%direita.
+%}
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para provar (ii), note que
+%$$\int_{0}^{t}\phi_{n_j}(s)ds=\int_{0}^{t}\int_{-\infty}^{\infty}e^{isx}dF_{n_j}(x)ds.$$
+%Mas como o integrando é limitado podemos trocar a ordem de
+%integração, logo
+%\begin{eqnarray}
+%& & \int_{0}^{t}\phi_{n_j}(s)ds=\int_{-\infty}^{\infty}\int_{0}^{t}e^{isx}dsdF_{n_j}(x)\nonumber\\
+%&  & =\int_{-\infty}^{\infty}\frac{e^{itx}-1}{ix}dF_{n_j}(x)\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Considere a função, $h(x)=\frac{e^{itx}-1}{ix}$ para $x\ne 0$ e
+%$h(0)=t$. $h$ é limitada e contínua e um argumento similar ao
+%utilizado na prova do teorema anterior, pode ser utilizado para
+%provar que quando $j\rightarrow\infty$
+%\begin{eqnarray}
+%& &
+%\int_{-\infty}^{\infty}\frac{e^{itx}-1}{ix}dF_{n_j}(x)=\int_{-\infty}^{\infty}h(x)dF_{n_j}(x)
+%\nonumber\\
+%& & \rightarrow
+%\int_{-\infty}^{\infty}h(x)dF(x)= \nonumber
+%\\
+%& &
+%\int_{-\infty}^{\infty}\frac{e^{itx}-1}{ix}dF(x)=\int_{0}^{t}\int_{-\infty}^{\infty}e^{isx}dF(x)ds
+%\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como $\phi_{n_j}(t)\rightarrow\phi(t)$, $\phi$ é contínua em zero,
+%implica que $\phi$ é limitada e mensurável, então pelo teorema da
+%convergência dominada, tem-se que
+%$$\int_{0}^{t}\phi_{n_j}(s)ds\rightarrow \int_{0}^{t}\phi(s)ds.$$
+%Igualando-se os limites iguais e dividindo-se por $t$, temos
+%$$\frac{1}{t}\int_{0}^{t}\phi(s)ds=\frac{1}{t}\int_{0}^{t}\int_{-\infty}^{\infty}e^{isx}dF(x)ds, t\ne 0.$$
+%Fazendo $t\rightarrow 0$ e usando a continuidade em $s=0$ das duas
+%funções $\phi(s)$ e $\int_{-\infty}^{\infty}e^{isx}dF(x)$, tem-se
+%$$\phi(0)=\int_{-\infty}^{\infty}1dF(x)=F(\infty)-F(-\infty).$$
+%
+%Como $\phi(0)=\lim_{n\rightarrow\infty}\phi_n(0)=1$, temos que
+%$F(\infty)-F(-\infty)=1$, ou seja, o que implica que $F(\infty)=1$ e
+%$F(-\infty)=0$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para terminar a prova suponha por contradição que $F_n$ não convirja
+%fracamente para $F$, onde $F_{n_j}\rightarrow F$ fracamente. Então,
+%existirão $x$, ponto de continuidade de $F$ e uma subsequência
+%$F_{1'},F_{2'},\ldots$ tais que $F_{n'}(x)\rightarrow a\ne F(x)$.
+%Como essa subsequência também satisfaz as condições do teorema, (i)
+%e (ii) implicam que existe uma subsequência $F_{1''},F_{2''},\ldots$
+%e uma função de distribuição $G$ tais que $F_{n''}\rightarrow G$
+%fracamente. Como $F$ e $G$ possuem a mesma função característica
+%$(\phi)$, temos que $F=G$, ou seja $F_{n''}(x)\rightarrow
+%a=G(x)=F(x)$, uma contradição.
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+%
+
+\begin{frame}{Aplicações do Teorema da Continuidade}
+
+\begin{exem}
+Suponha que $X_n$ e $Y_n$ são independentes para cada $n\geq 0$ e que $X_n\rightarrow^D X_0$ e $Y_n\rightarrow^D Y_0$. Prove que $X_n+Y_n\rightarrow^D X_0+Y_0$.
+
+{\bf Solução:} Pelo Teorema da Continuidade sabemos que $\phi_{X_n}(t)\rightarrow\phi_{X_0}(t)$ e que $\phi_{Y_n}(t)\rightarrow\phi_{Y_0}(t)$. Como $X_n$ e $Y_n$ são independentes temos que $\phi_{X_n+Y_n}(t)=\phi_{X_n}(t)\phi_{Y_n}(t)$. Portanto,
+\begin{eqnarray}
+& & \lim_n\phi_{X_n+Y_n}(t)=\lim_n(\phi_{X_n}(t)\phi_{Y_n}(t))\nonumber\\
+& & =\phi_{X_0}(t)\phi_{Y_0}(t)=\phi_{X_0+Y_0}(t).\nonumber
+\end{eqnarray}
+Logo, pelo Teorema da Continudade, temos que $X_n+Y_n\rightarrow^D X_0+Y_0$.
+\end{exem}
+
+
+\end{frame}
+
+
+\begin{frame}
+%\frametitle{\textbf{Aplicações do Teorema da Continuidade}}
+%\baselineskip=13pt
+%\begin{block}{}
+
+
+\begin{exem}
+Suponha que a variável aleatória $X_n$ tenha distribuição Binomial, ou seja,
+$$P(X_n=k)=\binom{n}{k}p_n^k(1-p_n)^{n-k},k=0,1,2,\ldots,n.$$
+Se $p_n\rightarrow 0$ quando $n\rightarrow\infty$ de tal modo que $np_n\rightarrow\lambda>0$, então
+$$X_n\rightarrow^D Y,$$
+onde $Y\sim Poisson(\lambda)$. Para verificar isto relembre que podemos representar uma variável aleatória Binomial como a soma de variáveis aleatórias Bernoulli i.i.d., então
+\begin{eqnarray}
+& & \phi_{X_n}(t)=Ee^{itX_n}=(1-p_n+e^{it}p_n)^n\nonumber\\
+& & =(1+p_n(e^{it}-1))^n=(1+\frac{np_n(e^{it}-1)}{n})^n\rightarrow e^{\lambda(e^{it}-1)},\nonumber
+\end{eqnarray}
+onde a expressão final é a função característica de uma variável aleatória $Poisson(\lambda)$. Portanto, pelo Teorema da Continuidade, $X_n\rightarrow^D Y$.
+\end{exem}
+
+
+%\end{block}
+\end{frame}
+
+%
+%\begin{frame}
+%\frametitle{\textbf{Soma de um Número Aleatório de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%Queremos agora estudar somas de um número aleatório de
+%variáveis aleatórias, ou seja,
+%$$S=\sum_{i=0}^NX_i,$$
+%onde $N$ é uma variável aleatória inteira e não negativa, e
+%assume-se que ela é independente das parcelas $X_i$. Por exemplo,
+%$N$ pode ser o número de clientes, pacotes ou trabalhos chegando em
+%uma fila em um dado intervalo de tempo e $X_i$ pode ser o tempo
+%necessário para finalizar o $i$-ésimo trabalho. $S$ então seria o
+%tempo total do serviço. Em nossas aplicações assumiremos que $N=0$
+%significa que $S=0$, ou seja, $X_0=0$ com função característica
+%$\phi_{X_0}(u)=1$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Soma de um Número Aleatório de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%Sabemos que $ES=E[E(S|N)]$ e que
+%$$E(S|N=n)=\sum_{i=0}^{n}E(X_i|N=n).$$
+%Como assumimos que $N$ é independente de $X_i$, temos
+%$$E(S|N=n)=\sum_{i=0}^{n}EX_i.$$
+%Se as variáveis aleatórias $\{X_i,i>0\}$ têm esperança igual a $m$,
+%então $E(S|N=n)=nm$ e $ES=mEN$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Soma de um Número Aleatório de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Para informações mais detalhadas sobre $S$, vamos calcular sua
+%função característica $\phi_S$ assumindo que as variáveis aleatórias
+%$\{N,X_1,X_2,\ldots\}$ são independentes:
+%$$\phi_S(t)=Ee^{itS}=E(E(e^{itS}|N)).$$
+%Por outro lado, utilizando a hipótese de independência, podemos
+%calcular,
+%$$E(e^{itS}|N=n)=E(\prod_{i=0}^{n}e^{itX_i}|N=n)=\prod_{i=0}^{n}\phi_{X_i}(t).$$
+%Logo,
+%$$\phi_S(t)=\sum_{n=0}^{\infty}P(N=n)\prod_{i=0}^{n}\phi_{X_i}(t).$$
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Soma de um Número Aleatório de Variáveis Aleatórias}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Se as parcelas $\{X_1,X_2,\ldots\}$ forem também  identicamente
+%distribuídas com função característica $\phi_X$, então
+%$$\phi_S(t)=\sum_{n=0}^{\infty}P(N=n)\phi_X^n(t),$$
+%onde utilizamos o fato que $\phi_X^0=1=\phi_{X_0}(t)$. Note que a
+%função característica de $N$ é:
+%$$\phi_N(t)=\sum_{n=0}^{\infty}P(N=n)e^{itn}=\sum_{n=0}^{\infty}P(N=n)[e^{it}]^n.$$
+%Comparando as expressões de $\phi_S$ e $\phi_N$, nós vemos que
+%escolhendo $t$ em $\phi_N(t)$ de forma que $e^{it}=\phi_X$, nós
+%podemos reescrever:
+%$$\phi_S(t)=\phi_N(-i\log\phi_X(t)).$$
+%
+%\end{block}
+%\end{frame}
+
+
+\begin{frame}{Soma de um Número Aleatório de Variáveis Aleatórias}
+
+
+\begin{teo} Se $N$ é uma variável aleatória inteira não-negativa,
+$S=\sum_{i=0}^{N}X_i,X_0=0$, onde $\{X_i,i\geq 1\}$ são i.i.d. com
+função característica comum $\phi_X$, e elas são independentes de
+$N$ que é descrita pela função característica $\phi_N$, então
+$$\phi_S(t)=\phi_N(-i\log\phi_X(t)).$$ \end{teo}
+
+
+\begin{exem}
+Suponha que $N\thicksim Poisson(\lambda)$ representa o número de
+clientes que são atendidos em um dado tempo $T$. Suponha ainda que
+com probabilidade $p$ o $i$-ésimo cliente fica satisfeito com o atendimento.
+Assuma que os clientes ficam satisfeitos com o serviço de maneira
+independente e que $N$, é independente da probabilidade que clientes
+ficam satisfeitos. Determine a distribuição de probabilidade de $S$
+o número total de clientes satisfeitos no tempo $T$.
+
+\end{exem}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{\textbf{Exemplo}}
+\baselineskip=13pt
+\begin{block}{}
+
+{\bf Solução:} Seja $X_i\thicksim Bernoulli(p)$, $i\geq 1$, a
+variável aleatória que descreve se o $i$-ésimo cliente ficou ou não
+satisfeito com o atendimento. Então temos,
+$$S=\sum_{i=0}^{N}X_i,$$
+onde $X_0=0$. Desta forma, sabemos que
+$$\phi_S(t)=\phi_N(-i\log\phi_X(t)),$$
+onde $\phi_X(t)=pe^{it}+(1-p)$ e $\phi_N(t)=e^{\lambda(e^{it}-1)}$.
+Substituindo temos:
+\begin{eqnarray}
+& & \phi_S(t)=e^{\lambda(e^{i(-i\log(pe^{it}+(1-p)))}-1)}\nonumber \\ & & =e^{\lambda(pe^{it}+(1-p)-1)}=e^{p\lambda(e^{it}-1)}.\nonumber
+\end{eqnarray}
+Pela unicidade da função característica, temos que $S\thicksim
+Poisson(p\lambda)$.
+%\end{exem}
+
+\end{block}
+\end{frame}
+
+
+%\begin{frame}
+%\frametitle{\textbf{Função Característica de um Vetor Aleatório}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%\begin{definition}
+%Seja $\vec{X}=(X_1,\ldots,X_k)$ um vetor aleatório $k$-dimensional.
+%A função característica de $\vec{X}$ é a função
+%$\phi_{\vec{X}}:\IR^k\rightarrow C$ definida por
+%$$\phi_{\vec{X}}(\vec{t})=Ee^{i\vec{t}\cdot\vec{X}}=Eexp(i\sum_{j=1}^{k}t_jX_j).$$
+%$\phi_{\vec{X}}$ é também chamada de função característica conjunta
+%de $X_1,\ldots, X_k$.
+%\end{definition}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Propriedades}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%A função característica multivariada tem propriedades análogas a
+%todas as propriedades enunciadas para a função característica de uma
+%variável aleatória. As propriedades P1--P4 e P6 são válidas com as
+%óbvias modificações (a reta é substituída por $\IR^k$). Para P5,
+%supõe-se que $\vec{X}$ e $\vec{Y}$ sejam vetores de mesma dimensão.
+%Sob esta condição, a independência de $\vec{X}$ e $\vec{Y}$ implica
+%que
+%$$\phi_{\vec{X}+\vec{Y}}(\vec{t})=\phi_{\vec{X}}(\vec{t})\phi_{\vec{Y}}(\vec{t}).$$
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Teorema da Unicidade}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%
+%Quanto ao Teorema da Unicidade, também existe uma fórmula da inversão para a função
+%característica multidimensional que pode ser usada para provar a
+%unicidade da função característica:
+%
+%\thm {\bf Teorema da Unicidade.} Se $\vec{X}$ e $\vec{Y}$ forem
+%vetores aleatórios $k$-dimensionais tais que
+%$\phi_{\vec{X}}(\vec{t})=\phi_{\vec{Y}}(\vec{t}),
+%\forall\vec{t}\in\IR^k$, então $\vec{X}$ e $\vec{Y}$ têm a mesma
+%distribuição. Em outras palavras, a função característica determina
+%a distribuição, e podemos escrever:
+%$\phi_{\vec{X}}=\phi_{\vec{Y}}\Leftrightarrow
+%F_{\vec{X}}=F_{\vec{Y}}$. \ethm
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Momentos Conjuntos}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Analogamente a P7, correlações de ordem maiores podem ser facilmente
+%calculadas diferenciando-se  a função característica conjunta repetidamente. Formalmente, seja
+%$p=\sum_{k=1}^{n}p_k$ para números naturais quaisquer $p_k$, temos
+%$$E(\prod_{1}^{n}X_k^{p_k})=\frac{1}{i^p}\frac{\partial^p\phi_{\vec{X}}(\vec{t})}{\partial t_1^{p_1}\cdots \partial t_n^{p_n}}|_{\vec{t}=\vec{0}}.$$
+%No caso particular de $\vec{X}=(X_1,X_2)$, temos que
+%$$EX_1X_2=-\frac{\partial^2\phi_{X_1,X_2}(t_1,t_2)}{\partial t_1\partial t_2}|_{t_1=t_2=0}.$$
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Transformações Lineares}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Também é fácil analisar o comportamento da função característica
+%multivariada de transformações lineares de vetores aleatórios em
+%analogia a propriedade P8. (Assumiremos que um vetor $\vec{X}$
+%$k$-dimensional é uma matriz coluna com dimensão $k\times 1$. Deste
+%modo $\vec{t}\cdot\vec{X}=(\vec{t})^T\vec{X}$.) Por exemplo, seja
+%$\vec{Y}={\bf A}\vec{X}+\vec{b}$, então
+%\begin{eqnarray}
+%& &
+%\phi_{\vec{Y}}(\vec{t})=Ee^{i(\vec{t})^T\vec{Y}}=Ee^{i(\vec{t})^T({\bf
+%A}\vec{X}+\vec{b})}\nonumber \\
+%& & =E(e^{i(\vec{t})^T\vec{b}}e^{i({\bf
+%A}^T\vec{t})^T\vec{X}})=e^{i(\vec{t})^T\vec{b}}\phi_{\vec{X}}({\bf
+%A}^T\vec{t}),\nonumber
+%\end{eqnarray}
+%onde utilizamos o fato que $({\bf AB})^T={\bf B}^T{\bf A}^T$ e que
+%$e^{i(\vec{t})^T\vec{b}}$ não é aleatório e pode sair fora da
+%operação de esperança.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Função Característca Marginal}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Assim como é fácil obter a distribuição marginal dada uma
+%distribuição conjunta de variáveis aleatórias, também é fácil obter
+%a função característica de qualquer distribuição marginal. Para isso
+%basta fazer todos os termos ``extras'' iguais a zero na função
+%característica multivariada. Por exemplo, para as variáveis
+%aleatórias $X,Y,\mbox{ e }Z$, temos
+%$Ee^{i(xX+yY)}=Ee^{i(xX+yY+0Z)}$, ou seja,
+%$\phi_{X,Y}(x,y)=\phi_{X,Y,Z}(x,y,0),\forall (x,y)\in\IR^2$.
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Teorema da Continuidade}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como no caso unidimensional, temos convergência em distribuição se,
+%e somente se, as funções características convergem.
+%
+%\thm $\vec{X}_n\rightarrow^D \vec{X}$ se, e somente se,
+%$\phi_{\vec{X}_n}(\vec{t})\rightarrow
+%\phi_{\vec{X}}(\vec{t}),\forall \vec{t}\in \IR^k$. \ethm
+%
+%\prv Omitida. \eprv
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Teorema de Cramér-Wold}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%O próximo teorema mostra que convergência em distribuição de vetores aleatórios é equivalente à convergência em distribuição de todas as combinações lineares das coordenadas.
+%
+%\thm {\bf Cramér-Wold.} Sejam
+%$$\vec{X}_n=(X_{n1},X_{n2},\ldots,X_{nk})\mbox{ e }\vec{X}=(X_1,\ldots,X_n)$$ vetores aleatórios $k$-dimensionais. Então, $\vec{X}_n\rightarrow \vec{X}$ se, e somente se, $\sum_{j=1}^{k}t_jX_{nj}\rightarrow^D\sum_{j=1}^{k}t_jX_j$, para todo $(t_1,\ldots,t_k)\in\IR^k$.
+%\ethm
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Cramér-Wold}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Suponhamos primeiro que $$\sum_{j=1}^{k}t_jX_{nj}\rightarrow^D \sum_{j=1}^{k}t_jX_{j}, \forall (t_1,\ldots,t_k).$$ Então, \begin{eqnarray}
+%& & \varphi_{\vec{X}_n}(t_1,\ldots,t_k)= Ee^{i\sum_{j=1}^{k}t_jX_{nj}} \nonumber\\
+%& & =\varphi_{\sum_{j=1}^{k}t_jX_{nj}}(1)\rightarrow \varphi_{\sum_{j=1}^{k}t_jX_{j}}(1)=\varphi_{\vec{X}}(t_1,\ldots,t_k), \nonumber
+%\end{eqnarray}
+%onde utilizamos o Teorema da Continuidade de Levy. Também pelo Teorema da Continuidade de Levy no caso multidimensional, temos que como  $\varphi_{\vec{X}_n}\rightarrow\varphi_{\vec{X}}$, $\vec{X}_n\rightarrow^D \vec{X}$.
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Cramér-Wold}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Agora suponha que $\vec{X}_n\rightarrow^D \vec{X}$. Para $(t_1,\ldots,t_k)\in\IR^k$, queremos provar que $\sum_{j=1}^{k}t_jX_{nj}\rightarrow^D\sum_{j=1}^{k}t_jX_j$. Para tanto, basta provarmos que
+%$$\varphi_{\sum_{j=1}^{k}t_jX_{nj}}(t)\rightarrow\varphi_{\sum_{j=1}^{k}t_jX_j}(t), \forall t\in\IR.$$
+%Mas, utilizando novamente o Teorema da Continuidade de Levy, temos que
+%\begin{eqnarray}
+%& & \varphi_{\sum_{j=1}^{k}t_jX_{nj}}(t)=Ee^{it\sum_{j=1}^{k}t_jX_{nj}}=Ee^{i\sum_{j=1}^{k}(tt_j)X_{nj}} \nonumber \\
+%& & \varphi_{\vec{X}_n}(tt_1,\ldots,tt_k)\rightarrow \varphi_{\vec{X}}(tt_1,\ldots,tt_k)= \varphi_{\sum_{j=1}^{k}t_jX_{j}}(t) \nonumber
+%\end{eqnarray}
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Independência}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Terminaremos nossa discussão de funções características
+%multidimensionais considerando um critério para independência de
+%vetores aleatórios.
+%
+%\thm Sejam $$\vec{X}=(X_1,\ldots,X_m)\mbox{ e }\vec{Y}=(Y_1,\ldots,Y_n)$$
+%vetores aleatórios, onde $m\geq 1,n\geq 1$. $\vec{X}$ e $\vec{Y}$
+%são independentes se, e somente se,
+%\begin{eqnarray}
+%& & \phi_{X_1,\ldots,X_m,Y_1,\ldots,Y_n}(x_1,\ldots,x_m,y_1,\ldots,y_n)\nonumber\\
+%& & =\phi_{\vec{X}}(x_1,\ldots,x_m)\phi_{\vec{Y}}(y_1,\ldots,y_n),\nonumber
+%\end{eqnarray}
+%para todo $(x_1,\ldots,x_m)\in\IR^m$ e $(y_1,\ldots,y_n)\in\IR^n$.
+%\ethm
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Suponhamos primeiro que $\vec{X}$ e $\vec{Y}$ sejam variáveis
+%aleatórias $X$ e $Y$ $(m=1,n=1)$, com $X$ e $Y$ independentes. Então
+%temos,
+%\begin{eqnarray}
+%&  & \phi_{X,Y}(x,y)=Ee^{i(xX+yY)}=Ee^{ixX}e^{iyY}\nonumber\\
+%& & =Ee^{ixX}Ee^{iyY}=\phi_X(x)\phi_Y(y),\forall (x,y)\in\IR^2.\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Reciprocamente, suponha que $\phi_{X,Y}(x,y)=\phi_X(x)\phi_Y(y)$
+%para todo $(x,y)\in\IR^2$. Então a independência de $X$ e $Y$ é
+%consequência do Teorema da Unicidade: se $X$ e $Y$ fossem
+%independentes, elas teriam função característica conjunta
+%$\phi_{X,Y}(x,y)=\phi_X(x)\phi_Y(y)$ pela parte inicial desta
+%demonstração. Se não fossem independentes, elas teriam uma função
+%característica diferente, o que contraria a hipótese. Logo, são
+%independentes.
+%
+%A prova no caso geral é análoga e omitida.
+%%\eprv
+%
+%
+%\end{block}
+%\end{frame}
+%
+%
+%\begin{frame}
+%\frametitle{\textbf{Observação}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Um resultado semelhante vale para um número finito qualquer de
+%vetores aleatórios. Consideremos o caso mais simples em que
+%$X_1,\ldots, X_n$ são variáveis aleatórias. Então, temos
+%$X_1,\ldots,X_n$ independentes se, e somente se,
+%$$\phi_{X_1,\ldots,X_n}(t_1,\ldots,t_n)=\prod_{j=1}^{n}\phi_{X_j}(t_j),\forall(t_1,\ldots,t_n)\in\IR^n.$$
+%
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}{Funções Geratrizes de Momento}
+
+
+\begin{defi}
+Uma função geratriz de momento $\hat{F}_X(t)$ de uma variável
+aleatória $X$ com função de distribuição $F_X$ existe se,
+$$\hat{F}_X(t):=Ee^{tX}<\infty,\forall t\in I,$$
+onde $I$ é um intervalo contendo 0 no seu interior.
+\end{defi}
+
+O problema de utilizar funções geratrizes de momento é que elas nem
+sempre existem. Por exemplo, a função geratriz de momento de uma
+variável aleatória com distribuição de Cauchy não existe. Pode-se
+provar que a existência da função geratriz de momento é equivalente
+a cauda da distribuição de $X$ ser limitada exponencialmente, ou
+seja, $P(|X|>x)\leq Ke^{-cx}$, para algum $K>0$ e $c>0$. Se a função
+geratriz de momento existe, pode-se provar que ela também determina
+a função de distribuição.
+
+\end{frame}
+
+\begin{frame}{Funções Contínuas Preservam Convergência}
+O Teorema de Slutsky que trata do
+comportamento da soma e do produto de variáveis aleatórias, uma
+convergindo em distribuição e outra em probabilidade. 
+
+\begin{teo} Sejam $\{X_n:n\geq 1\}$ e $X$ variáveis aleatórias com funções
+de distribuição $\{F_n:n\geq 1\}$ e $F$, respectivamente. Seja
+$g:\IR\rightarrow\IR$ uma função contínua. Então, se $X_n$ converge
+para $X$ quase certamente, em probabilidade ou em distribuição, o
+mesmo ocorre com $g(X_n)$ para $g(X)$, no mesmo modo de
+convergência. \end{teo}
+\begin{proof}
+	Omitiremos a prova por ser muito extensa. Ler livro texto.
+\end{proof}
+
+\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%%\prv
+%Suponha que $X_n\rightarrow X$ cp1. Então, existe um conjunto
+%$A\in\F$ tal que $P(A)=0$ e $X_n(w)\rightarrow X(w)$ para $w\in
+%A^c$. Como $g$ é contínua, $g(X_n(w))\rightarrow g(X(w))$ para $w\in
+%A^c$ e, portanto, $g(X_n)\rightarrow g(X)$ cp1.
+%
+%Considere que $X_n\rightarrow^P X$ e vamos verificar que
+%$g(X_n)\rightarrow^P g(X)$. Dado $\epsilon>0$ arbitrário, fixemos
+%$m$ grande o suficiente tal que $P(|X|>m/2)<\epsilon$. A função $g$
+%sendo contínua em $\IR$, será uniformemente contínua no intervalo
+%fechado $[-m,m]$, logo para $\epsilon'>0$ arbitrário existe $\delta$ tal que $0<\delta\leq m/2$ e
+%se $x, y\in [-m,m]$ e $|x-y|<\delta$, então
+%$|g(x)-g(y)|<\epsilon'$.
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Observe que se $P(A_n)\rightarrow 1$, então $P(A_n\cap A)\rightarrow P(A)$, pois $P(A_n)+P(A)-1\leq P(A_n\cap A)\leq P(A)$ e $P(A_n)+P(A)-1\rightarrow P(A)$. Portanto, como $P(|X_n-X|<\delta)\rightarrow 1$, temos que $P(|X|\leq m/2,|X_n-X|<\delta)\rightarrow P(|X|\leq m/2)>1-\epsilon$. Mas
+%%
+%\begin{eqnarray}
+%& & [|X|\leq m/2,|X_n-X|<\delta]\nonumber\\
+%& & \subseteq [|X|\leq m,|X_n|\leq m,|X_n-X|<\delta] \nonumber\\
+%&  & \subseteq [|g(X_n)-g(X)|<\epsilon'], \nonumber
+%\end{eqnarray}
+%logo $P(|g(X_n)-g(X)|<\epsilon')>1-2\epsilon$ para $n$ suficientemente grande. Como $\epsilon$ é arbitrário, temos que $P(|g(X_n)-g(X)|<\epsilon')\rightarrow 1$ quando $n\rightarrow\infty$, ou seja $g(X_n)\rightarrow^P g(X)$.
+%
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Finalmente, considere que $X_n\rightarrow^D X$. Pelo Teorema da
+%Continuidade de Levy, para que $g(X_n)\rightarrow^D g(X)$, basta a
+%convergência das respectivas funções características. Por definição,
+%$$\phi_{g(X_n)}(t)=Ee^{itg(X_n)}=E\cos(tg(X_n))+iE\mbox{\,sen}(tg(X_n)).$$
+%
+%Como as funções $\cos(tg(x))$ e $\mbox{\,sen}(tg(x))$ são contínuas e
+%limitadas na reta, para $t$ fixo, decorre do Teorema de Helly-Bray
+%que
+%\begin{eqnarray}
+%&  & \phi_{g(X_n)}(t)\rightarrow E\cos(tg(X))+iE\mbox{\,sen}(tg(X))\nonumber\\
+%&  &=\phi_{g(X)}(t),\forall t\in \IR.\nonumber
+%\end{eqnarray}
+%
+%%\eprv
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}{Teorema de Slutsky}
+\begin{teo} Considere $\{X_n:n\geq 1\}$, $\{Y_n:n\geq 1\}$ e $X$ variáveis
+aleatórias tais que valem as convergências $X_n\rightarrow^D X$ e
+$Y_n\rightarrow^P c$, com $c$ constante. Então,
+\begin{enumerate}
+\item[(i)] $X_n+Y_n\rightarrow^D X+c$;
+
+\item[(ii)] $X_nY_n\rightarrow^D cX$;
+
+\item[(iii)] Se $c\ne 0$, $\frac{X_n}{Y_n}\rightarrow^D
+\frac{X}{c}$, desde que $P(Y_n\ne 0)=1$.
+\end{enumerate}
+\end{teo}
+\begin{proof}
+	Omitiremos a prova por ser muito extensa. Ler livro texto.
+\end{proof}
+\end{frame}
+
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%%\prv
+%Prova de (i): Temos
+%\begin{eqnarray}
+%&  & \phi_{X_n+Y_n}(t)=E(e^{it(X_n+Y_n)})\nonumber\\
+%& & =E(e^{it(X_n+c)})+E[(e^{itX_n})(e^{itY_n}-e^{itc})].\nonumber
+%\end{eqnarray}
+%%
+%Por hipótese temos,
+%\begin{eqnarray}
+%& & \lim_{n}E(e^{it(X_n+c)})=\lim_ne^{itc}E(e^{itX_n})\nonumber\\
+%& & =e^{itc}E(e^{itX})=E(e^{it(X+c)}).\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Observe que $|e^{itX_n}|=1$ e, assim, vem
+%\begin{eqnarray}
+%& & |E[(e^{itX_n})(e^{itY_n}-e^{itc})]|\nonumber\\
+%&  & \leq E[|(e^{itX_n})(e^{itY_n}-e^{itc})|]=E[|(e^{itY_n}-e^{itc})|].\nonumber
+%\end{eqnarray}
+%Seja $Z_n=|(e^{itY_n}-e^{itc})|$, temos $0\leq Z_n\leq 2$. Logo,
+%para $\epsilon>0$, temos
+%\begin{eqnarray}
+%& & E[|(e^{itY_n}-e^{itc})|]=EZ_n=E(Z_nI_{Z_n\leq
+%\epsilon})+E(Z_nI_{Z_n>\epsilon})\nonumber \\
+%& & \leq \epsilon + 2E(I_{Z_n>\epsilon})\leq \epsilon
+%+2P(Z_n>\epsilon).\nonumber
+%\end{eqnarray}
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como $Z_n$ é uma função contínua de $Y_n$ e lembrando que funções
+%contínuas preservam convergência em probabilidade, temos que
+%$Z_n\rightarrow^P 0$, pois $Y_n\rightarrow^P c$. Nessas condições,
+%para $n$ grande o suficiente,
+%$$|E[(e^{itX_n})(e^{itY_n}-e^{itc})]|\leq E[|(e^{itY_n}-e^{itc})|]<2\epsilon.$$
+%Logo, tomando o limite de $\phi_{X_n+Y_n}(t)$ quando
+%$n\rightarrow\infty$, concluímos a demonstração da parte (i).
+%
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Prova de (ii): Inicialmente consideramos $c=0$ e vamos verificar que
+%$X_nY_n\rightarrow^P 0$, e consequentemente, $X_nY_n\rightarrow^D
+%0$. Sejam $\epsilon,\delta >0$ e $x<0<y$ pontos de continuidade de
+%$F_X$ tais que $F_X(y)-F_X(x)=P(x<X\leq y)>1-\delta$. Como
+%$X_n\rightarrow^D X$, temos $P(x<X_n\leq
+%y)=F_{X_n}(y)-F_{X_n}(x)>1-2\delta$ para $n$ suficientemente grande.
+%Definamos $M=\max(y,-x)$, então a convergência em probabilidade de
+%$Y_n$ para zero implica que $P(|Y_n|<\frac{\epsilon}{M})>1-\delta$
+%para $n$ suficientemente grande. Logo para $n$ suficientemente
+%grande, temos
+%$$P(x<X_n\leq y,|Y_n|<\frac{\epsilon}{M})>1-3\delta.$$
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Como $x<X_n\leq y$ e $|Y_n|<\frac{\epsilon}{M}$ implicam
+%$|X_nY_n|<\epsilon$, temos $P(|X_nY_n|<\epsilon)>1-3\delta$ para $n$
+%grande o suficiente. Portanto, para todo $\epsilon>0$,
+%$P(|X_nY_n|<\epsilon)\rightarrow 1$, ou seja, $X_nY_n\rightarrow^P
+%0$.
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Agora consideremos o caso $c$ geral. Como $X_nY_n=cX_n+(Y_n-c)X_n$ e
+%$Y_n-c\rightarrow^P 0$. Pelo caso $c=0$, temos que
+%$(Y_n-c)X_n\rightarrow^P 0$. Além disso como $cx$ é uma função
+%contínua, temos $cX_n\rightarrow^D cX$. Como $X_nY_n$ é a soma de
+%dois termos, o primeiro dos quais converge para $cX$ em
+%distribuição, e o segundo para zero em probabilidade, o resultado é
+%consequência da parte (i).
+%
+%\end{block}
+%\end{frame}
+%
+%\begin{frame}
+%\frametitle{\textbf{Prova do Teorema de Slutsky}}
+%\baselineskip=13pt
+%\begin{block}{}
+%
+%
+%Prova de (iii): Como $1/x$ é contínua para $x\ne 0$, temos que
+%$1/Y_n\rightarrow^P 1/c$. Agora, basta aplicar o ítem (ii).
+%%\eprv
+%
+%
+%\end{block}
+%\end{frame}
+
+
+\end{document}
+
