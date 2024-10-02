@@ -100,7 +100,7 @@ print(p_marginal)
 
 <!-- * **Carga horaria:** 60 horas/Aula. -->
 * **Professor:** Raydonal Ospina Martínez
-* **Homepage do Curso:** [https://castlab.org/courses/matd44/](https://castlab.org/courses/matd44/)
+* **Homepage do Curso:** [https://castlab.org/courses/MProbPGECD/](https://castlab.org/courses/MProbPGECD/)
 * **Contato:** raydonalmartinez@ufba.br
 * **Ementa do curso:**  Experimento aleatório, espaço amostral, eventos e coleção de eventos, probabilidade, probabilidade condicional e independência, variável aleatória, funções de probabilidade, densidade e distribuição, vetores aleatórios, esperança, variância, momentos. Esperança de funções de vetores aleatório e propriedades. Distribuições condicionais e propriedades. Distribuições de funções aleatórias e de vetores aleatórios, modos de convergência e suas relações, função característica, leis dos grandes números, teorema central do limite. Experimentos aleatórios, espaço amostral, eventos. Geração de eventos a partir de operações elementares da teoria dos conjuntos. Limites superior e inferior. Axiomas de Kolmogorov. Propriedades das medidas de probabilidade. Probabilidade condicional. Independência. Lemas de Borel-Cantelli. Variáveis aleatórias contínuas e discretas. Função distribuição acumulada e suas propriedades Integral de Riemman Stieltjes. Esperança e variância de variáveis aleatórias e propriedades. Principais distribuições discretas e contínuas. Vetores aleatórios, função distribuição conjunta e função densidade conjunta de um vetor aleatório. Distribuições marginais. Distribuições mistas. Esperança de vetores aleatórios. Desigualdade de Cauchy-Schwarz. Matriz de covariância. Coeficiente de correlação e propriedades. Função característica e função geradora de momentos conjunta, cálculo de momentos conjuntos (momentos mistos). Exemplos de distribuições multivariadas. Distribuições multinomial e Normal multivariada. Propriedades da Normal multivariada. Distribuições condicionais e esperança condicional: Definições, existência, propriedades. Variância condicional. Função de Regressão. Fórmulas da variância total e da covariância total.
 
@@ -165,10 +165,10 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 # Programa da disciplina (Tentativo)
 <center>
 
-|**Aula**|**Data ou período de realização**|**Unidade Temática ou Conteúdo**|**Atividade/recurso**|
+|**Aula**|**Data ou período de realização**|**Unidade Temática ou Conteúdo**|**Material**|
 | :-: | :-: | :-: | :-: |
-|1|01/10/2024|Revisão|  [[slides 1]](Aulas/Aula-01.pdf)    |
-|2|03/10/2024|Experimentos aleatórios, espaço amostral, eventos. Coleção de eventos, funções indicadoras.|Quadro e/ou slides|
+|1|01/10/2024|Revisão - conceitos básicos|  [[slides 1]](Aulas/Aula-01.pdf), [[videoaula]](https://youtube.com/playlist?list=PL5Dg8nFln2eVou0YbxuUiYWmjPuxTLAYe&si=q5Ym1M9YkVWOUiN1)    |
+|2|03/10/2024|Experimentos aleatórios, espaço amostral, eventos. Coleção de eventos, funções indicadoras.|[[videoaula]](https://youtu.be/ez-wI3l720k?si=QLLbdLjucCK2L_d0)|
 |3|08/10/2024|Fundamentos e probabilidade, frequência relativa  | [[slides 2]](Aulas/Aula-02.pdf)|
 |4|10/10/2024|Axiomas de Kolmogorov|Quadro e/ou slides|
 |5|15/10/2024|Propriedades de uma medida de probabilidade|Quadro e/ou slides|
@@ -210,9 +210,9 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 #### Referências bibliográficas (Principal)
 
 
-* James, B. (1981) Probabilidade: Um Curso em Nível Intermediário, IMPA. (Livro texto tentativo).
-* Magalhães, M. N. (2004). Probabilidade e Variáveis Aleatórias. Ed. Universidade de São Paulo.
-* Campos, M. A., Rêgo, L. C., & de Mendonça, A. F. (2017). Métodos probabilísticos e estatísticos com aplicações em engenharias e ciências exatas. Grupo Gen-LTC.
+* [James, B. (1981).](Material/James.pdf) Probabilidade: Um Curso em Nível Intermediário, IMPA. (Livro texto tentativo).
+* [Magalhães, M. N. (2004).](Material/Marcos.pdf) Probabilidade e Variáveis Aleatórias. Ed. Universidade de São Paulo.
+* [Campos, M. A., Rêgo, L. C., & de Mendonça, A. F. (2017).](Material/Rego.pdf) Métodos probabilísticos e estatísticos com aplicações em engenharias e ciências exatas. Grupo Gen-LTC.
 * Feller, W. (1968) An introduction to probability theory and its applications, vol. I, 3a edição. Wiley.
 * DasGupta, A. (2011). Probability for statistics and machine learning: fundamentals and advanced topics (p. 566). New York: Springer.
 * Aggarwal, C. C. (2024). Probability and Statistics for Machine Learning: A Textbook. Springer Nature.
@@ -297,7 +297,7 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 <!-- *  [Apostila Unidade - III - ](Material/Apostila-3.pdf) Material elaborado pelas professoras: Giovana Silva, Lia Moraes, Rosana Castro e Rosemeire Fiaccone. Revisada em 2010.2 - Monitora: Tatiana Felix da Matta. Revisada em 2013.1 - Profas Gecynalda Gomes e Silvia Regina. Revisada em 2014.1 - Profa Silvia Regina.   Revisada em 2017.2 - Profas Giovana Silva e Verônica Lima. Revisada em 2017.2 - Monitores: Ícaro Augusto e Matheus Borges. -->
 
 <!-- *** -->
-O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos, artigos de divulgação, entre outros.
+O material de apoio será distribuído ao longo do curso. Esse material pode incluir, livros, slides de aula, scripts para reprodução, artigos científicos e artigos de divulgação, entre outros.
 
 <!-- **Slides** -->
 
