@@ -125,7 +125,7 @@ das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 12 do IME
 
 * **Metodologia:** Considerando o caráter teórico da disciplina, a metodologia de ensino e aprendizagem utilizará quadro e/ou slides para a apresentação do conteúdo em sala de aula. Será empregada uma plataforma virtual para disponibilizar materiais didáticos, incluindo artigos científicos. Além disso, serão implementadas aulas invertidas, com o envio de videoaulas relacionadas a temas especializados e específicos do assunto em estudo, bem como listas de exercícios.
 
-* **Objetivos da disciplina:** Esta disciplina téorica e obrigatória tem como objetivo proporcionar uma base matemática e Estyatística aos alunos de diferentes áreas do conhecimento que estejam interessados em probabilidade, visando à compreensão e aplicação de seus principais conceitos e métodos. Para esse fim, o curso é dividido em várias unidades nas quais são introduzidos resultados e teoremas centrais da probabilidade, bem como exemplos que motivam o estudo. Ferramentas computacionais (software) poderão apoiar o desenvolvimento de alguns temas do curso. O objetivo central da disciplina é estudar modelos de probabilidade de forma que permitam ao estudante formular, analisar e aplicar modelos probabilísticos. Além disso, busca-se proporcionar ao estudante a infraestrutura necessária para consolidar sua capacidade de pensar conceitualmente.
+* **Objetivos da disciplina:** ​Esta disciplina teórica e obrigatória tem como objetivo proporcionar uma base matemática e Estatística aos alunos de diferentes áreas do conhecimento que estejam interessados em probabilidade, visando à compreensão e aplicação de seus principais conceitos e métodos. Para esse fim, o curso é dividido em várias unidades nas quais são introduzidos resultados e teoremas centrais da probabilidade, bem como exemplos que motivam o estudo. Ferramentas computacionais (software) poderão apoiar o desenvolvimento de alguns temas do curso. O objetivo central da disciplina é estudar modelos de probabilidade de forma que permitam ao estudante formular, analisar e aplicar modelos probabilísticos. Além disso, busca-se proporcionar ao estudante a infraestrutura necessária para consolidar sua capacidade de pensar conceitualmente.
 
 ***
 <h4>
@@ -143,8 +143,9 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (Tentativa) |
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    55% 	    |     02/05/2024  |
-| Prova 2 |    45% 	    |     20/08/2024  |
+| Prova 1 |    55% 	    |     03/12/2024 |
+| Prova 2 |    45% 	    |     06/02/2025  |
+
 
 
 
