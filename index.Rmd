@@ -171,8 +171,8 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |1|01/10/2024|Revisão - conceitos básicos|  [[slides 1]](Aulas/Aula-01.pdf), [[videoaula]](https://youtube.com/playlist?list=PL5Dg8nFln2eVou0YbxuUiYWmjPuxTLAYe&si=q5Ym1M9YkVWOUiN1)    |
 |2|03/10/2024|Experimentos aleatórios, espaço amostral, eventos. Coleção de eventos, funções indicadoras.|[[videoaula]](https://youtu.be/ez-wI3l720k?si=QLLbdLjucCK2L_d0)|
 |3|08/10/2024|Fundamentos e probabilidade, frequência relativa  | [[slides 2]](Aulas/Aula-02.pdf)|
-|4|10/10/2024|Axiomas de Kolmogorov|Quadro e/ou slides|
-|5|15/10/2024|Propriedades de uma medida de probabilidade|Quadro e/ou slides|
+|4|10/10/2024|Axiomas de Kolmogorov|[[videoaula]](https://youtu.be/MotRLSAZ1wA?si=Q47dt0w5MfaDTmUC); [[videoaula]](https://youtu.be/rZLik7tsaw4?si=DLuSWNYdAs-nG4Dr)|
+|5|15/10/2024|Propriedades de uma medida de probabilidade|[[slides 3]](Aulas/Aula-03.pdf)|
 |6|17/10/2024|Probabilidade condicional, independência.|Quadro e/ou slides|
 |7|22/10/2024|Variáveis aleatórias, função de distribuição acumulada e tipos de variáveis aleatórias|Quadro e/ou slides|
 |8|24/10/2024|Decomposição de variáveis aleatórias|Quadro e/ou slides|
