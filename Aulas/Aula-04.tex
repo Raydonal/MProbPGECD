@@ -186,24 +186,23 @@
 \newcommand{\cor}[1]{ \{{#1}\}}
 
 
-\title[Probabilidade]{  Probabilidade (PGE950) }
-\author[ Raydonal Ospina  
+\title[Probabilidade]{  Probabilidade (PPGECD000000001) \\ \vspace{1cm}Programa de Pós-Graduação em Estatística e Ciência de Dados (PGECD) }
+\author[ Raydonal Ospina 
 %\textcopyright 
 \ ]{
-%Probabilidade\\ 
-% Sessão 1 \\
-%Probabilidade\\ 
-Sessão 4 \\
-${}$ \\
-Raydonal Ospina  }
-\date[PGE950 - \today ]{{\tiny PGE950 }}
+	%Probabilidade\\ 
+	Sessão 4 \\
+	${}$ \\
+	Raydonal Ospina  }
 
-\institute[UFPE]{Departamento de Estatística\\
-Universidade Federal de Pernambuco\\
-Recife/PE}
+\date[]{}
+
+\institute[UFBA]{Departamento de Estatística\\
+	Universidade Federal da Bahia\\
+	Salvador/BA}
 
 
-\usecolortheme[rgb={0,0.3,0.5}]{structure}
+\usecolortheme[rgb={0,0.6,0.6}]{structure}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -877,134 +876,142 @@ Uma fábrica tem 3 máquinas que produzem o mesmo ítem. As máquinas A e B são
 
 
 
+%%\begin{frame}
+%%\begin{block}{Paradoxo de Monty Hall}
+%%	Monty Hall foi um popular apresentador de programa de jogos em TV cujo jogo começava mostrando ao participante 3 portas fechadas $d_1,d_2,d_3$, e atrás de apenas uma delas havia um prêmio valioso. O participante selecionava uma porta, por exemplo, $d_1$, mas antes que a porta fosse aberta, Monty Hall, que sabia em que porta estava o prêmio, por exemplo, $d_2$, abria a porta restante $d_3$, que não continha o prêmio. O participante tinha então permissão para ficar com sua porta original, $d_1$, ou escolher a outra porta fechada. A pergunta é se é melhor ficar com a porta original ou trocar de porta.
+%%\end{block}
+%%
+%%\begin{block}{}
+%%	Vamos agora utilizar a fórmula de Bayes para analisar este problema. Seja $G$ uma porta escolhida aleatoriamente para conter o prêmio; $Y$ a porta que o participante escolhe primeiro; e $M$ a porta que Monty Hall abre. O participante não tem nenhum conhecimento a priori sobre a localização do prêmio, ou seja ele considera todas as portas equiprováveis, e isto pode ser modelado por:
+%%	$$P(G=d_i|Y=d_j)=\frac{1}{3};$$
+%%	todas as portas têm a mesma probabilidade de conter o prêmio não importa qual porta o participante escolhe.
+%%\end{block}
+%%
+%%\end{frame}
+%%
+%%
+%%\begin{frame}
+%%\begin{block}{}
+%%	
+%%	Se o participante escolher uma porta que não contém o prêmio, Monty Hall necessariamente terá de abrir a porta que não contém o prêmio, isto pode ser modelado por:
+%%	$$P(M=d_{i_1}|Y=d_{i_2},G=d_{i_3})=1,$$
+%%	onde $i_1, i_2, i_3\in \{1,2,3\}$ e são distintos.
+%%\end{block}
+%%
+%%\begin{block}{}
+%%	Se o participante escolher corretamente, por exemplo, $Y=G=d_{i_2}$, então assumimos que Monty Hall escolhe aleatoriamente entre as outras duas outras portas:
+%%	$$P(M=d_{i_1}|Y=G=d_{i_2})=\frac{1}{2}, \mbox{ para }d_{i_1}\ne d_{i_2}.
+%%	%\footnote{A solução depende como resolvemos este caso.}
+%%	$$
+%%	
+%%\end{block}
+%%Para determinar se o participante deve trocar de porta, devemos calcular
+%%\begin{eqnarray}
+%%& & P(G=d_1|Y=d_2,M=d_3) \nonumber \\
+%%& & =\frac{P(G=d_1,Y=d_2,M=d_3)}{P(Y=d_2,M=d_3)} \nonumber\\
+%%& & =\frac{P(M=d_3|G=d_1,Y=d_2)P(G=d_1|Y=d_2)}{P(M=d_3|Y=d_2)} \nonumber \\
+%%& & \times \frac{P(Y=d_2)}{P(Y=d_2)} \nonumber \\
+%%%& & =\frac{P(M=d_3|G=d_1,Y=d_2)P(G=d_1|Y=d_2)}{P(M=d_3|Y=d_2)} \nonumber \\
+%%& & =\frac{1/3}{P(M=d_3|Y=d_2)}. \nonumber
+%%\end{eqnarray}
+%%
+%%\end{frame}
+%%
+%%
+%%\begin{frame}
+%%Para determinar o valor de $P(M=d_3|Y=d_2)$ utilizamos o Teorema da Probabilidade Total e a definição de probabilidade condicional:
+%%\begin{eqnarray}
+%%& & P(M=d_3|Y=d_2)=\frac{P(Y=d_2,M=d_3)}{P(Y=d_2)} \nonumber\\
+%%& & =\frac{P(Y=d_2,M=d_3,G=d_1)}{P(Y=d_2)} + \frac{P(Y=d_2,M=d_3,G=d_2)}{P(Y=d_2)} \nonumber \\
+%%& & +\frac{P(Y=d_2,M=d_3,G=d_3)}{P(Y=d_2)} \nonumber \\
+%%& & =\frac{P(Y=d_2)}{P(Y=d_2)}\times [P(M=d_3|Y=d_2,G=d_1)P(G=d_1|Y=d_2)\nonumber \\
+%%& & +P(M=d_3|Y=d_2,G=d_2)P(G=d_2|Y=d_2)\nonumber\\
+%%& & +P(M=d_3|Y=d_2,G=d_3)P(G=d_3|Y=d_2)]\nonumber \\
+%%%& & =P(M=d_3|Y=d_2,G=d_1)P(G=d_1|Y=d_2)\nonumber\\
+%%%& & +P(M=d_3|Y=d_2,G=d_2)P(G=d_2|Y=d_2)\nonumber \\
+%%%& & +P(M=d_3|Y=d_2,G=d_3)P(G=d_3|Y=d_2) \nonumber\\
+%%& & =1\cdot \frac{1}{3}+\frac{1}{2}\cdot\frac{1}{3}+0=\frac{1}{2}.\nonumber
+%%\end{eqnarray}
+%%Logo, $P(G=d_1|Y=d_2,M=d_3)=\frac{2}{3}$, e o participante deve trocar de porta de sua escolha original $d_2$ para $d_1.$
+%%\end{frame}
+%
+%
+%\begin{frame}{Teorias Alternativas}
+%	Embora probabilidade condicional seja bastante útil, ela sofre de
+%	alguns problemas, em particular quando se quer tratar de eventos de
+%	probabilidade zero. Tradicionalmente, se $P(B)=0$, então $P(A|B)$
+%	não é definida. Isto leva a um número de dificuldades filosóficas em
+%	relação a eventos com probabilidade zero:
+%	\begin{itemize}
+%		\item São eles realmente
+%		impossíveis?
+%		\item Caso contrário, quão improvável um evento precisa ser
+%		antes de ele ser atribuído probabilidade zero?
+%		\item Deve um evento em
+%		algum caso ser atribuído probabilidade zero?
+%		\item Se existem eventos com
+%		probabilidade zero que não são realmente impossíveis, então o que
+%		significa condicionar em eventos de probabilidade zero?
+%	\end{itemize}
+%
+%\begin{exem}
+%Considere o espaço de probabilidade\\ $([0,1],\B,\mu)$ onde $\B$ é a
+%	$\sigma$-álgebra de Borel restrita a eventos contidos em $[0,1]$ e
+%	$\mu$ é uma medida de probabilidade na qual todo intervalo em
+%	$[0,1]$ possui probabilidade igual ao seu comprimento. Seja
+%	$B=\{1/4,3/4\}$ e $A=\{1/4\}$. Como $\mu(B)=0$, $\mu(A|B)$ não é
+%	definida. Porém parece razoável assumir que neste caso $\mu(A|B)=1/2$
+%	já que $\mu$ intuitivamente implica que todos os elementos de $\Omega$ são
+%	equiprováveis, mas a definição formal de probabilidade condicional
+%	não nos permite obter esta conclusão.
+%\end{exem}
+%
+%\end{frame}
+%
+%
+%
+%\begin{frame}
+%
+%Uma maneira de contornar alguns destes problemas é utilizar probabilidades não-padrão, que envolve conceitos de análise matemática não-padrão, que utiliza noções de infinitesimais. Outro modo é considerar probabilidades condicionais (e não
+%incondicionais) como a noção fundamental. Uma medida
+%de probabilidade condicional tem pares de eventos $A,B$ como
+%argumentos.
+%
+%\begin{defi}
+%Uma álgebra de Popper sobre $\Omega$ é um conjunto $\A\times \A'$ de
+%subconjuntos de $\Omega\times \Omega'$ tal que (a) $\A$ é uma
+%álgebra sobre $\Omega$, (b) $\A'$ é um subconjunto não-vazio de
+%$\A$, e (c) $\A'$ é fechado em relação a superconjuntos em $\A$, ou
+%seja, se $B\in\A'$, $B\subseteq B'$, $B'\in\A$, então $B'\in\A'$.
+%\end{defi}
+%
+%Pode-se então definir uma medida de probabilidade condicional da
+%seguinte maneira:
+%\begin{defi}
+%	Uma espaço de probabilidade condicional é uma tupla
+%	$(\Omega,\A,\A',\mu)$ onde $\A\times \A'$ é uma álgebra de Popper
+%	sobre $\Omega$ e $\mu:\A\times \A'\rightarrow [0,1]$ satisfaz:
+%	\begin{enumerate}
+%		\item[CP1.] $\mu(A|A)=1$ se $A\in\A'$.
+%		
+%		\item[CP2.] $\mu(A_1\cup A_2|B)=\mu(A_1|B)+\mu(A_2|B)$ se $A_1\cap
+%		A_2=\emptyset$, $A_1,A_2\in\A$ e $B\in\A'$.
+%		
+%		\item[CP3.] $\mu(A_1\cap A_2|A_3)=\mu(A_1|A_2\cap A_3)\times
+%		\mu(A_2|A_3)$ se $A_2\cap A_3\in \A'$ e $A_1\in\A$.
+%	\end{enumerate}
+%\end{defi}
+%\end{frame}
+
 \begin{frame}
-\begin{block}{Paradoxo de Monty Hall}
-	Monty Hall foi um popular apresentador de programa de jogos em TV cujo jogo começava mostrando ao participante 3 portas fechadas $d_1,d_2,d_3$, e atrás de apenas uma delas havia um prêmio valioso. O participante selecionava uma porta, por exemplo, $d_1$, mas antes que a porta fosse aberta, Monty Hall, que sabia em que porta estava o prêmio, por exemplo, $d_2$, abria a porta restante $d_3$, que não continha o prêmio. O participante tinha então permissão para ficar com sua porta original, $d_1$, ou escolher a outra porta fechada. A pergunta é se é melhor ficar com a porta original ou trocar de porta.
-\end{block}
-
-\begin{block}{}
-	Vamos agora utilizar a fórmula de Bayes para analisar este problema. Seja $G$ uma porta escolhida aleatoriamente para conter o prêmio; $Y$ a porta que o participante escolhe primeiro; e $M$ a porta que Monty Hall abre. O participante não tem nenhum conhecimento a priori sobre a localização do prêmio, ou seja ele considera todas as portas equiprováveis, e isto pode ser modelado por:
-	$$P(G=d_i|Y=d_j)=\frac{1}{3};$$
-	todas as portas têm a mesma probabilidade de conter o prêmio não importa qual porta o participante escolhe.
-\end{block}
-
-\end{frame}
-
-
-\begin{frame}
-\begin{block}{}
-	
-	Se o participante escolher uma porta que não contém o prêmio, Monty Hall necessariamente terá de abrir a porta que não contém o prêmio, isto pode ser modelado por:
-	$$P(M=d_{i_1}|Y=d_{i_2},G=d_{i_3})=1,$$
-	onde $i_1, i_2, i_3\in \{1,2,3\}$ e são distintos.
-\end{block}
-
-\begin{block}{}
-	Se o participante escolher corretamente, por exemplo, $Y=G=d_{i_2}$, então assumimos que Monty Hall escolhe aleatoriamente entre as outras duas outras portas:
-	$$P(M=d_{i_1}|Y=G=d_{i_2})=\frac{1}{2}, \mbox{ para }d_{i_1}\ne d_{i_2}.
-	%\footnote{A solução depende como resolvemos este caso.}
-	$$
-	
-\end{block}
-Para determinar se o participante deve trocar de porta, devemos calcular
-\begin{eqnarray}
-& & P(G=d_1|Y=d_2,M=d_3) \nonumber \\
-& & =\frac{P(G=d_1,Y=d_2,M=d_3)}{P(Y=d_2,M=d_3)} \nonumber\\
-& & =\frac{P(M=d_3|G=d_1,Y=d_2)P(G=d_1|Y=d_2)}{P(M=d_3|Y=d_2)} \nonumber \\
-& & \times \frac{P(Y=d_2)}{P(Y=d_2)} \nonumber \\
-%& & =\frac{P(M=d_3|G=d_1,Y=d_2)P(G=d_1|Y=d_2)}{P(M=d_3|Y=d_2)} \nonumber \\
-& & =\frac{1/3}{P(M=d_3|Y=d_2)}. \nonumber
-\end{eqnarray}
-
-\end{frame}
-
-
-\begin{frame}
-Para determinar o valor de $P(M=d_3|Y=d_2)$ utilizamos o Teorema da Probabilidade Total e a definição de probabilidade condicional:
-\begin{eqnarray}
-& & P(M=d_3|Y=d_2)=\frac{P(Y=d_2,M=d_3)}{P(Y=d_2)} \nonumber\\
-& & =\frac{P(Y=d_2,M=d_3,G=d_1)}{P(Y=d_2)} + \frac{P(Y=d_2,M=d_3,G=d_2)}{P(Y=d_2)} \nonumber \\
-& & +\frac{P(Y=d_2,M=d_3,G=d_3)}{P(Y=d_2)} \nonumber \\
-& & =\frac{P(Y=d_2)}{P(Y=d_2)}\times [P(M=d_3|Y=d_2,G=d_1)P(G=d_1|Y=d_2)\nonumber \\
-& & +P(M=d_3|Y=d_2,G=d_2)P(G=d_2|Y=d_2)\nonumber\\
-& & +P(M=d_3|Y=d_2,G=d_3)P(G=d_3|Y=d_2)]\nonumber \\
-%& & =P(M=d_3|Y=d_2,G=d_1)P(G=d_1|Y=d_2)\nonumber\\
-%& & +P(M=d_3|Y=d_2,G=d_2)P(G=d_2|Y=d_2)\nonumber \\
-%& & +P(M=d_3|Y=d_2,G=d_3)P(G=d_3|Y=d_2) \nonumber\\
-& & =1\cdot \frac{1}{3}+\frac{1}{2}\cdot\frac{1}{3}+0=\frac{1}{2}.\nonumber
-\end{eqnarray}
-Logo, $P(G=d_1|Y=d_2,M=d_3)=\frac{2}{3}$, e o participante deve trocar de porta de sua escolha original $d_2$ para $d_1.$
-\end{frame}
-
-
-\begin{frame}{Teorias Alternativas}
-	Embora probabilidade condicional seja bastante útil, ela sofre de
-	alguns problemas, em particular quando se quer tratar de eventos de
-	probabilidade zero. Tradicionalmente, se $P(B)=0$, então $P(A|B)$
-	não é definida. Isto leva a um número de dificuldades filosóficas em
-	relação a eventos com probabilidade zero:
-	\begin{itemize}
-		\item São eles realmente
-		impossíveis?
-		\item Caso contrário, quão improvável um evento precisa ser
-		antes de ele ser atribuído probabilidade zero?
-		\item Deve um evento em
-		algum caso ser atribuído probabilidade zero?
-		\item Se existem eventos com
-		probabilidade zero que não são realmente impossíveis, então o que
-		significa condicionar em eventos de probabilidade zero?
-	\end{itemize}
-
-\begin{exem}
-Considere o espaço de probabilidade\\ $([0,1],\B,\mu)$ onde $\B$ é a
-	$\sigma$-álgebra de Borel restrita a eventos contidos em $[0,1]$ e
-	$\mu$ é uma medida de probabilidade na qual todo intervalo em
-	$[0,1]$ possui probabilidade igual ao seu comprimento. Seja
-	$B=\{1/4,3/4\}$ e $A=\{1/4\}$. Como $\mu(B)=0$, $\mu(A|B)$ não é
-	definida. Porém parece razoável assumir que neste caso $\mu(A|B)=1/2$
-	já que $\mu$ intuitivamente implica que todos os elementos de $\Omega$ são
-	equiprováveis, mas a definição formal de probabilidade condicional
-	não nos permite obter esta conclusão.
-\end{exem}
-
-\end{frame}
-
-
-
-\begin{frame}
-
-Uma maneira de contornar alguns destes problemas é utilizar probabilidades não-padrão, que envolve conceitos de análise matemática não-padrão, que utiliza noções de infinitesimais. Outro modo é considerar probabilidades condicionais (e não
-incondicionais) como a noção fundamental. Uma medida
-de probabilidade condicional tem pares de eventos $A,B$ como
-argumentos.
-
-\begin{defi}
-Uma álgebra de Popper sobre $\Omega$ é um conjunto $\A\times \A'$ de
-subconjuntos de $\Omega\times \Omega'$ tal que (a) $\A$ é uma
-álgebra sobre $\Omega$, (b) $\A'$ é um subconjunto não-vazio de
-$\A$, e (c) $\A'$ é fechado em relação a superconjuntos em $\A$, ou
-seja, se $B\in\A'$, $B\subseteq B'$, $B'\in\A$, então $B'\in\A'$.
-\end{defi}
-
-Pode-se então definir uma medida de probabilidade condicional da
-seguinte maneira:
-\begin{defi}
-	Uma espaço de probabilidade condicional é uma tupla
-	$(\Omega,\A,\A',\mu)$ onde $\A\times \A'$ é uma álgebra de Popper
-	sobre $\Omega$ e $\mu:\A\times \A'\rightarrow [0,1]$ satisfaz:
-	\begin{enumerate}
-		\item[CP1.] $\mu(A|A)=1$ se $A\in\A'$.
-		
-		\item[CP2.] $\mu(A_1\cup A_2|B)=\mu(A_1|B)+\mu(A_2|B)$ se $A_1\cap
-		A_2=\emptyset$, $A_1,A_2\in\A$ e $B\in\A'$.
-		
-		\item[CP3.] $\mu(A_1\cap A_2|A_3)=\mu(A_1|A_2\cap A_3)\times
-		\mu(A_2|A_3)$ se $A_2\cap A_3\in \A'$ e $A_1\in\A$.
-	\end{enumerate}
-\end{defi}
+	\vspace{4cm}
+	\begin{block}{Independência}
+		{}
+	\end{block}
 \end{frame}
 
 \section{Independência}
+
 \begin{frame}{Independência}
 \begin{block}{Intuição}
 	Dois eventos são independentes

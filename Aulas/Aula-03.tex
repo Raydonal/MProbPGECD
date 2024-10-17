@@ -183,22 +183,25 @@
 \newcommand{\cor}[1]{ \{{#1}\}}
 
 
-\title[Probabilidade]{  Probabilidade (PGE950) }
-\author[ Raydonal Ospina  \& Leandro  Rêgo
+\title[Probabilidade]{  Probabilidade (PPGECD000000001) \\ \vspace{1cm}Programa de Pós-Graduação em Estatística e Ciência de Dados (PGECD) }
+\author[ Raydonal Ospina 
 %\textcopyright 
 \ ]{
-%Probabilidade\\ 
- Sessão 3 \\
-${}$ \\
-Raydonal Ospina  }
-\date[PGE950 - \today ]{{\tiny PGE950 }}
+	%Probabilidade\\ 
+	Sessão 3 \\
+	${}$ \\
+	Raydonal Ospina  }
 
-\institute[UFPE]{Departamento de Estatística\\
-Universidade Federal de Pernambuco\\
-Recife/PE}
+\date[]{}
+
+\institute[UFBA]{Departamento de Estatística\\
+	Universidade Federal da Bahia\\
+	Salvador/BA}
 
 
-\usecolortheme[rgb={0,0.3,0.5}]{structure}
+\usecolortheme[rgb={0,0.6,0.6}]{structure}
+
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1811,7 +1814,7 @@ $$P(\Omega)=P(A)+P\left(A^\complement\right)\Rightarrow P\left(A^\complement\rig
 \item[P.2] A probabilidade de ocorrência de eventos associados a um experimento pode ser calculada através da regra da soma da probabilidade para a união de dois eventos. 
 Sejam $A$ e $B$  dois eventos em  ${\cal F}$ a probabilidade da união destes dois eventos  é dada por $$ P(A\cup B) = P(A)+P(B)-P(A\cap B).$$ 
 De fato, se $ A\cup B=A\cup (B- A) $ e $ A\cap(B - A)=\emptyset $, então $P(A\cup B)=P(A)+P(B - A).$ Agora para $ B=(B- A)\cup(A\cap B) $ com $ (B - A)\cap(A\cap B)=\emptyset $, então
-$P(B)=P(B -s A)+P(A\cap B).$ Combinando estes dois resultados, temos que \[P(A\cup B)=P(A)+P(B)-P(A\cap B).\]
+$P(B)=P(B - A)+P(A\cap B).$ Combinando estes dois resultados, temos que \[P(A\cup B)=P(A)+P(B)-P(A\cap B).\]
 \end{enumerate}
 \end{frame}
 %=====================================================================
@@ -2035,38 +2038,307 @@ Assim, existem ao todo 144 números inteiros positivos menores que 504 e primos 
 	onde o somatório é sobre todos os $2^n-1$ conjuntos de índices
 	excluindo apenas o conjunto vazio. \end{teo}
 	
-	No caso particular de $n=3$, o princípio de inclusão-exclusão afirma
-	que
-	\begin{eqnarray}
-	& & P(A_1\union A_2\union A_3)=P(A_1)+P(A_2)+P(A_3)\nonumber\\
-	& & -P(A_1\inter A_2)-P(A_1\inter A_3)-P(A_2\inter A_3)\nonumber\\
-	& & +P(A_1\inter A_2\inter A_3).\nonumber
-	\end{eqnarray}
+	\begin{proof} A prova é por indução matemática em $n$. 
+		\\	
+		Para \( n = 1 \), temos apenas um evento \( A_1 \):
+		\[
+		P(A_1) = \sum_{\emptyset \ne I \subseteq \{1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) = (-1)^{1+1} P(A_1) = P(A_1),
+		\] logo vale para \( n = 1 \).	
+		\\
 	
+	\end{proof}
+	
+	
+%	No caso particular de $n=3$, o princípio de inclusão-exclusão afirma
+%	que
+%	\begin{eqnarray}
+%	& & P(A_1\union A_2\union A_3)=P(A_1)+P(A_2)+P(A_3)\nonumber\\
+%	& & -P(A_1\inter A_2)-P(A_1\inter A_3)-P(A_2\inter A_3)\nonumber\\
+%	& & +P(A_1\inter A_2\inter A_3).\nonumber
+%	\end{eqnarray}
+%	
 \end{frame}
 
 \begin{frame}
-\begin{proof} A prova é por indução matemática em $n$. O resultado é
-trivialmente verdadeiro para $n=1$ e já foi provado para $n=2$ na propriedade P.2. Assuma que o resultado vale para $n=k$ e
-vamos provar que ele é verdadeiro para $n=k+1$. Como na prova da
-desigualdade de Boole, $\union_{i=1}^{k+1}A_i=A_{k+1}\union
-(\union_{i=1}^{k}A_i)$. Usando o resultado para $n=2$, temos
-$$P(\union_{i=1}^{k+1}A_i)=P(A_{k+1})+P(\union_{i=1}^{k}A_i)-P(A_{k+1}\inter (\union_{i=1}^{k}A_1)).$$
-Reescrevendo o último termo como $P(\union_{i=1}^{k}(A_{k+1}\inter
-A_i))$, nos dá uma expressão que contém uma união de exatamente $k$
-conjuntos. Então, usando a hipótese do passo indutivo para os dois
-últimos termos
-\begin{eqnarray}
-& & P(\union_{i=1}^{k+1}A_i)=P(A_{k+1})+\sum_{\emptyset\ne I\subseteq\{1,\ldots,k\}}(-1)^{|I|+1}P(\inter_{i\in I}A_i)\nonumber\\
-& & -\sum_{\emptyset\ne I\subseteq\{1,\ldots,k\}}(-1)^{|I|+1}P(\inter_{i\in I}(A_{k+1}\inter A_i)).
-\nonumber\end{eqnarray}
-O resultado segue ao rearranjarmos os termos destes somatórios.
+\begin{proof}[]
+Para \( n = 2 \), temos eventos \( A_1 \) e \( A_2 \): \[
+\begin{aligned}
+	P(A_1 \cup A_2) &= \sum_{\emptyset \ne I \subseteq \{1,2\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \\
+	&= (-1)^{1+1} P(A_1) + (-1)^{1+1} P(A_2) + (-1)^{2+1} P(A_1 \cap A_2) \\
+	&= P(A_1) + P(A_2) - P(A_1 \cap A_2),
+\end{aligned}
+\]
+que é a fórmula para a união de dois eventos que já tínhamos demonstrado, logo para \( n = 2 \) vale a expressão.
+Usemos agora a hipótese de Indução,  i.e. a fórmula é válida para para \( n - 1 \) eventos, ou seja:
+\[
+P\left( \bigcup_{i=1}^{n-1} A_i \right) = \sum_{\emptyset \ne I \subseteq \{1,2,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right).
+\]
+Note que
+\[
+P\left( \bigcup_{i=1}^{n} A_i \right) = P\left( \left( \bigcup_{i=1}^{n-1} A_i \right) \cup A_n \right).
+\]
+Logo 
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= P\left( \bigcup_{i=1}^{n-1} A_i \right) + P(A_n) - P\left( \left( \bigcup_{i=1}^{n-1} A_i \right) \cap A_n \right).
+\end{aligned}
+\]
+
+\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{proof}[]
+		
+Usemos agora a hipótese de Indução,  i.e. a fórmula é válida para para \( n - 1 \) eventos, ou seja:
+\[
+P\left( \bigcup_{i=1}^{n-1} A_i \right) = \sum_{\emptyset \ne I \subseteq \{1,2,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right).
+\]
+Note que
+\[
+P\left( \bigcup_{i=1}^{n} A_i \right) = P\left( \left( \bigcup_{i=1}^{n-1} A_i \right) \cup A_n \right).
+\]
+Logo 
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= P\left( \bigcup_{i=1}^{n-1} A_i \right) + P(A_n) - P\left( \left( \bigcup_{i=1}^{n-1} A_i \right) \cap A_n \right).
+\end{aligned}
+\]
+Agora, note que 
+\[
+\left( \bigcup_{i=1}^{n-1} A_i \right) \cap A_n = \bigcup_{i=1}^{n-1} (A_i \cap A_n).
+\]
+
+Então:
+
+\[
+P\left( \left( \bigcup_{i=1}^{n-1} A_i \right) \cap A_n \right) = P\left( \bigcup_{i=1}^{n-1} (A_i \cap A_n) \right).
+\]
+\end{proof}
+\end{frame}
+
+\begin{frame}
+\begin{proof}[]	
+Note que podemos aplicar a hipótese de indução nos eventos \( \{ (A_i \cap A_n) \}_{i=1}^{n-1} \), desta forma
+
+\[
+P\left( \bigcup_{i=1}^{n-1} (A_i \cap A_n) \right) = \sum_{\emptyset \ne I \subseteq \{1,2,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} (A_i \cap A_n) \right).
+\]
+
+Note que 
+\[
+\bigcap_{i \in I} (A_i \cap A_n) = \left( \bigcap_{i \in I} A_i \right) \cap A_n.
+\]
+Logo, se substituímos estas quantidades  nas expressões anteriores, temos:
+
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= P\left( \bigcup_{i=1}^{n-1} A_i \right) + P(A_n) - P\left( \bigcup_{i=1}^{n-1} (A_i \cap A_n) \right) \\
+	&= \left[ \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \right] + P(A_n) \\
+	&\quad - \left[ \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \left( \bigcap_{i \in I} A_i \right) \cap A_n \right) \right].
+\end{aligned}
+\]
+
+\end{proof}
+
+\end{frame}
+
+\begin{frame}
+	\begin{proof}[]	
+ Reorganizando as expressões e  agrupando os termos semelhantes, temos
+
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= P(A_n) + \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} \left[ P\left( \bigcap_{i \in I} A_i \right) - P\left( \left( \bigcap_{i \in I} A_i \right) \cap A_n \right) \right].
+\end{aligned}
+\]		
+Agora usando o fato de que para dois conjuntos quaisquer $A$ e $B$, temos que $P(A) - P(A \cap B) = P(A \setminus B),$  podemos escrever
+\[
+P\left( \bigcap_{i \in I} A_i \right) - P\left( \left( \bigcap_{i \in I} A_i \right) \cap A_n \right) = P\left( \bigcap_{i \in I} A_i \setminus A_n \right).
+\]
+Substituindo está quantidade na expressão anterior, notamos que
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= P(A_n) + \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \setminus A_n \right).
+\end{aligned}
+\]
+No entanto, este caminho pode tornar-se complexo (Não vá por este caminho, pode provar mas vá ser uma baita dor de cabeça). Em vez disso, podemos pensar em todas as interseções possíveis que incluem \( A_n \) e aquelas que não incluem \( A_n \). Ou seja vamos ver mais de perto esses conjuntos. 
+\end{proof}
+
+\end{frame}
+
+
+\begin{frame}
+	\begin{proof}[]	
+Vamos expressar o somatório sobre todos os subconjuntos não vazios de \( \{1,2,\ldots,n\} \) como a soma de dois termos, i.e., 
+{\it Subconjuntos que não contêm o \( n \)-ésimo}: Todos os subconjuntos de \( \{1,2,\ldots,n-1\} \) e os {\it Subconjuntos que contêm o \( n \)-ésimo} ou seja, subconjuntos da forma \( I' \cup \{ n \} \), em que \( I' \subseteq \{1,2,\ldots,n-1\} \).
+\\
+Com isto na cabeça,  vejam que, se abusamos com a  notação temos que
+ o somatório total é:
+ \[
+\sum_{\emptyset \ne I \subseteq \{1,\ldots,n\}} = \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} + \sum_{I' \subseteq \{1,\ldots,n-1\}} \left( I = I' \cup \{ n \} \right).
+\]
+Desta forma, podemos rescrever:
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \\
+	&\quad + \sum_{I' \subseteq \{1,\ldots,n-1\}} (-1)^{|I'| + 1} P\left( \bigcap_{i \in I'} A_i \cap A_n \right).
+\end{aligned}
+\]
+É fácil ver que , para \( I' = \emptyset \), temos \( P\left( \bigcap_{i \in \emptyset} A_i \cap A_n \right) = P(A_n) \) e \( |I'| = 0 \), então o coeficiente é $(-1)^{0+1} = -1$ que tem o correspondente termo $ - P(A_n).$
 \end{proof}
 \end{frame}
 
 
 
+\begin{frame}
+\begin{proof}[]	
+Agora, se adicionamos as duas somatórias e ajustamos os sinais, podemos ver que
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= \left[ \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \right] \\
+	&\quad + \left[ - P(A_n) + \sum_{\emptyset \ne I' \subseteq \{1,\ldots,n-1\}} (-1)^{|I'|+1} P\left( \bigcap_{i \in I'} A_i \cap A_n \right) \right].
+\end{aligned}
+\]	Note que \( (-1)^{|I'|+1+1} = (-1)^{|I'|+2} = (-1)^{|I'|} \). Logo, se reorganizarmos os termos temos
+\[
+\begin{aligned}
+	P\left( \bigcup_{i=1}^{n} A_i \right) &= \left[ \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) + (-1)^{1+1} P(A_n) \right] \\
+	&\quad + \left[ \sum_{\emptyset \ne I' \subseteq \{1,\ldots,n-1\}} (-1)^{(|I'| + 1)+1} P\left( \bigcap_{i \in I'} A_i \cap A_n \right) \right].
+\end{aligned}
+\]
+Assim, 
+\[
+\sum_{\emptyset \ne I' \subseteq \{1,\ldots,n-1\}} (-1)^{|I'|} P\left( \bigcap_{i \in I'} A_i \cap A_n \right).
+\]
 
+\end{proof}
+\end{frame}
+
+\begin{frame}
+	\begin{proof}[]	
+		Portanto, a expressão completa é:
+		
+		\[
+		\begin{aligned}
+			P\left( \bigcup_{i=1}^{n} A_i \right) &= \sum_{I \subseteq \{1,\ldots,n\},\ \emptyset \ne I,\ n \notin I} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \\
+			&\quad + \sum_{I \subseteq \{1,\ldots,n\},\ n \in I} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right)
+		\end{aligned}
+		\]
+e as somas cobrem todos os subconjuntos não vazios de \( \{1,\ldots,n\} \), correspondendo ao enunciado do teorema.	Assim,  o teorema é válido para \( n - 1 \), então é válido para \( n \).	 FIM 
+
+\bigskip
+(Graças a Deus, Zeus, Ganesh, Thor, Buda, ... e meus alunos do PGECD)
+\end{proof}
+\end{frame}
+		
+	
+%
+%\[
+%\begin{aligned}
+%	P\left( \bigcup_{i=1}^{n} A_i \right) &= \left[ \sum_{\emptyset \ne I \subseteq \{1,\ldots,n-1\}} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) + (-1)^{1+1} P(A_n) \right] \\
+%	&\quad + \left[ \sum_{\emptyset \ne I' \subseteq \{1,\ldots,n-1\}} (-1)^{(|I'| + 1)+1} P\left( \bigcap_{i \in I'} A_i \cap A_n \right) \right].
+%\end{aligned}
+%\]
+%
+%Observe que \( (-1)^{|I'|+1+1} = (-1)^{|I'|+2} = (-1)^{|I'|} \).
+%
+%Assim, a segunda soma torna-se:
+%
+%\[
+%\sum_{\emptyset \ne I' \subseteq \{1,\ldots,n-1\}} (-1)^{|I'|} P\left( \bigcap_{i \in I'} A_i \cap A_n \right).
+%\]
+%
+%#### Soma Total
+%
+%Portanto, a expressão completa é:
+%
+%\[
+%\begin{aligned}
+%	P\left( \bigcup_{i=1}^{n} A_i \right) &= \sum_{I \subseteq \{1,\ldots,n\},\ \emptyset \ne I,\ n \notin I} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right) \\
+%	&\quad + \sum_{I \subseteq \{1,\ldots,n\},\ n \in I} (-1)^{|I|+1} P\left( \bigcap_{i \in I} A_i \right).
+%\end{aligned}
+%\]
+%
+%Aqui, as somas cobrem todos os subconjuntos não vazios de \( \{1,\ldots,n\} \), correspondendo ao enunciado do teorema.
+%
+%### Conclusão do Passo Indutivo
+%
+%Assim, mostramos que, se o teorema é válido para \( n - 1 \), então é válido para \( n \).
+%
+%### Conclusão Geral
+%
+%Pelo princípio da indução matemática, o teorema é válido para todo \( n \geq 1 \).
+%
+%## Exemplo Ilustrativo
+%
+%Para consolidar a compreensão, vejamos um exemplo com \( n = 3 \).
+%
+%### Eventos e Probabilidades
+%
+%Sejam eventos \( A_1, A_2, A_3 \) com as seguintes probabilidades:
+%
+%- \( P(A_1) = 0{,}5 \)
+%- \( P(A_2) = 0{,}4 \)
+%- \( P(A_3) = 0{,}3 \)
+%- \( P(A_1 \cap A_2) = 0{,}2 \)
+%- \( P(A_1 \cap A_3) = 0{,}1 \)
+%- \( P(A_2 \cap A_3) = 0{,}05 \)
+%- \( P(A_1 \cap A_2 \cap A_3) = 0{,}02 \)
+%
+%### Aplicando o Teorema
+%
+%Listamos todos os subconjuntos não vazios de \( \{1,2,3\} \):
+%
+%1. \( I = \{1\} \): \( P(A_1) = 0{,}5 \), coeficiente \( (-1)^{1+1} = 1 \).
+%2. \( I = \{2\} \): \( P(A_2) = 0{,}4 \), coeficiente \( 1 \).
+%3. \( I = \{3\} \): \( P(A_3) = 0{,}3 \), coeficiente \( 1 \).
+%4. \( I = \{1,2\} \): \( P(A_1 \cap A_2) = 0{,}2 \), coeficiente \( (-1)^{2+1} = -1 \).
+%5. \( I = \{1,3\} \): \( P(A_1 \cap A_3) = 0{,}1 \), coeficiente \( -1 \).
+%6. \( I = \{2,3\} \): \( P(A_2 \cap A_3) = 0{,}05 \), coeficiente \( -1 \).
+%7. \( I = \{1,2,3\} \): \( P(A_1 \cap A_2 \cap A_3) = 0{,}02 \), coeficiente \( (-1)^{3+1} = 1 \).
+%
+%Calculamos a soma:
+%
+%\[
+%\begin{aligned}
+%	P(A_1 \cup A_2 \cup A_3) &= [1 \cdot 0{,}5 + 1 \cdot 0{,}4 + 1 \cdot 0{,}3] \\
+%	&\quad + [-1 \cdot 0{,}2 -1 \cdot 0{,}1 -1 \cdot 0{,}05] \\
+%	&\quad + [1 \cdot 0{,}02] \\
+%	&= (0{,}5 + 0{,}4 + 0{,}3) - (0{,}2 + 0{,}1 + 0{,}05) + 0{,}02 \\
+%	&= 1{,}2 - 0{,}35 + 0{,}02 = 0{,}87.
+%\end{aligned}
+%\]
+%
+%Portanto, \( P(A_1 \cup A_2 \cup A_3) = 0{,}87 \).
+%
+%## Conclusão
+%
+%A prova demonstra que o enunciado fornecido do Princípio da Inclusão-Exclusão está correto e válido para qualquer número \( n \) de eventos. Através da indução matemática, mostramos que a fórmula permite calcular a probabilidade da união de eventos arbitrários, considerando todas as possíveis interseções entre eles.
+%
+%Este teorema é fundamental na teoria de probabilidade e tem ampla aplicação em problemas de contagem e cálculos de probabilidades em que eventos não são mutuamente exclusivos.
+%
+%## Referências
+%
+%- Feller, W. *An Introduction to Probability Theory and Its Applications*. Vol. 1, 3rd Edition, Wiley, 1968.
+%- Ross, S. *A First Course in Probability*. 9th Edition, Pearson, 2012.
+%- Grimmett, G., & Stirzaker, D. *Probability and Random Processes*. 3rd Edition, Oxford University Press, 2001.
+%
+%---
+%
+%**Observação**: Para aprofundar a compreensão do teorema, é recomendável praticar com exemplos adicionais e explorar casos particulares, como quando os eventos são independentes ou mutuamente exclusivos, para ver como a fórmula se comporta nesses contextos.
+%
+%
+%
+%
+
+
+
+\begin{frame}
+	\vspace{4cm}
+	\begin{block}{Extra: Técnicas para contagem }
+		{}
+	\end{block}
+\end{frame}
 
 %=====================================================================
 \begin{frame}{Variações com repetição: Amostras com ordem e com substituição.} Suponhamos que temos uma gaveta com $n$  objetos distintos. Desejamos realizar $k$ extrações ao acaso de um objeto ao mesmo tempo. Ao efetuar uma extração, registramos o objeto escolhido (marcamos o objeto, isto é o distinguimos) e o devolvemos à gaveta, desta forma o objeto pode ser selecionado várias vezes. Em cada extração temos $n$ objetos possíveis para serem escolhidos e efetuamos $k$ extrações. 
@@ -2085,12 +2357,7 @@ Como cada caracter dos 60 disponíveis pode ser escolhido para ser colocado em c
 \end{frame}
 %=====================================================================
 
-\begin{frame}
-\vspace{4cm}
-\begin{block}{Extra: Técnicas para contagem }
-	{}
-\end{block}
-\end{frame}
+
 %=====================================================================
 \begin{frame}{Variações sem repetição: Amostras com ordem e sem substituição.} Temos uma gaveta com $n$ objetos e dos quais se devem extrair, um a um $k$ objetos. Suponhamos que nesta situação a amostra é {\it sem substituição}, isto quer dizer, uma vez selecionado um  objeto este não é devolvido à gaveta. O total de arranjos distintos que podemos obter é 
 \begin{equation}
