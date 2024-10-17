@@ -173,7 +173,7 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |3|08/10/2024|Fundamentos e probabilidade, frequência relativa  | [[slides 2]](Aulas/Aula-02.pdf)|
 |4|10/10/2024|Axiomas de Kolmogorov|[[videoaula]](https://youtu.be/MotRLSAZ1wA?si=Q47dt0w5MfaDTmUC); [[videoaula]](https://youtu.be/rZLik7tsaw4?si=DLuSWNYdAs-nG4Dr)|
 |5|15/10/2024|Propriedades de uma medida de probabilidade|[[slides 3]](Aulas/Aula-03.pdf)|
-|6|17/10/2024|Probabilidade condicional, independência.|Quadro e/ou slides|
+|6|17/10/2024|Probabilidade condicional, independência.|[[slides 4]](Aulas/Aula-04.pdf)|
 |7|22/10/2024|Variáveis aleatórias, função de distribuição acumulada e tipos de variáveis aleatórias|Quadro e/ou slides|
 |8|24/10/2024|Decomposição de variáveis aleatórias|Quadro e/ou slides|
 |9|29/10/2024|Principais distribuições discretas (caso univariado).|Quadro e/ou slides|
