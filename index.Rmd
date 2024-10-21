@@ -174,22 +174,22 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |4|10/10/2024|Axiomas de Kolmogorov|[[videoaula]](https://youtu.be/MotRLSAZ1wA?si=Q47dt0w5MfaDTmUC); [[videoaula]](https://youtu.be/rZLik7tsaw4?si=DLuSWNYdAs-nG4Dr)|
 |5|15/10/2024|Propriedades de uma medida de probabilidade|[[slides 3]](Aulas/Aula-03.pdf)|
 |6|17/10/2024|Probabilidade condicional, independência.|[[slides 4]](Aulas/Aula-04.pdf)|
-|7|22/10/2024|Variáveis aleatórias, função de distribuição acumulada e tipos de variáveis aleatórias|Quadro e/ou slides|
-|8|24/10/2024|Decomposição de variáveis aleatórias|Quadro e/ou slides|
+|7|22/10/2024|Variáveis aleatórias, função de distribuição acumulada e tipos de variáveis aleatórias|[[slides 5]](Aulas/Aula-05.pdf)|
+|8|24/10/2024|Decomposição de variáveis aleatórias|[[videoaula]](https://youtu.be/WB5apGR07js?si=RahncTJwfqZanIAr)|
 |9|29/10/2024|Principais distribuições discretas (caso univariado).|Quadro e/ou slides|
-|10|31/10/2024|Principais distribuições continuas (caso univariado).|Quadro e/ou slides|
-|11|05/11/2024|Vetores aleatórios, função de distribuição conjunta de um vetor aleatório, função de densidade conjunta de um vetor aleatório|Quadro e/ou slides|
-|12|07/11/2024|<p>função de densidade marginal. vetores aleatórios uniformemente</p><p>distribuídos, distribuição multinomial.</p>|Quadro e/ou slides|
-|13|12/11/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes|Quadro e/ou slides|
-|14|14/11/2024|<p>Esperança de variáveis</p><p>aleatórias, caso geral e propriedades</p>|Quadro e/ou slides|
-|15|19/11/2024|<p>Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de corre-</p><p>lação, propriedades, desigualdade de Cauchy-Schwarz</p>|Quadro e/ou slides|
-|16|21/11/2024|<p>Função geradora de momentos conjunta, cálculo de momentos</p><p>conjuntos (momentos mistos), informação mútua.</p>|Quadro e/ou slides|
+|10|31/10/2024|Principais distribuições continuas (caso univariado).|[[App]](https://davidbarke.shinyapps.io/Distributions/)|
+|11|05/11/2024|Vetores aleatórios, função de distribuição conjunta de um vetor aleatório, função de densidade conjunta de um vetor aleatório|[[slides 6]](Aulas/Aula-06.pdf)|
+|12|07/11/2024|função de densidade marginal. vetores aleatórios uniformemente distribuídos, distribuição multinomial|[[videoaula]](https://youtu.be/YjVIykar4Lk?si=Wt9YwyN3COCG6ca6)|
+|13|12/11/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes|[[App]](https://davidbarke.shinyapps.io/Distributions/)|
+|14|14/11/2024|Esperança de variáveis aleatórias, caso geral e propriedades|Quadro e/ou slides|
+|15|19/11/2024|Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz|Quadro e/ou slides|
+|16|21/11/2024|Função geradora de momentos conjunta, cálculo de momentos conjuntos (momentos mistos), informação mútua.|Quadro e/ou slides|
 |17|26/11/2024|Congresso UFBA|Sem atividade|
 |18|28/11/2024|Congresso UFBA|Sem atividade|
 |19|03/12/2024|Prova I|Prova escrita|
 |20|05/12/2024|Distribuições condicionais e esperança condicional: Definições, existência, propriedades.|Quadro e/ou slides|
 |21|10/12/2024|Variância condicional. Função de Regressão. Distribuição Normal  Multivariada|Quadro e/ou slides|
-|22|12/12/2024|<p>Distribuições de funções aleatória e de vetores aleatórios: Funções escalares aleatórias, distribuição do produto</p><p>e do quociente de variáveis aleatórias, funções vetoriais e o método do Jacobiano (caso bijetivo).</p>|Quadro e/ou slides|
+|22|12/12/2024|Distribuições de funções aleatórias e de vetores aleatórios: Funções escalares aleatórias, distribuição do produto e do quociente de variáveis aleatória|Quadro e/ou slides|
 |23|17/12/2024|Funções vetoriais e o método do Jacobiano (caso bijetivo).|Quadro e/ou slides|
 |24|19/12/2024|Repartição de domínios (caso não bijetivo). Linearização. Variáveis independentes normais.|Quadro e/ou slides|
 |25|<p>24/12/2024 a</p><p>05/01/2025</p>|Recesso final de ano|Sem atividade|
