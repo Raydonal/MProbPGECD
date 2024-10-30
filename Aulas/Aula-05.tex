@@ -294,21 +294,21 @@ função numérica (assume valores reais). As seguintes afirmações são equiva
 Resolva como exercício.
 \begin{exem}
 Seja $(\Omega, {\cal F}, P)$ um espaço de probabilidade em que ${\cal F} = {\cal
-B}$ e seja $A\in \frak{F}$ fixo. A função indicadora de $A$, $I_{A}$ definida por
+B}$ e seja $A\in \frak{F}$ fixo. A função indicadora de $A$, $\mathbf{1}_{A}$ definida por
 \begin{equation*}
-I_{A}\left( \omega \right) =\left\{ 
+\mathbf{1}_{A}\left( \omega \right) =\left\{ 
 \begin{array}{c}
 1,\text{ se }\omega \in A \\ 
 0,\text{ se }\omega \notin A
 \end{array}
 \right.
 \end{equation*}
-é uma função $\frak{F-B}$ mensurável, i.e., $I_{A}\left( \omega \right)$ é uma
+é uma função $\frak{F-B}$ mensurável, i.e., $\mathbf{1}_{A}\left( \omega \right)$ é uma
 variável aleatória. De fato, para $a\in \mathbb{R}$
 
 \begin{equation*}
-I_{A}^{-1}\left( \left( a,\infty \right) \right) =\left\{ \omega
-:I_{A}\left( \omega \right) >a\right\} =
+\mathbf{1}_{A}^{-1}\left( \left( a,\infty \right) \right) =\left\{ \omega
+:\mathbf{1}_{A}\left( \omega \right) >a\right\} =
 \begin{cases}
 \Omega, & \text{se} \ a<0, \\ 
 A, & \text{se} \  0\leq a\leq 1,\\ 
@@ -316,7 +316,43 @@ A, & \text{se} \  0\leq a\leq 1,\\
 \end{cases}
 \end{equation*}
 \end{exem}
+De forma geral, queremos mostrar que \( \mathbf{1}_A \) é uma variável aleatória, ou seja, para todo Boreliano \( B \in \mathcal{B}(\mathbb{R}) \) , temos \( \mathbf{1}_A^{-1}(B) \in \mathcal{F} \).  Note que a função indicadora \( \mathbf{1}_A \) assume apenas dois valores: 0 e 1. Portanto, sua {\it imagem} é o conjunto \( \{0, 1\} \).
 \end{frame}
+
+
+\begin{frame}
+
+
+ Agora vamos a analisar as imagens inversas {(pré-imagem)} \( \mathbf{1}_A^{-1}(B) \) para um conjunto boreliano arbitrário \( B \subset \mathbb{R} \). Como \( \mathbf{1}_A \) só assume os valores 0 e 1, a pré-imagem \( \mathbf{1}_A^{-1}(B) \) dependerá de quais desses valores pertencem a \( B \). Podemos considerar quatro casos:
+\begin{enumerate}
+\item Se \( B \) não contém 0 nem 1:
+\[
+\mathbf{1}_A^{-1}(B) = \emptyset \in \mathcal{F}
+\]
+Pois nenhum \( \omega \) em \( \Omega \) satisfaz \( \mathbf{1}_A(\omega) \in B \).
+
+\item Se \( B \) contém apenas 0:
+\[
+\mathbf{1}_A^{-1}(B) = \{ \omega \in \Omega : \mathbf{1}_A(\omega) = 0 \} = \Omega \setminus A \in \mathcal{F}
+\]
+Porque \( \Omega \setminus A \) é o complemento de \( A \) em \( \Omega \), e complementos de conjuntos em \( \mathcal{F} \) pertencem a \( \mathcal{F} \).
+
+\item Se \( B \) contém apenas 1:
+\[
+\mathbf{1}_A^{-1}(B) = \{ \omega \in \Omega : \mathbf{1}_A(\omega) = 1 \} = A \in \mathcal{F}
+\]
+
+\item Se \( B \) contém 0 e 1:
+\[
+\mathbf{1}_A^{-1}(B) = \{ \omega \in \Omega : \mathbf{1}_A(\omega) \in B \} = \Omega \in \mathcal{F}
+\]
+\end{enumerate}
+Note que, em todos os casos, \( \mathbf{1}_A^{-1}(B) \) pertence à sigma-álgebra \( \mathcal{F} \) e em particular  o resultado  é válida para o Boreliano $B= \left( a,\infty \right),$  o que prova o resultado anterior.
+	
+\end{frame}	
+
+
+
 
 %
 %
@@ -589,7 +625,7 @@ $$F_X(x)=P_X((-\infty, x]), \forall x\in R.$$
 A função de distribuição acumulada $F_X$ satisfaz as seguintes
 propriedades:
 \begin{enumerate}
-\item[F1.] Se $x\leq y$, então $F_X(x)\leq F_X(y)$.
+\item[F1.] Se $x\leq y$, então $F_X(x)\leq F_X(y)$. ($F$ é não decrescente)
 \end{enumerate}
 De fato
 \begin{eqnarray}
@@ -609,7 +645,7 @@ De fato
 \begin{block}{}
 
 \begin{enumerate}
-\item[F2.] Se $x_n\downarrow x$, então $F_X(x_n)\downarrow F_X(x)$.
+\item[F2.] Se $x_n\downarrow x$, então $F_X(x_n)\downarrow F_X(x)$. ($F$ é continua a direita)
 \end{enumerate}
 De fato. Se $x_n\downarrow x$, então os eventos $(-\infty, x_n]$ são
 decrescentes e $\cap_n(-\infty, x_n]=(-\infty, x]$. Logo, pela
@@ -621,7 +657,7 @@ F_X(x)$.
 \begin{block}{}
 
 \begin{enumerate}
-\item[F3.] Se $x_n\downarrow -\infty$, então $F_X(x_n)\downarrow 0$, e se $x_n\uparrow \infty$, então $F_X(x_n)\uparrow 1$.
+\item[F3.] Se $x_n\downarrow -\infty$, então $F_X(x_n)\downarrow 0$, e se $x_n\uparrow \infty$, então $F_X(x_n)\uparrow 1$. (limitada inferiormente por 0 e limitada superiormente por 1 assintoticamente )
 \end{enumerate}
 De fato. Se $x_n\downarrow -\infty$, então os eventos $(-\infty, x_n]$ são
 decrescentes e $\cap_n (-\infty, x_n]=\emptyset$. Logo, pela
@@ -1004,8 +1040,26 @@ os pontos da reta exceto em $\{0,1\}$.
 \end{figure}
 \end{frame}
 %
-\begin{frame}
-\begin{block}{Variável Aleatória Singular}
+\begin{frame}{Variável Aleatória Singular}
+Uma variável aleatória singular é uma variável aleatória (``patológica'') cuja função de distribuição acumulada  é contínua, mas não é absolutamente contínua em relação à medida de Lebesgue ($\lambda$) (comprimento dos intervalos), e cuja distribuição não possui uma parte discreta (não atribui massa de probabilidade a pontos isolados). 
+\bigskip
+Em outras palavras, a função de distribuição aumenta apenas em um conjunto de medida de Lebesgue zero.	Formalmente,  \( X \) é chamada de {\it singular}\footnote{Duas medidas \( \mu \) e \( \nu \) definidas em um espaço mensurável são chamadas de {\bf singulares entre si} (denotado por \( \mu \perp \nu \)) se existe um conjunto mensurável \( S \) tal que:  \( \mu(S) = 0 \) e \( \nu(S^c) = 0 \), onde \( S^c \) é o complemento de \( S \) em relação ao espaço de medida. Isso significa que as medidas \( \mu \) e \( \nu \) estão concentradas em conjuntos disjuntos, ou seja, não "sobrepõem" em nenhum conjunto com medida positiva.} se a medida de probabilidade \( P_X \) induzida por \( X \) satisfaz {\it singularidade} em relação à medida de Lebesgue, i.e., 
+\[
+P_X \perp \lambda
+\]
+Isso significa que existe um conjunto \( S \subset \mathbb{R} \) tal que:
+
+\begin{itemize} 
+\item  \( P_X(S) = 1 \) (toda a massa de probabilidade está em \( S \)).
+\item \( \lambda(S) = 0 \) (o conjunto \( S \) tem medida de Lebesgue zero).
+\end{itemize}
+Em outras palavras, a variável aleatória \( X \) assume valores em um conjunto \( S \) que é ``invisível'' para a medida de Lebesgue, já que \( S \) tem medida zero sob \( \lambda \).
+
+\end{frame}	
+
+\begin{frame}	
+	
+\begin{exem}[Função de distribuição de Cantor]
 
 Vamos analisar um exemplo de uma função de distribuição de uma variável aleatória singular conhecida como {\em função de Cantor.} Esta função é contínua, derivável em todo ponto exceto em um conjunto de medida de Lebesgue nula, mas não é absolutamente contínua. Seja $F(x)=0$ se $x<0$ e $F(x)=1$ se $x>1$. Continuemos por etapas:
 
@@ -1015,9 +1069,24 @@ Vamos analisar um exemplo de uma função de distribuição de uma variável ale
 \item[Etapa $n+1$:] No terço central de cada um dos $2^n$ intervalos restantes após a etapa $n$, seja $F(x)$ igual à média dos valores nos dois intervalos vizinhos onde $F$ já está definida. Por exemplo, na etapa 2 defina $F(x)=1/4$ para $x\in(1/9,2/9)$ e $F(x)=3/4$ para $x\in\cup(7/9,8/9)$. Restarão então $2^{n+1}$ intervalos (o dobro do número restante após a etapa $n$), de comprimento total $(2/3)^{n+1}$, em que $F$ ainda não estará definida.
 \end{description}
 
-\end{block}
+\end{exem}
 \end{frame}
 %
+\begin{frame}
+\begin{figure}[!htbp]
+%	\vspace{-2.5cm}
+	\begin{center}
+		\includegraphics[scale=0.22]{
+			CantorEscalier-2.png}
+		\caption{\label{fig15} Função de distribuição de Cantor.}
+	\end{center}
+	\end{figure}
+	
+\end{frame}	
+
+
+
+
 \begin{frame}
 %\frametitle{\textbf{Variável Aleatória Singular}}
 %\baselineskip=13pt
@@ -1060,24 +1129,20 @@ F'(x) & \mbox{se $F$ é diferenciável em $x$,} \\
 \right.
 \]
 
-\end{block}
-\end{frame}
-
-\begin{frame}
-
-\begin{block}{}
-
-
+\bigskip
 Seja $F_{ac}(x)=\int_{-\infty}^{x}f(t)dt$. $F_{ac}$ é não-decrescente, pois a integral indefinida de uma função nao-negativa ($f\geq 0$ porque $F$ é não-decrescente). A sua derivada é igual a $f$ em quase toda parte, de modo que $F_{ac}$ é absolutamente contínua: $F_{ac}$ é a parte {\em absolutamente contínua} de $F$.
 
 Seja $F_s(x)=F(x)-F_d(x)-F_{ac}(x)$. $F_s$ é contínua pois é a diferença de duas funções contínuas. A derivada de $F_s$ é igual a zero em quase toda parte, porque $F$ e $F_{ac}$ têm a mesma derivada $f$, e $F_d$ possui derivada zero em quase toda parte. Pode-se provar que $F_s$ também é não-decrescente, mas está fora do escopo deste curso. $F_s$ é a {\em parte singular} de $F$.
-
-Esta discussão nos dá um método de decompor $F$ em suas partes discreta, absolutamente contínua e singular.
-
 \end{block}
+
+%Esta discussão nos dá um método de decompor $F$ em suas partes discreta, absolutamente contínua e singular.
+
 \end{frame}
+
+
 %
 \begin{frame}
+Esta discussão nos dá um método de decompor $F$ em suas partes discreta, absolutamente contínua e singular.	Note também que o resultado não diz que a $F_{ac},$ $F_d(x)$ e $F_{ac}(x)$ sejam funções de distribuição, somente propriedades próximas as de uma função de distribuição, i.e. precisam de normalização.
 \begin{exem}
 
 %\begin{example}
@@ -1122,10 +1187,291 @@ x & \mbox{se $0\leq x\leq 1/2$,} \\
 \end{array}
 \right.
 \]
-Como $F_d+F_{ac}=F_Y$, temos que $F_s(x)=0$, $\forall x\in\IR$ e não há parte singular. {\em Uma variável aleatória que possui apenas partes discreta e absolutamente contínua é conhecida como uma variável aleatória mista.} Na prática, é pouco provável que surja uma variável aleatória singular. Portanto, quase todas as variáveis aleatórias são discretas, contínuas ou mistas.
+
 \end{exem}
 \end{frame}
 
+\begin{frame}
+Como $F_d+F_{ac}=F_Y$, temos que $F_s(x)=0$, $\forall x\in\IR$ e não há parte singular. {\em Uma variável aleatória que possui apenas partes discreta e absolutamente contínua é conhecida como uma variável aleatória mista.} Na prática, é pouco provável que surja uma variável aleatória singular. Portanto, quase todas as variáveis aleatórias são discretas, contínuas ou mistas.	
+
+O resultado anterior motiva o seguinte teorema
+\begin{block}{Teorema de decomposição de Jordan}
+	Toda função de distribuição pode ser expressa como uma combinação lineal da forma 
+	$$F(x)=\alpha F_d(x)+\beta F_{ac}(x)$$
+	para $\alpha, \beta \leq 0$ e $\alpha+\beta=1$ em que $F_d$ e $F_{ac}$ são genuínas funções de distribuição
+\end{block}	
+Sobre mesmas hipóteses, i.e., seja $X$ uma variável aleatória qualquer e seja $F$ sua função de distribuição. Se $J=\{x_1,x_2,\ldots\}$ é o conjunto dos pontos de salto de $F$ (se $F$ for contínua $J=\emptyset$), indiquemos com $p_i$ o salto no ponto $x_i$ e definamos 
+$$F_d(x)=\frac{1}{\alpha}\sum_{i:x_i\leq x}p_i.$$ 
+
+$F_d$ com $\alpha=\sum_{i}p_i.$ A função $F_d$ é uma função de distribuição discreta. Note que se $\alpha=1$ então $F$ é uma distribuição discreta. Para $\alpha\neq 1$ definimos 
+$$
+ F_{ac}(x) = \frac{F(x) - \alpha F_d(x)}{\beta}
+$$
+em que $\beta=1-\alpha$ e a $F_{ac}(x)$  é contínua.
+\end{frame}	
+
+
+%# Carregar o pacote ggplot2
+%library(ggplot2)
+%
+%# Criar um conjunto de valores x para o segmento linear de 0 a 1
+%x_linear <- seq(0, 1, by = 0.01)
+%y_linear <- 0.4 * x_linear
+%
+%# Criar um data frame para o segmento linear
+%data_linear <- data.frame(x = x_linear, y = y_linear)
+%
+%# Criar data frames para os segmentos constantes
+%data_constant1 <- data.frame(
+%x = c(1, 2),
+%y = c(0.4, 0.4)
+%)
+%
+%data_constant2 <- data.frame(
+%x = c(2, 3),
+%y = c(0.7, 0.7)
+%)
+%
+%# Criar data frames para os saltos em x = 2 e x = 3
+%data_jump2 <- data.frame(
+%x = c(2, 2),
+%y = c(0.4, 0.7)
+%)
+%
+%data_jump3 <- data.frame(
+%x = c(3, 3),
+%y = c(0.7, 1)
+%)
+%
+%# Plotar a função usando ggplot
+%ggplot() +
+%# Segmento horizontal em x <= 0
+%geom_segment(aes(x = -1, xend = 0, y = 0, yend = 0), size = 1, color = "blue") +
+%# Plotar o segmento linear de 0 a 1
+%geom_line(data = data_linear, aes(x = x, y = y), size = 1, color = "blue") +
+%# Plotar o primeiro segmento constante de x = 1 a x = 2
+%geom_line(data = data_constant1, aes(x = x, y = y), size = 1, color = "blue") +
+%# Plotar o segundo segmento constante de x = 2 a x = 3
+%geom_line(data = data_constant2, aes(x = x, y = y), size = 1, color = "blue") +
+%# Plotar o segmento horizontal em x >= 3
+%geom_segment(aes(x = 3, xend = 4, y = 1, yend = 1), size = 1, color = "blue") +
+%# Adicionar linhas verticais azuis para representar os saltos
+%geom_segment(data = data_jump2, aes(x = x, xend = x, y = y[1], yend = y[2]), size = 0, color = "blue") +
+%geom_segment(data = data_jump3, aes(x = x, xend = x, y = y[1], yend = y[2]), size = 0, color = "blue") +
+%# Adicionar pontos abertos nos inícios dos saltos (círculos brancos)
+%geom_point(aes(x = 2, y = 0.4), color = "blue", size = 3, shape = 21, fill = "white") +
+%geom_point(aes(x = 3, y = 0.7), color = "blue", size = 3, shape = 21, fill = "white") +
+%# Adicionar pontos sólidos nos finais dos saltos (círculos azuis)
+%geom_point(aes(x = 2, y = 0.7), color = "blue", size = 3) +
+%geom_point(aes(x = 3, y = 1), color = "blue", size = 3) +
+%# Configurar os eixos e rótulos
+%scale_x_continuous(breaks = seq(-1, 4, by = 0.5), limits = c(-1, 4)) +
+%scale_y_continuous(breaks = seq(0, 1, by = 0.1), limits = c(0, 1.05)) +
+%labs(title = "", x = "x", y = "F(x)") +
+%theme_minimal()
+
+\begin{frame}
+	\small
+\begin{exem}
+Consideremos a seguinte função de distribuição:
+x=3 \[
+F(x) = \begin{cases}
+	0, & x \leq 0 \\
+	0,4 x, & 0 < x \leq 1 \\
+	0,4, & 1 < x < 2 \\
+	0,7, & 2 \leq x < 3 \\
+	1, & x \geq 3
+\end{cases}
+\]
+\end{exem}		
+\begin{figure}[!htbp]
+	%	\vspace{-2.5cm}
+	\begin{center}
+		\includegraphics[scale=0.5]{
+			grafFExemDEc.png}
+%		\caption{\label{fig15} Função de distribuição de Cantor.}
+	\end{center}
+\end{figure}
+
+\end{frame}	
+
+\begin{frame}
+O intervalo onde \( F(x) \) aumenta continuamente e possui derivada (densidade) é \( 0 < x \leq 1 \), onde:
+\[
+F(x) = 0{,}4 x
+\]	
+
+Temos saltos em $x=2$ e $x=3$
+    \[
+p_1 = F(2) - F(2^-) = 0{,}7 - 0{,}4 = 0{,}3
+\]
+    \[
+p_2 = F(3) - F(3^-) = 1 - 0{,}7 = 0{,}3
+\]
+	
+O aumento total devido à parte absolutamente contínua:
+\[
+\beta = F(1) - F(0^+) = 0{,}4 \times 1 - 0 = 0{,}4
+\]	
+
+O aumento total devido às partes discretas:
+\[
+\alpha = p_1+ p_2 = 0{,}3 + 0{,}3 = 0{,}6
+\]
+
+Normalizamos a parte absolutamente contínua para que ela aumente de 0 a 1 no intervalo \( 0 < x \leq 1 \):
+\[
+F_{\text{ac}}(x) = \begin{cases}
+	0, & x \leq 0 \\
+	\dfrac{F(x)}{\beta} = \dfrac{0{,}4 x}{0{,}4} = x, & 0 < x \leq 1 \\
+	1, & x > 1
+\end{cases}
+\]
+\end{frame}	
+
+\begin{frame}
+A massa total de probabilidade  da parte discreta é \( \alpha = 0{,}6 \). Normalizamos as massas nos pontos de salto:
+
+\bigskip
+Em \( x = 2 \):
+\[
+p_1 = \dfrac{p_1}{\alpha} = \dfrac{0{,}3}{0{,}6} = 0{,}5
+\]
+Em \( x = 3 \):
+\[
+p_2 = \dfrac{p_2}{\alpha} = \dfrac{0{,}3}{0{,}6} = 0{,}5
+\]	
+ Construímos a distribuição da parte discreta após a normalização
+
+\[
+F_{\text{d}}(x) = \begin{cases}
+	0, & x < 2 \\
+	0{,}5, & 2 \leq x < 3 \\
+	1, & x \geq 3
+\end{cases}
+\]	
+Note que usando \( \alpha = 0{,}6 \) e \( \beta = 0{,}4 \):
+
+\[
+F(x) = \beta F_{\text{ac}}(x) + \alpha F_{\text{d}}(x) = 0{,}4 F_{\text{ac}}(x) + 0{,}6 F_{\text{d}}(x)
+\]
+
+\end{frame}	
+
+\begin{frame}
+
+%# Carregar os pacotes necessários
+%library(ggplot2)
+%library(gridExtra)  # Para dispor os gráficos lado a lado
+%
+%# Definir os dados para F_ac(x)
+%
+%# Parte absolutamente contínua de 0 a 1
+%x_fac <- seq(0, 1, by = 0.01)
+%y_fac <- x_fac  # F_ac(x) = x
+%data_fac <- data.frame(x = x_fac, y = y_fac)
+%
+%# Dados para segmentos horizontais em x <= 0 e x >= 1
+%data_fac_pre <- data.frame(x = c(-1, 0), y = c(0, 0))
+%data_fac_post <- data.frame(x = c(1, 4), y = c(1, 1))
+%
+%# Plotar F_ac(x)
+%plot_Fac <- ggplot() +
+%# Segmento horizontal em x <= 0
+%geom_segment(data = data_fac_pre, aes(x = x[1], xend = x[2], y = y[1], yend = y[2]), size = 1, color = "green") +
+%# Parte absolutamente contínua de 0 a 1
+%geom_line(data = data_fac, aes(x = x, y = y), size = 1, color = "green") +
+%# Segmento horizontal em x >= 1
+%geom_segment(data = data_fac_post, aes(x = x[1], xend = x[2], y = y[1], yend = y[2]), size = 1, color = "green") +
+%# Configurações do gráfico
+%scale_x_continuous(breaks = seq(-1, 4, by = 0.5), limits = c(-1, 4)) +
+%scale_y_continuous(breaks = seq(0, 1, by = 0.1), limits = c(0, 1.05)) +
+%labs(title = "Parte Absolutamente Contínua ", x = "x", y = "F_ac(x)") +
+%theme_minimal()
+%
+%# Definir os dados para F_d(x)
+%
+%# Pontos de salto em x = 2 e x = 3 com massas normalizadas
+%data_fd <- data.frame(
+%x = c(-1, 2, 2, 3, 3, 4),
+%y = c(0, 0, 0.5, 0.5, 1, 1)
+%)
+%
+%# Pontos para os saltos
+%data_jumps <- data.frame(
+%x = c(2, 3),
+%y_start = c(0, 0.5),
+%y_end = c(0.5, 1)
+%)
+%
+%# Plotar F_d(x)
+%plot_Fd <- ggplot() +
+%# Segmento horizontal em x < 2
+%geom_segment(aes(x = -1, xend = 2, y = 0, yend = 0), size = 1, color = "red") +
+%# Segmento horizontal entre os saltos
+%geom_segment(aes(x = 2, xend = 3, y = 0.5, yend = 0.5), size = 1, color = "red") +
+%# Segmento horizontal em x > 3
+%geom_segment(aes(x = 3, xend = 4, y = 1, yend = 1), size = 1, color = "red") +
+%# Linhas verticais nos saltos
+%geom_segment(data = data_jumps, aes(x = x, xend = x, y = y_start, yend = y_end), size = 0, color = "red") +
+%# Pontos abertos nos inícios dos saltos
+%geom_point(data = data_jumps, aes(x = x, y = y_start), color = "red", size = 3, shape = 21, fill = "white") +
+%# Pontos sólidos nos finais dos saltos
+%geom_point(data = data_jumps, aes(x = x, y = y_end), color = "red", size = 3) +
+%# Configurações do gráfico
+%scale_x_continuous(breaks = seq(-1, 4, by = 0.5), limits = c(-1, 4)) +
+%scale_y_continuous(breaks = seq(0, 1, by = 0.1), limits = c(0, 1.05)) +
+%labs(title = "Parte Discreta ", x = "x", y = "F_d(x)") +
+%theme_minimal()
+%
+%# Dispor os gráficos lado a lado
+%grid.arrange(plot_Fac, plot_Fd, ncol = 2)
+%
+
+
+\begin{figure}[!htbp]
+	%	\vspace{-2.5cm}
+	\begin{center}
+		\includegraphics[scale=0.52]{
+			discreteContinua.png}
+		%		\caption{\label{fig15} Função de distribuição de Cantor.}
+	\end{center}
+\end{figure}
+
+
+
+
+Verificamos por intervalos que a combinação de fato reconstruiu a distribuição original
+
+
+
+\begin{itemize}	
+\item Para \( x \leq 0 \), temos $
+	F(x) = 0{,}4 \times 0 + 0{,}6 \times 0 = 0
+	$
+	
+\item Para \( 0 < x \leq 1 \), temos
+	$
+	F(x) = 0{,}4 \times x + 0{,}6 \times 0 = 0{,}4 x
+	$
+	
+\item Para \( 1 < x < 2 \), temos $
+	F(x) = 0{,}4 \times 1 + 0{,}6 \times 0 = 0{,}4
+	$
+	
+\item Para \( 2 \leq x < 3 \), temos $
+	F(x) = 0{,}4 \times 1 + 0{,}6 \times 0{,}5 = 0{,}4 + 0{,}3 = 0{,}7
+	$
+	
+\item Para \( x \geq 3 \), temos $
+	F(x) = 0{,}4 \times 1 + 0{,}6 \times 1 = 0{,}4 + 0{,}6 = 1
+	$
+\end{itemize}	
+
+
+
+
+\end{frame}	
 
 \begin{frame}
 \begin{exem}
@@ -1137,7 +1483,7 @@ Como $F_d+F_{ac}=F_Y$, temos que $F_s(x)=0$, $\forall x\in\IR$ e não há parte 
 	0&\text{caso contrário},%
 	\end{cases}
 	\end{equation*} 
-	em que $\lambda >0$ é uma constante.  A variável aleatória $X$ não  é discreta nem contínua pois apresenta um ponto de descontinuidade em $x=0.$ Ou seja é Singular. Para $\lambda=1/2$ o gráfico de $F(x)$ é apresentado na seguinte figura. %\ref{fig17}
+	em que $\lambda >0$ é uma constante.  A variável aleatória $X$ não  é discreta nem contínua pois apresenta um ponto de descontinuidade em $x=0.$ Ou seja é mista. Para $\lambda=1/2$ o gráfico de $F(x)$ é apresentado na seguinte figura. %\ref{fig17}
 \end{exem}
 
 \begin{figure}[!htb]

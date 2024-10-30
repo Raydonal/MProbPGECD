@@ -125,7 +125,7 @@ das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 12 do IME
 
 * **Metodologia:** Considerando o caráter teórico da disciplina, a metodologia de ensino e aprendizagem utilizará quadro e/ou slides para a apresentação do conteúdo em sala de aula. Será empregada uma plataforma virtual para disponibilizar materiais didáticos, incluindo artigos científicos. Além disso, serão implementadas aulas invertidas, com o envio de videoaulas relacionadas a temas especializados e específicos do assunto em estudo, bem como listas de exercícios.
 
-* **Objetivos da disciplina:** ​Esta disciplina teórica e obrigatória tem como objetivo proporcionar uma base matemática e Estatística aos alunos de diferentes áreas do conhecimento que estejam interessados em probabilidade, visando à compreensão e aplicação de seus principais conceitos e métodos. Para esse fim, o curso é dividido em várias unidades nas quais são introduzidos resultados e teoremas centrais da probabilidade, bem como exemplos que motivam o estudo. Ferramentas computacionais (software) poderão apoiar o desenvolvimento de alguns temas do curso. O objetivo central da disciplina é estudar modelos de probabilidade de forma que permitam ao estudante formular, analisar e aplicar modelos probabilísticos. Além disso, busca-se proporcionar ao estudante a infraestrutura necessária para consolidar sua capacidade de pensar conceitualmente.
+* **Objetivos da disciplina:**  Esta disciplina teórica e obrigatória tem como objetivo proporcionar uma base matemática e Estatística aos alunos de diferentes áreas do conhecimento que estejam interessados em probabilidade, visando à compreensão e aplicação de seus principais conceitos e métodos. Para esse fim, o curso é dividido em várias unidades nas quais são introduzidos resultados e teoremas centrais da probabilidade, bem como exemplos que motivam o estudo. Ferramentas computacionais (software) poderão apoiar o desenvolvimento de alguns temas do curso. O objetivo central da disciplina é estudar modelos de probabilidade de forma que permitam ao estudante formular, analisar e aplicar modelos probabilísticos. Além disso, busca-se proporcionar ao estudante a infraestrutura necessária para consolidar sua capacidade de pensar conceitualmente.
 
 ***
 <h4>
@@ -143,7 +143,7 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 | Avaliação | Porcentagem  |	Data da Prova (Tentativa) |
 |:-----------:|:-------------:|:-----------------:|
-| Prova 1 |    55% 	    |     03/12/2024 |
+| Prova 1 |    55% 	    |     10/12/2024 |
 | Prova 2 |    45% 	    |     06/02/2025  |
 
 
@@ -179,7 +179,7 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |9|29/10/2024|Principais distribuições discretas (caso univariado).|Quadro e/ou slides|
 |10|31/10/2024|Principais distribuições continuas (caso univariado).|[[App]](https://davidbarke.shinyapps.io/Distributions/)|
 |11|05/11/2024|Vetores aleatórios, função de distribuição conjunta de um vetor aleatório, função de densidade conjunta de um vetor aleatório|[[slides 6]](Aulas/Aula-06.pdf)|
-|12|07/11/2024|função de densidade marginal. vetores aleatórios uniformemente distribuídos, distribuição multinomial|[[videoaula]](https://youtu.be/YjVIykar4Lk?si=Wt9YwyN3COCG6ca6)|
+|12|07/11/2024| Defesa| Não haverá aula  [[videoaula]](https://youtu.be/YjVIykar4Lk?si=Wt9YwyN3COCG6ca6)|
 |13|12/11/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes|[[App]](https://davidbarke.shinyapps.io/Distributions/)|
 |14|14/11/2024|Esperança de variáveis aleatórias, caso geral e propriedades|Quadro e/ou slides|
 |15|19/11/2024|Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz|Quadro e/ou slides|
@@ -207,6 +207,8 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 
 </center>
 ***
+
+<!-- |12|07/11/2024|função de densidade marginal. vetores aleatórios uniformemente distribuídos, distribuição multinomial|[[videoaula]](https://youtu.be/YjVIykar4Lk?si=Wt9YwyN3COCG6ca6)| -->
 
 #### Referências bibliográficas (Principal)
 
