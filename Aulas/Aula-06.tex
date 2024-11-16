@@ -1813,69 +1813,488 @@ definida por
 & & =P(X_1\leq x_1, X_2\leq x_2,\ldots,X_n\leq x_n), \forall \vec{x}\in \IR^n.\nonumber
 \end{eqnarray}
 \end{defi}
-\begin{block}{{Propriedades}}
-A função de distribuição acumulada $F_{\vec{X}}$ satisfaz as seguintes
+%\begin{block}{{Propriedades}}
+%A função de distribuição acumulada $F_{\vec{X}}$ satisfaz as seguintes
+%propriedades:
+%\begin{enumerate}
+%\item[F1.] Se $x_i\leq y_i$, $\forall i\leq n$, então $F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y})$. Note que
+%$$x_i\leq y_i \ \forall i\leq n \Rightarrow C_{\vec{x}}\subseteq C_{\vec{y}}
+%\Rightarrow P(C_{\vec{x}})\leq P(C_{\vec{y}})\nonumber 
+% \Rightarrow F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y}).\nonumber
+%$$
+%
+%\item[F2.] $F(x_1,x_2,\ldots,x_n)$ é contínua a direita em cada uma das variáveis. Por exemplo, se $y_m\downarrow x_1$, então
+%$$F(y_m,x_2,\ldots,x_n)\downarrow F(x_1,x_2,\ldots,x_n), \mbox{ quando }m\rightarrow\infty.$$
+%
+%\end{enumerate}
+%\end{block}
+
+\begin{block}{ Propriedades da Função de Distribuição Acumulada Conjunta e Cálculo da Probabilidade em um Hipercubo $n$-dimensional}
+
+Consideremos um vetor aleatório \( \vec{X} = (X_1, X_2, \dots, X_n) \) definido em um espaço de probabilidade, com função de distribuição acumulada conjunta dada por:
+\[
+F_{\vec{X}}(\vec{x}) = P(X_1 \leq x_1, X_2 \leq x_2, \dots, X_n \leq x_n), \quad \forall \vec{x} \in \mathbb{R}^n.
+\]
+
+A função \( F_{\vec{X}} \)satisfaz as seguintes
 propriedades:
 \begin{enumerate}
-\item[F1.] Se $x_i\leq y_i$, $\forall i\leq n$, então $F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y})$. Note que
-$$x_i\leq y_i \ \forall i\leq n \Rightarrow C_{\vec{x}}\subseteq C_{\vec{y}}
-\Rightarrow P(C_{\vec{x}})\leq P(C_{\vec{y}})\nonumber 
- \Rightarrow F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y}).\nonumber
-$$
+\item[F1.](Monotonicidade) Se $x_i\leq y_i$, $\forall i\leq n$, então $F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y})$.
 
-\item[F2.] $F(x_1,x_2,\ldots,x_n)$ é contínua a direita em cada uma das variáveis. Por exemplo, se $y_m\downarrow x_1$, então
-$$F(y_m,x_2,\ldots,x_n)\downarrow F(x_1,x_2,\ldots,x_n), \mbox{ quando }m\rightarrow\infty.$$
+\medskip
+{\bf Prova:} Para cada \( i \), \( x_i \leq y_i \) implica que o evento \( \{ X_i \leq x_i \} \) está contido em \( \{ X_i \leq y_i \} \), ou seja:
+
+\[
+\{ X_i \leq x_i \} \subseteq \{ X_i \leq y_i \}.
+\]
+
+
+% 
+% Note que
+%$$x_i\leq y_i \ \forall i\leq n \Rightarrow C_{\vec{x}}\subseteq C_{\vec{y}}
+%\Rightarrow P(C_{\vec{x}})\leq P(C_{\vec{y}})\nonumber 
+% \Rightarrow F_{\vec{X}}(\vec{x})\leq F_{\vec{X}}(\vec{y}).\nonumber
+%$$
+%
+%\item[F2.] $F(x_1,x_2,\ldots,x_n)$ é contínua a direita em cada uma das variáveis. Por exemplo, se $y_m\downarrow x_1$, então
+%$$F(y_m,x_2,\ldots,x_n)\downarrow F(x_1,x_2,\ldots,x_n), \mbox{ quando }m\rightarrow\infty.$$
 
 \end{enumerate}
 \end{block}
 \end{frame}
 
 \begin{frame}
-%\frametitle{\textbf{Propriedades}}
-%\baselineskip=13pt
-\begin{block}{}
-\begin{enumerate}
-\item[F3a.] Se para algum $i\leq n$ $x_i\rightarrow -\infty$, então $C_{\vec{x}}$ decresce monotonicamente para o conjunto vazio $\emptyset$. Logo, pela continuidade monotônica de probabilidade, temos que
-$$\lim_{x_i\rightarrow -\infty}F_{\vec{X}}(\vec{x})=0.$$
+	\begin{block}{}
+\begin{enumerate}		
+	
+\item[]	Considerando a interseção desses eventos para todos os \( i \):
+	
+	\[
+	C_{\vec{x}} = \bigcap_{i=1}^{n} \{ X_i \leq x_i \} \subseteq \bigcap_{i=1}^{n} \{ X_i \leq y_i \} = C_{\vec{y}}.
+	\]
+	
+	Como \( C_{\vec{x}} \subseteq C_{\vec{y}} \) e a probabilidade é uma medida não negativa e aditiva, temos:
+	
+	\[
+	P(C_{\vec{x}}) \leq P(C_{\vec{y}}),
+	\]
+	
+	o que implica:
+	
+	\[
+	F_{\vec{X}}(\vec{x}) \leq F_{\vec{X}}(\vec{y}).
+	\]
+	\item[F2.](Continuidade à Direita em cada variável (coordenada)) A função \( F_{\vec{X}}(\vec{x}) \) é contínua à direita em cada uma das variáveis, ou seja, para cada \( i \leq n \) e para toda sequência \( y_m \downarrow x_i \) (com \( y_m > x_i \) e \( y_m \to x_i \)):
+	
+	\[
+	\lim_{y_m \downarrow x_i} F_{\vec{X}}(x_1, \dots, x_{i-1}, y_m, x_{i+1}, \dots, x_n) = F_{\vec{X}}(\vec{x}).
+	\]
+	\medskip
+	{\bf Prova:} Considere uma sequência \( y_m \) tal que \( y_m \downarrow x_i \). Para cada \( m \), temos:
+	\[
+	\{ X_i \leq x_i \} \subseteq \{ X_i \leq y_m \}.
+	\]
+	Assim, os eventos \( C_m = \bigcap_{j \neq i} \{ X_j \leq x_j \} \cap \{ X_i \leq y_m \} \) formam uma sequência decrescente de conjuntos $
+	C_{m+1} \subseteq C_m.
+$	
+	\end{enumerate}
+	\end{block}
+	
+\end{frame}	
 
-
-\item[F3b.] Se $x_i\rightarrow \infty$, então $C_{\vec{x}}$ cresce monotonicamente para o conjunto $$\{X_1\leq x_1,\ldots X_{i-1}\leq x_{i-1},X_{i+1}\leq x_{i+1},\ldots,X_n\leq x_n\},$$ ou seja a restrição em $X_i$ é removida. Então, podemos escrever
-\begin{eqnarray}
-& & \lim_{x_i\rightarrow \infty}F_{\vec{X}}(\vec{x})\nonumber \\
-& & =F_{X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n}(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n).\nonumber
-\end{eqnarray}
-
-
-Portanto, a função de distribuição acumulada conjunta de $X_1,\ldots,
-X_{n-1}$ pode ser facilmente determinada da função de distribuição
-acumulada conjunta de $X_1,\ldots,X_n$ fazendo
-$x_n\rightarrow\infty$. Observe que {\em funções de distribuição
-acumuladas conjuntas de ordem maiores determinam as de ordem
-menores, mas o contrário não é verdadeiro}. Em particular, temos que
-$$\lim_{\vec{x}\rightarrow\infty}F_{\vec{X}}(\vec{x})=1.$$
-
-\end{enumerate}
-
+\begin{frame}
+	\begin{block}{}
+		\begin{enumerate}		
+			
+			\item[] Pela continuidade da medida de probabilidade em sequências decrescentes de conjuntos (continuidade monótona), temos:
+\[
+			\lim_{m \to \infty} P(C_m) = P\left( \bigcap_{j \neq i} \{ X_j \leq x_j \} \cap \{ X_i \leq x_i \} \right) = F_{\vec{X}}(\vec{x}).
+			\]
+			Portanto:
+			\[
+			\lim_{y_m \downarrow x_i} F_{\vec{X}}(x_1, \dots, x_{i-1}, y_m, x_{i+1}, \dots, x_n) = F_{\vec{X}}(\vec{x}).
+			\]
+	\item[F3a.](Comportamento em \( x_i \to -\infty \))  Se para algum \( i \leq n \), \( x_i \to -\infty \), então:
+		\[
+	\lim_{x_i \to -\infty} F_{\vec{X}}(\vec{x}) = 0.
+	\]
+		\medskip
+	{\bf Prova:} À medida que \( x_i \to -\infty \), o evento \( \{ X_i \leq x_i \} \) se torna o conjunto vazio, pois \( X_i \) não pode assumir valores menores do que \( -\infty \). Assim, a interseção dos eventos é
+	\[
+	C_{\vec{x}} = \bigcap_{i=1}^{n} \{ X_i \leq x_i \} = \emptyset.
+	\]
+	Como a probabilidade do conjunto vazio é zero:
+	$
+	F_{\vec{X}}(\vec{x}) = P(\emptyset) = 0.
+	$ Portanto:
+		\[
+	\lim_{x_i \to -\infty} F_{\vec{X}}(\vec{x}) = 0.
+	\]
+	\end{enumerate}
 \end{block}
+
+\end{frame}	
+
+
+
+
+\begin{frame}
+	\begin{block}{}
+		\begin{enumerate}	
+				\item[F3b.](Comportamento em \( x_i \to \infty \))	Se \( x_i \to \infty \), então:
+					\[
+				\lim_{x_i \to \infty} F_{\vec{X}}(\vec{x}) = F_{X_1, \dots, X_{i-1}, X_{i+1}, \dots, X_n}(x_1, \dots, x_{i-1}, x_{i+1}, \dots, x_n).
+				\]
+		\medskip
+{\bf Prova:} À medida que \( x_i \to \infty \), o evento \( \{ X_i \leq x_i \} \) se torna o espaço inteiro, pois \( X_i \leq \infty \) é sempre verdadeiro. Assim, a restrição sobre \( X_i \) é removida, e temos:
+
+\[
+\bigcap_{j=1}^{n} \{ X_j \leq x_j \} = \left( \bigcap_{j \neq i} \{ X_j \leq x_j \} \right) \cap \{ X_i \leq x_i \} \xrightarrow{x_i \to \infty} \bigcap_{j \neq i} \{ X_j \leq x_j \}.
+\]
+Portanto, a função de distribuição tende a:
+\[
+\lim_{x_i \to \infty} F_{\vec{X}}(\vec{x}) = P\left( \bigcap_{j \neq i} \{ X_j \leq x_j \} \right) = F_{X_1, \dots, X_{i-1}, X_{i+1}, \dots, X_n}(x_1, \dots, x_{i-1}, x_{i+1}, \dots, x_n).
+\]
+Isso mostra que a função de distribuição conjunta de \( n \) variáveis tende para a função de distribuição conjunta das \( n - 1 \) variáveis restantes quando \( x_i \to \infty \).
+					\end{enumerate}
+\end{block}
+{\bf Observação:}
+ Em particular, quando todos os \( x_i \to \infty \), temos: \[
+\lim_{\vec{x} \to \infty} F_{\vec{X}}(\vec{x}) = 1,
+\] pois estamos considerando o evento certo (todo o espaço de probabilidade).
+
+\end{frame}	
+
+%
+%\begin{frame}
+%%\frametitle{\textbf{Propriedades}}
+%%\baselineskip=13pt
+%\begin{block}{}
+%\begin{enumerate}
+%\item[F3a.] Se para algum $i\leq n$ $x_i\rightarrow -\infty$, então $C_{\vec{x}}$ decresce monotonicamente para o conjunto vazio $\emptyset$. Logo, pela continuidade monotônica de probabilidade, temos que
+%$$\lim_{x_i\rightarrow -\infty}F_{\vec{X}}(\vec{x})=0.$$
+%
+%
+%\item[F3b.] Se $x_i\rightarrow \infty$, então $C_{\vec{x}}$ cresce monotonicamente para o conjunto $$\{X_1\leq x_1,\ldots X_{i-1}\leq x_{i-1},X_{i+1}\leq x_{i+1},\ldots,X_n\leq x_n\},$$ ou seja a restrição em $X_i$ é removida. Então, podemos escrever
+%\begin{eqnarray}
+%& & \lim_{x_i\rightarrow \infty}F_{\vec{X}}(\vec{x})\nonumber \\
+%& & =F_{X_1,\ldots,X_{i-1},X_{i+1},\ldots,X_n}(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n).\nonumber
+%\end{eqnarray}
+%
+%
+%Portanto, a função de distribuição acumulada conjunta de $X_1,\ldots,
+%X_{n-1}$ pode ser facilmente determinada da função de distribuição
+%acumulada conjunta de $X_1,\ldots,X_n$ fazendo
+%$x_n\rightarrow\infty$. Observe que {\em funções de distribuição
+%acumuladas conjuntas de ordem maiores determinam as de ordem
+%menores, mas o contrário não é verdadeiro}. Em particular, temos que
+%$$\lim_{\vec{x}\rightarrow\infty}F_{\vec{X}}(\vec{x})=1.$$
+%
+%\end{enumerate}
+%
+%\end{block}
+%\end{frame}
+
+\begin{frame}
+O próximo exemplo mostra que para $n\geq 2$ as propriedades F1, F2, e F3 não são suficientes para que $F$ seja uma função de distribuição.
+\begin{exem}
+Seja $F_0:\IR^2 \rightarrow\IR$ uma função definida no plano tal que $F_0(x,y)=1$ se $x\geq 0$, $y\geq 0$, e $x+y\geq 1$, e $F_0(x,y)=0$, caso contrário.
+
+
+\begin{figure}[!htb]
+	\begin{center}
+			\includegraphics[scale=0.2]{F0.png}
+	%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+		\end{center}
+\end{figure}
+
+\end{exem}
 \end{frame}
+
+\begin{frame}
+F1. Se \( x_1 \leq x_2 \) e \( y_1 \leq y_2 \), então:
+\[
+F_0(x_1, y_1) \leq F_0(x_2, y_2)
+\]	
+\begin{itemize}
+\item Caso 1: Se \( F_0(x_1, y_1) = 0 \), então \( F_0(x_1, y_1) \leq F_0(x_2, y_2) \), pois \( F_0(x_2, y_2) \geq 0 \).
+\item Caso 2:  Se \( F_0(x_1, y_1) = 1 \), então temos que \( x_1 \geq 0 \), \( y_1 \geq 0 \) e \( x_1 + y_1 \geq 1 \).
+\end{itemize}
+Como \( x_1 \leq x_2 \) e \( y_1 \leq y_2 \), temos que: \( x_2 \geq x_1 \geq 0 \), \( y_2 \geq y_1 \geq 0 \) 
+e \( x_2 + y_2 \geq x_1 + y_1 \geq 1 \). Portanto, \( F_0(x_2, y_2) = 1 \). 
+Assim, em ambos os casos, \( F_0(x_1, y_1) \leq F_0(x_2, y_2) \), o que prova a propriedade F1.
+
+\bigskip
+F2. Analisemos a continuidade pela direita em \( x \):
+
+\begin{itemize}
+\item Se \( x_0 < 0 \): Como \( F_0(x_0, y) = 0 \) para qualquer \( y \), e \( F_0(x, y) = 0 \) para \( x \) próximo de \( x_0 \), a função é constante e, portanto, contínua.
+
+\item Se \( x_0 + y \geq 1 \): Então \( F_0(x, y) = 1 \) para \( x \) próximo de \( x_0 \) à direita, mantendo \( y \) fixo. Portanto, o limite pela direita é \( 1 = F_0(x_0, y) \).
+
+\item Se \( x_0 + y < 1 \): Como \( x \downarrow x_0 \), mas \( x_0 + y < 1 \), \( F_0(x, y) = 0 \), e \( F_0(x_0, y) = 0 \). Logo, a função é contínua pela direita.
+\end{itemize}
+O mesmo raciocínio vale para \( y \). Portanto, \( F_0(x, y) \) é contínua pela direita em cada variável, comprovando a propriedade F2.
+	
+\end{frame}	
+
+\begin{frame}
+F3. Quando \( x \to -\infty \) ou \( y \to -\infty \), temos: \[
+\lim_{x \to -\infty} F_0(x, y) = \lim_{y \to -\infty} F_0(x, y) = 0
+\]	 Como \( F_0(x, y) = 0 \) para \( x < 0 \) ou \( y < 0 \), quando \( x \to -\infty \) ou \( y \to -\infty \), a função tende a zero. Agora, para \( x \to \infty \), mantendo \( y \) fixo e \( y \geq 0 \): Se \( y \geq 0 \) e \( x + y \geq 1 \), então \( F_0(x, y) = 1 \). Logo, \( \lim_{x \to \infty} F_0(x, y) = 1 \) para \( y \geq 0 \). Similarmente para \( y \to \infty \). Portanto, a função \( F_0 \) possui limites adequados nos infinitos, satisfazendo a propriedade F3.
+
+\bigskip
+É claro que F1, F2, e F3 são satisfeitas, mas $F_0$ não é função de distribuição de nenhum vetor aleatório $(X,Y)$. De fato, calculemos a probabilidade do retângulo bidimensional 
+
+
+\begin{eqnarray}
+	& & 0\leq P(0 <X\leq 1,0<Y\leq 1)\nonumber\\
+	& & =F_0(1,1)-F_0(1,0)-F_0(0,1)+F_0(0,0)\nonumber \\
+	& & =1-1-1+0=-1 \nonumber
+\end{eqnarray}
+\end{frame}	
+
+\begin{frame}
+	\begin{figure}[!htb]
+		\begin{center}
+			\includegraphics[scale=0.3]{Fig0-Pr.png}
+			%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+		\end{center}
+	\end{figure}
+\end{frame}	
+
+
+\begin{frame}
+	\begin{block}{}
+		\begin{enumerate}	
+			\item[F4.](Cálculo da Probabilidade em um Hipercubo $n$-dimensional)	
+		Calcular a probabilidade de um evento retangular definido em termos de um vetor aleatório bidimensional \( \vec{X} = (X_1, X_2) \) e generalizar o resultado para um vetor aleatório \( n \)-dimensional \( \vec{X} = (X_1, X_2, \ldots, X_n) \).
+%			
+%			Sejam \( \vec{a} = (a_1, a_2, \dots, a_n) \) e \( \vec{b} = (b_1, b_2, \dots, b_n) \) vetores em \( \mathbb{R}^n \) tais que \( a_i \leq b_i \) para todos \( i \leq n \). A probabilidade de que cada \( X_i \) esteja no intervalo \( (a_i, b_i] \) é dada por:
+%		\[
+%			P(a_1 < X_1 \leq b_1, \dots, a_n < X_n \leq b_n) = \sum_{k=1}^{2^n} (-1)^{n - |\vec{\epsilon}_k|} F_{\vec{X}}(\vec{c}_k),
+%			\] em que: \( \vec{\epsilon}_k \) varia sobre todos os vetores binários possíveis de comprimento \( n \) (isto é, \( \epsilon_i = 0 \) ou \( 1 \));  
+%			\( \vec{c}_k \) é o vetor cujas coordenadas são \( c_i = a_i \) se \( \epsilon_i = 0 \) e \( c_i = b_i \) se \( \epsilon_i = 1 \). Adicionalmente, \( |\vec{\epsilon}_k| \) é o número de uns no vetor \( \vec{\epsilon}_k \).
+
+			
+\end{enumerate}
+\end{block}
+{\bf Prova:} Caso Bidimensional
+Considere um espaço de probabilidade \( (\Omega, \mathcal{F}, P) \) e um vetor aleatório \( \vec{X} : \Omega \rightarrow \mathbb{R}^2 \). Definimos os seguintes eventos: Para \( i = 1, 2 \): \( A_i(x_i) = \{ X_i \leq x_i \} \); \( B_i = A_i(y_i) \setminus A_i(x_i) = \{ x_i < X_i \leq y_i \} \), com \( x_i < y_i \)
+
+As probabilidades são:
+\[
+P(B_i) = F_{X_i}(y_i) - F_{X_i}(x_i)
+\]
+O evento retangular de interesse é:
+\[
+B = B_1 \cap B_2 = \{ x_1 < X_1 \leq y_1, \ x_2 < X_2 \leq y_2 \}
+\]
+Logo
+\[
+P(B) = [F_{\vec{X}}(y_1, y_2) - F_{\vec{X}}(x_1, y_2)] - [F_{\vec{X}}(y_1, x_2) - F_{\vec{X}}(x_1, x_2)]
+\]
+Para mostrar isto, 	podemos reescrever o evento \( B \) em termos de eventos cumulativos (Borelianos convenientes) da seguinte forma pelo princípio da inclusão-exclusão para eventos :
+\[
+B = (X_1 \leq y_1, X_2 \leq y_2) \setminus [(X_1 \leq x_1, X_2 \leq y_2) \cup (X_1 \leq y_1, X_2 \leq x_2)] \cup (X_1 \leq x_1, X_2 \leq x_2)
+\]
+\end{frame}		
+
+\begin{frame}
+Utilizando o princípio da inclusão-exclusão, podemos escrever:
+\[
+P(B) = P(X_1 \leq y_1, X_2 \leq y_2) - P(X_1 \leq x_1, X_2 \leq y_2) - P(X_1 \leq y_1, X_2 \leq x_2) + P(X_1 \leq x_1, X_2 \leq x_2)
+\]	e substituindo as probabilidades pelas funções de distribuição acumulada conjunta temos:
+\[
+P(B) = F_{\vec{X}}(y_1, y_2) - F_{\vec{X}}(x_1, y_2) - F_{\vec{X}}(y_1, x_2) + F_{\vec{X}}(x_1, x_2)
+\]
+Podemos reorganizar a expressão de forma que 
+\[
+P(B) = [F_{\vec{X}}(y_1, y_2) - F_{\vec{X}}(x_1, y_2)] - [F_{\vec{X}}(y_1, x_2) - F_{\vec{X}}(x_1, x_2)]
+\]
+
+\medskip 
+Generalizemos para o caso \( n \)-dimensional:
+
+\medskip   Consideremos um vetor aleatório \( \vec{X} = (X_1, X_2, \ldots, X_n) \). Para cada \( i = 1, 2, \ldots, n \), definimos: \( A_i(x_i) = \{ X_i \leq x_i \} \),  \( B_i = A_i(y_i) \setminus A_i(x_i) = \{ x_i < X_i \leq y_i \} \), com \( x_i < y_i \). Desta forma,  o evento retangular é:
+\[
+B = \bigcap_{i=1}^{n} B_i = \{ x_i < X_i \leq y_i, \ \forall i = 1, 2, \ldots, n \}
+\]
+Precisamos mostrar que 
+\[
+P(B) = \sum_{\vec{\delta} \in \{0,1\}^n} (-1)^{\delta_1 + \delta_2 + \ldots + \delta_n} F_{\vec{X}}(t_1, t_2, \ldots, t_n)
+\]
+Para cada \( i \): \( t_i = x_i \) se \( \delta_i = 1 \) e \( t_i = y_i \) se \( \delta_i = 0 \) em quer a soma é sobre todos os \( 2^n \) vetores binários \( \vec{\delta} = (\delta_1, \delta_2, \ldots, \delta_n) \).
+
+
+\end{frame}		
+
+\begin{frame}
+Note que
+\( B_i = \{ X_i \leq y_i \} \setminus \{ X_i \leq x_i \} \) Portanto, \( B \) pode ser escrito como:
+\[
+B = \left( \bigcap_{i=1}^{n} \{ X_i \leq y_i \} \right) \setminus \left( \bigcup_{S \subseteq \{1, \ldots, n\}, S \neq \emptyset} \left( \bigcap_{i \in S} \{ X_i \leq x_i \} \cap \bigcap_{j \notin S} \{ X_j \leq y_j \} \right) \right)
+\]
+Se aplicamos o princípio da inclusão-exclusão para a probabilidade da união de eventos. A probabilidade do evento \( B \) é:
+\[
+P(B) = P\left( \bigcap_{i=1}^{n} \{ X_i \leq y_i \} \right) - \sum_{k=1}^{n} (-1)^{k+1} \sum_{1 \leq i_1 < \ldots < i_k \leq n} P\left( \bigcap_{l=1}^{k} \{ X_{i_l} \leq x_{i_l} \} \cap \bigcap_{j \notin \{ i_1, \ldots, i_k \}} \{ X_j \leq y_j \} \right)
+\]
+Cada termo da soma pode ser escrito como uma função de distribuição acumulada conjunta avaliada em pontos específicos: Para cada subconjunto \( S \subseteq \{1, 2, \ldots, n\} \) definimos \( t_i = x_i \) se \( i \in S \) e \( t_i = y_i \) se \( i \notin S \). O tamanho do subconjunto \( S \) é \( |S| \)
+
+Assim, a probabilidade pode ser escrita como:
+\[
+P(B) = \sum_{S \subseteq \{1, 2, \ldots, n\}} (-1)^{|S|} F_{\vec{X}}(t_1, t_2, \ldots, t_n)
+\] em que a soma é sobre todos os \( 2^n \) subconjuntos de \( \{1, 2, \ldots, n\} \).
+
+\end{frame}
+
+\begin{frame}
+	
+{\bf Nota sobre os sinais:}	O expoente \( |S| \) em \( (-1)^{|S|} \) provém da aplicação do princípio da inclusão-exclusão, onde cada interseção de \( k \) eventos é somada ou subtraída de acordo com \( (-1)^{k} \).
+
+\medskip
+Para \( n = 2 \), os subconjuntos \( S \) são:
+
+1. \( S = \emptyset \), \( |S| = 0 \), \( t_i = y_i \) para todos \( i \):
+\[
+(-1)^{0} F_{\vec{X}}(y_1, y_2) = +F_{\vec{X}}(y_1, y_2)
+\]
+
+2. \( S = \{1\} \), \( |S| = 1 \), \( t_1 = x_1 \), \( t_2 = y_2 \):
+\[
+(-1)^{1} F_{\vec{X}}(x_1, y_2) = -F_{\vec{X}}(x_1, y_2)
+\]
+
+3. \( S = \{2\} \), \( |S| = 1 \), \( t_1 = y_1 \), \( t_2 = x_2 \):
+\[
+(-1)^{1} F_{\vec{X}}(y_1, x_2) = -F_{\vec{X}}(y_1, x_2)
+\]
+
+4. \( S = \{1,2\} \), \( |S| = 2 \), \( t_i = x_i \) para todos \( i \):
+\[
+(-1)^{2} F_{\vec{X}}(x_1, x_2) = +F_{\vec{X}}(x_1, x_2)
+\]
+
+Somando todos os termos:
+\[
+P(B) = F_{\vec{X}}(y_1, y_2) - F_{\vec{X}}(x_1, y_2) - F_{\vec{X}}(y_1, x_2) + F_{\vec{X}}(x_1, x_2)
+\]
+Que coincide com o resultado obtido no caso bidimensional.
+	
+\end{frame}	
+
+\begin{frame}
+Seguindo a mesma lógica, para \( n \) dimensões, a probabilidade é:
+\[
+P(B) = \sum_{\vec{\delta} \in \{0,1\}^n} (-1)^{\delta_1 + \delta_2 + \ldots + \delta_n} F_{\vec{X}}(t_1, t_2, \ldots, t_n)
+\]
+em que: \( \vec{\delta} = (\delta_1, \delta_2, \ldots, \delta_n) \) é um vetor binário representando se usamos \( x_i \) ou \( y_i \) em cada posição. Para cada \( i \), temos \( t_i = x_i \) se \( \delta_i = 1 \),  \( t_i = y_i \) se \( \delta_i = 0 \) e
+o sinal \( (-1)^{\delta_1 + \delta_2 + \ldots + \delta_n} \) resulta da aplicação do princípio da inclusão-exclusão.	
+
+\medskip
+Assim, a probabilidade do evento retangular \( B \) em \( n \) dimensões é expressa em termos das funções de distribuição acumulada conjunta avaliadas em todos os pontos possíveis combinando \( x_i \) e \( y_i \), com os sinais determinados pelo número de \( x_i \) na combinação.
+
+\medskip
+Note que se a propriedade F4 é válida temos que 
+	\[
+			P(x_1 < X_1 \leq x_1, \dots, x_n < X_n \leq y_n) =  \sum_{\vec{\delta} \in \{0,1\}^n} (-1)^{\delta_1 + \delta_2 + \ldots + \delta_n} F_{\vec{X}}(t_1, t_2, \ldots, t_n) \geq 0
+			\]
+\end{frame}	
+
+
+
+%\begin{frame}
+%	\begin{block}{}
+%Usando a fórmula de inclusão-exclusão, a probabilidade pode ser expressa como:
+%\[
+%P\left( \bigcap_{i=1}^{n} (a_i < X_i \leq b_i) \right) = \sum_{S \subseteq \{1,2,\dots,n\}} (-1)^{|S|} F_{\vec{X}}(\vec{d}_S),
+%\]
+%em que \( S \) varia sobre todos os subconjuntos de \( \{1,2,\dots,n\} \). O vetor \( \vec{d}_S \) é definido por \( d_i = b_i \) se \( i \in S \) e \( d_i = a_i \) se \( i \notin S \); e
+%\( |S| \) é a cardinalidade do conjunto \( S \). 
+%
+%A partir da definição de probabilidade de eventos, temos:
+%
+%\[
+%P\left( \bigcap_{i=1}^{n} (a_i < X_i \leq b_i) \right) = \sum_{k=1}^{2^n} (-1)^{n - |\vec{\epsilon}_k|} F_{\vec{X}}(\vec{c}_k),
+%\]
+%
+%onde estamos somando sobre todos os cantos do hipercubo formado pelos vetores \( \vec{a} \) e \( \vec{b} \), ajustando os sinais conforme o princípio da inclusão-exclusão.
+%
+%\end{block}
+%
+%\begin{block}{Exemplo para \( n = 2 \):}
+%
+%\end{block}
+%
+%\end{frame}			
+
 
 \begin{frame}
 \begin{block}{Distribuição marginal}
-A função de distribuição acumulada de $X_i$ que se obtém a partir da função acumulada conjunta de\\ $X_1,\ldots,X_n$ fazendo
-$x_j\rightarrow\infty$ para $j\ne i$ é conhecida como {\em função de distribuição marginal} de $X_i$.
+	A função de distribuição acumulada de $X_i$ que se obtém a partir da função acumulada conjunta de\\ $X_1,\ldots,X_n$ fazendo
+	$x_j\rightarrow\infty$ para $j\ne i$ é conhecida como {\em função de distribuição marginal} de $X_i$.
 \end{block}
 
-O próximo exemplo mostra que para $n\geq 2$ as propriedades F1, F2, e F3 não são suficientes para que $F$ seja uma função de distribuição.
+\begin{block}{Exemplo}
+	Seja \( F_{X_1, X_2}(x_1, x_2) \) a função de distribuição acumulada conjunta de uma variável aleatória normal bivariada com vetor de médias \( \mu = (0, 0) \) e matriz de covariância:
+$
+	\Sigma = \begin{bmatrix}
+		1 & \rho \\
+		\rho & 1
+	\end{bmatrix},
+	$
+	onde \( \rho = 0.5 \) é o coeficiente de correlação. Para encontrar a distribuição marginal acumulada de \( X_1 \), usamos o limite:
+	\[
+	F_{X_1}(x_1) = \lim_{x_2 \to \infty} F_{X_1, X_2}(x_1, x_2).
+	\]
+	
+	A distribuição acumulada conjunta é:
+	\[
+	F_{X_1, X_2}(x_1, x_2) = \int_{-\infty}^{x_1} \int_{-\infty}^{x_2} \frac{1}{2\pi\sqrt{1 - \rho^2}}
+	\exp\left( -\frac{1}{2(1 - \rho^2)} \left(u^2 - 2\rho uv + v^2 \right) \right) du \, dv.
+	\]
+		Tomando o limite \( x_2 \to \infty \), temos:
+	\[
+	F_{X_1}(x_1) = \int_{-\infty}^{x_1} \frac{1}{\sqrt{2\pi}} e^{-\frac{u^2}{2}} du,
+	\]
+	que é a função de distribuição acumulada da normal padrão univariada:
+	\[
+	F_{X_1}(x_1) = \Phi(x_1),
+	\]
+	onde \( \Phi(x) \) é a CDF da normal padrão.
+\end{block}	
 
-\begin{exem}
-Seja $F_0:\IR^2 \rightarrow\IR$ uma função definida no plano tal que $F_0(x,y)=1$ se $x\geq 0$, $y\geq 0$, e $x+y\geq 1$, e $F_0(x,y)=0$, caso contrário. É claro que F1, F2, e F3 são satisfeitas, mas $F_0$ não é função de distribuição de nenhum vetor aleatório $(X,Y)$. Se fosse, teríamos uma contradição
-\begin{eqnarray}
-& & 0\leq P(0 <X\leq 1,0<Y\leq 1)\nonumber\\
-& & =F_0(1,1)-F_0(1,0)-F_0(0,1)+F_0(0,0)\nonumber \\
-& & =1-1-1+0=-1 \nonumber
-\end{eqnarray}
-\end{exem}
 \end{frame}
+
+\begin{frame}
+	\begin{block}{}
+			que é a função de distribuição acumulada da normal padrão univariada:
+		\[
+		F_{X_1}(x_1) = \Phi(x_1),
+		\]
+		onde \( \Phi(x) \) é a CDF da normal padrão. 
+		Analogamente, para a marginal acumulada de \( X_2 \):
+		\[
+		F_{X_2}(x_2) = \lim_{x_1 \to \infty} F_{X_1, X_2}(x_1, x_2).
+		\]
+		Tomando o limite, obtemos:
+		\[
+		F_{X_2}(x_2) = \Phi(x_2).
+		\]
+		\end{block}
+		
+
+			\begin{figure}[!htb]
+				\begin{center}
+					\includegraphics[scale=0.18]{Bivariate.png}
+					%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+				\end{center}
+			\end{figure}
+			
+			
+\end{frame}	
+
+
 
 \begin{frame}
 \frametitle{}
