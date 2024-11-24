@@ -150,7 +150,6 @@
 % \theoremstyle{Nota}
  \newtheorem{nota}{Nota}
 
- \newtheorem{prova}{Prova}
 
 
 
@@ -1767,178 +1766,7 @@
 %\end{block}
 %\end{frame}
 %
-
-
-\begin{frame}{Conjuntos de Borel em $\mathbb{R}$}
-Consideremos a coleção de todos os intervalos abertos $(a,b)$ de $\mathbb{R}$, em que $a \leq b$.  A menor $\sigma$-álgebra gerada por esta coleção se chama $\sigma$-álgebra de Borel de $\mathbb{R}$ e a denotamos por $\mathcal{B}(\mathbb{R})$ (em honor ao  matemático Francês Félix É. J. Émile Borel).
-
-\medskip	
-\textbf{Definição:} $\sigma$-álgebra de Borel 
-$$\mathcal{B}(\mathbb{R}) = \sigma \{ (a,b) \subseteq \mathbb{R} : a \leq b \}$$
-
-Os elementos de $\mathcal{B}(\mathbb{R})$ são chamados de conjuntos de Borel, Borelianos ou conjuntos Borel mensuráveis.
-
-\medskip
-Para quaisquer $a, b \in \mathbb{R}$ com $a \leq b$, os intervalos seguintes são conjuntos de Borel: $[a,b]$, $(a,\infty)$, $(-\infty, b),$ $[a,b)$, $(a,b]$ e $\{a\}.$
-
-De fato:
-    \begin{itemize}
-	\item $[a,b] = \bigcup\limits_{n=1}^{\infty}(a - 1/n, b + 1/n) \in \mathcal{B}(\mathbb{R})$.
-	\item $(a,\infty) = \bigcup\limits_{n=1}^{\infty} (a, a+n) \in \mathcal{B}(\mathbb{R})$.
-	\item $(-\infty, b) = \bigcup\limits_{n=1}^{\infty} (b-n,b) \in \mathcal{B}(\mathbb{R})$.
-	\item $[a, \infty) = \bigcap\limits_{n=1}^{\infty} (a-1/n, \infty) \in \mathcal{B}(\mathbb{R})$.
-	\item $(-\infty,b] = \bigcap\limits_{n=1}^{\infty} (-\infty,b+1/n) \in \mathcal{B}(\mathbb{R})$.
-	\item $\{a\} = \bigcap\limits_{n=1}^{\infty}(a-1/n,a+1/n) \in \mathcal{B}(\mathbb{R})$.
-\end{itemize}
-
-\end{frame}
-	
-
-\begin{frame}{Extensão para $\mathbb{R}^n$}
-	A $\sigma$-álgebra de Borel em $\mathbb{R}^n$ é definida pela $\sigma$-álgebra geradora do produto cartesiano, $$\mathcal{B}(\mathbb{R}^n) = \sigma(\mathcal{B}(\mathbb{R}) \times \mathcal{B}(\mathbb{R}) \times \cdots \times \mathcal{B}(\mathbb{R})) = \sigma\{\text{retângulos abertos em } \mathbb{R}^n\}.$$
-
-
-			\begin{figure}[!htb]
-	\begin{center}
-		\includegraphics[scale=0.2]{BorelianosR2.png}
-		%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
-	\end{center}
-\end{figure}
-
-\vspace{-0.5cm}
-\begin{nota}\small
-	O produto cartesiano de duas $\sigma$-álgebras não é, em geral, uma $\sigma$-álgebra de subconjuntos do espaço produto. Devemos aplicar a operação $\sigma$ (gerador) na coleção para obtermos uma $\sigma$-álgebra pois ela deve ser fechada sob complementação e sob uniões contáveis. Se  consideramos como contraexemplo o conjunto diagonal em $\mathbb{R}^2$:
-	\[
-	D = \{ (x, x) : x \in \mathbb{R} \}.
-	\]
-	ele é um conjunto de Borel em $\mathbb{R}^2$, mas não pode ser escrito como uma união contável de retângulos da forma $A \times B$ com $A, B \in \mathcal{B}(\mathbb{R})$. Prove !!
-	
-%	**Passos detalhados:**
-%	
-%	1. **$D$ é um conjunto de Borel em $\mathbb{R}^2$:**
-%	
-%	- A função $f : \mathbb{R} \rightarrow \mathbb{R}^2$ dada por $f(x) = (x, x)$ é contínua.
-%	- A imagem de $\mathbb{R}$ sob $f$ é o conjunto $D$.
-%	- Como $\mathbb{R}$ é um conjunto de Borel e funções contínuas preservam conjuntos de Borel, $D$ é um conjunto de Borel em $\mathbb{R}^2$.
-%	
-%	2. **$D$ não está em $\mathcal{C}$:**
-%	
-%	- Suponha, para o propósito de contradição, que $D \in \mathcal{C}$.
-%	- Então, $D$ teria que ser escrito como uma união contável de produtos cartesianos de conjuntos de Borel:
-%	
-%	\[
-%	D = \bigcup_{n=1}^\infty A_n \times B_n,\quad \text{com } A_n, B_n \in \mathcal{B}(\mathbb{R}).
-%	\]
-%	
-%	- No entanto, cada retângulo $A_n \times B_n$ é um conjunto "retangular", e a união deles não pode captar a natureza "diagonal" do conjunto $D$, a menos que cada $A_n \times B_n$ esteja alinhado exatamente com $D$, o que não é possível com conjuntos de Borel gerais.
-%	
-%	3. **Conclusão:**
-%	
-%	- Portanto, $D$ não pode ser escrito como uma união contável de elementos de $\mathcal{C}$.
-%	- Isso implica que $\mathcal{C}$ não é uma $\sigma$-álgebra, pois não contém todas as uniões contáveis necessárias.
-%	
-%	**Portanto, precisamos tomar a $\sigma$-álgebra gerada por $\mathcal{C}$:**
-%	
-%	- A **$\sigma$-álgebra produto**, denotada por $\mathcal{A} \otimes \mathcal{B}$, é definida como a menor $\sigma$-álgebra que contém todos os retângulos $A \times B$ com $A \in \mathcal{A}$ e $B \in \mathcal{B}$.
-%	- Ou seja, $\mathcal{A} \otimes \mathcal{B} = \sigma(\mathcal{C})$.
-\end{nota}	
-
-
-
-\end{frame}
-
-	
-	
-	
-%	
-\begin{frame}{Vetores Aleatórios}
-	
-	\begin{block}{Objetivo e Definição}
-		\begin{itemize}		
-\item Estudar o comportamento conjunto de duas ou mais variáveis aleatórias.
-\item  Estender o conceito de variável aleatória de valores reais a variáveis com valores em $\mathbb{R}^n$.
-
-\end{itemize}		
-\end{block}
-\begin{defi}[Vetor aleatório]
-	Um vetor aleatório é uma função $\Vec{X}:\Omega \rightarrow \mathbb{R}^n$ tal que, para qualquer conjunto de Borel $B$ em $\mathcal{B}(\mathbb{R}^n)$, temos:
-		\[
-		\Vec{X}^{-1}(B) \in \mathcal{F}.
-		\]
-	Aqui, $\Vec{X}$ está definido em um espaço de probabilidade $(\Omega, \mathcal{F}, P)$, com:
-		\begin{itemize}
-			\item $\Omega$: Espaço amostral,
-			\item $\mathcal{F}$: $\sigma$-álgebra de eventos,
-			\item $P$: Medida de probabilidade.
-		\end{itemize}
-		\end{defi}
-\end{frame}
-
-\begin{frame}{Representação e Coordenadas}
-	Dado que $\Vec{X}$ é uma função de $\Omega$ para $\mathbb{R}^n$, ela pode ser representada como:
-	\[
-	\Vec{X} = (X_1, \ldots, X_n),
-	\]
-em que 
-	\[
-	\Vec{X}(w) = (X_1(w), X_2(w), \ldots, X_n(w)), \quad \forall w \in \Omega, 
-	\]
-	
-i.e. cada coordenada $X_i:\Omega \rightarrow \mathbb{R}$, para $i = 1, \ldots, n$, é uma variável aleatória univariada.
-	
-\begin{prop}
-	Uma função $\Vec{X}=(X_1, \ldots, X_n): \Omega \rightarrow \mathbb{R}^n$ é um vetor aleatório se, e somente se, cada coordenada $X_i$ for uma variável aleatória.
-\end{prop}	
-
-	\begin{prova}
-Se $(X_1, \ldots, X_n)$ é vetor aleatório, a imagem inversa de qualquer conjunto de Borel $B \in \mathcal{B}(\mathbb{R}^n)$ pertence a $\mathcal{F}$. Em particular, para $B = B_1 \times \Omega \times \cdots \times \Omega$, a imagem inversa é $X_1^{-1}(B_1)$. Assim, $X_1$ é uma variável aleatória. O mesmo argumento vale para cada $X_i$. Agora, se cada $X_i$ é uma variável aleatória, definimos a família $B = \{B \in \mathcal{B}(\mathbb{R}^n) : \Vec{X}^{-1}(B) \in \mathcal{F}\},$ e 
-$B$ é uma $\sigma$-álgebra, pois
-\[
-\mathcal{B}(\mathbb{R}) \times \cdots \times \mathcal{B}(\mathbb{R}) \subseteq B \subseteq \mathcal{B}(\mathbb{R}^n),
-\] i.e., $B = \mathcal{B}(\mathbb{R}^n)$, e $\Vec{X}$ é vetor aleatório.
-	\end{prova}	
-\end{frame}
-
-
-
-\begin{frame}{Espaço de Probabilidade Gerado}
-
-\begin{block}{Probabilidade induzida}	
-	Dado um vetor aleatório $\vec{X}$, pode-se definir uma probabilidade
-	induzida $P_{\vec{X}}$ no espaço mensurável $(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n))$ da
-	seguinte maneira: para todo $A\in  \mathcal{B}(\mathbb{R}^n)$, definimos
-	$P_{\vec{X}}(A)=P(\vec{X}^{-1}(A))$. Por definição de vetor
-	aleatório, tem-se que $\vec{X}^{-1}(A)\in \A$, então $P_{\vec{X}}$
-	está bem definida.
-
-Ou seja, o vetor $\Vec{X}: \Omega \rightarrow \mathbb{R}^n$ gera o espaço de probabilidade:
-	\[
-	(\mathbb{R}^n, \mathcal{B}(\mathbb{R}^n), P_{\Vec{X}})
-	\]
-	onde:
-	\begin{itemize}
-		\item $\mathcal{B}(\mathbb{R}^n)$: $\sigma$-álgebra de Borel,
-		\item $P_{\Vec{X}}$: Medida de probabilidade induzida por $\Vec{X}$, tal que:
-		\[
-		P_{\Vec{X}}(B) = P(\Vec{X} \in B), \quad \forall B \in \mathcal{B}(\mathbb{R}^n).
-		\]
-	\end{itemize}
-
-\end{block}	
-	$P_{\Vec{X}}$ é chamada de \textbf{distribuição do vetor aleatório}.
-
-\medskip
-Um evento é Boreliano em $\mathbb{R}^n$ pertence a menor
-$\sigma$-álgebra que contem todas regiões da seguinte forma:
-$C_{\vec{a}}=\{(X_1,X_2,\ldots,X_n):X_i\leq a_i, 1\leq i\leq n\}$.	
-\end{frame}
-
-
-
-
-
-
-
+\section{Vetores Aleatórios}
 \begin{frame}
 \frametitle{Variáveis Aleatórias Multidimensionais}
 
@@ -1974,7 +1802,7 @@ descrever a probabilidade induzida $P_{\vec{X}}$ é utilizando sua
 
 \begin{frame}
 \frametitle{{Função de Distribuição Acumulada Conjunta}}
- A medida de probabilidade $P_{\Vec{X}}$ pode ser estudada usando a função de distribuição conjunta.
+
 \begin{defi}
 A função de distribuição acumulada conjunta de um vetor aleatório
 $\vec{X}$, representada por $F_{\vec{X}}$ ou simplesmente por $F$, é
@@ -2002,7 +1830,7 @@ definida por
 %\end{block}
 
 \begin{block}{ Propriedades da Função de Distribuição Acumulada Conjunta e Cálculo da Probabilidade em um Hipercubo $n$-dimensional}
-%\small
+
 Consideremos um vetor aleatório \( \vec{X} = (X_1, X_2, \dots, X_n) \) definido em um espaço de probabilidade, com função de distribuição acumulada conjunta dada por:
 \[
 F_{\vec{X}}(\vec{x}) = P(X_1 \leq x_1, X_2 \leq x_2, \dots, X_n \leq x_n), \quad \forall \vec{x} \in \mathbb{R}^n.
@@ -2468,89 +2296,26 @@ $
 
 
 
-%\begin{frame}{Definição}
-%	\underline{\textbf{Função de Probabilidade Conjunta:}} \\
-%	Seja $\Vec{X} = (X_1, \ldots, X_n)$ um vetor aleatório discreto $n$-dimensional. A função:
-%	\[
-%	f_{\Vec{X}}(\Vec{x}) = f(x_1, x_2, \ldots, x_n) = P(X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n),
-%	\]
-%	onde $\Vec{x} = (x_1, \ldots, x_n)$, é chamada de \textbf{função de probabilidade conjunta} das variáveis aleatórias $X_1, X_2, \ldots, X_n$.
-%	
-%	\vspace{0.5cm}
-%	\textbf{Propriedades:}
-%	\begin{itemize}
-%		\item $f_{\Vec{X}}(\Vec{x}) \geq 0$ (não negatividade).
-%		\item $\sum_{x_1} \sum_{x_2} \cdots \sum_{x_n} f(x_1, x_2, \ldots, x_n) = 1$ (normalização).
-%	\end{itemize}
-%\end{frame}
-%
-
-
-
 \begin{frame}
 \frametitle{}
 \begin{block}{Tipos de Vetores Aleatórios}
 Os tipos discretos e contínuos de variáveis aleatórias têm os seguintes análogos no caso multivariado.
 \begin{enumerate}
 \item[(a)] Se $\vec{X}$ for um vetor aleatório discreto, ou seja assumir um
-número enumerável de valores $\{\vec{x}_1,\vec{x}_2\ldots,\}$, podemos definir a função:
-\[
-f_{\Vec{X}}(\Vec{x}) = f(x_1, x_2, \ldots, x_n) = P(X_1 = x_1, X_2 = x_2, \ldots, X_n = x_n),
-\]
-%onde $\Vec{x} = (x_1, \ldots, x_n)$  
-( chamada de \textbf{função probabilidade de massa conjunta} ),
-%das variáveis aleatórias $X_1, X_2, \ldots, X_n$. 
+número enumerável de valores $\{\vec{x}_1,\vec{x}_2\ldots,\}$,
+podemos definir uma função de probabilidade de massa conjunta, $p$
 tal que
 \begin{itemize}
-\item $f(\vec{x}_i)\geq 0$. (não negatividade).
-\item $\sum_{i=1}^{\infty}f(\vec{x}_i)=1$. (normalização).
+\item $p(\vec{x}_i)\geq 0$.
+\item $\sum_{i=1}^{\infty}p(\vec{x}_i)=1$.
 \end{itemize}
 Neste caso, pode-se definir a {\em função probabilidade de massa marginal} de $X_i$ como sendo
 \begin{eqnarray}
-& & f_{X_i}(x_i)= \sum_{x_1}\cdots\sum_{x_{i-1}}\sum_{x_{i+1}}\cdots\sum_{x_n}f(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n).\nonumber
+& & p_{X_i}(x_i)= \sum_{x_1}\cdots\sum_{x_{i-1}}\sum_{x_{i+1}}\cdots\sum_{x_n}p(x_1,\ldots,x_{i-1},x_{i+1},\ldots,x_n).\nonumber
 \end{eqnarray}
 \end{enumerate}
 \end{block}
-A \textbf{função de distribuição acumulada conjunta} pode ser obtida a partir da função de probabilidade conjunta:
-\[
- F_{\vec{X}}(\vec{x}) = P(X_1 \leq x_1, \ldots, X_n \leq x_n) = \sum_{t_1 \leq x_1} \cdots \sum_{t_n \leq x_n} f(t_1, \ldots, t_n).
-\]
 \end{frame}
-
-
-\begin{frame}{Exemplo: Função de Probabilidade Conjunta}
-	Considere a função:
-	\[
-	f(x, y) = \frac{1}{4}, \quad \text{para } x, y \in \{1, 2\}.
-	\]
-	Verificamos as propriedades:
-	\begin{itemize}
-		\item Não negatividade: $f(x, y) \geq 0$.
-		\item Normalização:
-		\[
-		\sum_{x=1}^{2} \sum_{y=1}^{2} f(x, y) = \sum_{x=1}^{2} \sum_{y=1}^{2} \frac{1}{4} = \frac{4}{4} = 1.
-		\]
-	\end{itemize}
-	Logo, $f(x, y)$ é uma função de probabilidade conjunta e a correspondente função de distribuição conjunta é:
-%	\[
-%	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v).
-%	\]
-%	
-%	Valores de $F(x, y)$:
-	\[
-	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v). = 
-	\begin{cases}
-		0, & \text{se } x < 1 \text{ ou } y < 1, \\
-		\frac{1}{4}, & \text{se } 1 \leq x < 2 \text{ e } 1 \leq y < 2, \\
-		\frac{2}{4}, & \text{se } 1 \leq x < 2 \text{ e } y \geq 2, \\
-		\frac{2}{4}, & \text{se } x \geq 2 \text{ e } 1 \leq y < 2, \\
-		1, & \text{se } x \geq 2 \text{ e } y \geq 2.
-	\end{cases}
-	\]
-\end{frame}
-
-
-
 
 \begin{frame}
 \begin{block}{}
