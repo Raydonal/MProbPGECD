@@ -37,7 +37,7 @@ for (i in seq_along(x_points)) {
       y = c(y_points[i], y_points[i]),
       z = c(0, z_points[i]),
       type = "scatter3d",
-      mode = "lines",
+      mode = "lines+marker",
       line = list(width = 10, color = "blue"),
       marker = list(width = 10, color = "blue"),
       name = NULL #paste0("f(", x_points[i], ",", y_points[i], ")")
