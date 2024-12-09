@@ -2518,38 +2518,6 @@ A \textbf{função de distribuição acumulada conjunta} pode ser obtida a parti
 \end{frame}
 
 
-\begin{frame}{Exemplo: Função de Probabilidade Conjunta}
-	Considere a função:
-	\[
-	f(x, y) = \frac{1}{4}, \quad \text{para } x, y \in \{1, 2\}.
-	\]
-	Verificamos as propriedades:
-	\begin{itemize}
-		\item Não negatividade: $f(x, y) \geq 0$.
-		\item Normalização:
-		\[
-		\sum_{x=1}^{2} \sum_{y=1}^{2} f(x, y) = \sum_{x=1}^{2} \sum_{y=1}^{2} \frac{1}{4} = \frac{4}{4} = 1.
-		\]
-	\end{itemize}
-	Logo, $f(x, y)$ é uma função de probabilidade conjunta e a correspondente função de distribuição conjunta é:
-%	\[
-%	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v).
-%	\]
-%	
-%	Valores de $F(x, y)$:
-	\[
-	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v). = 
-	\begin{cases}
-		0, & \text{se } x < 1 \text{ ou } y < 1, \\
-		\frac{1}{4}, & \text{se } 1 \leq x < 2 \text{ e } 1 \leq y < 2, \\
-		\frac{2}{4}, & \text{se } 1 \leq x < 2 \text{ e } y \geq 2, \\
-		\frac{2}{4}, & \text{se } x \geq 2 \text{ e } 1 \leq y < 2, \\
-		1, & \text{se } x \geq 2 \text{ e } y \geq 2.
-	\end{cases}
-	\]
-\end{frame}
-
-
 
 
 \begin{frame}
@@ -2575,7 +2543,364 @@ dx_{i-1}dx_{i+1}\ldots dx_n. \nonumber
 \end{block}
 \end{frame}
 
+\begin{frame}{Exemplo: Função de Probabilidade Conjunta}
+	Considere a função:
+	\[
+	f(x, y) = \frac{1}{4}, \quad \text{para } x, y \in \{1, 2\}.
+	\]
+	Verificamos as propriedades:
+	\begin{itemize}
+		\item Não negatividade: $f(x, y) \geq 0$.
+		\item Normalização:
+		\[
+		\sum_{x=1}^{2} \sum_{y=1}^{2} f(x, y) = \sum_{x=1}^{2} \sum_{y=1}^{2} \frac{1}{4} = \frac{4}{4} = 1.
+		\]
+	\end{itemize}
+	Logo, $f(x, y)$ é uma função de probabilidade conjunta e a correspondente função de distribuição conjunta é:
+	%	\[
+	%	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v).
+	%	\]
+	%	
+	%	Valores de $F(x, y)$:
+	\[
+	F(x, y) = \sum_{u \leq x} \sum_{v \leq y} f(u, v). = 
+	\begin{cases}
+		0, & \text{se } x < 1 \text{ ou } y < 1, \\
+		\frac{1}{4}, & \text{se } 1 \leq x < 2 \text{ e } 1 \leq y < 2, \\
+		\frac{2}{4}, & \text{se } 1 \leq x < 2 \text{ e } y \geq 2, \\
+		\frac{2}{4}, & \text{se } x \geq 2 \text{ e } 1 \leq y < 2, \\
+		1, & \text{se } x \geq 2 \text{ e } y \geq 2.
+	\end{cases}
+	\]
+\end{frame}
 
+
+
+\begin{frame}
+	
+	\begin{figure}[!htb]
+		\begin{center}
+			\includegraphics[scale=0.25]{f0-F0.png}
+			%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+		\end{center}
+	\end{figure} \small
+Para calcular as distribuições acumuladas usamos o limite:
+\[
+F_{X_1}(x_1) = \lim_{x_2 \to \infty} F_{X_1, X_2}(x_1, x_2).
+\] 
+\[
+F_{X_1}(1) = P(X_1 = 1, X_2 = 1) + P(X_1 = 1, X_2 = 2) = \frac{1}{4} + \frac{1}{4} = \frac{2}{4}.
+\]
+\[
+F_{X_1}(2) = F_{X_1}(1) + P(X_1 = 2, X_2 = 1) + P(X_1 = 2, X_2 = 2) = \frac{2}{4} + \frac{1}{4} + \frac{1}{4} = 1.
+\]
+
+\[
+F_{X_2}(x_2) = \lim_{x_1 \to \infty} F_{X_1, X_2}(x_1, x_2).
+\]
+\[
+F_{X_2}(1) = P(X_1 = 1, X_2 = 1) + P(X_1 = 2, X_2 = 1) = \frac{1}{4} + \frac{1}{4} = \frac{2}{4}.
+\]
+\[
+F_{X_2}(2) = F_{X_2}(1) + P(X_1 = 1, X_2 = 2) + P(X_1 = 2, X_2 = 2) = \frac{2}{4} + \frac{1}{4} + \frac{1}{4} = 1.
+\]
+	
+\end{frame}	
+
+
+\begin{frame}
+	\begin{itemize}
+		\item[]
+		\[
+		F_X(x) =
+		\begin{cases}
+			0, & \text{se } x < 1, \\
+			\frac{2}{4}, & \text{se } 1 \leq x < 2, \\
+			1, & \text{se } x \geq 2.
+		\end{cases}
+		\qquad 
+		F_Y(y) =
+		\begin{cases}
+			0, & \text{se } y < 1, \\
+			\frac{2}{4}, & \text{se } 1 \leq y < 2, \\
+			1, & \text{se } y \geq 2.
+		\end{cases}
+		\]
+	\end{itemize}
+As distribuições marginais obtidas pelos saltos são:
+\begin{itemize}
+	\item[]
+	\[
+	f_X(x) =
+	\begin{cases}
+		\frac{2}{4}, & \text{para } x = 1, \\
+		\frac{2}{4}, & \text{para } x = 2, \\
+		0, & \text{caso contrário.}
+	\end{cases}
+\qquad
+	f_Y(y) =
+	\begin{cases}
+		\frac{2}{4}, & \text{para } y = 1, \\
+		\frac{2}{4}, & \text{para } y = 2, \\
+		0, & \text{caso contrário.}
+	\end{cases}
+	\]
+\end{itemize}
+
+
+	\begin{figure}[!htb]
+	\begin{center}
+		\includegraphics[scale=0.3]{marginaisdiscretas.png}
+		%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+	\end{center}
+\end{figure}
+
+\end{frame}
+
+
+
+\begin{frame}{Distribuição Conjunta Uniforme}
+\small Seja 
+	\[
+	f(x, y) =
+	\begin{cases}
+		\frac{1}{4}, & \text{se } x, y \in [0, 2], \\
+		0, & \text{caso contrário}.
+	\end{cases}
+	\]
+	a função de densidade conjunta uniforme no quadrado \([0, 2] \times [0, 2]\). A Função de distribuição acumulada conjunta é
+	\[
+	F(x, y) = \int_{-\infty}^x \int_{-\infty}^y f(u, v) \, du \, dv.
+	\]
+	Aqui, as integrais são calculadas em diferentes regiões do plano.
+	\small
+		\begin{itemize}
+		\item \textbf{Região I:} \(x < 0, y < 0\),
+		\[
+		F(x, y) = \int_{-\infty}^0 \int_{-\infty}^0 0 \, du \, dv = 0.
+		\]
+		\item \textbf{Região II:} \(x, y \in [0, 2]\),
+		\[
+		F(x, y) = \int_{0}^x \int_{0}^y \frac{1}{4} \, du \, dv = \frac{xy}{4}.
+		\]
+		\item \textbf{Região III:} \(x \in [0, 2], y \geq 2\),
+		\[
+		F(x, y) = \int_{0}^x \int_{0}^2 \frac{1}{4} \, du \, dv = \frac{x}{2}.
+		\]
+		\item \textbf{Região IV:} \(x \geq 2, y \in [0, 2]\),
+		\[
+		F(x, y) = \int_{0}^2 \int_{0}^y \frac{1}{4} \, du \, dv = \frac{y}{2}.
+		\]
+		\item \textbf{Região V:} \(x \geq 2, y \geq 2\),
+		\[
+		F(x, y) = \int_{0}^2 \int_{0}^2 \frac{1}{4} \, du \, dv = 1.
+		\]
+	\end{itemize}
+	
+\end{frame}
+
+\begin{frame}
+A função de distribuição acumulada \(F(x, y)\) é:
+\[
+F(x, y) =
+\begin{cases}
+	0, & \text{se } x < 0 \text{ ou } y < 0, \\
+	\frac{xy}{4}, & \text{se } 0 \leq x, y \leq 2, \\
+	\frac{x}{2}, & \text{se } 0 \leq x \leq 2, y > 2, \\
+	\frac{y}{2}, & \text{se } x > 2, 0 \leq y \leq 2, \\
+	1, & \text{se } x > 2, y > 2.
+\end{cases}
+\]
+
+	\begin{figure}[!htb]
+	\begin{center}
+		\includegraphics[scale=0.3]{ExemF.png}
+		%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+	\end{center}
+\end{figure} 
+
+
+\end{frame}
+
+
+
+\begin{frame}{Distribuição Conjunta Triangular}
+Seja 
+	\[
+	f(x, y) =
+	\begin{cases}
+		k, & \text{se } 0 \leq x \leq 2, 0 \leq y \leq 1 \text{ e } 2y \leq x, \\
+		0, & \text{caso contrário}.
+	\end{cases}
+	\] 
+	
+	\textbf{Objetivo:}
+	\begin{enumerate}
+		\item Determinar \(k\) de tal forma que $f(x,y)$ seja uma função de densidade conjunta,
+		\item Determinar a função de distribuição acumulada \(F(x, y)\).
+	\end{enumerate}
+
+	Para que \(f(x, y)\) seja uma densidade, deve-se ter:
+	\[
+	\int_{-\infty}^\infty \int_{-\infty}^\infty f(x, y) \, dx \, dy = 1.
+	\]
+	
+	A região de integração é um triângulo com base \(2\) e altura \(1\). Assim:
+	\[
+	\int_{0}^2 \int_{0}^{x/2} k \, dy \, dx = 1.
+	\]
+	
+	Calculando:
+	\[
+	\int_{0}^2 \int_{0}^{x/2} k \, dy \, dx = \int_{0}^2 k \cdot \frac{x}{2} \, dx = k \cdot \frac{1}{2} \int_{0}^2 x \, dx = k \cdot \frac{1}{2} \cdot \frac{x^2}{2} \Big|_0^2 = k \cdot \frac{2}{2} = k.
+	\]
+	
+	Logo, \(k = 1\).
+\end{frame}
+
+% Slide 6: Cálculo de \(F(x, y)\) - Exemplo 2
+\begin{frame}{Regiões de \(F(x, y)\)}
+	As regiões de integração para \(F(x, y)\) são:
+	\begin{itemize}
+		\item \textbf{Região I:} \(x < 0 \text{ ou } y < 0\),
+		\[
+		F(x, y) = 0.
+		\]
+		\item \textbf{Região II:} \(2y \leq x \leq 2, 0 \leq y \leq 1\),
+		\[
+		F(x, y) = \int_{0}^{y} \int_{2y}^x 1 \, du \, dv = xy - y^2.
+		\]
+		\item \textbf{Região III:} \(0 \leq x \leq 2, x/2 \leq y \leq 1\),
+		\[
+		F(x, y) = \int_{0}^x \int_{0}^{x/2} 1 \, du \, dv = \frac{x^2}{4}.
+		\]
+		\item \textbf{Região IV:} \(x > 2, 0 \leq y \leq 1\),
+		\[
+		F(x, y) = 2y - y^2.
+		\]
+		\item \textbf{Região V:} \(0 \leq x \leq 2, y \geq 1\),
+		\[
+		F(x, y) = \frac{x^2}{4}.
+		\]
+		\item \textbf{Região VI:} \(x \geq 2, y > 1\),
+		\[
+		F(x, y) = 1.
+		\]
+	\end{itemize}
+\end{frame}
+
+% Slide 7: Resultado Final - Exemplo 2
+\begin{frame}{\(F(x, y)\)}
+	\small
+	A função de distribuição acumulada \(F(x, y)\) é:
+	\[
+	F(x, y) =
+	\begin{cases}
+		0, & \text{se } x < 0 \text{ ou } y < 0, \\
+		xy - y^2, & \text{se } 2y \leq x \leq 2, 0 \leq y \leq 1, \\
+		\frac{x^2}{4}, & \text{se } 0 \leq x \leq 2, x/2 \leq y \leq 1, \\
+		2y - y^2, & \text{se } x > 2, 0 \leq y \leq 1, \\
+		\frac{x^2}{4}, & \text{se } 0 \leq x \leq 2, y \geq 1, \\
+		1, & \text{se } x \geq 2, y \geq 1.
+	\end{cases}
+	\]
+		\begin{figure}[!htb]
+		\begin{center}
+			\includegraphics[scale=0.3]{Exemp2fF.png}
+			%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+		\end{center}
+	\end{figure} 
+\end{frame}
+
+
+	\begin{frame}{Densidade Marginal de \( X \) e  \( Y \)}
+		A densidade marginal \( f_X(x) \) é dada pela integração no suporte triangular (\( 0 \leq x \leq 2 \) e \( 0 \leq y \leq 1 \)) da $f(x,y)$
+		\[
+		f_X(x) = \int_{-\infty}^\infty f(x, y) \, dy= \int_0^{x/2} 1 \, dy = \frac{x}{2}.
+		\]
+		Portanto:
+		\[
+		f_X(x) =
+		\begin{cases}
+			\frac{x}{2}, & \text{se } 0 \leq x \leq 2, \\
+			0, & \text{caso contrário.}
+		\end{cases}
+		\]
+A densidade marginal \( f_Y(y) \) é dada pela integração da densidade conjunta \( f(x, y) \) sobre a variável \( x \) no suporte (\( 0 \leq x \leq 2 \) e \( 0 \leq y \leq 1 \)):
+
+
+		\[
+		f_Y(y) = \int_{-\infty}^\infty f(x, y) \, dx = \int_{2y}^2 1 \, dx = 2 - 2y.
+		\]
+
+		Portanto:
+		\[
+		f_Y(y) =
+		\begin{cases}
+			2 - 2y, & \text{se } 0 \leq y \leq 1, \\
+			0, & \text{caso contrário.}
+		\end{cases}
+		\]
+	\end{frame}
+	
+%	% Slide 3: Conclusão
+	\begin{frame}
+		
+		\begin{figure}[!htb]
+			\begin{center}
+				\includegraphics[scale=0.3]{densidadesMarginaisXeY.png}
+				%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+			\end{center}
+		\end{figure} 
+	
+			\begin{figure}[!htb]
+		\begin{center}
+			\includegraphics[scale=0.3]{AcumuladasMarginaisXeY.png}
+			%		\caption{\label{fig11a} Representação gráfica da função de distribuição.}
+		\end{center}
+	\end{figure} 
+%		\begin{itemize}
+%			\item \( f_X(x) = \frac{x}{2} \) para \( 0 \leq x \leq 2 \).
+%			\item \( f_Y(y) = 2 - 2y \) para \( 0 \leq y \leq 1 \).
+%			\item Ambas as marginais são lineares dentro do suporte definido.
+%		\end{itemize}
+	\end{frame}
+	
+
+
+\begin{frame}{Variáveis aleatórias uniformemente distribuídas em $S$}
+Seja $\Vec{X} = (X_1, \ldots, X_n)$ um vetor aleatório contínuo $n$-dimensional. Dizemos que $\Vec{X}$ é distribuído uniformemente em $S \subseteq \mathbb{R}^n$ se a correspondente função de densidade conjunta é dada por:
+\[
+f_{\Vec{X}}(\Vec{x}) = f(x_1, \ldots, x_n) =
+\begin{cases}
+	\frac{1}{\text{volume}(S)}, & \text{se } \Vec{x} \in S, \\
+	0, & \text{caso contrário.}
+\end{cases}
+\]
+
+O volume de $S$ é dado por:
+\[
+\text{volume}(S) = \int\limits_S \cdots \int dx_n dx_{n-1} \ldots dx_1.
+\]
+
+Para $A\subset S$, a probabilidade de $\Vec{X} \in A$, i.e.,
+\begin{align*}
+	P((X_1,\ldots,X_n)\in A)&=\int\limits_{(x_1,\ldots, x_n)\in A}\cdots \int f_{\Vec{X}}(\Vec{x}) dx_n \ldots dx_1\\
+	&=\frac{1}{volume (S)} \int\limits_{(x_1,\ldots, x_n)\in A}\cdots \int dx_n \ldots dx_1\\
+	&=\frac{volume (A\cap S)}{volume(S)}.
+\end{align*} 
+
+\end{frame}
+
+
+
+\begin{frame}
+%	
+${}$
+
+\vspace{3cm}
+\centering{\bf\Huge Independência}
+\end{frame}	
 
 \begin{frame}{Comentário: Distribuição condicional de $X$ dada $Y$ discreta}
 

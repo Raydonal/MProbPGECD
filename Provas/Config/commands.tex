@@ -1,0 +1,65 @@
+% --- Basic commands ---
+%   Euler's constant
+\newcommand{\eu}{\mathrm{e}}
+
+%   Imaginary unit
+\newcommand{\im}{\mathrm{i}}
+
+%   Sexagesimal degree symbol
+\newcommand{\grado}{\,^{\circ}}
+
+% --- Comandos para álgebra lineal ---
+% Matrix transpose
+\newcommand{\transpose}[1]{{#1}^{\mathsf{T}}}
+
+%%% Comandos para cálculo
+%   Definite integral from -\infty to +\infty
+\newcommand{\Int}{\int\limits_{-\infty}^{\infty}}
+
+%   Indefinite integral
+\newcommand{\rint}[2]{\int{#1}\dd{#2}}
+
+%  Definite integral
+\newcommand{\Rint}[4]{\int\limits_{#1}^{#2}{#3}\dd{#4}}
+
+%   Dot product symbol (use the command \bigcdot)
+\makeatletter
+\newcommand*\bigcdot{\mathpalette\bigcdot@{.5}}
+\newcommand*\bigcdot@[2]{\mathbin{\vcenter{\hbox{\scalebox{#2}{$\m@th#1\bullet$}}}}}
+\makeatother
+
+%   Hamiltonian
+\newcommand{\Ham}{\hat{\mathcal{H}}}
+
+%   Trace
+\renewcommand{\Tr}{\mathrm{Tr}}
+
+% Christoffel symbol of the second kind
+\newcommand{\christoffelsecond}[4]{\dfrac{1}{2}g^{#3 #4}(\partial_{#1} g_{#2 #4} + \partial_{#2} g_{#1 #4} - \partial_{#4} g_{#1 #2})}
+
+% Riemann curvature tensor
+\newcommand{\riemanncurvature}[5]{\partial_{#3} \Gamma_{#4 #2}^{#1} - \partial_{#4} \Gamma_{#3 #2}^{#1} + \Gamma_{#3 #5}^{#1} \Gamma_{#4 #2}^{#5} - \Gamma_{#4 #5}^{#1} \Gamma_{#3 #2}^{#5}}
+
+% Covariant Riemann curvature tensor
+\newcommand{\covariantriemanncurvature}[5]{g_{#1 #5} R^{#5}{}_{#2 #3 #4}}
+
+% Ricci tensor
+\newcommand{\riccitensor}[5]{g_{#1 #5} R^{#5}{}_{#2 #3 #4}}
+
+
+\def\stacksymbols #1#2#3#4{\def\theguybelow{#2}
+	\def\verticalposition{\lower#3pt}
+	\def\spacingwithinsymbol{\baselineskip0pt\lineskip#4pt}
+	\mathrel{\mathpalette\intermediary#1}}
+\def\intermediary#1#2{\verticalposition\vbox{\spacingwithinsymbol
+		\everycr={}\tabskip0pt
+		\halign{$\mathsurround0pt#1\hfil##\hfil$\crcr#2\crcr
+			\theguybelow\crcr}}}
+		
+\def\xtil{\stacksymbols{X}{\sim}{5}{.7}}
+\def\thetatil{\stacksymbols{\theta}{\sim}{5}{.7}} 
+\def\xtill{\stacksymbols{x}{\sim}{5}{.7}}
+\def\ytil{\stacksymbols{Y}{\sim}{5}{.7}}
+\def\ytill{\stacksymbols{y}{\sim}{5}{.7}}
+\def\ttil{\stacksymbols{T}{\sim}{5}{.7}}
+\def\ttill{\stacksymbols{t}{\sim}{5}{.7}}

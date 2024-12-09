@@ -1,0 +1,101 @@
+\documentclass[12pt]{extarticle}
+% \usepackage{fontspec}
+
+% ==================================================
+
+% document parameters
+% \usepackage[spanish, mexico, es-lcroman]{babel}
+\usepackage[english]{babel}
+\usepackage[margin = 1in, includehead, 
+headheight=30mm, 
+a4paper,
+total={170mm,257mm},
+left=20mm,
+top=5mm,
+]{geometry}
+
+% ==================================================
+
+% Packages for math
+\usepackage{mathrsfs}
+\usepackage{amsfonts}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{physics}
+\usepackage{dsfont}
+\usepackage{esint}
+
+% ==================================================
+
+% Packages for writing
+\usepackage{enumerate}
+\usepackage[shortlabels]{enumitem}
+\usepackage{framed}
+\usepackage{csquotes}
+
+% ==================================================
+
+% Miscellaneous packages
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{multicol}
+\usepackage{subcaption}
+\usepackage{caption}
+\captionsetup{format = hang, margin = 10pt, font = small, labelfont = bf}
+
+% Citation
+\usepackage[round, authoryear]{natbib}
+
+% Hyperlinks setup
+\usepackage{hyperref}
+\definecolor{links}{rgb}{0.36,0.54,0.66}
+\hypersetup{
+   colorlinks = true,
+    linkcolor = black,
+     urlcolor = blue,
+    citecolor = blue,
+    filecolor = blue,
+    pdfauthor = {Author},
+     pdftitle = {Title},
+   pdfsubject = {subject},
+  pdfkeywords = {one, two},
+  pdfproducer = {LaTeX},
+   pdfcreator = {pdfLaTeX},
+   }
+   
+ \RequirePackage{boxedminipage}  
+\definecolor{darkred}{rgb}{0.55, 0.0, 0.0}
+ \RequirePackage{layout,color}%,enum}%,verbatim}  
+   \definecolor{gray50}{gray}{.5}
+   \definecolor{gray40}{gray}{.6}
+   \definecolor{gray30}{gray}{.7}
+   \definecolor{gray20}{gray}{.8}
+   \definecolor{gray10}{gray}{.9}
+   \definecolor{gray05}{gray}{.95}
+
+   \usepackage{fancyhdr}
+   
+   
+   
+   \pagestyle{fancy}
+   
+   \fancyhead[C]{
+   	%	\vspace{3cm}
+   	%	\rput(0,2){
+   		\begin{minipage}{1.75cm}\centering
+   			\includegraphics[width=1.45cm]{Figuras/ufbaBlack.eps}
+   		\end{minipage}~\hfill~\begin{minipage}{10cm}\large\centering
+   						\textcolor{darkred}{
+   			{\scshape\bfseries\footnotesize UNIVERSIDADE FEDERAL DA BAHIA}\\
+   			{\scshape\bfseries\footnotesize INSTITUTO DE MATEMÁTICA E ESTATÍSTICA}\\
+   			{\scshape\bfseries\footnotesize \medskip PROGRAMA DE PÓS-GRADUAÇÃO EM ESTATÍSTICA E CIÊNCIA DE DADOS}\\[20pt]}
+   			% Aqui as informações da prova e a data
+   			%			{\normalsize\scshape  prova escrita - processo seletivo - mestrado\\ { 16/05/2024}} 
+   		\end{minipage}~\hfill~\begin{minipage}{1.75cm}\centering
+   			\includegraphics[width=2.0cm]{Figuras/ufba.eps}
+   		\end{minipage}
+   		%}
+   }
+   \fancyfoot[C]{\thepage} 

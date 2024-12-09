@@ -1,4 +1,0 @@
-\babel@toc {portuguese}{}
-\beamer@sectionintoc {1}{Definição}{6}{0}{1}
-\beamer@sectionintoc {2}{Tipos de Variável Aleatória}{21}{0}{2}
-\beamer@sectionintoc {3}{Principais Distribuições}{40}{0}{3}
