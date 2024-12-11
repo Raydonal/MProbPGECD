@@ -186,10 +186,10 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |16|21/11/2024|Independencia de variáveis aleatórias| Exemplos|
 |17|26/11/2024|Congresso UFBA|Sem atividade|
 |18|28/11/2024|Congresso UFBA|Sem atividade|
-|19|03/11/2024|Vetores aleatórios e função de distribuição conjunta de um vetor aleatório|[[videoaula]](https://youtu.be/GRbK-oV5Otk?si=-tAqFOPWsEjMI3JJ)|
-|20|05/11/2024|Método do Jacobiano|[[videoaula]](https://youtu.be/Lbct0bULtHU?si=qpHVW9Hspp6zQZIZ)|
+|19|03/11/2024|Vetores aleatórios e função de distribuição conjunta de um vetor aleatório|[[videoaula]](https://youtu.be/GRbK-oV5Otk?si=-tAqFOPWsEjMI3JJ); [[Lec - Funções]](Material/DistribuicaoFucoes.pdf)|
+|20|05/11/2024|Método do Jacobiano|[[Lec - Jacobiano]](Material/MetodoJacobiano.pdf); [[videoaula]](https://youtu.be/Lbct0bULtHU?si=qpHVW9Hspp6zQZIZ)|
 |21|10/12/2024|Prova I|[[PROVA - I]](Provas/Prova-01.pdf)|
-|22|12/12/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes|[[App]](https://davidbarke.shinyapps.io/Distributions/)|
+|22|12/12/2024|Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes| [[Lec - R-S]](Material/Integral-Riemann-Stieltjes.pdf); [[App]](https://davidbarke.shinyapps.io/Distributions/)|
 |23|17/12/2024|Esperança de variáveis aleatórias, caso geral e propriedades|Quadro e/ou slides|
 |24|19/12/2024|Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz|[[slides 7]](Aulas/Aula-07.pdf)|
 |25|<p>24/12/2024 a</p><p>05/01/2025</p>|Recesso final de ano|Sem atividade|
