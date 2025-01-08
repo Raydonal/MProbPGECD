@@ -1,4 +1,0 @@
-\babel@toc {portuguese}{}
-\beamer@sectionintoc {1}{Vetores Aleatórios}{2}{0}{1}
-\beamer@sectionintoc {2}{Independência}{22}{0}{2}
-\beamer@sectionintoc {3}{Funções de Variáveis Aleatórias}{28}{0}{3}

@@ -193,14 +193,12 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |23|17/12/2024|Esperança de variáveis aleatórias, caso geral e propriedades|Quadro e/ou slides|
 |24|19/12/2024|Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz|[[slides 7]](Aulas/Aula-07.pdf)|
 |25|<p>24/12/2024 a</p><p>05/01/2025</p>|Recesso final de ano|Sem atividade|
-|27|09/01/2025|Estatísticas de Ordem.|Quadro e/ou slides|
-|28|14/01/2025|Função característica.|Quadro e/ou slides|
-|29|16/01/2025|Tipos de convergências. |Quadro e/ou slides|
-|30|21/01/2025|Teoremas de Slutsky e método Delta.|Quadro e/ou slides|
-|31|23/01/2025|Lei fraca e lei forte dos números|Quadro e/ou slides|
-|32|28/01/2025|Teorema Central do Limite ( clássico)|Quadro e/ou slides|
-|33|30/01/2025|Teorema Central do Limite   (Liapunov)|Quadro e/ou slides|
-|34|04/02/2025|Teorema Central do Limite   (Lindeberg - Feller)|Quadro e/ou slides|
+|27/28|09/01/2025 - 14/01/2025|Correlação e desigualdades, valor esperado condicional|[[slides 8]](Aulas/Aula-08.pdf)|
+|29|16/01/2025|Sequencia de eventos |[[slides 8]](Aulas/Aula-08.pdf)|
+|30|21/01/2025|Modos de convergências|[[slides 9]](Aulas/Aula-09.pdf)|
+|31|23/01/2025|Funções característica|[[slides 10]](Aulas/Aula-10.pdf)|
+|32|28/01/2025|Lei dos grandes numeros|[[slides 11]](Aulas/Aula-11.pdf)|
+|33/34|30/01/2025 - 04/02/2025|Teorema Central do Limite   (Liapunov) - (Lindeberg - Feller)|[[slides 12]](Aulas/Aula-12.pdf)|
 |35|06/02/2025|Prova II|Prova escrita|
 
 

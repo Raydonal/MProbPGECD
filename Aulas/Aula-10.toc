@@ -1,0 +1,2 @@
+\babel@toc {portuguese}{}
+\beamer@sectionintoc {1}{Propriedades}{4}{0}{1}
