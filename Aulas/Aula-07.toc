@@ -1,3 +1,0 @@
-\babel@toc {portuguese}{}
-\beamer@sectionintoc {1}{Esperança}{2}{0}{1}
-\beamer@sectionintoc {2}{Momentos}{38}{0}{2}
