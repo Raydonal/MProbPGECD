@@ -198,8 +198,8 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 |30|21/01/2025|Modos de convergências|[[slides 9]](Aulas/Aula-09.pdf)|
 |31|23/01/2025|Funções característica|[[slides 10]](Aulas/Aula-10.pdf)|
 |32|28/01/2025|Lei dos grandes numeros|[[slides 11]](Aulas/Aula-11.pdf)|
-|33/34|30/01/2025 - 04/02/2025|Teorema Central do Limite   (Liapunov) - (Lindeberg - Feller)|[[slides 12]](Aulas/Aula-12.pdf)|
-|35|06/02/2025|Prova II|Prova escrita|
+|33/34|30/01/2025 - 06/02/2025|Teorema Central do Limite   (Liapunov) - (Lindeberg - Feller)|[[slides 12]](Aulas/Aula-12.pdf)|
+|35|13/02/2025|Prova II|Prova escrita|
 
 
 </center>
@@ -488,9 +488,9 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 <!-- * <font color="pink">- Prova I - </font>  [[Aqui]](Material/UFBA_MATD44_Amostragem_Prova_I.pdf) - [[Gabarito]](Scripts/GabaritoProvaI.pdf) -->
 
 ***
-<!-- ### <img src="Configuracoes/hora.gif" width="16" height="16" border="0" align="left">   &nbsp;	<u> <font color="red"> Provas </font> </u>  -->
+###### <img src="Configuracoes/hora.gif" width="11" height="11" border="0" align="left">   &nbsp;	<u> <font color="red"> News </font> </u>
 
-<!-- * <font color="red">- Prova I - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_I.pdf) -->
+###### * <font color="red">- Resultado Prova I - </font>  [[Aqui]](Provas/Nota-Prova-I.md)
 
 <!-- * <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf) -->
 
