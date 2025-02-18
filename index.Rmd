@@ -492,6 +492,11 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 
 ###### * <font color="red">- Resultado Prova I - </font>  [[Aqui]](Provas/Nota-Prova-I.md)
 
+###### * <font color="red">- Resultado Prova II - </font>  [[Aqui]](Provas/Nota-Prova-II.md)
+
+###### * <font color="red">- Nota Final (ponderada) - </font>  [[Aqui]](Provas/Nota-FINAL.md)
+
+
 <!-- * <font color="red">- Prova II - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_II.pdf) -->
 
 <!-- * <font color="red">- Prova III - </font>  [[Aqui]](Provas/UFBA_MATD44_Amostragem_Prova_III.pdf). Dados prova III [[Aqui]](Provas/PPM-29-de-Ago.xlsx) -->
