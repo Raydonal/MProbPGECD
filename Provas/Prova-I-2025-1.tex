@@ -1,0 +1,440 @@
+\input{Config/preamble}
+\input{Config/format}
+\input{Config/commands}
+
+
+% 
+\begin{document}
+
+{\scshape\bf\textcolor{darkred}{PROVA I - Probabilidade (PPGECD000000001)}}
+
+
+\textsf{\textbf{Professor:}} \text{Raydonal Ospina Martinez.}  \quad {\bf\small E-mail:} \href{mailto:raydonal@castlab.org}{\texttt{raydonal@castlab.org}}
+
+\bigskip 
+\begin{regras}
+Recomendo que leiam atentamente as perguntas e reservem um tempo adequado para refletir sobre elas. Ressalto que todas as questões devem ser respondidas de forma detalhada, pois soluções ambíguas ou pouco claras serão penalizadas. Lembro ainda que não farei esforço para interpretar ou ``adivinhar'' o que o aluno quis escrever ou dizer. Por isso, é fundamental que sejam claros e organizados. Informo que a prova deverá ser entregue (digitalizada em formato PDF) no dia {\bf 15/05/2025} até as 12:30h (GMT-3 Horário de Brasília). Deverão encaminhar para o e-mail acima com assunto de envio ({\tt Resposta Prova I - Mestrado - ``coloque aqui seu  nome''})  e colocando seu nome.
+\end{regras}
+\vspace{2ex}
+
+
+\begin{problema}{}{pr-1}
+Sejam $\Omega$ e $\Omega'$ conjuntos não vazios e $\mathcal{Q}$ uma $\sigma$-álgebra sobre $\Omega'$.
+Se $T \colon \Omega \to \Omega'$ é uma função, então prove que a coleção
+\[
+T^{-1}(\mathcal{Q}) = \{ T^{-1}(A) : A \in \mathcal{Q} \}
+\]
+é uma $\sigma$-álgebra sobre $\Omega$.
+\end{problema}
+
+
+
+\begin{problema}{}{pr-2}
+	
+Sejam $P$ e $Q$ duas medidas de probabilidade definidas sobre a mesma $\sigma$-álgebra.
+Demonstre que $R = \alpha P + (1 - \alpha) Q$ é uma medida de probabilidade para cada $\alpha \in [0, 1]$. Além disso, determine se as seguintes funções também são medidas de probabilidade:
+
+\begin{enumerate}
+	\item[a)] $1 - R$.
+	\item[b)] $\frac{1 + R}{2}$.
+	\item[c)] $R^2$.
+	\item[d)] $|R|$.
+	\item[e)] $4(1 - R)$.
+	\item[f)] $\sqrt{R}$.
+	\end{enumerate}
+\end{problema}
+
+
+\begin{problema}{}{pr-3}
+Considere o espaço mensurável $((0, 1), \mathcal{B}(0, 1))$ (Note que aqui $\Omega=(0,1)$ e $\mathcal{B}(0, 1)$ é a $\sigma$-álgebra de Borel restrita ao intervalo (0,1)).
+Demonstre para cada item a seguir que $P$ é uma medida de probabilidade, sendo que para cada $A \in \mathcal{B}(0, 1)$:
+
+\begin{enumerate}
+	\item[a)] $\displaystyle P(A) = \int_A 2x \, dx$.
+	
+	\item[b)] $\displaystyle P(A) = \int_A \frac{3}{2} \sqrt{x} \, dx$.
+\end{enumerate}
+\end{problema}
+
+
+\begin{problema}{}{pr-4}
+Considere uma população que se desenvolve de acordo com as seguintes regras:
+um indivíduo inicial constitui a 0-é geração (geração zero) e ele pode ter 0, 1 ou 2 descendentes com probabilidades de $\frac{1}{4}$, $\frac{1}{2}$ e $\frac{1}{4}$, respectivamente. Após gerar seus descendentes, o indivíduo morre. Cada descendente se reproduz independentemente dos outros e da história da família, seguindo a mesma regra do indivíduo original. A primeira geração será formada pelos filhos do primeiro indivíduo, a segunda geração será formada pelos seus netos, e assim por diante.
+\begin{itemize}
+	\item Qual o espaço amostral do experimento? Qual poderia  ser a $\sigma$-álgebra associada?
+	\item Dado que existe apenas um indivíduo na segunda geração, qual é a probabilidade de que a primeira geração tenha tido dois indivíduos?
+	\item Qual é a probabilidade de que exista pelo menos um indivíduo na segunda geração?
+\end{itemize}
+\end{problema}
+
+
+
+
+\begin{problema}{}{pr5}
+Uma moeda honesta é lançada três vezes seguidas. Considere os seguintes eventos:
+\begin{itemize}
+	\item[$A :=$] ``Os resultados dos lançamentos 1 e 2 são diferentes".
+	\item[$B :=$] ``Os resultados dos lançamentos 2 e 3 são diferentes".
+	\item[$C :=$] ``Os resultados dos lançamentos 1 e 3 são diferentes".
+\end{itemize}
+
+\begin{enumerate}
+	\item[a)] Qual o espaço amostral do experimento?
+	\item[b)] Verifique que $P(A) = P(A | B) = P(A | C)$ e que $P(A) \neq P(A | B \cap C)$.
+	\item[c)] A, B e C são independentes 2 a 2? A, B e C são independentes? Explique suas respostas.
+\end{enumerate}
+\end{problema}
+
+
+
+
+\begin{problema}{Bônus}{pr5}
+Seja $Q = (x, y)$ um ponto escolhido aleatoriamente num disco unitário centrado em $(0,0)$ e com raio 1. 
+
+\begin{itemize}
+	\item Qual o espaço amostral do experimento?
+	\item Calcule a probabilidade de que $Q$ esteja a uma distância máxima de 0.5 do centro.
+	\item Calcule a probabilidade de $y > \frac{1}{\sqrt{2}}$;
+	\item Calcule a probabilidade de $|x - y| < 1$ e $|x + y| < 1$.
+\end{itemize}
+\end{problema}
+
+\bigskip
+\centering {\scshape\bf\textcolor{darkred}{BOA PROVA}}
+
+%
+
+\end{document}
+
+
+%
+%\begin{problema}{}{pr3}
+%	Seja $X$ uma vari\'avel aleat\'oria com distribui\c{c}\~ao gama sob uma nova reparametriza\c{c}\~ao, aqui denotada por $X\sim G(\mu, \phi)$,
+%	tal que
+%	$$f(x;\mu, \phi) = {1\over\Gamma(\phi)}\left( {\phi x}\over{\mu}\right)^\phi\exp\left(-{{\phi x}\over{\mu}}\right){1\over x},\,\, x \geq 0, \mu >0, \phi> 0 \ \ \text{e} \ \ \Gamma(\phi) = \int^\infty_0 t^{(\phi - 1)}e^{-t} dt .$$  
+%	\begin{enumerate}
+%		\item Mostre que $f(x;\mu, \phi)$ forma uma fam\'{\i}lia exponencial bidimensional.
+%		\item  Mostre que,  $$\mu = {\rm E}(X)\quad{\rm e}\quad \phi^{-1/2} = { \sqrt{{\rm Var}(X)}\over{\rm E}(X) }.$$
+%		\item  Sejam  $X_1,\ldots,X_n$ uma amostra aleat\'oria de $X\sim G(\mu,\phi_1)$ 
+%		e $Y_1,\ldots, Y_n$ uma amostra aleat\'oria de   $Y\sim G(\mu,\phi_2)$. Aqui,
+%		$X$ e $Y$ s\~ao popula\c{c}\~oes independentes, 
+%		$X \in \mathbb{R}^+$, $Y\in \mathbb{R}^+$, $\mu \in  \mathbb{R}^+$,  $\phi_1 \in \mathbb{R}^+$ e $\phi_2 \in \mathbb{R}^+.$
+%		Determine a densidade conjunta $f_{(\xtill,\ytill)}{(\mu, \phi_1,\phi_2)}$.
+%		\item  Mostre que a estat\'{\i}stica $$T =\Bigg(\sum_{i=1}^n X_i, \sum_{i=1}^n Y_i, \sum_{i=1}^n \log X_i, \sum_{i=1}^n\log Y_i \Bigg)$$ n\~ao \'e completa para a fam\'{\i}lia definida em 3.
+%		\item O que acontece com as análises anteriores se as distribuições gama aqui consideradas são curvas, i.e. quando $\mu=\phi_1=\phi_2$?
+%	\end{enumerate}
+%\end{problema}	
+%
+%\begin{problema}{}{pr-4}
+%	Seja $\hat{\theta}$ um estimador não viesado de um parâmetro escalar $\theta \in \Theta_\theta \equiv \mathbb{R}$, satisfazendo $E_\theta(\hat{\theta}^2) < \infty$ para todo $\theta \in \Theta_\theta$. Dizemos que $\hat{\theta}$ é um estimador de variância mínima uniforme não viesado (UMVU, do inglês \textit{Uniform Minimum Variance Unbiased}) se 
+%	\[
+%	\text{Var}_\theta(\hat{\theta}) \leq \text{Var}_\theta(\tilde{\theta})
+%	\]
+%	para todo $\theta \in \Theta_\theta$ e qualquer outro estimador não viesado $\tilde{\theta}$.  Considere o estimador $\hat{\theta}_\tau = \hat{\theta} + \tau U$, ou outro equivalente. Mostre que uma condição necessária para que $\hat{\theta}$ seja um estimador UMVU é que 
+%	\[
+%	E_\theta(\hat{\theta}U) = 0,
+%	\]
+%	para todo $\theta \in \Theta_\theta$ e para todos os estimadores $U$ com $E_\theta(U) = 0$ e $E_\theta(U^2) < \infty$. Assim, $\hat{\theta}$ deve ser "não correlacionado com todo estimador não viesado de zero".
+%	
+%	Agora, para $n \geq 2$, sejam $X_1, \dots, X_n$ variáveis independentes e identicamente distribuídas com distribuição uniforme $U(\theta, 2\theta)$, para algum $\theta > 0$. 
+%	
+%	\begin{enumerate}
+%		\item Mostre que $\tilde{\theta} = \frac{3}{2} X_1$ é um estimador não viesado de $\theta$.
+%		\item Encontre um estimador não viesado $\hat{\theta}$ que seja função de uma estatística suficiente mínima e que satisfaça 
+%		\[
+%		\text{Var}_\theta(\hat{\theta}) < \text{Var}_\theta(\tilde{\theta}),
+%		\]
+%		para todo $\theta > 0$.
+%		\item Verifique se $\hat{\theta}$ é UMVU.
+%	\end{enumerate}
+%\end{problema}	
+%
+%\begin{problema}{}{pr-5}
+%%Seja \( S \) uma estatística suficiente completa para um parâmetro \( \theta \in \Theta_\theta \), e seja \( C \) uma estatística constante em distribuição, i.e. uma estatística cuja distribuição não depende do parâmetro desconhecido $\theta$ do modelo. Mostre que \( S \) e \( C \) são independentes para cada \( \theta \in \Omega_\theta \). Qual é o significado desse resultado para a inferência estatística sobre \( \theta \)?
+%Seja  $X_1,\ldots
+%,X_n$ uma amostra aleat\'oria de 
+%$$f(x;\theta) = { 1 \over \theta_2}e^{-{(x -\theta_1)\over \theta_2 }}, \,\, \theta_1 \leq x <+\infty,\,\,\,
+%-\infty < \theta_1 < +\infty, \,\, 0 < \theta_2 < +\infty.$$
+%\begin{enumerate}
+%	
+%	\item Prove que esta \'e uma fam\'{\i}lia de loca\c{c}\~ao e escala.
+%	\item Mostre que
+%	$$V = {{X_{(n)} - X_{(1)}}\over{\sqrt{\sum_{i=1}^n(X_i -\overline X)^2}}}$$
+%	\'e ancilar para a fam\'{\i}lia.
+%	\item  Sejam 
+%	$$Z = {X_{(n)} - X_{(1)}} \,\, {\rm e}\,\,\,T = {X_{(n)}}.$$ 
+%	Prove que $Z$ e $T$ s\~ao vari\'aveis aleat\'orias independentes.
+%	Aqui, $$X_{(n)} =\max\{X_1, \ldots,X_n \}   \quad \text{e} \quad X_{(1)} = \min\{X_1, \ldots,X_n \}$$ 
+%\end{enumerate}
+%\end{problema}	
+%%\bibliography{references}
+%
+
+%\end{document}
+%
+%
+%Abaixo está a solução detalhada para cada parte do problema:
+%
+%---
+%
+%### **Problema:**
+%Bactérias são distribuídas aleatoriamente em um fluido com densidade média \(\theta\) por unidade de volume (\(\theta \in H \subseteq [0, \infty)\)). A probabilidade de nenhuma bactéria estar presente em um volume \(v\) é:
+%\[
+%P_\theta(\text{nenhuma bactéria no volume } v) = e^{-\theta v}.
+%\]
+%O objetivo é decidir se há ou não bactérias no fluido, com base em um teste aplicado a uma amostra de volume \(v\). Uma decisão incorreta resulta em perda de \(1\), enquanto uma decisão correta não implica perda.
+%
+%---
+%
+%### **Parte (i): \(H = [0, \infty)\)**
+%
+%#### Regras de decisão não randomizadas:
+%Uma regra de decisão não randomizada \(d\) decide entre:
+%- \(d = 1\): Aceitar que há bactérias (\(\theta > 0\)).
+%- \(d = 0\): Aceitar que não há bactérias (\(\theta = 0\)).
+%
+%A decisão é baseada no resultado do teste aplicado ao volume \(v\):
+%- Se a amostra contiver bactérias, decidimos \(d = 1\).
+%- Se a amostra não contiver bactérias, decidimos \(d = 0\).
+%
+%#### Funções de risco:
+%A função de risco \(R(\theta, d)\) mede a perda esperada ao aplicar a regra \(d\):
+%- Se \(d = 1\), a perda ocorre apenas se \(\theta = 0\), com probabilidade \(e^{-\theta v}\).
+%- Se \(d = 0\), a perda ocorre se \(\theta > 0\), com probabilidade \(1 - e^{-\theta v}\).
+%
+%As funções de risco são:
+%\[
+%R(\theta, d) =
+%\begin{cases}
+%	1 - e^{-\theta v}, & \text{se \(d = 0\)}, \\
+%	e^{-\theta v}, & \text{se \(d = 1\)}.
+%\end{cases}
+%\]
+%
+%#### Regras admissíveis:
+%Uma regra de decisão \(d\) é admissível se não existe outra regra com menor risco para todos os valores de \(\theta\). Ambas as regras \(d = 0\) e \(d = 1\) são admissíveis neste caso, pois minimizam o risco para intervalos complementares de \(\theta\).
+%
+%---
+%
+%### **Parte (ii): \(H = \{0, 1\}\)**
+%
+%#### Conjunto de risco \(S\):
+%Se \(H = \{0, 1\}\), o conjunto de risco é:
+%\[
+%S = \{(R(0, d), R(1, d)) : d \text{ é uma regra randomizada}\}.
+%\]
+%
+%Uma regra randomizada pode ser definida como \(d(X) = \alpha\), onde \(0 \leq \alpha \leq 1\) é a probabilidade de decidir \(d = 1\).
+%
+%Os riscos são:
+%\[
+%R(0, d) = \alpha,
+%\]
+%\[
+%R(1, d) = 1 - \alpha e^{-v}.
+%\]
+%
+%O conjunto de risco \(S\) contém todos os pares \((\alpha, 1 - \alpha e^{-v})\) para \(0 \leq \alpha \leq 1\).
+%
+%#### Regra minimax:
+%A regra minimax minimiza a máxima perda:
+%\[
+%\min_\alpha \max \{R(0, d), R(1, d)\}.
+%\]
+%
+%Resolva:
+%\[
+%\alpha = \frac{1}{1 + e^{-v}}.
+%\]
+%
+%Assim, a regra minimax é \(d(X) = \frac{1}{1 + e^{-v}}\).
+%
+%---
+%
+%### **Parte (iii): \(H = [0, \infty)\), com prior \(\pi\):**
+%
+%#### Priori:
+%\[
+%\pi(\{0\}) = \frac{1}{3}, \quad \pi(A) = \frac{2}{3} \int_A e^{-\theta} \, d\theta, \quad A \subseteq (0, \infty).
+%\]
+%
+%#### Regras de decisão de Bayes:
+%A regra de Bayes minimiza o risco esperado sob a priori:
+%\[
+%R_\pi(d) = \frac{1}{3} R(0, d) + \frac{2}{3} \int_0^\infty R(\theta, d) e^{-\theta} \, d\theta.
+%\]
+%
+%Para \(d = 1\):
+%\[
+%R_\pi(1) = \frac{1}{3} e^{-v}.
+%\]
+%
+%Para \(d = 0\):
+%\[
+%R_\pi(0) = \frac{2}{3} \int_0^\infty (1 - e^{-\theta v}) e^{-\theta} \, d\theta.
+%\]
+%
+%Calcule a integral:
+%\[
+%\int_0^\infty e^{-\theta v} e^{-\theta} \, d\theta = \int_0^\infty e^{-\theta (v+1)} \, d\theta = \frac{1}{v+1}.
+%\]
+%
+%Substitua para obter:
+%\[
+%R_\pi(0) = \frac{2}{3} \left(1 - \frac{1}{v+1}\right) = \frac{2}{3} \frac{v}{v+1}.
+%\]
+%
+%Compare os riscos e escolha a melhor regra.
+%
+%#### Risco de Bayes:
+%Substitua a regra de Bayes na função de risco para obter o risco correspondente.
+%
+%---
+%
+%### **Parte (iv): Custo \(v/24\):**
+%
+%O custo total é:
+%\[
+%\text{Custo total} = R_\pi(d) + \frac{v}{24}.
+%\]
+%
+%Otimize \(v\) resolvendo:
+%\[
+%\frac{\partial}{\partial v} \left(R_\pi(d) + \frac{v}{24}\right) = 0.
+%\]
+%
+%Repita o cálculo para o custo por unidade de volume \(1/6\).
+%
+%---
+%
+%Se precisar de ajuda com os cálculos detalhados ou dúvidas específicas, avise! 
+%
+%
+%### **Parte I - Encontrar as Regras Admissíveis**
+%
+%#### Problema:
+%Estamos interessados em determinar todas as regras de decisão não randomizadas e avaliar quais delas são admissíveis.
+%
+%1. **Regras Não Randomizadas:**
+%As regras de decisão não randomizadas para este problema são baseadas nos resultados do teste realizado sobre o volume \(v\). Essas regras \(d\) podem ser definidas como:
+%\[
+%d = 1 \quad (\text{decidir que há bactérias/células cancerígenas}),
+%\]
+%ou
+%\[
+%d = 0 \quad (\text{decidir que não há bactérias/células cancerígenas}).
+%\]
+%
+%2. **Funções de Risco:**
+%A função de risco \(R(\theta, d)\) mede a perda esperada para cada decisão \(d\):
+%- Para \(d = 0\) (decidir que não há bactérias):
+%\[
+%R(\theta, 0) = \begin{cases}
+%	0, & \text{se } \theta = 0, \\
+%	1 - e^{-\theta v}, & \text{se } \theta > 0.
+%\end{cases}
+%\]
+%- Para \(d = 1\) (decidir que há bactérias):
+%\[
+%R(\theta, 1) = \begin{cases}
+%	1, & \text{se } \theta = 0, \\
+%	e^{-\theta v}, & \text{se } \theta > 0.
+%\end{cases}
+%\]
+%
+%3. **Comparando os Riscos:**
+%As regras admissíveis são aquelas que minimizam o risco \(R(\theta, d)\) para algum valor de \(\theta\) sem serem estritamente dominadas por outra regra.
+%
+%- Quando \(\theta = 0\), a decisão \(d = 0\) (nenhuma célula presente) tem risco \(R(0, 0) = 0\), enquanto \(R(0, 1) = 1\). Assim, \(d = 0\) é preferível neste caso.
+%- Quando \(\theta > 0\), a decisão \(d = 1\) (células presentes) reduz o risco para \(R(\theta, 1) = e^{-\theta v}\), enquanto \(R(\theta, 0) = 1 - e^{-\theta v}\). Assim, \(d = 1\) é preferível para valores maiores de \(\theta\).
+%
+%4. **Conclusão:**
+%- \(d = 0\) é admissível, pois minimiza o risco para \(\theta = 0\).
+%- \(d = 1\) é admissível, pois minimiza o risco para \(\theta > 0\).
+%- Nenhuma das regras é estritamente dominante em todo o domínio de \(\theta\).
+%
+%---
+%
+%### **Parte IV - Determinar o Volume Ótimo para Testar**
+%
+%#### Problema:
+%Queremos encontrar o volume \(v\) que minimiza o custo total, que inclui o risco esperado e o custo do teste. 
+%
+%1. **Custo Total:**
+%O custo total é dado por:
+%\[
+%\text{Custo Total}(v) = R_\pi(d, v) + \frac{v}{24},
+%\]
+%onde \(R_\pi(d, v)\) é o risco esperado sob a prior \(\pi\).
+%
+%#### Calculando o Risco Esperado \(R_\pi(d, v)\):
+%De acordo com a prior fornecida:
+%\[
+%\pi(\{0\}) = \frac{1}{3}, \quad \pi(A) = \frac{2}{3} \int_A e^{-\theta} \, d\theta.
+%\]
+%
+%Para a regra \(d = 1\):
+%\[
+%R_\pi(1, v) = \frac{1}{3} R(0, 1) + \frac{2}{3} \int_0^\infty R(\theta, 1) e^{-\theta} \, d\theta.
+%\]
+%Substituímos:
+%\[
+%R(0, 1) = 1, \quad R(\theta, 1) = e^{-\theta v}.
+%\]
+%
+%\[
+%R_\pi(1, v) = \frac{1}{3} \cdot 1 + \frac{2}{3} \int_0^\infty e^{-\theta v} e^{-\theta} \, d\theta.
+%\]
+%
+%A integral é:
+%\[
+%\int_0^\infty e^{-\theta (v+1)} \, d\theta = \frac{1}{v+1}.
+%\]
+%
+%Assim:
+%\[
+%R_\pi(1, v) = \frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1}.
+%\]
+%
+%Para a regra \(d = 0\), calcule:
+%\[
+%R_\pi(0, v) = \frac{1}{3} R(0, 0) + \frac{2}{3} \int_0^\infty R(\theta, 0) e^{-\theta} \, d\theta.
+%\]
+%
+%Similarmente, resolvemos e determinamos \(R_\pi(0, v)\).
+%
+%#### Minimização:
+%Agora, o custo total é:
+%\[
+%\text{Custo Total}(v) = \frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1} + \frac{v}{24}.
+%\]
+%
+%Derivamos em relação a \(v\):
+%\[
+%\frac{\partial}{\partial v} \left(\frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1} + \frac{v}{24}\right) = 0.
+%\]
+%
+%A derivada é:
+%\[
+%-\frac{2}{3} \cdot \frac{1}{(v+1)^2} + \frac{1}{24} = 0.
+%\]
+%
+%Multiplicamos por \(24(v+1)^2\) para simplificar:
+%\[
+%-16 + (v+1)^2 = 0.
+%\]
+%
+%Resolvemos:
+%\[
+%(v+1)^2 = 16 \quad \Rightarrow \quad v+1 = 4 \quad \Rightarrow \quad v = 3.
+%\]
+%
+%#### Resposta para Custo \(v/24\):
+%O volume ótimo para testar é \(v = 3\).
+%
+%#### Para o Custo \(1/6\) por Unidade de Volume:
+%Se o custo for \(v/6\), o termo \(\frac{v}{24}\) muda para \(\frac{v}{6}\). Repita o processo para obter o novo volume ótimo.
+%
+%---
+%
+%Se precisar de mais explicações ou detalhes, estarei à disposição! 😊
