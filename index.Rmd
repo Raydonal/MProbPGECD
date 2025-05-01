@@ -109,9 +109,6 @@ das 8:50 às 10:40 horas <font color="blue">(TURMA T01)</font> na sala 20 do IME
 * **Atenção aos estudantes:** Reunião virtual via google-meet ou reunião presencial com prévio agendamento. O local de atendimento presencial será em alguma sala disponível no Departamento de Estatística da UFBA.
 
 * *<font color="red">Nota:</font> O atendimento será realizado somente com agendamento prévio. Prezado(a) aluno(a), valorizo muito o meu tempo, assim como o seu. Para utilizarmos nosso tempo de forma eficiente, peço que envie suas dúvidas antecipadamente para que eu possa me preparar adequadamente. Por favor, traga também anotações e procedimentos já elaborados. A pontualidade é essencial e será muito apreciada.*
-    
-<!-- * **Inicio do curso:** 01/10/2024. -->
-
 <!-- * **Fim do período letivo:** 14/02/2025 (Mudanças desta data obedeceram os direcionamentos da adiministração central da UFBA no [calendário acadêmico da UFBA](https://supac.ufba.br/sites/supac.ufba.br/files/calendario_academico_24.2_v._19_07_0.pdf)) -->
 
 <!-- * **Período semestre:** 30/09/2024 a 14/02/2025 (Recesso: 23/12/2024 a 05/01/2025) -->
@@ -136,6 +133,7 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 
 <center>
 <h3>
+
     M = (0,35 * Prova 1)+(0,35 * Prova 2)+(0,3 * Prova 3)
 </h3>
 </center>
@@ -146,7 +144,6 @@ A avaliação tem como objetivo ajudar ao aluno a progredir nas suas aprendizage
 | Prova 1 |    35% 	    |     15/05/2025 |
 | Prova 2 |    35% 	    |     A definir  |
 | Prova 3 |    30% 	    |     A definir  |
-
 
 
 
@@ -166,6 +163,7 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 
 # Programa da disciplina (Tentativo)
 <center>
+
 | **Aula** | **Unidade Temática ou Conteúdo**                                                                                                                                     | **Material**                                                                                                                             |
 |----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|
 | 1        | Revisão - conceitos básicos                                                                                                                                          | [[slides 1]](Aulas/Aula-01.pdf), [[videoaula]](https://youtube.com/playlist?list=PL5Dg8nFln2eVou0YbxuUiYWmjPuxTLAYe&si=q5Ym1M9YkVWOUiN1) |
@@ -183,23 +181,19 @@ A avaliação poderá ser revisitada em função do desempenho, assistência  e 
 | 13       | Vetores aleatórios, função de distribuição acumulada conjunta de um vetor aleatório                                                                                  | Exemplos                                                                                                                                 |
 | 14       | Vetores aleatórios, funções de densidade e massa de probabilidade conjunta                                                                                           | Exemplos                                                                                                                                 |
 | 15       | densidade condicional                                                                                                                                                | Exemplos                                                                                                                                 |
-| 16       | Independencia de variáveis aleatórias                                                                                                                                | Exemplos                                                                                                                                 |
-| 17       | Congresso UFBA                                                                                                                                                       | Sem atividade                                                                                                                            |
-| 18       | Congresso UFBA                                                                                                                                                       | Sem atividade                                                                                                                            |
-| 19       | Vetores aleatórios e função de distribuição conjunta de um vetor aleatório                                                                                           | [[videoaula]](https://youtu.be/GRbK-oV5Otk?si=-tAqFOPWsEjMI3JJ); [[Lec - Funções]](Material/DistribuicaoFucoes.pdf)                      |
-| 20       | Método do Jacobiano                                                                                                                                                  | [[Lec - Jacobiano]](Material/MetodoJacobiano.pdf); [[videoaula]](https://youtu.be/Lbct0bULtHU?si=qpHVW9Hspp6zQZIZ)                       |
-| 21       | Prova I                                                                                                                                                              | [[PROVA - I]](Provas/Prova-01.pdf)                                                                                                       |
-| 22       | Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes                                                                      | [[Lec - R-S]](Material/Integral-Riemann-Stieltjes.pdf); [[App]](https://davidbarke.shinyapps.io/Distributions/)                          |
-| 23       | Esperança de variáveis aleatórias, caso geral e propriedades                                                                                                         | Quadro e/ou slides                                                                                                                       |
-| 24       | Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz | [[slides 7]](Aulas/Aula-07.pdf)                                                                                                          |
-| 25       | Recesso final de ano                                                                                                                                                 | Sem atividade                                                                                                                            |
-| 27/28    | Correlação e desigualdades, valor esperado condicional                                                                                                               | [[slides 8]](Aulas/Aula-08.pdf)                                                                                                          |
-| 29       | Sequencia de eventos                                                                                                                                                 | [[slides 8]](Aulas/Aula-08.pdf)                                                                                                          |
-| 30       | Modos de convergências                                                                                                                                               | [[slides 9]](Aulas/Aula-09.pdf)                                                                                                          |
-| 31       | Funções característica                                                                                                                                               | [[slides 10]](Aulas/Aula-10.pdf)                                                                                                         |
-| 32       | Lei dos grandes numeros                                                                                                                                              | [[slides 11]](Aulas/Aula-11.pdf)                                                                                                         |
-| 33/34    | Teorema Central do Limite   (Liapunov) - (Lindeberg - Feller)                                                                                                        | [[slides 12]](Aulas/Aula-12.pdf)                                                                                                         |
-| 35       | Prova II                                                                                                                                                             | Prova escrita                                                                                                                            |
+| 16       | Independencia de variáveis aleatórias                                                                                                                     | 17       | Vetores aleatórios e função de distribuição conjunta de um vetor aleatório                                                                                           | [[videoaula]](https://youtu.be/GRbK-oV5Otk?si=-tAqFOPWsEjMI3JJ); [[Lec - Funções]](Material/DistribuicaoFucoes.pdf)                      |
+| 18       | Método do Jacobiano                                                                                                                                                  | [[Lec - Jacobiano]](Material/MetodoJacobiano.pdf); [[videoaula]](https://youtu.be/Lbct0bULtHU?si=qpHVW9Hspp6zQZIZ)                       |
+| 19       | Prova I                                                                                                                                                              | [[PROVA - I]](Provas/Prova-01.pdf)                                                                                                       |
+| 20       | Esperança de variáveis discretas. Integral de Riemman Stieltjes e integral de Lebsgue-Stieltjes                                                                      | [[Lec - R-S]](Material/Integral-Riemann-Stieltjes.pdf); [[App]](https://davidbarke.shinyapps.io/Distributions/)                          |
+| 21       | Esperança de variáveis aleatórias, caso geral e propriedades                                                                                                         | Quadro e/ou slides                                                                                                                       |
+| 22       | Esperança de funções de vetores aleatórios, propriedades, matriz de variância e covariância, coeficiente de correlação, propriedades, desigualdade de Cauchy-Schwarz | [[slides 7]](Aulas/Aula-07.pdf)                                                                                                          |
+| 23    | Correlação e desigualdades, valor esperado condicional                                                                                                               | [[slides 8]](Aulas/Aula-08.pdf)                                                                                                          |
+| 24       | Sequencia de eventos                                                                                                                                                 | [[slides 8]](Aulas/Aula-08.pdf)                                                                                                          |
+| 25       | Modos de convergências                                                                                                                                               | [[slides 9]](Aulas/Aula-09.pdf)                                                                                                          |
+| 26       | Funções característica                                                                                                                                               | [[slides 10]](Aulas/Aula-10.pdf)                                                                                                         |
+| 27       | Lei dos grandes numeros                                                                                                                                              | [[slides 11]](Aulas/Aula-11.pdf)                                                                                                         |
+| 28    | Teorema Central do Limite   (Liapunov) - (Lindeberg - Feller)                                                                                                        | [[slides 12]](Aulas/Aula-12.pdf)                                                                                                         |
+| 29       | Prova II                                                                                                                                                             | Prova escrita                                                                                                                            |
 </center>
 ***
 
@@ -489,6 +483,10 @@ O material de apoio será distribuído ao longo do curso. Esse material pode inc
 <!-- ###### <img src="Configuracoes/hora.gif" width="11" height="11" border="0" align="left">   &nbsp;	<u> <font color="red"> News </font> </u> -->
 
 #### * <font color="red"> - Prova I - 2025.1 - </font>  [[Aqui]](Provas/Prova-I-2025-1.pdf)
+<!-- *** -->
+<!-- ###### <img src="Configuracoes/hora.gif" width="11" height="11" border="0" align="left">   &nbsp;	<u> <font color="red"> News </font> </u> -->
+
+<!-- ###### * <font color="red">- Resultado Prova I - </font>  [[Aqui]](Provas/Nota-Prova-I.md) -->
 
 <!-- ###### * <font color="red">- Resultado Prova II - </font>  [[Aqui]](Provas/Nota-Prova-II.md) -->
 
