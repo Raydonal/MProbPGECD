@@ -1,0 +1,141 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{geometry}
+\geometry{a4paper, margin=1in}
+
+\title{Solução Detalhada dos Exemplos 17 e 18}
+\author{Baseado no material fornecido}
+\date{}
+
+\begin{document}
+	\maketitle
+	
+	\section*{Exemplo 17}
+	
+	\textbf{Problema:} Se $X \sim U[0, 1]$, qual a distribuição de $Y = -\log(X)$?
+	
+	\textbf{Solução Detalhada:}
+	Para encontrar a distribuição da variável aleatória $Y$, que é uma transformação de $X$, utilizaremos o método da Função de Distribuição Acumulada (FDA). O processo consiste em encontrar $F_Y(y) = P(Y \le y)$.
+	
+	\begin{enumerate}
+		\item \textbf{Análise do Suporte (Valores Possíveis) de Y:}
+		A variável $X$ está contida no intervalo $(0, 1)$ com probabilidade 1. Analisamos os valores que $Y$ pode assumir:
+		\begin{itemize}
+			\item Quando $X \to 1^-$, temos $\log(X) \to 0$. Portanto, $Y = -\log(X) \to 0$.
+			\item Quando $X \to 0^+$, temos $\log(X) \to -\infty$. Portanto, $Y = -\log(X) \to +\infty$.
+		\end{itemize}
+		Isso nos mostra a equivalência: $0 < Y < \infty \iff 0 < X < 1$.
+		Como $P(0 < X < 1) = 1$, o suporte de $Y$ é $(0, \infty)$. Consequentemente, para qualquer $y \le 0$, a probabilidade $P(Y \le y)$ deve ser 0.
+		Logo, a FDA de Y, $F_Y(y) = 0$ para $y \le 0$.
+		
+		\item \textbf{Cálculo da FDA para $y > 0$:}
+		Para $y > 0$, calculamos a FDA diretamente a partir de sua definição:
+		\begin{align*}
+			F_Y(y) &= P(Y \le y) && \text{(Definição de FDA)} \\
+			&= P(-\log(X) \le y) && \text{(Substituindo } Y = -\log(X)\text{)} \\
+			&= P(\log(X) \ge -y) && \text{(Multiplicando por -1 e invertendo a desigualdade)}
+		\end{align*}
+		Como a função exponencial $g(t) = e^t$ é estritamente crescente, podemos aplicá-la a ambos os lados da inequação sem alterar seu sentido:
+		\begin{align*}
+			F_Y(y) &= P(e^{\log(X)} \ge e^{-y}) \\
+			&= P(X \ge e^{-y}) && \text{(Simplificando } e^{\log(X)} = X\text{)}
+		\end{align*}
+		A probabilidade $P(X \ge a)$ é igual a $1 - P(X < a)$. Como $X$ é uma variável contínua, $P(X<a) = P(X \le a) = F_X(a)$.
+		\begin{align*}
+			F_Y(y) &= 1 - P(X < e^{-y}) \\
+			&= 1 - F_X(e^{-y}) && \text{(Onde } F_X \text{ é a FDA de X)}
+		\end{align*}
+		Para a distribuição Uniforme $U[0, 1]$, a FDA é $F_X(x) = x$ para $x \in [0, 1]$. Para $y > 0$, o valor de $e^{-y}$ está no intervalo $(0, 1)$, então podemos aplicar a fórmula:
+		\[
+		F_Y(y) = 1 - e^{-y}
+		\]
+		
+		\item \textbf{Conclusão:}
+		Combinando os resultados, a FDA de $Y$ é:
+		\[
+		F_Y(y) = 
+		\begin{cases} 
+			0 & \text{se } y \le 0 \\
+			1 - e^{-y} & \text{se } y > 0 
+		\end{cases}
+		\]
+		Esta é, por definição, a Função de Distribuição Acumulada de uma variável aleatória Exponencial com parâmetro de taxa $\lambda = 1$.
+	\end{enumerate}
+	\textbf{Resultado Final:} $Y \sim \exp(1)$.
+	
+	\hrulefill
+	
+	\section*{Exemplo 18}
+	
+	\textbf{Problema:} Se $X$ e $Y$ são independentes, cada uma com distribuição uniforme no intervalo $[0, 1]$, qual a distribuição de $Z = X/Y$?
+	
+	\textbf{Solução Detalhada:}
+	Seguiremos a abordagem do livro, calculando a FDA de $Z$ através da probabilidade conjunta no plano cartesiano.
+	
+	\begin{enumerate}
+		\item \textbf{Análise do Suporte e Considerações Iniciais:}
+		Como $X \in (0, 1)$ e $Y \in (0, 1)$, a razão $Z=X/Y$ pode assumir qualquer valor no intervalo $(0, \infty)$. A probabilidade de $Z$ estar neste intervalo é 1.
+		O livro nota um ponto técnico: $Z$ não estaria definido se $Y=0$. No entanto, para uma variável contínua, $P(Y=0) = 0$. Portanto, os casos problemáticos ($Y=0$ ou $X=0$ e $Y=0$) têm probabilidade nula e podem ser ignorados nos cálculos.
+		
+		\item \textbf{Cálculo da FDA via Área de Integração:}
+		A FDA de $Z$ é $F_Z(z) = P(Z \le z) = P(X/Y \le z)$. Como $Y > 0$ com probabilidade 1, podemos reescrever a inequação como $P(X \le zY)$.
+		Esta probabilidade pode ser calculada integrando a densidade de probabilidade conjunta $f_{X,Y}(x,y)$ sobre a região $B_z = \{(x,y) \in \mathbb{R}^2 \mid 0 \le x \le 1, 0 \le y \le 1, x \le zy\}$.
+		
+		Como $X, Y \sim U[0, 1]$ são independentes, a densidade conjunta é:
+		\[
+		f_{X,Y}(x,y) = f_X(x)f_Y(y) = 1 \cdot 1 = 1, \quad \text{para } (x,y) \in [0,1] \times [0,1]
+		\]
+		Portanto, a probabilidade é simplesmente a área da região $B_z$ dentro do quadrado unitário.
+		\[
+		P(X \le zY) = \iint_{B_z} 1 \,dx\,dy = \text{Área}(B_z)
+		\]
+		Analisamos a área em dois casos, como na Figura 20 do livro.
+		
+		\textbf{Caso 1: $0 < z \le 1$}
+		Neste caso, a linha de fronteira $x=zy$ (ou $y=x/z$) intercepta a aresta superior do quadrado ($y=1$) no ponto $(z,1)$. A região $B_z$ é um trapézio (ou um triângulo se visto de lado) com vértices em (0,0), (0,1) e (z,1). A forma mais simples de calcular sua área é integrando:
+		\[
+		\text{Área}(B_z) = \int_0^1 \int_0^{zy} 1 \,dx\,dy = \int_0^1 zy \,dy = z \left[ \frac{y^2}{2} \right]_0^1 = \frac{z}{2}
+		\]
+		
+		\textbf{Caso 2: $z > 1$}
+		Agora, a linha $x=zy$ intercepta a aresta direita do quadrado ($x=1$) no ponto $(1, 1/z)$. Como $z > 1$, temos $0 < 1/z < 1$.
+		A região $B_z$ é um polígono com vértices (0,0), (0,1), (1,1) e (1, 1/z). É mais fácil calcular a área do complemento (a área onde $x > zy$, um pequeno triângulo no canto inferior direito) e subtrair de 1.
+		\[
+		\text{Área do complemento} = \text{Área}\{(x,y) \mid x > zy, (x,y) \in [0,1]^2 \}
+		\]
+		Este triângulo tem base 1 (de y=0 até y=1/z na linha x=1) e altura 1. Na verdade, seus vértices são (0,0), (1,0) e (1, 1/z). Sua área é:
+		\[
+		\text{Área do complemento} = \int_0^{1/z} \int_{zy}^1 1 \,dx\,dy = \int_0^{1/z} (1-zy) \,dy = \left[ y - z\frac{y^2}{2} \right]_0^{1/z} = \frac{1}{z} - \frac{z}{2z^2} = \frac{1}{z} - \frac{1}{2z} = \frac{1}{2z}
+		\]
+		Portanto, a área de $B_z$ é a área total do quadrado (1) menos a área do complemento:
+		\[
+		\text{Área}(B_z) = 1 - \frac{1}{2z}
+		\]
+		
+		\item \textbf{Função de Distribuição Acumulada (FDA):}
+		Juntando os casos, obtemos a FDA de $Z$:
+		\[
+		F_Z(z) = 
+		\begin{cases} 
+			0 & \text{se } z \le 0 \\
+			z/2 & \text{se } 0 < z \le 1 \\
+			1 - \frac{1}{2z} & \text{se } z > 1 
+		\end{cases}
+		\]
+		
+		\item \textbf{Função de Densidade de Probabilidade (FDP):}
+		Como $F_Z(z)$ é contínua e derivável por partes, podemos encontrar a FDP, $f_Z(z)$, derivando a FDA em relação a $z$:
+		\[
+		f_Z(z) = \frac{d}{dz}F_Z(z) =
+		\begin{cases} 
+			1/2 & \text{se } 0 < z \le 1 \\
+			\frac{1}{2z^2} & \text{se } z > 1 \\
+			0 & \text{caso contrário}
+		\end{cases}
+		\]
+	\end{enumerate}
+	
+\end{document}
