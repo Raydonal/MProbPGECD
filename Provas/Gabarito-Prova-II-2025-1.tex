@@ -1,0 +1,734 @@
+\input{Config/preamble}
+\input{Config/format}
+\input{Config/commands}
+
+\usepackage{booktabs}
+\usepackage{diagbox}
+
+% 
+\begin{document}
+
+{\scshape\bf\textcolor{darkred}{PROVA II - Probabilidade (PPGECD000000001)}}
+
+
+\textsf{\textbf{Professor:}} \text{Raydonal Ospina Martinez.}  \quad {\bf\small E-mail:} \href{mailto:raydonal@castlab.org}{\texttt{raydonal@castlab.org}}
+
+\bigskip 
+\begin{regras}
+Recomendo que leiam atentamente as perguntas e reservem um tempo adequado para refletir sobre elas. Ressalto que todas as questões devem ser respondidas de forma detalhada, pois soluções ambíguas ou pouco claras serão penalizadas. Lembro ainda que não farei esforço para interpretar ou ``adivinhar'' o que o aluno quis escrever ou dizer. Por isso, é fundamental que sejam claros e organizados. Informo que a prova deverá ser entregue (digitalizada em formato PDF) no dia {\bf 26/06/2025} até as 21:00h (GMT-3 Horário de Brasília). Deverão encaminhar para o e-mail acima com assunto de envio ({\tt Resposta Prova II - Mestrado - ``coloque aqui seu  nome''})  e colocando seu nome.
+\end{regras}
+\vspace{2ex}
+
+
+\begin{problema}{}{pr-1}
+	Seja $\Omega = \{a, b, c\}$  um espaço amostral, ${\cal F}={\cal P}(\Omega)$ o conjunto de partes de $\Omega$ como sua $\sigma$-álgebra e $P(\{\omega\})=\frac{1}{3}$ para todo $\omega \in \Omega.$ Consideremos as variáveis aleatórias $X$ e $Y$ definidas em $(\Omega, {\cal F}, P)$ como
+	$$
+	X(\omega) =
+	\begin{cases}
+		1, &  \text{se}  \quad  \omega=a, \ \text{ou} \ \omega = b,  \\
+		0, &  \text{se}  \quad  \omega=c
+	\end{cases} 
+	\qquad \text{e} \qquad 
+	Y(\omega) =
+	\begin{cases}
+		\ \pi, &  \text{se}  \quad  \omega=a, \\
+		\ \frac{1}{2}, &  \text{se}  \quad  \omega=b, \\
+		-1, &  \text{se}  \quad  \omega=c
+	\end{cases} 
+	$$
+	Obtenha as distribuições condicionais acumuladas $F(X|Y)$ e $F(Y|X)$  
+	
+	{\bf Dica:}  Note que as variáveis $X$ e $Y$ são discretas.
+	
+\end{problema}
+
+
+{\small {\bf Res.}
+A função de probabilidade conjunta, $p(x, y) = P(X=x, Y=y)$, é determinada avaliando os pares $(X(\omega), Y(\omega))$ para cada $\omega \in \Omega.$ Dado que $P(\{a\}) = P(\{b\}) = P(\{c\}) = 1/3$ temos: \begin{itemize}
+	\item Para $\omega = a$: Temos $X(a) = 1$ e $Y(a) = \pi$. Então  $P(\{a\}) = 1/3$. Logo, $p(1, \pi) = P(X=1, Y=\pi) = 1/3$.
+	
+	\item Para $\omega = b$: Temos $X(b) = 1$ e $Y(b) = 1/2$. Então é $P(\{b\}) = 1/3$. Logo, $p(1, 1/2) = P(X=1, Y=1/2) = 1/3$.
+	
+	\item Para $\omega = c$: Temos $X(c) = 0$ e $Y(c) = -1$. Então $P(\{c\}) = 1/3$. Logo, $p(0, -1) = P(X=0, Y=-1) = 1/3$.
+\end{itemize} Como as variáveis são discretas a distribuição conjunta pode ser representada na tabela \begin{center}
+	\begin{tabular}{c|ccc|c}
+		\toprule
+		\diagbox[height=0.7cm]{$X$}{$Y$} & -1 & 1/2 & $\pi$ & $p_X(x)$ \\
+		\midrule
+		0 & 1/3 & 0 & 0 & 1/3 \\
+		1 & 0 & 1/3 & 1/3 & 2/3 \\
+		\midrule
+		$p_Y(y)$ & 1/3 & 1/3 & 1/3 & 1 \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+A função de probabilidade condicional de $X$ dado $Y$ é dada por $p(x|y) = \frac{p(x,y)}{p_Y(y)}$ e $p(y|x) = \frac{p(x,y)}{p_X(x)}$, i.e.,
+\begin{itemize}
+	\item Se $y=-1$: $p(x|-1) = \frac{p(x,-1)}{1/3}$. Logo, $p(0|-1)=1$ e $p(1|-1)=0$.
+	\item Se $y=1/2$: $p(x|1/2) = \frac{p(x,1/2)}{1/3}$. Logo, $p(0|1/2)=0$ e $p(1|1/2)=1$.
+	\item Se $y=\pi$: $p(x|\pi) = \frac{p(x,\pi)}{1/3}$. Logo, $p(0|\pi)=0$ e $p(1|\pi)=1$.
+\end{itemize}Por outro lado, A função de probabilidade condicional de $Y$ dado $X$ é
+\begin{itemize}
+	\item Se $x=0$: $p(y|0) = \frac{p(0,y)}{1/3}$. Logo, $p(-1|0)=1$ e $p(y|0)=0$ para $y \neq -1$.
+	\item Se $x=1$: $p(y|1) = \frac{p(1,y)}{2/3}$. Logo, $p(1/2|1)=1/2$ e $p(\pi|1)=1/2$.
+\end{itemize}
+Agora, somente precisamos acumular a partir das probabilidades condicionais, i.e. olhar para cada valor de $y$, ou seja $F(x|y) = P(X \le x | Y=y)$
+\begin{itemize}
+	\item Para $y=-1$: a probabilidade está concentrada em $X=0$.
+	$$ F(x|-1) = 
+	\begin{cases}
+		0, & \text{se } x < 0 \\
+		1, & \text{se } x \ge 0
+	\end{cases}
+	$$
+	\item Para $y=1/2$: a probabilidade está concentrada em $X=1$.
+	$$ F(x|1/2) = 
+	\begin{cases}
+		0, & \text{se } x < 1 \\
+		1, & \text{se } x \ge 1
+	\end{cases}
+	$$
+	\item Para $y=\pi$: a probabilidade está concentrada em $X=1$.
+	$$ F(x|\pi) = 
+	\begin{cases}
+		0, & \text{se } x < 1 \\
+		1, & \text{se } x \ge 1
+	\end{cases}
+	$$
+\end{itemize}
+
+De forma análoga $F(y|x) = P(Y \le y | X=x)$, i.e. precisamos olhar para cada $x$.
+\begin{itemize}
+	\item Para $x=0$: a probabilidade está concentrada em $Y=-1$.
+	$$ F(y|0) = 
+	\begin{cases}
+		0, & \text{se } y < -1 \\
+		1, & \text{se } y \ge -1
+	\end{cases}
+	$$
+	\item Para $x=1$: a probabilidade está concentrada em $Y=1/2$ e $Y=\pi$.
+	$$ F(y|1) = 
+	\begin{cases}
+		0, & \text{se } y < 1/2 \\
+		P(Y \le y | X=1) = p(1/2|1) = 1/2, & \text{se } 1/2 \le y < \pi \\
+		P(Y \le y | X=1) = p(1/2|1) + p(\pi|1) = 1, & \text{se } y \ge \pi
+	\end{cases}
+	$$
+\end{itemize}
+
+}
+
+
+
+\begin{problema}{}{pr-3}
+Suponha que a distribuição conjunta das variáveis aleatórias discretas $X$ e $Y$ está dada por
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		$X \diagdown Y$ & 1 & 2 & 3 & 4 \\ \hline
+		0 & 0,1 & 0 & 0 & 0 \\ \hline
+		-1 & 0,1 & 0,1 & 0 & 0 \\ \hline
+		-2 & 0,1 & 0,1 & 0,1 & 0 \\ \hline
+		-3 & 0,1 & 0,1 & 0,1 & 0,1 \\ \hline
+	\end{tabular}
+\end{center}
+Calcule:
+\begin{enumerate}
+	\item $ P(X \geq -1, Y \geq 1) $
+	\item As distribuições marginais de $X$ e $Y$ e determine se $X$ e $Y$ são independentes.
+	\item Encontre a função de distribuição condicional de $X$ dado $Y.$
+\end{enumerate}
+%
+\end{problema}
+
+{\small {\bf Res.} Seja $p(x,y)$ a função de probabilidade conjunta dada na tabela.
+
+{\bf  (a):} Cálculo de $ P(X \geq -1, Y \geq 1) $
+O evento $\{X \ge -1, Y \ge 1\}$ contem os pares $(x,y)$ tais que $x \in \{0, -1\}$ e $y \in \{1, 2, 3, 4\}$. A probabilidade é a soma das probabilidades conjuntas para esses pares.
+\begin{align*}
+	P(X \ge -1, Y \ge 1) &= \sum_{x \in \{0,-1\}} \sum_{y=1}^{4} p(x,y) \\
+	&= p(0,1) + p(0,2) + p(0,3) + p(0,4) \\
+	&\quad + p(-1,1) + p(-1,2) + p(-1,3) + p(-1,4) \\
+	&= (0,1 + 0 + 0 + 0) + (0,1 + 0,1 + 0 + 0) \\
+	&= 0,1 + 0,2 = 0,3
+\end{align*}
+Portanto, $\mathbf{P(X \geq -1, Y \geq 1) = 0,3}$.
+
+{\bf  (b):} As distribuições marginais, $p_X(x)$ e $p_Y(y)$, são obtidas somando as probabilidades ao longo das linhas e colunas da tabela conjunta, respectivamente.
+\begin{center}
+	\begin{tabular}{c|cccc|c}
+		\toprule
+		\diagbox[height=0.7cm]{$X$}{$Y$} & 1 & 2 & 3 & 4 & $p_X(x)$ \\
+		\midrule
+		0 & 0,1 & 0 & 0 & 0 & 0,1 \\
+		-1 & 0,1 & 0,1 & 0 & 0 & 0,2 \\
+		-2 & 0,1 & 0,1 & 0,1 & 0 & 0,3 \\
+		-3 & 0,1 & 0,1 & 0,1 & 0,1 & 0,4 \\
+		\midrule
+		$p_Y(y)$ & 0,4 & 0,3 & 0,2 & 0,1 & 1,0 \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+Assim, a distribuição marginal de $X$ é
+$p_X(0) = 0,1$; \quad $p_X(-1) = 0,2$; \quad $p_X(-2) = 0,3$; \quad $p_X(-3) = 0,4$.
+Por outro lado, a distribuição marginal de $Y$ é
+$p_Y(1) = 0,4$; \quad $p_Y(2) = 0,3$; \quad $p_Y(3) = 0,2$; \quad $p_Y(4) = 0,1$.
+
+Agora, sabemos que duas variáveis aleatórias $X$ e $Y$ são independentes se, e somente se, $p(x,y) = p_X(x)p_Y(y)$ para \textbf{todos} os pares $(x,y)$. É suficiente encontrar um contra-exemplo.
+Considere o par $(x,y) = (0,1).$: Da tabela,  temos que $p(0,1) = 0,1,$ e 
+	o produto das marginais é $p_X(0) \cdot p_Y(1) = (0,1) \times (0,4) = 0,04$. Como $p(0,1) = 0,1 \neq 0,04 = p_X(0)p_Y(1)$, logo $X$ e $Y$ não são independentes.
+
+{\bf (c):} A função de distribuição condicional de $X$ dado $Y,$ $F(x|y) = P(X \le x | Y=y)$ é obtida da distribuição condicional $p(x|y) = p(x,y)/p_Y(y)$.
+
+Para $Y = 1$ ($p_Y(1)=0,4$)
+$p(0|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-1|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-2|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-3|1) = \frac{0,1}{0,4} = \frac{1}{4}$.
+
+$F(x|1) = \begin{cases}
+	0, & x < -3 \\ 1/4, & -3 \le x < -2 \\ 1/4+1/4 = 1/2, & -2 \le x < -1 \\ 1/2+1/4 = 3/4, & -1 \le x < 0 \\ 1, & x \ge 0
+\end{cases}$
+
+para $Y = 2$ ($p_Y(2)=0,3$)
+$p(-1|2)=\frac{0,1}{0,3}=\frac{1}{3}$; $p(-2|2)=\frac{0,1}{0,3}=\frac{1}{3}$; $p(-3|2)=\frac{0,1}{0,3}=\frac{1}{3}$.
+
+$F(x|2) = \begin{cases}
+	0, & x < -3 \\ 1/3, & -3 \le x < -2 \\ 1/3+1/3=2/3, & -2 \le x < -1 \\ 1, & x \ge -1
+\end{cases}$
+
+para $Y = 3$ ($p_Y(3)=0,2$)
+$p(-2|3)=\frac{0,1}{0,2}=\frac{1}{2}$; $p(-3|3)=\frac{0,1}{0,2}=\frac{1}{2}$.
+
+$F(x|3) = \begin{cases}
+	0, & x < -3 \\ 1/2, & -3 \le x < -2 \\ 1, & x \ge -2
+\end{cases}$
+
+para  $Y = 4$ ($p_Y(4)=0,1$)
+$p(-3|4)=\frac{0,1}{0,1}=1$.
+
+$F(x|4) = \begin{cases}
+	0, & x < -3 \\
+	1, & x \ge -3
+\end{cases}$
+
+}
+
+
+
+
+
+\begin{problema}{}{pr-2}
+	Considere um par de variáveis aleatórias discretas $(X, Y)$ cuja função de distribuição de probabilidade conjunta é $F$, i.e., $F(x,y)=P(X\leq x, Y\leq y),$ $x,y \in \mathbb{R}.$ Sejam $F_X$ e $F_Y$ as funções de distribuição das variáveis aleatórias $X$ e $Y,$ respectivamente (distribuições marginais). Mostre que: $$P(X>x, Y>y)= 1-F_X(x)-F_Y(y)+F(x,y).$$ 	
+\end{problema}
+
+{\small {\bf Res.} Sejam $A$ e $B$ os eventos:
+\begin{itemize}
+	\item $A = \{ \omega \in \Omega : X(\omega) > x \}$
+	\item $B = \{ \omega \in \Omega : Y(\omega) > y \}$
+\end{itemize} O nosso objetivo é calcular $P(A \cap B)$. Note que
+\begin{itemize}
+	\item $A^c = \{ \omega \in \Omega : X(\omega) \le x \}$. Por definição, $P(A^c) = P(X \le x) = F_X(x)$.
+	\item $B^c = \{ \omega \in \Omega : Y(\omega) \le y \}$. Por definição, $P(B^c) = P(Y \le y) = F_Y(y)$.
+\end{itemize}
+Mas  sabemos que $$ P(A \cap B) = 1 - P((A \cap B)^c) $$ e 
+utilizando as Leis de De Morgan para conjuntos, sabemos que $(A \cap B)^c = A^c \cup B^c$. Daí, 
+$$ P(A \cap B) = 1 - P(A^c \cup B^c) $$
+Agora, aplicamos o Princípio da Inclusão-Exclusão para a probabilidade da união de dois eventos:
+$$ P(A^c \cup B^c) = P(A^c) + P(B^c) - P(A^c \cap B^c) $$
+Assim, $P(A^c) = F_X(x),$ $P(B^c) = F_Y(y)$ e $A^c \cap B^c = \{X \le x \text{ e } Y \le y\}$. A probabilidade deste evento é, por definição da função de distribuição conjunta, $P(A^c \cap B^c) = P(X \le x, Y \le y) = F(x,y)$. Substituindo estes termos de volta na fórmula da união:
+$$ P(A^c \cup B^c) = F_X(x) + F_Y(y) - F(x,y) $$
+como  $ P(A \cap B) = 1 - \left( F_X(x) + F_Y(y) - F(x,y) \right) $ temos
+$$ P(X>x, Y>y) = 1 - F_X(x) - F_Y(y) + F(x,y) $$
+}
+
+
+
+\begin{problema}{}{pr5}
+Sejam $X$ e $Y$ variáveis aleatórias com função de densidade de probabilidade conjunta dada por 
+$$ f(x,y) = 
+\begin{cases}
+	\frac{1}{4}, & \ \text{se} \  \  -1<x<1,  -1<y<1, \\
+	0, &  \text{caso contrário.}
+\end{cases}
+$$
+
+\begin{enumerate}
+	\item  Obtenha $P(X+Y> 0)$ e $P(X>0).$
+	\item Sejam $Z=X+Y$ e $W=X-Y$ funções lineares das varáveis aleatórias $X$ e $Y.$ Usando o método do Jacobiano obtenha a função de densidade conjunta de $Z$ e $W.$
+		\item Obtenha a função de densidade (marginal) de $W$ 
+	\item  Obtenha a função de densidade condicional de $Z$ dado $W,$ i.e., $f_{Z|W}(z|w).$
+\end{enumerate}
+\end{problema}
+
+{\small {\bf Res. }
+	
+	{\bf (a)} Como a distribuição é uniforme, a probabilidade de um evento $A \subseteq S$ é dada por $P(A) = \text{Área}(A) / \text{Área}(S)$. O evento corresponde à região $R_1 = \{ (x,y) \in S : x+y > 0 \}$, ou $y > -x$. A linha $y=-x$ divide o quadrado $S$ em duas metades de área igual. A região $y > -x$ é a metade superior do quadrado. Portanto, a Área($R_1$) = $\frac{1}{2} \text{Área}(S) = \frac{1}{2} \times 4 = 2$. Assim. a probabilidade $ P(X+Y>0) = \frac{\text{Área}(R_1)}{\text{Área}(S)} = \frac{2}{4} = \frac{1}{2}$.
+	
+	Agora para $P(X>0),$ o evento corresponde à região $R_2 = \{ (x,y) \in S : x > 0 \}$. Esta região é o retângulo $[0,1] \times [-1,1]$, que é a metade direita do quadrado $S$. A área é $\text{Área}(R_2) = (1-0) \times (1-(-1)) = 1 \times 2 = 2$.
+	A probabilidade é: $ P(X>0) = \frac{\text{Área}(R_2)}{\text{Área}(S)} = \frac{2}{4} = \frac{1}{2}$.
+	
+	{\bf (b)}
+	Dada a transformação $Z=X+Y$ e $W=X-Y$, resolvemos para $X$ e $Y$:
+	\begin{itemize}
+		\item $Z+W = (X+Y)+(X-Y) = 2X \implies X = \frac{Z+W}{2}$
+		\item $Z-W = (X+Y)-(X-Y) = 2Y \implies Y = \frac{Z-W}{2}$
+	\end{itemize}
+	O Jacobiano $J$ é o determinante da matriz de derivadas parciais de $(x,y)$ em relação a $(z,w)$:
+	$$ J = \det \begin{pmatrix} \frac{\partial x}{\partial z} & \frac{\partial x}{\partial w} \\ \frac{\partial y}{\partial z} & \frac{\partial y}{\partial w} \end{pmatrix} = \det \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix} = \left(\frac{1}{2}\right)\left(-\frac{1}{2}\right) - \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) = -\frac{1}{4} - \frac{1}{4} = -\frac{1}{2} $$
+	O valor absoluto do Jacobiano é $|J| = 1/2$. O suporte original é $-1<x<1$ e $-1<y<1$. Substituímos $X$ e $Y$:
+	\begin{itemize}
+		\item $-1 < \frac{z+w}{2} < 1 \implies -2 < z+w < 2$
+		\item $-1 < \frac{z-w}{2} < 1 \implies -2 < z-w < 2$
+	\end{itemize}
+	Esta região $S'$ no plano $(z,w)$ é um quadrado rotacionado com vértices em $(2,0), (0,2), (-2,0), (0,-2)$.
+	
+	Agora, a densidade é $f_{Z,W}(z,w) = f_{X,Y}(x(z,w), y(z,w)) \cdot |J|$.
+	$$ f_{Z,W}(z,w) = \frac{1}{4} \cdot \frac{1}{2} = \frac{1}{8} $$
+	Assim, a função de densidade conjunta de $(Z,W)$ é:
+	$$ f_{Z,W}(z,w) = 
+	\begin{cases}
+		\frac{1}{8}, & \text{se } (z,w) \in S' \\
+		0, &  \text{caso contrário.}
+	\end{cases}
+	$$
+	
+ {\bf (c)} 
+	Para obter $f_W(w)$, integramos $f_{Z,W}(z,w)$ sobre $z$. Para um $w \in (-2,2)$ fixo, os limites de $z$ são dados por $-2 < z+w < 2 \implies -2-w < z < 2-w$ e $-2 < z-w < 2 \implies w-2 < z < w+2$. Combinando: $\max(-2-w, w-2) < z < \min(2-w, w+2),$ i..e, $-2+|w| < z < 2-|w|$.
+	\begin{align*}
+		f_W(w) = \int_{-\infty}^{\infty} f_{Z,W}(z,w) \,dz &= \int_{-2+|w|}^{2-|w|} \frac{1}{8} \,dz \\
+		&= \frac{1}{8} [z]_{-2+|w|}^{2-|w|} = \frac{1}{8} \left( (2-|w|) - (-2+|w|) \right) \\
+		&= \frac{1}{8} (4 - 2|w|) = \frac{2-|w|}{4}
+	\end{align*}
+	A densidade marginal de $W$ (é uma distribuição triangular) dada por:
+	$$ f_W(w) = 
+	\begin{cases}
+		\frac{2-|w|}{4}, & \text{se } -2 < w < 2 \\
+		0, &  \text{caso contrário.}
+	\end{cases}
+	$$
+	
+	{\bf (d)} 
+	A densidade condicional é $f_{Z|W}(z|w) = \frac{f_{Z,W}(z,w)}{f_W(w)}$, para $f_W(w)>0$.
+	$$
+	f_{Z|W}(z|w) = \frac{1/8}{(2-|w|)/4} = \frac{4}{8(2-|w|)} = \frac{1}{2(2-|w|)}
+	$$
+	O suporte de $z$ dado $w$ é $-2+|w| < z < 2-|w|$.
+	$$
+	f_{Z|W}(z|w) = 
+	\begin{cases}
+		\frac{1}{2(2-|w|)}, & \text{para } -2+|w| < z < 2-|w| \text{ e } w \in (-2,2) \\
+		0, &  \text{caso contrário.}
+	\end{cases}
+	$$
+	Isto indica que, dado $W=w$, $Z$ segue uma distribuição uniforme no intervalo $(-2+|w|, 2-|w|)$.
+	
+
+
+}
+
+
+
+%\begin{problema}{Bônus}{pr5}
+%Seja $Q = (x, y)$ um ponto escolhido aleatoriamente num disco unitário centrado em $(0,0)$ e com raio 1. 
+%
+%\begin{itemize}
+%	\item Qual o espaço amostral do experimento?
+%	\item Calcule a probabilidade de que $Q$ esteja a uma distância máxima de 0.5 do centro.
+%	\item Calcule a probabilidade de $y > \frac{1}{\sqrt{2}}$;
+%	\item Calcule a probabilidade de $|x - y| < 1$ e $|x + y| < 1$.
+%\end{itemize}
+%\end{problema}
+%
+
+
+
+
+
+
+\begin{problema}{}{pr-4}
+	Considere  a {\it convolução} $f_X * f_Y$ entre as funções de densidade das variáveis aleatórias  $X$ e $Y,$ i.e., a função de densidade da variável aleatória $Z=X+Y.$ Mostre que o operador de convolução $ ( * )$ é: 
+	\begin{enumerate}
+		\item comutativo: $f_X * f_Y = f_Y * f_X$
+		\item distributivo: $f_Z*(f_X+f_Y ) = f_Z*f_X+f_Z*f_Y$
+		\item  associativo: $(f_Z * f_X) * f_Y = f_Z *(f_X * f_Y )$
+	\end{enumerate}
+\end{problema}
+
+
+{\small
+	
+A convolução de duas funções integráveis $g$ e $h$ é definida como $(g * h)(t) = \int_{-\infty}^{\infty} g(x) h(t-x) \,dx$. Se $X$ e $Y$ são v.a. independentes com funçõs de densidade $f_X$ e $f_Y$, a função de densidade da soma $S=X+Y$ é $f_S = f_X * f_Y$.
+	
+	{\bf (a):} Comutatividade. Seja
+	$$ (f_X * f_Y)(t) = \int_{-\infty}^{\infty} f_X(x) f_Y(t-x) \,dx $$
+	Fazendo a mudança de variável $u = t-x$. Assim, $x = t-u$ e $dx = -du$. Os limites de integração se invertem: quando $x \to \infty$, $u \to -\infty$ e quando $x \to -\infty$, $u \to \infty$.
+	\begin{align*}
+		(f_X * f_Y)(t) &= \int_{\infty}^{-\infty} f_X(t-u) f_Y(u) (-du) \\
+		&= \int_{-\infty}^{\infty} f_Y(u) f_X(t-u) \,du \quad (\text{invertendo os limites e o sinal}) \\
+		&= (f_Y * f_X)(t)
+	\end{align*}
+	Portanto, o operador de convolução é comutativo.
+	
+	{\bf (b):} Distributividade
+		\begin{align*}
+		(f_Z * (f_X+f_Y))(t) &= \int_{-\infty}^{\infty} f_Z(x) (f_X+f_Y)(t-x) \,dx \\
+		&= \int_{-\infty}^{\infty} f_Z(x) [f_X(t-x) + f_Y(t-x)] \,dx \quad (\text{soma de funções}) \\
+		&= \int_{-\infty}^{\infty} [f_Z(x)f_X(t-x) + f_Z(x)f_Y(t-x)] \,dx \quad (\text{distributividade do produto}) \\
+		&= \int_{-\infty}^{\infty} f_Z(x)f_X(t-x) \,dx + \int_{-\infty}^{\infty} f_Z(x)f_Y(t-x) \,dx \quad (\text{linearidade da integral}) \\
+		&= (f_Z * f_X)(t) + (f_Z * f_Y)(t)
+	\end{align*}
+	Portanto, o operador é distributivo sobre a adição.
+	
+	{\bf (c):} Associatividade
+	Queremos provar que $((f_Z * f_X) * f_Y)(t) = (f_Z * (f_X * f_Y))(t)$.
+	Começamos pelo lado esquerdo. Seja $g = f_Z * f_X$, em que $g(y) = \int_{-\infty}^{\infty} f_Z(x) f_X(y-x) \,dx$.
+	\begin{align*}
+		((f_Z * f_X) * f_Y)(t) &= (g * f_Y)(t) = \int_{-\infty}^{\infty} g(y) f_Y(t-y) \,dy \\
+		&= \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} f_Z(x) f_X(y-x) \,dx \right) f_Y(t-y) \,dy
+	\end{align*}
+	Pelo Teorema de Fubini-Tonelli, podemos trocar a ordem de integração:
+	$$ = \int_{-\infty}^{\infty} f_Z(x) \left( \int_{-\infty}^{\infty} f_X(y-x) f_Y(t-y) \,dy \right) \,dx $$
+	Analisamos agora a integral interna. Fazemos a substituição $u = y-x$, o que implica $y = u+x$ e $dy = du$.
+	$$ \int_{-\infty}^{\infty} f_X(u) f_Y(t-(u+x)) \,du = \int_{-\infty}^{\infty} f_X(u) f_Y((t-x)-u) \,du $$
+	Esta integral é, por definição, $(f_X * f_Y)(t-x)$. Substituindo de volta:
+	$$ \int_{-\infty}^{\infty} f_Z(x) (f_X * f_Y)(t-x) \,dx $$
+	Esta expressão é a definição de $(f_Z * (f_X * f_Y))(t)$. Portanto, a associatividade é válida.
+}
+
+
+%\bigskip
+%\centering {\scshape\bf\textcolor{darkred}{BOA PROVA}}
+
+%
+
+\end{document}
+
+
+%
+%\begin{problema}{}{pr3}
+%	Seja $X$ uma vari\'avel aleat\'oria com distribui\c{c}\~ao gama sob uma nova reparametriza\c{c}\~ao, aqui denotada por $X\sim G(\mu, \phi)$,
+%	tal que
+%	$$f(x;\mu, \phi) = {1\over\Gamma(\phi)}\left( {\phi x}\over{\mu}\right)^\phi\exp\left(-{{\phi x}\over{\mu}}\right){1\over x},\,\, x \geq 0, \mu >0, \phi> 0 \ \ \text{e} \ \ \Gamma(\phi) = \int^\infty_0 t^{(\phi - 1)}e^{-t} dt .$$  
+%	\begin{enumerate}
+%		\item Mostre que $f(x;\mu, \phi)$ forma uma fam\'{\i}lia exponencial bidimensional.
+%		\item  Mostre que,  $$\mu = {\rm E}(X)\quad{\rm e}\quad \phi^{-1/2} = { \sqrt{{\rm Var}(X)}\over{\rm E}(X) }.$$
+%		\item  Sejam  $X_1,\ldots,X_n$ uma amostra aleat\'oria de $X\sim G(\mu,\phi_1)$ 
+%		e $Y_1,\ldots, Y_n$ uma amostra aleat\'oria de   $Y\sim G(\mu,\phi_2)$. Aqui,
+%		$X$ e $Y$ s\~ao popula\c{c}\~oes independentes, 
+%		$X \in \mathbb{R}^+$, $Y\in \mathbb{R}^+$, $\mu \in  \mathbb{R}^+$,  $\phi_1 \in \mathbb{R}^+$ e $\phi_2 \in \mathbb{R}^+.$
+%		Determine a densidade conjunta $f_{(\xtill,\ytill)}{(\mu, \phi_1,\phi_2)}$.
+%		\item  Mostre que a estat\'{\i}stica $$T =\Bigg(\sum_{i=1}^n X_i, \sum_{i=1}^n Y_i, \sum_{i=1}^n \log X_i, \sum_{i=1}^n\log Y_i \Bigg)$$ n\~ao \'e completa para a fam\'{\i}lia definida em 3.
+%		\item O que acontece com as análises anteriores se as distribuições gama aqui consideradas são curvas, i.e. quando $\mu=\phi_1=\phi_2$?
+%	\end{enumerate}
+%\end{problema}	
+%
+%\begin{problema}{}{pr-4}
+%	Seja $\hat{\theta}$ um estimador não viesado de um parâmetro escalar $\theta \in \Theta_\theta \equiv \mathbb{R}$, satisfazendo $E_\theta(\hat{\theta}^2) < \infty$ para todo $\theta \in \Theta_\theta$. Dizemos que $\hat{\theta}$ é um estimador de variância mínima uniforme não viesado (UMVU, do inglês \textit{Uniform Minimum Variance Unbiased}) se 
+%	\[
+%	\text{Var}_\theta(\hat{\theta}) \leq \text{Var}_\theta(\tilde{\theta})
+%	\]
+%	para todo $\theta \in \Theta_\theta$ e qualquer outro estimador não viesado $\tilde{\theta}$.  Considere o estimador $\hat{\theta}_\tau = \hat{\theta} + \tau U$, ou outro equivalente. Mostre que uma condição necessária para que $\hat{\theta}$ seja um estimador UMVU é que 
+%	\[
+%	E_\theta(\hat{\theta}U) = 0,
+%	\]
+%	para todo $\theta \in \Theta_\theta$ e para todos os estimadores $U$ com $E_\theta(U) = 0$ e $E_\theta(U^2) < \infty$. Assim, $\hat{\theta}$ deve ser "não correlacionado com todo estimador não viesado de zero".
+%	
+%	Agora, para $n \geq 2$, sejam $X_1, \dots, X_n$ variáveis independentes e identicamente distribuídas com distribuição uniforme $U(\theta, 2\theta)$, para algum $\theta > 0$. 
+%	
+%	\begin{enumerate}
+%		\item Mostre que $\tilde{\theta} = \frac{3}{2} X_1$ é um estimador não viesado de $\theta$.
+%		\item Encontre um estimador não viesado $\hat{\theta}$ que seja função de uma estatística suficiente mínima e que satisfaça 
+%		\[
+%		\text{Var}_\theta(\hat{\theta}) < \text{Var}_\theta(\tilde{\theta}),
+%		\]
+%		para todo $\theta > 0$.
+%		\item Verifique se $\hat{\theta}$ é UMVU.
+%	\end{enumerate}
+%\end{problema}	
+%
+%\begin{problema}{}{pr-5}
+%%Seja \( S \) uma estatística suficiente completa para um parâmetro \( \theta \in \Theta_\theta \), e seja \( C \) uma estatística constante em distribuição, i.e. uma estatística cuja distribuição não depende do parâmetro desconhecido $\theta$ do modelo. Mostre que \( S \) e \( C \) são independentes para cada \( \theta \in \Omega_\theta \). Qual é o significado desse resultado para a inferência estatística sobre \( \theta \)?
+%Seja  $X_1,\ldots
+%,X_n$ uma amostra aleat\'oria de 
+%$$f(x;\theta) = { 1 \over \theta_2}e^{-{(x -\theta_1)\over \theta_2 }}, \,\, \theta_1 \leq x <+\infty,\,\,\,
+%-\infty < \theta_1 < +\infty, \,\, 0 < \theta_2 < +\infty.$$
+%\begin{enumerate}
+%	
+%	\item Prove que esta \'e uma fam\'{\i}lia de loca\c{c}\~ao e escala.
+%	\item Mostre que
+%	$$V = {{X_{(n)} - X_{(1)}}\over{\sqrt{\sum_{i=1}^n(X_i -\overline X)^2}}}$$
+%	\'e ancilar para a fam\'{\i}lia.
+%	\item  Sejam 
+%	$$Z = {X_{(n)} - X_{(1)}} \,\, {\rm e}\,\,\,T = {X_{(n)}}.$$ 
+%	Prove que $Z$ e $T$ s\~ao vari\'aveis aleat\'orias independentes.
+%	Aqui, $$X_{(n)} =\max\{X_1, \ldots,X_n \}   \quad \text{e} \quad X_{(1)} = \min\{X_1, \ldots,X_n \}$$ 
+%\end{enumerate}
+%\end{problema}	
+%%\bibliography{references}
+%
+
+%\end{document}
+%
+%
+%Abaixo está a solução detalhada para cada parte do problema:
+%
+%---
+%
+%### **Problema:**
+%Bactérias são distribuídas aleatoriamente em um fluido com densidade média \(\theta\) por unidade de volume (\(\theta \in H \subseteq [0, \infty)\)). A probabilidade de nenhuma bactéria estar presente em um volume \(v\) é:
+%\[
+%P_\theta(\text{nenhuma bactéria no volume } v) = e^{-\theta v}.
+%\]
+%O objetivo é decidir se há ou não bactérias no fluido, com base em um teste aplicado a uma amostra de volume \(v\). Uma decisão incorreta resulta em perda de \(1\), enquanto uma decisão correta não implica perda.
+%
+%---
+%
+%### **Parte (i): \(H = [0, \infty)\)**
+%
+%#### Regras de decisão não randomizadas:
+%Uma regra de decisão não randomizada \(d\) decide entre:
+%- \(d = 1\): Aceitar que há bactérias (\(\theta > 0\)).
+%- \(d = 0\): Aceitar que não há bactérias (\(\theta = 0\)).
+%
+%A decisão é baseada no resultado do teste aplicado ao volume \(v\):
+%- Se a amostra contiver bactérias, decidimos \(d = 1\).
+%- Se a amostra não contiver bactérias, decidimos \(d = 0\).
+%
+%#### Funções de risco:
+%A função de risco \(R(\theta, d)\) mede a perda esperada ao aplicar a regra \(d\):
+%- Se \(d = 1\), a perda ocorre apenas se \(\theta = 0\), com probabilidade \(e^{-\theta v}\).
+%- Se \(d = 0\), a perda ocorre se \(\theta > 0\), com probabilidade \(1 - e^{-\theta v}\).
+%
+%As funções de risco são:
+%\[
+%R(\theta, d) =
+%\begin{cases}
+%	1 - e^{-\theta v}, & \text{se \(d = 0\)}, \\
+%	e^{-\theta v}, & \text{se \(d = 1\)}.
+%\end{cases}
+%\]
+%
+%#### Regras admissíveis:
+%Uma regra de decisão \(d\) é admissível se não existe outra regra com menor risco para todos os valores de \(\theta\). Ambas as regras \(d = 0\) e \(d = 1\) são admissíveis neste caso, pois minimizam o risco para intervalos complementares de \(\theta\).
+%
+%---
+%
+%### **Parte (ii): \(H = \{0, 1\}\)**
+%
+%#### Conjunto de risco \(S\):
+%Se \(H = \{0, 1\}\), o conjunto de risco é:
+%\[
+%S = \{(R(0, d), R(1, d)) : d \text{ é uma regra randomizada}\}.
+%\]
+%
+%Uma regra randomizada pode ser definida como \(d(X) = \alpha\), onde \(0 \leq \alpha \leq 1\) é a probabilidade de decidir \(d = 1\).
+%
+%Os riscos são:
+%\[
+%R(0, d) = \alpha,
+%\]
+%\[
+%R(1, d) = 1 - \alpha e^{-v}.
+%\]
+%
+%O conjunto de risco \(S\) contém todos os pares \((\alpha, 1 - \alpha e^{-v})\) para \(0 \leq \alpha \leq 1\).
+%
+%#### Regra minimax:
+%A regra minimax minimiza a máxima perda:
+%\[
+%\min_\alpha \max \{R(0, d), R(1, d)\}.
+%\]
+%
+%Resolva:
+%\[
+%\alpha = \frac{1}{1 + e^{-v}}.
+%\]
+%
+%Assim, a regra minimax é \(d(X) = \frac{1}{1 + e^{-v}}\).
+%
+%---
+%
+%### **Parte (iii): \(H = [0, \infty)\), com prior \(\pi\):**
+%
+%#### Priori:
+%\[
+%\pi(\{0\}) = \frac{1}{3}, \quad \pi(A) = \frac{2}{3} \int_A e^{-\theta} \, d\theta, \quad A \subseteq (0, \infty).
+%\]
+%
+%#### Regras de decisão de Bayes:
+%A regra de Bayes minimiza o risco esperado sob a priori:
+%\[
+%R_\pi(d) = \frac{1}{3} R(0, d) + \frac{2}{3} \int_0^\infty R(\theta, d) e^{-\theta} \, d\theta.
+%\]
+%
+%Para \(d = 1\):
+%\[
+%R_\pi(1) = \frac{1}{3} e^{-v}.
+%\]
+%
+%Para \(d = 0\):
+%\[
+%R_\pi(0) = \frac{2}{3} \int_0^\infty (1 - e^{-\theta v}) e^{-\theta} \, d\theta.
+%\]
+%
+%Calcule a integral:
+%\[
+%\int_0^\infty e^{-\theta v} e^{-\theta} \, d\theta = \int_0^\infty e^{-\theta (v+1)} \, d\theta = \frac{1}{v+1}.
+%\]
+%
+%Substitua para obter:
+%\[
+%R_\pi(0) = \frac{2}{3} \left(1 - \frac{1}{v+1}\right) = \frac{2}{3} \frac{v}{v+1}.
+%\]
+%
+%Compare os riscos e escolha a melhor regra.
+%
+%#### Risco de Bayes:
+%Substitua a regra de Bayes na função de risco para obter o risco correspondente.
+%
+%---
+%
+%### **Parte (iv): Custo \(v/24\):**
+%
+%O custo total é:
+%\[
+%\text{Custo total} = R_\pi(d) + \frac{v}{24}.
+%\]
+%
+%Otimize \(v\) resolvendo:
+%\[
+%\frac{\partial}{\partial v} \left(R_\pi(d) + \frac{v}{24}\right) = 0.
+%\]
+%
+%Repita o cálculo para o custo por unidade de volume \(1/6\).
+%
+%---
+%
+%Se precisar de ajuda com os cálculos detalhados ou dúvidas específicas, avise! 
+%
+%
+%### **Parte I - Encontrar as Regras Admissíveis**
+%
+%#### Problema:
+%Estamos interessados em determinar todas as regras de decisão não randomizadas e avaliar quais delas são admissíveis.
+%
+%1. **Regras Não Randomizadas:**
+%As regras de decisão não randomizadas para este problema são baseadas nos resultados do teste realizado sobre o volume \(v\). Essas regras \(d\) podem ser definidas como:
+%\[
+%d = 1 \quad (\text{decidir que há bactérias/células cancerígenas}),
+%\]
+%ou
+%\[
+%d = 0 \quad (\text{decidir que não há bactérias/células cancerígenas}).
+%\]
+%
+%2. **Funções de Risco:**
+%A função de risco \(R(\theta, d)\) mede a perda esperada para cada decisão \(d\):
+%- Para \(d = 0\) (decidir que não há bactérias):
+%\[
+%R(\theta, 0) = \begin{cases}
+%	0, & \text{se } \theta = 0, \\
+%	1 - e^{-\theta v}, & \text{se } \theta > 0.
+%\end{cases}
+%\]
+%- Para \(d = 1\) (decidir que há bactérias):
+%\[
+%R(\theta, 1) = \begin{cases}
+%	1, & \text{se } \theta = 0, \\
+%	e^{-\theta v}, & \text{se } \theta > 0.
+%\end{cases}
+%\]
+%
+%3. **Comparando os Riscos:**
+%As regras admissíveis são aquelas que minimizam o risco \(R(\theta, d)\) para algum valor de \(\theta\) sem serem estritamente dominadas por outra regra.
+%
+%- Quando \(\theta = 0\), a decisão \(d = 0\) (nenhuma célula presente) tem risco \(R(0, 0) = 0\), enquanto \(R(0, 1) = 1\). Assim, \(d = 0\) é preferível neste caso.
+%- Quando \(\theta > 0\), a decisão \(d = 1\) (células presentes) reduz o risco para \(R(\theta, 1) = e^{-\theta v}\), enquanto \(R(\theta, 0) = 1 - e^{-\theta v}\). Assim, \(d = 1\) é preferível para valores maiores de \(\theta\).
+%
+%4. **Conclusão:**
+%- \(d = 0\) é admissível, pois minimiza o risco para \(\theta = 0\).
+%- \(d = 1\) é admissível, pois minimiza o risco para \(\theta > 0\).
+%- Nenhuma das regras é estritamente dominante em todo o domínio de \(\theta\).
+%
+%---
+%
+%### **Parte IV - Determinar o Volume Ótimo para Testar**
+%
+%#### Problema:
+%Queremos encontrar o volume \(v\) que minimiza o custo total, que inclui o risco esperado e o custo do teste. 
+%
+%1. **Custo Total:**
+%O custo total é dado por:
+%\[
+%\text{Custo Total}(v) = R_\pi(d, v) + \frac{v}{24},
+%\]
+%onde \(R_\pi(d, v)\) é o risco esperado sob a prior \(\pi\).
+%
+%#### Calculando o Risco Esperado \(R_\pi(d, v)\):
+%De acordo com a prior fornecida:
+%\[
+%\pi(\{0\}) = \frac{1}{3}, \quad \pi(A) = \frac{2}{3} \int_A e^{-\theta} \, d\theta.
+%\]
+%
+%Para a regra \(d = 1\):
+%\[
+%R_\pi(1, v) = \frac{1}{3} R(0, 1) + \frac{2}{3} \int_0^\infty R(\theta, 1) e^{-\theta} \, d\theta.
+%\]
+%Substituímos:
+%\[
+%R(0, 1) = 1, \quad R(\theta, 1) = e^{-\theta v}.
+%\]
+%
+%\[
+%R_\pi(1, v) = \frac{1}{3} \cdot 1 + \frac{2}{3} \int_0^\infty e^{-\theta v} e^{-\theta} \, d\theta.
+%\]
+%
+%A integral é:
+%\[
+%\int_0^\infty e^{-\theta (v+1)} \, d\theta = \frac{1}{v+1}.
+%\]
+%
+%Assim:
+%\[
+%R_\pi(1, v) = \frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1}.
+%\]
+%
+%Para a regra \(d = 0\), calcule:
+%\[
+%R_\pi(0, v) = \frac{1}{3} R(0, 0) + \frac{2}{3} \int_0^\infty R(\theta, 0) e^{-\theta} \, d\theta.
+%\]
+%
+%Similarmente, resolvemos e determinamos \(R_\pi(0, v)\).
+%
+%#### Minimização:
+%Agora, o custo total é:
+%\[
+%\text{Custo Total}(v) = \frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1} + \frac{v}{24}.
+%\]
+%
+%Derivamos em relação a \(v\):
+%\[
+%\frac{\partial}{\partial v} \left(\frac{1}{3} + \frac{2}{3} \cdot \frac{1}{v+1} + \frac{v}{24}\right) = 0.
+%\]
+%
+%A derivada é:
+%\[
+%-\frac{2}{3} \cdot \frac{1}{(v+1)^2} + \frac{1}{24} = 0.
+%\]
+%
+%Multiplicamos por \(24(v+1)^2\) para simplificar:
+%\[
+%-16 + (v+1)^2 = 0.
+%\]
+%
+%Resolvemos:
+%\[
+%(v+1)^2 = 16 \quad \Rightarrow \quad v+1 = 4 \quad \Rightarrow \quad v = 3.
+%\]
+%
+%#### Resposta para Custo \(v/24\):
+%O volume ótimo para testar é \(v = 3\).
+%
+%#### Para o Custo \(1/6\) por Unidade de Volume:
+%Se o custo for \(v/6\), o termo \(\frac{v}{24}\) muda para \(\frac{v}{6}\). Repita o processo para obter o novo volume ótimo.
+%
+%---
+%
+%Se precisar de mais explicações ou detalhes, estarei à disposição! 😊

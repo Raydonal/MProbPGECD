@@ -1,0 +1,420 @@
+---
+title: "Resolução Detalhada da Prova de Probabilidade"
+author: "Análise Estatística e Matemática"
+date: "`r format(Sys.time(), '%d de %B de %Y')`"
+output: 
+  pdf_document:
+    toc: true
+    number_sections: true
+    latex_engine: xelatex
+header-includes:
+  - \usepackage[brazil]{babel}
+  - \usepackage{amsmath}
+  - \usepackage{amssymb}
+  - \usepackage{amsthm}
+  - \usepackage{geometry}
+  - \usepackage{booktabs}
+  - \usepackage{diagbox}
+geometry: margin=1in
+---
+
+
+
+\begin{problema}{}{pr-1}
+	Seja $\Omega = \{a, b, c\}$  um espaço amostral, ${\cal F}={\cal P}(\Omega)$ o conjunto de partes de $\Omega$ como sua $\sigma$-álgebra e $P(\{\omega\})=\frac{1}{3}$ para todo $\omega \in \Omega.$ Consideremos as variáveis aleatórias $X$ e $Y$ definidas em $(\Omega, {\cal F}, P)$ como
+	$$
+	X(\omega) =
+	\begin{cases}
+		1, &  \text{se}  \quad  \omega=a, \ \text{ou} \ \omega = b,  \\
+		0, &  \text{se}  \quad  \omega=c
+	\end{cases} 
+	\qquad \text{e} \qquad 
+	Y(\omega) =
+	\begin{cases}
+		\ \pi, &  \text{se}  \quad  \omega=a, \\
+		\ \frac{1}{2}, &  \text{se}  \quad  \omega=b, \\
+		-1, &  \text{se}  \quad  \omega=c
+	\end{cases} 
+	$$
+	Obtenha as distribuições condicionais acumuladas $F(X|Y)$ e $F(Y|X)$.
+\end{problema}
+
+\subsection*{Resolução do Problema 1}
+
+Para obter as funções de distribuição acumulada (FDA) condicionais, $F(x|y) = P(X \le x | Y=y)$ e $F(y|x) = P(Y \le y | X=x)$, o primeiro passo é caracterizar a distribuição de probabilidade conjunta do par de variáveis aleatórias $(X, Y)$.
+
+\subsubsection*{1. Determinação da Função de Probabilidade Conjunta}
+
+A função de probabilidade conjunta, $p(x, y) = P(X=x, Y=y)$, é determinada avaliando os pares $(X(\omega), Y(\omega))$ para cada $\omega \in \Omega$ e sua respectiva probabilidade. Dado que $P(\{a\}) = P(\{b\}) = P(\{c\}) = 1/3$:
+
+\begin{itemize}
+    \item Para $\omega = a$: Temos $X(a) = 1$ e $Y(a) = \pi$. A probabilidade deste evento é $P(\{a\}) = 1/3$. Portanto, $p(1, \pi) = P(X=1, Y=\pi) = 1/3$.
+    
+    \item Para $\omega = b$: Temos $X(b) = 1$ e $Y(b) = 1/2$. A probabilidade deste evento é $P(\{b\}) = 1/3$. Portanto, $p(1, 1/2) = P(X=1, Y=1/2) = 1/3$.
+    
+    \item Para $\omega = c$: Temos $X(c) = 0$ e $Y(c) = -1$. A probabilidade deste evento é $P(\{c\}) = 1/3$. Portanto, $p(0, -1) = P(X=0, Y=-1) = 1/3$.
+\end{itemize}
+
+Para todos os outros pares $(x,y)$, a probabilidade conjunta é zero. A distribuição conjunta pode ser resumida na seguinte tabela, que também inclui as distribuições marginais (soma das linhas e colunas).
+
+\begin{center}
+	\begin{tabular}{c|ccc|c}
+		\toprule
+		\diagbox[height=1.2cm]{$X$}{$Y$} & -1 & 1/2 & $\pi$ & $p_X(x)$ \\
+		\midrule
+		0 & 1/3 & 0 & 0 & 1/3 \\
+		1 & 0 & 1/3 & 1/3 & 2/3 \\
+		\midrule
+		$p_Y(y)$ & 1/3 & 1/3 & 1/3 & 1 \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\subsubsection*{2. Determinação das Funções de Probabilidade Condicionais}
+
+A função de probabilidade condicional é dada por $p(x|y) = \frac{p(x,y)}{p_Y(y)}$ e $p(y|x) = \frac{p(x,y)}{p_X(x)}$.
+
+\paragraph{Condicional de $X$ dado $Y=y$:}
+\begin{itemize}
+    \item Se $y=-1$: $p(x|-1) = \frac{p(x,-1)}{1/3}$. Assim, $p(0|-1)=1$ e $p(1|-1)=0$.
+    \item Se $y=1/2$: $p(x|1/2) = \frac{p(x,1/2)}{1/3}$. Assim, $p(0|1/2)=0$ e $p(1|1/2)=1$.
+    \item Se $y=\pi$: $p(x|\pi) = \frac{p(x,\pi)}{1/3}$. Assim, $p(0|\pi)=0$ e $p(1|\pi)=1$.
+\end{itemize}
+
+\paragraph{Condicional de $Y$ dado $X=x$:}
+\begin{itemize}
+    \item Se $x=0$: $p(y|0) = \frac{p(0,y)}{1/3}$. Assim, $p(-1|0)=1$ e $p(y|0)=0$ para $y \neq -1$.
+    \item Se $x=1$: $p(y|1) = \frac{p(1,y)}{2/3}$. Assim, $p(1/2|1)=1/2$ e $p(\pi|1)=1/2$.
+\end{itemize}
+
+\subsubsection*{3. Obtenção das Funções de Distribuição Acumulada Condicionais}
+
+\paragraph{FDA Condicional $F(x|y) = P(X \le x | Y=y)$:}
+A partir das probabilidades condicionais, construímos a FDA para cada valor de $y$.
+\begin{itemize}
+    \item Para $y=-1$: A massa de probabilidade está toda em $X=0$.
+    $$ F(x|-1) = 
+    \begin{cases}
+        0, & \text{se } x < 0 \\
+        1, & \text{se } x \ge 0
+    \end{cases}
+    $$
+    \item Para $y=1/2$: A massa de probabilidade está toda em $X=1$.
+    $$ F(x|1/2) = 
+    \begin{cases}
+        0, & \text{se } x < 1 \\
+        1, & \text{se } x \ge 1
+    \end{cases}
+    $$
+    \item Para $y=\pi$: A massa de probabilidade está toda em $X=1$.
+    $$ F(x|\pi) = 
+    \begin{cases}
+        0, & \text{se } x < 1 \\
+        1, & \text{se } x \ge 1
+    \end{cases}
+    $$
+\end{itemize}
+
+\paragraph{FDA Condicional $F(y|x) = P(Y \le y | X=x)$:}
+Analogamente, para cada valor de $x$.
+\begin{itemize}
+    \item Para $x=0$: A massa de probabilidade está toda em $Y=-1$.
+    $$ F(y|0) = 
+    \begin{cases}
+        0, & \text{se } y < -1 \\
+        1, & \text{se } y \ge -1
+    \end{cases}
+    $$
+    \item Para $x=1$: A massa de probabilidade está distribuída entre $Y=1/2$ e $Y=\pi$.
+    $$ F(y|1) = 
+    \begin{cases}
+        0, & \text{se } y < 1/2 \\
+        P(Y \le y | X=1) = p(1/2|1) = 1/2, & \text{se } 1/2 \le y < \pi \\
+        P(Y \le y | X=1) = p(1/2|1) + p(\pi|1) = 1, & \text{se } y \ge \pi
+    \end{cases}
+    $$
+\end{itemize}
+
+\newpage
+
+\begin{problema}{}{pr-3}
+Suponha que a distribuição conjunta das variáveis aleatórias discretas $X$ e $Y$ está dada por
+\begin{center}
+	\begin{tabular}{|c|c|c|c|c|} \hline
+		$X \diagdown Y$ & 1 & 2 & 3 & 4 \\ \hline
+		0 & 0,1 & 0 & 0 & 0 \\ \hline
+		-1 & 0,1 & 0,1 & 0 & 0 \\ \hline
+		-2 & 0,1 & 0,1 & 0,1 & 0 \\ \hline
+		-3 & 0,1 & 0,1 & 0,1 & 0,1 \\ \hline
+	\end{tabular}
+\end{center}
+Calcule:
+\begin{enumerate}
+	\item $ P(X \geq -1, Y \geq 1) $
+	\item As distribuições marginais de $X$ e $Y$ e determine se $X$ e $Y$ são independentes.
+	\item Encontre a função de distribuição condicional de $X$ dado $Y.$
+\end{enumerate}
+\end{problema}
+
+\subsection*{Resolução do Problema 2}
+
+Seja $p(x,y)$ a função de probabilidade conjunta dada na tabela.
+
+\subsubsection*{Item (a): Cálculo de $ P(X \geq -1, Y \geq 1) $}
+O evento $\{X \ge -1, Y \ge 1\}$ compreende os pares $(x,y)$ tais que $x \in \{0, -1\}$ e $y \in \{1, 2, 3, 4\}$. A probabilidade é a soma das probabilidades conjuntas para esses pares.
+\begin{align*}
+    P(X \ge -1, Y \ge 1) &= \sum_{x \in \{0,-1\}} \sum_{y=1}^{4} p(x,y) \\
+    &= p(0,1) + p(0,2) + p(0,3) + p(0,4) \\
+    &\quad + p(-1,1) + p(-1,2) + p(-1,3) + p(-1,4) \\
+    &= (0,1 + 0 + 0 + 0) + (0,1 + 0,1 + 0 + 0) \\
+    &= 0,1 + 0,2 = 0,3
+\end{align*}
+Portanto, $\mathbf{P(X \geq -1, Y \geq 1) = 0,3}$.
+
+\subsubsection*{Item (b): Distribuições Marginais e Independência}
+As distribuições marginais, $p_X(x)$ e $p_Y(y)$, são obtidas somando as probabilidades ao longo das linhas e colunas da tabela conjunta, respectivamente.
+
+\begin{center}
+	\begin{tabular}{c|cccc|c}
+		\toprule
+		\diagbox[height=1.2cm]{$X$}{$Y$} & 1 & 2 & 3 & 4 & $p_X(x)$ \\
+		\midrule
+		0 & 0,1 & 0 & 0 & 0 & 0,1 \\
+		-1 & 0,1 & 0,1 & 0 & 0 & 0,2 \\
+		-2 & 0,1 & 0,1 & 0,1 & 0 & 0,3 \\
+		-3 & 0,1 & 0,1 & 0,1 & 0,1 & 0,4 \\
+		\midrule
+		$p_Y(y)$ & 0,4 & 0,3 & 0,2 & 0,1 & 1,0 \\
+		\bottomrule
+	\end{tabular}
+\end{center}
+
+\paragraph{Distribuição Marginal de X:}
+$p_X(0) = 0,1$; \quad $p_X(-1) = 0,2$; \quad $p_X(-2) = 0,3$; \quad $p_X(-3) = 0,4$.
+
+\paragraph{Distribuição Marginal de Y:}
+$p_Y(1) = 0,4$; \quad $p_Y(2) = 0,3$; \quad $p_Y(3) = 0,2$; \quad $p_Y(4) = 0,1$.
+
+\paragraph{Verificação de Independência:}
+Duas variáveis aleatórias $X$ e $Y$ são independentes se, e somente se, $p(x,y) = p_X(x)p_Y(y)$ para \textbf{todos} os pares $(x,y)$. É suficiente encontrar um contra-exemplo.
+Consideremos o par $(x,y) = (0,1)$:
+\begin{itemize}
+    \item Da tabela, $p(0,1) = 0,1$.
+    \item O produto das marginais é $p_X(0) \cdot p_Y(1) = (0,1) \times (0,4) = 0,04$.
+\end{itemize}
+Como $p(0,1) = 0,1 \neq 0,04 = p_X(0)p_Y(1)$, concluímos que as variáveis aleatórias \textbf{$X$ e $Y$ não são independentes}.
+
+\subsubsection*{Item (c): Função de Distribuição Condicional de X dado Y}
+A FDA condicional $F(x|y) = P(X \le x | Y=y)$ é construída a partir da PMF condicional $p(x|y) = p(x,y)/p_Y(y)$.
+
+\paragraph{Caso 1: Y = 1 ($p_Y(1)=0,4$)}
+$p(0|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-1|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-2|1) = \frac{0,1}{0,4} = \frac{1}{4}$; $p(-3|1) = \frac{0,1}{0,4} = \frac{1}{4}$.
+$F(x|1) = \begin{cases}
+0, & x < -3 \\ 1/4, & -3 \le x < -2 \\ 1/4+1/4 = 1/2, & -2 \le x < -1 \\ 1/2+1/4 = 3/4, & -1 \le x < 0 \\ 1, & x \ge 0
+\end{cases}$
+
+\paragraph{Caso 2: Y = 2 ($p_Y(2)=0,3$)}
+$p(-1|2)=\frac{0,1}{0,3}=\frac{1}{3}$; $p(-2|2)=\frac{0,1}{0,3}=\frac{1}{3}$; $p(-3|2)=\frac{0,1}{0,3}=\frac{1}{3}$.
+$F(x|2) = \begin{cases}
+0, & x < -3 \\ 1/3, & -3 \le x < -2 \\ 1/3+1/3=2/3, & -2 \le x < -1 \\ 1, & x \ge -1
+\end{cases}$
+
+\paragraph{Caso 3: Y = 3 ($p_Y(3)=0,2$)}
+$p(-2|3)=\frac{0,1}{0,2}=\frac{1}{2}$; $p(-3|3)=\frac{0,1}{0,2}=\frac{1}{2}$.
+$F(x|3) = \begin{cases}
+0, & x < -3 \\ 1/2, & -3 \le x < -2 \\ 1, & x \ge -2
+\end{cases}$
+
+\paragraph{Caso 4: Y = 4 ($p_Y(4)=0,1$)}
+$p(-3|4)=\frac{0,1}{0,1}=1$.
+$F(x|4) = \begin{cases}
+0, & x < -3 \\
+1, & x \ge -3
+\end{cases}$
+
+\newpage
+
+\begin{problema}{}{pr-2}
+	Considere um par de variáveis aleatórias discretas $(X, Y)$ cuja função de distribuição de probabilidade conjunta é $F$, i.e., $F(x,y)=P(X\leq x, Y\leq y),$ $x,y \in \mathbb{R}.$ Sejam $F_X$ e $F_Y$ as funções de distribuição das variáveis aleatórias $X$ e $Y,$ respectivamente (distribuições marginais). Mostre que: $$P(X>x, Y>y)= 1-F_X(x)-F_Y(y)+F(x,y).$$ 	
+\end{problema}
+
+\subsection*{Resolução do Problema 3}
+
+Desejamos provar a identidade $P(X>x, Y>y)= 1-F_X(x)-F_Y(y)+F(x,y)$. Esta identidade é frequentemente chamada de função de sobrevivência conjunta. A prova se baseia na teoria de conjuntos e nos axiomas de probabilidade de Kolmogorov.
+
+Sejam $A$ e $B$ os seguintes eventos:
+\begin{itemize}
+    \item $A = \{ \omega \in \Omega : X(\omega) > x \}$
+    \item $B = \{ \omega \in \Omega : Y(\omega) > y \}$
+\end{itemize}
+O nosso objetivo é calcular $P(A \cap B)$.
+
+Consideremos os eventos complementares, $A^c$ e $B^c$:
+\begin{itemize}
+    \item $A^c = \{ \omega \in \Omega : X(\omega) \le x \}$. Por definição da FDA marginal, $P(A^c) = P(X \le x) = F_X(x)$.
+    \item $B^c = \{ \omega \in \Omega : Y(\omega) \le y \}$. Por definição da FDA marginal, $P(B^c) = P(Y \le y) = F_Y(y)$.
+\end{itemize}
+
+Pelo axioma da probabilidade do complemento, a probabilidade de um evento $E$ é $P(E) = 1 - P(E^c)$. Aplicando isso ao evento $A \cap B$:
+$$ P(A \cap B) = 1 - P((A \cap B)^c) $$
+Utilizando as Leis de De Morgan para conjuntos, sabemos que $(A \cap B)^c = A^c \cup B^c$. Substituindo na equação:
+$$ P(A \cap B) = 1 - P(A^c \cup B^c) $$
+Agora, aplicamos o Princípio da Inclusão-Exclusão para a probabilidade da união de dois eventos:
+$$ P(A^c \cup B^c) = P(A^c) + P(B^c) - P(A^c \cap B^c) $$
+Vamos identificar cada termo desta expressão:
+\begin{itemize}
+    \item $P(A^c) = F_X(x)$.
+    \item $P(B^c) = F_Y(y)$.
+    \item $A^c \cap B^c = \{X \le x \text{ e } Y \le y\}$. A probabilidade deste evento é, por definição da FDA conjunta, $P(A^c \cap B^c) = P(X \le x, Y \le y) = F(x,y)$.
+\end{itemize}
+Substituindo estes termos de volta na fórmula da união:
+$$ P(A^c \cup B^c) = F_X(x) + F_Y(y) - F(x,y) $$
+Finalmente, inserimos este resultado na expressão para $P(A \cap B)$:
+$$ P(A \cap B) = 1 - \left( F_X(x) + F_Y(y) - F(x,y) \right) $$
+Distribuindo o sinal negativo, obtemos a identidade desejada:
+$$ P(X>x, Y>y) = 1 - F_X(x) - F_Y(y) + F(x,y) $$
+o que completa a demonstração. É importante notar que esta prova é geral e se aplica tanto a variáveis aleatórias discretas quanto contínuas.
+
+\newpage
+\begin{problema}{}{pr5}
+Sejam $X$ e $Y$ variáveis aleatórias com função de densidade de probabilidade conjunta dada por 
+$$ f(x,y) = 
+\begin{cases}
+	\frac{1}{4}, & \ \text{se} \  \  -1<x<1,  -1<y<1, \\
+	0, &  \text{caso contrário.}
+\end{cases}
+$$
+
+\begin{enumerate}
+	\item  Obtenha $P(X+Y> 0)$ e $P(X>0).$
+	\item Sejam $Z=X+Y$ e $W=X-Y$ funções lineares das varáveis aleatórias $X$ e $Y.$ Usando o método do Jacobiano obtenha a função de densidade conjunta de $Z$ e $W.$
+	\item Obtenha a função de densidade (marginal) de $W$.
+	\item  Obtenha a função de densidade condicional de $Z$ dado $W,$ i.e., $f_{Z|W}(z|w).$
+\end{enumerate}
+\end{problema}
+
+\subsection*{Resolução do Problema 4}
+A função de densidade $f(x,y)$ descreve uma distribuição uniforme sobre o quadrado $S = [-1,1] \times [-1,1]$. A área desta região de suporte é $A_S = 2 \times 2 = 4$.
+
+\subsubsection*{Item (a): Cálculo de Probabilidades}
+Como a distribuição é uniforme, a probabilidade de um evento $A \subseteq S$ é dada por $P(A) = \text{Área}(A) / \text{Área}(S)$.
+\paragraph{Cálculo de $P(X+Y>0)$:}
+O evento corresponde à região $R_1 = \{ (x,y) \in S : x+y > 0 \}$, ou $y > -x$. A linha $y=-x$ divide o quadrado $S$ em duas metades de área igual. A região $y > -x$ é a metade superior do quadrado. Portanto, a Área($R_1$) = $\frac{1}{2} \text{Área}(S) = \frac{1}{2} \times 4 = 2$.
+A probabilidade é: $ P(X+Y>0) = \frac{\text{Área}(R_1)}{\text{Área}(S)} = \frac{2}{4} = \frac{1}{2}$.
+
+\paragraph{Cálculo de $P(X>0)$:}
+O evento corresponde à região $R_2 = \{ (x,y) \in S : x > 0 \}$. Esta região é o retângulo $[0,1] \times [-1,1]$, que é a metade direita do quadrado $S$. A área é $\text{Área}(R_2) = (1-0) \times (1-(-1)) = 1 \times 2 = 2$.
+A probabilidade é: $ P(X>0) = \frac{\text{Área}(R_2)}{\text{Área}(S)} = \frac{2}{4} = \frac{1}{2}$.
+
+\subsubsection*{Item (b): Método do Jacobiano}
+\paragraph{1. Transformação Inversa:}
+Dada a transformação $Z=X+Y$ e $W=X-Y$, resolvemos para $X$ e $Y$:
+\begin{itemize}
+    \item $Z+W = (X+Y)+(X-Y) = 2X \implies X = \frac{Z+W}{2}$
+    \item $Z-W = (X+Y)-(X-Y) = 2Y \implies Y = \frac{Z-W}{2}$
+\end{itemize}
+
+\paragraph{2. Jacobiano da Transformação Inversa:}
+O Jacobiano $J$ é o determinante da matriz de derivadas parciais de $(x,y)$ em relação a $(z,w)$:
+$$ J = \det \begin{pmatrix} \frac{\partial x}{\partial z} & \frac{\partial x}{\partial w} \\ \frac{\partial y}{\partial z} & \frac{\partial y}{\partial w} \end{pmatrix} = \det \begin{pmatrix} 1/2 & 1/2 \\ 1/2 & -1/2 \end{pmatrix} = \left(\frac{1}{2}\right)\left(-\frac{1}{2}\right) - \left(\frac{1}{2}\right)\left(\frac{1}{2}\right) = -\frac{1}{4} - \frac{1}{4} = -\frac{1}{2} $$
+O valor absoluto do Jacobiano é $|J| = 1/2$.
+
+\paragraph{3. Nova Região de Suporte:}
+O suporte original é $-1<x<1$ e $-1<y<1$. Substituímos $X$ e $Y$:
+\begin{itemize}
+    \item $-1 < \frac{z+w}{2} < 1 \implies -2 < z+w < 2$
+    \item $-1 < \frac{z-w}{2} < 1 \implies -2 < z-w < 2$
+\end{itemize}
+Esta região $S'$ no plano $(z,w)$ é um quadrado rotacionado com vértices em $(2,0), (0,2), (-2,0), (0,-2)$.
+
+\paragraph{4. Densidade Conjunta de $(Z, W)$:}
+A densidade é $f_{Z,W}(z,w) = f_{X,Y}(x(z,w), y(z,w)) \cdot |J|$.
+$$ f_{Z,W}(z,w) = \frac{1}{4} \cdot \frac{1}{2} = \frac{1}{8} $$
+Assim, a FDP conjunta de $(Z,W)$ é:
+$$ f_{Z,W}(z,w) = 
+\begin{cases}
+	\frac{1}{8}, & \text{se } (z,w) \in S' \\
+	0, &  \text{caso contrário.}
+\end{cases}
+$$
+
+\subsubsection*{Item (c): Densidade Marginal de $W$}
+Para obter $f_W(w)$, integramos $f_{Z,W}(z,w)$ sobre $z$. Para um $w \in (-2,2)$ fixo, os limites de $z$ são dados por $-2 < z+w < 2 \implies -2-w < z < 2-w$ e $-2 < z-w < 2 \implies w-2 < z < w+2$. Combinando: $\max(-2-w, w-2) < z < \min(2-w, w+2)$.
+Isto simplifica para $-2+|w| < z < 2-|w|$.
+\begin{align*}
+    f_W(w) = \int_{-\infty}^{\infty} f_{Z,W}(z,w) \,dz &= \int_{-2+|w|}^{2-|w|} \frac{1}{8} \,dz \\
+    &= \frac{1}{8} [z]_{-2+|w|}^{2-|w|} = \frac{1}{8} \left( (2-|w|) - (-2+|w|) \right) \\
+    &= \frac{1}{8} (4 - 2|w|) = \frac{2-|w|}{4}
+\end{align*}
+A densidade marginal de $W$ (uma distribuição triangular) é:
+$$ f_W(w) = 
+\begin{cases}
+	\frac{2-|w|}{4}, & \text{se } -2 < w < 2 \\
+	0, &  \text{caso contrário.}
+\end{cases}
+$$
+
+\subsubsection*{Item (d): Densidade Condicional $f_{Z|W}(z|w)$}
+A densidade condicional é $f_{Z|W}(z|w) = \frac{f_{Z,W}(z,w)}{f_W(w)}$, para $f_W(w)>0$.
+$$
+f_{Z|W}(z|w) = \frac{1/8}{(2-|w|)/4} = \frac{4}{8(2-|w|)} = \frac{1}{2(2-|w|)}
+$$
+O suporte de $z$ dado $w$ é $-2+|w| < z < 2-|w|$.
+$$
+f_{Z|W}(z|w) = 
+\begin{cases}
+	\frac{1}{2(2-|w|)}, & \text{para } -2+|w| < z < 2-|w| \text{ e } w \in (-2,2) \\
+	0, &  \text{caso contrário.}
+\end{cases}
+$$
+Isto indica que, dado $W=w$, $Z$ segue uma distribuição uniforme no intervalo $(-2+|w|, 2-|w|)$.
+
+\newpage
+\begin{problema}{}{pr-4}
+	Considere  a {\it convolução} $f_X * f_Y$ entre as funções de densidade das variáveis aleatórias  $X$ e $Y,$ i.e., a função de densidade da variável aleatória $Z=X+Y.$ Mostre que o operador de convolução $ ( * )$ é: 
+	\begin{enumerate}
+		\item comutativo: $f_X * f_Y = f_Y * f_X$
+		\item distributivo: $f_Z*(f_X+f_Y ) = f_Z*f_X+f_Z*f_Y$
+		\item  associativo: $(f_Z * f_X) * f_Y = f_Z *(f_X * f_Y )$
+	\end{enumerate}
+\end{problema}
+
+\subsection*{Resolução do Problema 5}
+A convolução de duas funções integráveis $g$ e $h$ é definida como $(g * h)(t) = \int_{-\infty}^{\infty} g(x) h(t-x) \,dx$. Se $X$ e $Y$ são V.A.s independentes com FDPs $f_X$ e $f_Y$, a FDP da soma $S=X+Y$ é $f_S = f_X * f_Y$.
+
+\subsubsection*{Item (a): Comutatividade}
+Desejamos provar que $(f_X * f_Y)(t) = (f_Y * f_X)(t)$.
+$$ (f_X * f_Y)(t) = \int_{-\infty}^{\infty} f_X(x) f_Y(t-x) \,dx $$
+Realizamos a mudança de variável $u = t-x$. Assim, $x = t-u$ e $dx = -du$. Os limites de integração se invertem: quando $x \to \infty$, $u \to -\infty$ e quando $x \to -\infty$, $u \to \infty$.
+\begin{align*}
+    (f_X * f_Y)(t) &= \int_{\infty}^{-\infty} f_X(t-u) f_Y(u) (-du) \\
+    &= \int_{-\infty}^{\infty} f_Y(u) f_X(t-u) \,du \quad (\text{invertendo os limites e o sinal}) \\
+    &= (f_Y * f_X)(t)
+\end{align*}
+Portanto, o operador de convolução é comutativo.
+
+\subsubsection*{Item (b): Distributividade}
+Desejamos provar que $f_Z * (f_X + f_Y) = (f_Z * f_X) + (f_Z * f_Y)$.
+\begin{align*}
+    (f_Z * (f_X+f_Y))(t) &= \int_{-\infty}^{\infty} f_Z(x) (f_X+f_Y)(t-x) \,dx \\
+    &= \int_{-\infty}^{\infty} f_Z(x) [f_X(t-x) + f_Y(t-x)] \,dx \quad (\text{soma de funções}) \\
+    &= \int_{-\infty}^{\infty} [f_Z(x)f_X(t-x) + f_Z(x)f_Y(t-x)] \,dx \quad (\text{distributividade do produto}) \\
+    &= \int_{-\infty}^{\infty} f_Z(x)f_X(t-x) \,dx + \int_{-\infty}^{\infty} f_Z(x)f_Y(t-x) \,dx \quad (\text{linearidade da integral}) \\
+    &= (f_Z * f_X)(t) + (f_Z * f_Y)(t)
+\end{align*}
+Portanto, o operador é distributivo sobre a adição.
+
+\subsubsection*{Item (c): Associatividade}
+Desejamos provar que $((f_Z * f_X) * f_Y)(t) = (f_Z * (f_X * f_Y))(t)$.
+Começamos pelo lado esquerdo. Seja $g = f_Z * f_X$, onde $g(y) = \int_{-\infty}^{\infty} f_Z(x) f_X(y-x) \,dx$.
+\begin{align*}
+    ((f_Z * f_X) * f_Y)(t) &= (g * f_Y)(t) = \int_{-\infty}^{\infty} g(y) f_Y(t-y) \,dy \\
+    &= \int_{-\infty}^{\infty} \left( \int_{-\infty}^{\infty} f_Z(x) f_X(y-x) \,dx \right) f_Y(t-y) \,dy
+\end{align*}
+Pelo Teorema de Fubini-Tonelli, podemos trocar a ordem de integração:
+$$ = \int_{-\infty}^{\infty} f_Z(x) \left( \int_{-\infty}^{\infty} f_X(y-x) f_Y(t-y) \,dy \right) \,dx $$
+Analisamos a integral interna. Façamos a substituição $u = y-x$, o que implica $y = u+x$ e $dy = du$.
+$$ \int_{-\infty}^{\infty} f_X(u) f_Y(t-(u+x)) \,du = \int_{-\infty}^{\infty} f_X(u) f_Y((t-x)-u) \,du $$
+Esta integral é, por definição, $(f_X * f_Y)(t-x)$. Substituindo de volta:
+$$ \int_{-\infty}^{\infty} f_Z(x) (f_X * f_Y)(t-x) \,dx $$
+Esta expressão é a definição de $(f_Z * (f_X * f_Y))(t)$. Portanto, a associatividade é válida.
