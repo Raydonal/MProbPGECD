@@ -1,0 +1,18 @@
+\babel@toc {brazil}{}\relax 
+\contentsline {paragraph}{\numberline {0.0.0.1}Condicional de $X$ dado $Y=y$:}{2}{paragraph.0.0.0.1}%
+\contentsline {paragraph}{\numberline {0.0.0.2}Condicional de $Y$ dado $X=x$:}{2}{paragraph.0.0.0.2}%
+\contentsline {paragraph}{\numberline {0.0.0.3}FDA Condicional $F(x|y) = P(X \le x | Y=y)$:}{2}{paragraph.0.0.0.3}%
+\contentsline {paragraph}{\numberline {0.0.0.4}FDA Condicional $F(y|x) = P(Y \le y | X=x)$:}{2}{paragraph.0.0.0.4}%
+\contentsline {paragraph}{\numberline {0.0.0.5}Distribuição Marginal de X:}{4}{paragraph.0.0.0.5}%
+\contentsline {paragraph}{\numberline {0.0.0.6}Distribuição Marginal de Y:}{4}{paragraph.0.0.0.6}%
+\contentsline {paragraph}{\numberline {0.0.0.7}Verificação de Independência:}{5}{paragraph.0.0.0.7}%
+\contentsline {paragraph}{\numberline {0.0.0.8}Caso 1: Y = 1 ($p_Y(1)=0,4$)}{5}{paragraph.0.0.0.8}%
+\contentsline {paragraph}{\numberline {0.0.0.9}Caso 2: Y = 2 ($p_Y(2)=0,3$)}{5}{paragraph.0.0.0.9}%
+\contentsline {paragraph}{\numberline {0.0.0.10}Caso 3: Y = 3 ($p_Y(3)=0,2$)}{5}{paragraph.0.0.0.10}%
+\contentsline {paragraph}{\numberline {0.0.0.11}Caso 4: Y = 4 ($p_Y(4)=0,1$)}{5}{paragraph.0.0.0.11}%
+\contentsline {paragraph}{\numberline {0.0.0.12}Cálculo de $P(X+Y>0)$:}{7}{paragraph.0.0.0.12}%
+\contentsline {paragraph}{\numberline {0.0.0.13}Cálculo de $P(X>0)$:}{7}{paragraph.0.0.0.13}%
+\contentsline {paragraph}{\numberline {0.0.0.14}1. Transformação Inversa:}{7}{paragraph.0.0.0.14}%
+\contentsline {paragraph}{\numberline {0.0.0.15}2. Jacobiano da Transformação Inversa:}{7}{paragraph.0.0.0.15}%
+\contentsline {paragraph}{\numberline {0.0.0.16}3. Nova Região de Suporte:}{7}{paragraph.0.0.0.16}%
+\contentsline {paragraph}{\numberline {0.0.0.17}4. Densidade Conjunta de $(Z, W)$:}{8}{paragraph.0.0.0.17}%

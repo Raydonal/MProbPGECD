@@ -1,0 +1,185 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{geometry}
+
+\geometry{a4paper, margin=1in}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
+
+\theoremstyle{definition}
+\newtheorem{problema}{Problema}
+\newenvironment{solucao}{\par\noindent\textbf{Solução.}}{\par}
+
+\title{Soluções da Prova}
+\author{}
+\date{}
+
+\begin{document}
+	
+	\maketitle
+	
+	\begin{problema}{}
+		Seja $X$ uma variável aleatória com distribuição de probabilidade $f(x)=P(X=x)$ e seja $A\in {\cal B}(\mathbb{R})$ um conjunto de Borel em $\mathbb{R}$ tal que $p=P(X\in A)>0.$ Definimos a função de distribuição de probabilidade condicional de $X$ dado o evento $(X\in A)$ como
+		$$
+		f(x|A) = \frac{1}{p}f(x)\mathbb{I}_A(x)
+		$$
+		Para $f(x)$  definida por
+		$$
+		f(x)=P(X=x) = \begin{cases}
+			\frac{1}{2n+1}, & \text{se} \quad x \in {\cal M}, \\
+			0 & \text{caso contrário},
+		\end{cases}
+		$$ em que ${\cal M}=\{-n,-(n-1), \ldots, -1, 0, 1, \ldots, n \} $ e $A=\{0,1,2, \ldots, n\}.$ 
+		Compare $f(x)$ e $f(x|A)$ em termos dos valores esperados $E(aX+b)$ e $E(aX+b|A),$ com $a,b \in \mathbb{R}$ constantes conhecidas, respectivamente. 
+	\end{problema}
+	
+	\begin{solucao}
+		\textbf{1. Calcular $E(aX+b)$:}
+		Primeiro, calculamos $E(X)$. Pela simetria da distribuição de $X$ em torno de 0, temos $E(X)=0$.
+		Usando a linearidade da esperança:
+		\[ E(aX+b) = aE(X) + b = a(0) + b = b. \]
+		
+		\textbf{2. Calcular $E(aX+b|A)$:}
+		Primeiro, calculamos $p = P(X \in A)$. O conjunto $A=\{0, 1, \ldots, n\}$ tem $n+1$ elementos.
+		\[ p = P(X \in A) = \sum_{x=0}^{n} P(X=x) = \sum_{x=0}^{n} \frac{1}{2n+1} = (n+1) \cdot \frac{1}{2n+1} = \frac{n+1}{2n+1}. \]
+		Agora, calculamos $E(X|A)$:
+		\begin{align*}
+			E(X|A) &= \sum_{x \in A} x \cdot f(x|A) = \sum_{x=0}^{n} x \cdot \frac{f(x)}{p} \\
+			&= \frac{1}{p} \sum_{x=0}^{n} x \cdot \frac{1}{2n+1} = \frac{1}{\frac{n+1}{2n+1}} \cdot \frac{1}{2n+1} \sum_{i=1}^{n} i \\
+			&= \frac{2n+1}{n+1} \cdot \frac{1}{2n+1} \cdot \frac{n(n+1)}{2} = \frac{n}{2}.
+		\end{align*}
+		Usando a linearidade da esperança condicional:
+		\[ E(aX+b|A) = aE(X|A) + b = a\frac{n}{2} + b. \]
+		
+		\textbf{Comparação:}
+		\[ E(aX+b) = b \]
+		\[ E(aX+b|A) = a\frac{n}{2} + b \]
+		A esperança condicional ao evento $A$ adiciona o termo $a \frac{n}{2}$ à esperança incondicional. Isso reflete o fato de que condicionamos a um conjunto de valores não negativos, deslocando a média para cima (assumindo $a>0$).
+	\end{solucao}
+	
+	\hrulefill
+	
+	\begin{problema}{}
+		Seja $X$ uma variável aleatória uniforme no intervalo (0,1) e $Y=X^2.$ Calcular o coeficiente de correlação $\rho(X, Y).$ São $X$ e $Y$ independentes? Explique.
+	\end{problema}
+	
+	\begin{solucao}
+		\textbf{1. Cálculo do coeficiente de correlação $\rho(X, Y)$:}
+		A fórmula é $\rho(X,Y) = \frac{\text{Cov}(X,Y)}{\sqrt{\text{Var}(X)\text{Var}(Y)}}$. Para $X \sim U(0,1)$, $E(X^k) = \int_0^1 x^k dx = \frac{1}{k+1}$.
+		
+		\begin{itemize}
+			\item $E(X) = 1/2$
+			\item $E(Y) = E(X^2) = 1/3$
+			\item $\text{Cov}(X,Y) = E(XY) - E(X)E(Y) = E(X^3) - E(X)E(X^2) = \frac{1}{4} - (\frac{1}{2})(\frac{1}{3}) = \frac{1}{12}.$
+			\item $\text{Var}(X) = E(X^2) - (E(X))^2 = \frac{1}{3} - (\frac{1}{2})^2 = \frac{1}{12}.$
+			\item $\text{Var}(Y) = E(Y^2) - (E(Y))^2 = E(X^4) - (E(X^2))^2 = \frac{1}{5} - (\frac{1}{3})^2 = \frac{4}{45}.$
+		\end{itemize}
+		\[ \rho(X,Y) = \frac{1/12}{\sqrt{(1/12)(4/45)}} = \frac{1/12}{\sqrt{1/135}} = \frac{\sqrt{135}}{12} = \frac{\sqrt{9 \cdot 15}}{12} = \frac{3\sqrt{15}}{12} = \frac{\sqrt{15}}{4}. \]
+		
+		\textbf{2. Independência:}
+		Não, $X$ e $Y$ não são independentes. 
+		\begin{itemize}
+			\item \textbf{Explicação 1 (Covariância):} Se fossem independentes, sua covariância seria zero. Como $\text{Cov}(X,Y) = 1/12 \neq 0$, elas não são independentes.
+			\item \textbf{Explicação 2 (Funcional):} $Y$ é uma função determinística de $X$ ($Y=X^2$). Saber o valor de $X$ determina completamente o valor de $Y$. Variáveis independentes não possuem este tipo de relação.
+		\end{itemize}
+	\end{solucao}
+	
+	\hrulefill
+	
+	\begin{problema}{}
+		Seja $X$ uma variável aleatória e seja $\varphi : \mathbb{R} \to [0, \infty)$ uma função convexa e monótona não decrescente tal que $E(\varphi(X)) < \infty$. Demonstre que para qualquer constante $\epsilon > 0$,
+		\[
+		P(X \ge \epsilon) \le \frac{E(\varphi(X))}{\varphi(\epsilon)}.
+		\]
+	\end{problema}
+	
+\begin{solucao}
+	A prova combina a Desigualdade de Markov e a Desigualdade de Jensen em três etapas.
+	
+	\textbf{Etapa 1: Desigualdade de Markov.}
+	Como a variável aleatória $X$ é \textbf{não negativa} por hipótese, podemos aplicar a Desigualdade de Markov:
+	\[
+	P(X \ge \epsilon) \le \frac{E[X]}{\epsilon} \quad \quad (1)
+	\]
+	Agora, nosso objetivo é encontrar um limite superior para $E[X]$.
+	
+	\textbf{Etapa 2: Desigualdade de Jensen.}
+	Por hipótese, a função $\varphi$ é \textbf{convexa}. A Desigualdade de Jensen afirma que:
+	\[
+	\varphi(E[X]) \le E[\varphi(X)]
+	\]
+	
+	\textbf{Etapa 3: Combinando as desigualdades.}
+	Para isolar $E[X]$ da Desigualdade de Jensen, aplicamos a função inversa $\varphi^{-1}$. Como $\varphi$ é \textbf{estritamente crescente}, sua inversa $\varphi^{-1}$ também é estritamente crescente, o que preserva a direção da desigualdade:
+	\[
+	\varphi^{-1}(\varphi(E[X])) \le \varphi^{-1}(E[\varphi(X)])
+	\]
+	\[
+	E[X] \le \varphi^{-1}(E[\varphi(X)]) \quad \quad (2)
+	\]
+	Finalmente, substituímos o limite superior para $E[X]$ encontrado em (2) na desigualdade de Markov (1):
+	\[
+	P(X \ge \epsilon) \le \frac{E[X]}{\epsilon} \le \frac{\varphi^{-1}(E[\varphi(X)])}{\epsilon}
+	\]
+	Chegando diretamente ao resultado desejado:
+	\[
+	P(X \ge \epsilon) \le \frac{\varphi^{-1}(E[\varphi(X)])}{\epsilon}
+	\]
+	o que completa a demonstração.
+\end{solucao}
+	\hrulefill
+	
+	\begin{problema}{}
+		Suponha que $X_n \xrightarrow{p} x$ e $Y_n \xrightarrow{p} y,$  em que $x$ e $y$ são dois números reais fixos. Demonstre que $X_n + Y_n \xrightarrow{p} x + y.$
+	\end{problema}
+	
+	\begin{solucao}
+		Queremos mostrar que para qualquer $\epsilon > 0$, $P(|(X_n+Y_n)-(x+y)| > \epsilon) \to 0$.
+		Pela desigualdade triangular, $|(X_n-x)+(Y_n-y)| \le |X_n-x| + |Y_n-y|$.
+		Se $|X_n-x|+|Y_n-y| > \epsilon$, então é necessário que $|X_n-x| > \epsilon/2$ ou $|Y_n-y| > \epsilon/2$.
+		Isso implica que o evento $\{|(X_n+Y_n)-(x+y)| > \epsilon\}$ está contido na união $\{|X_n-x| > \epsilon/2\} \cup \{|Y_n-y| > \epsilon/2\}$.
+		Usando a união de eventos (desigualdade de Boole):
+		\[ P(|(X_n+Y_n)-(x+y)| > \epsilon) \le P(|X_n-x| > \epsilon/2) + P(|Y_n-y| > \epsilon/2). \]
+		Pela definição de convergência em probabilidade, como $X_n \xrightarrow{p} x$ e $Y_n \xrightarrow{p} y$:
+		\[ \lim_{n \to \infty} P(|X_n-x| > \epsilon/2) = 0 \quad \text{e} \quad \lim_{n \to \infty} P(|Y_n-y| > \epsilon/2) = 0. \]
+		Portanto, tomando o limite da desigualdade:
+		\[ \lim_{n \to \infty} P(|(X_n+Y_n)-(x+y)| > \epsilon) \le 0 + 0 = 0. \]
+		Como a probabilidade não pode ser negativa, o limite é 0.
+	\end{solucao}
+	
+	\hrulefill
+	
+	\begin{problema}{}
+		Seja $X$ com distribuição uniforme discreta no conjunto $\{0, 1\}$. Demonstre que a seguinte sucessão de variáveis aleatórias converge em distribuição, mas não converge em probabilidade.
+		\[
+		X_n = \begin{cases} 
+			X & \text{se } n \text{ é par,} \\
+			1-X & \text{se } n \text{ é ímpar.}
+		\end{cases}
+		\]
+	\end{problema}
+	
+	\begin{solucao}
+		\textbf{1. Convergência em Distribuição:}
+		A distribuição de $X$ é $P(X=0)=1/2$ e $P(X=1)=1/2$.
+		\begin{itemize}
+			\item Se $n$ é par, $X_n=X$, então $P(X_n=0)=1/2$ e $P(X_n=1)=1/2$.
+			\item Se $n$ é ímpar, $X_n=1-X$, então $P(X_n=0)=P(X=1)=1/2$ e $P(X_n=1)=P(X=0)=1/2$.
+		\end{itemize}
+		Para todo $n$, a distribuição de $X_n$ é a mesma: uma Bernoulli(1/2). Como a função de distribuição acumulada $F_n(t)$ é a mesma para todo $n$, ela converge trivialmente. Portanto, $X_n$ converge em distribuição.
+		
+		\textbf{2. Não Convergência em Probabilidade:}
+		Para convergir em probabilidade, teríamos $\lim_{n \to \infty} P(|X_n - Y| > \epsilon) = 0$ para alguma variável $Y$. Vamos testar o candidato $Y=X$. Escolha $\epsilon=1/2$.
+		\begin{itemize}
+			\item Se $n$ é par, $P(|X_n - X| > 1/2) = P(|X - X| > 1/2) = P(0 > 1/2) = 0$.
+			\item Se $n$ é ímpar, $P(|X_n - X| > 1/2) = P(|(1-X) - X| > 1/2) = P(|1 - 2X| > 1/2)$.
+			Se $X=0$, $|1|>1/2$. Se $X=1$, $|-1|>1/2$. A desigualdade é sempre verdadeira. Assim, a probabilidade é 1.
+		\end{itemize}
+		A sequência de probabilidades $P(|X_n - X| > 1/2)$ é $1, 0, 1, 0, \ldots$. Esta sequência não converge para 0. Logo, $X_n$ não converge em probabilidade.
+	\end{solucao}
+	
+\end{document}
